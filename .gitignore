@@ -51,3 +51,5 @@ Thumbs.db
 
 .dart_tool/
 **doc/api/
+prestashop_api.iml
+bin/prestashop_api.dart
