@@ -12,7 +12,7 @@ class Filter<T extends FilterEnumValue> with _$Filter<T> {
     required T field,
     required FilterCondition condition,
     List<String>? values,
-    String? start,
+    String? begin,
     String? end,
     String? value,
   }) = _Filter<T>;
@@ -29,13 +29,13 @@ class Filter<T extends FilterEnumValue> with _$Filter<T> {
 
   factory Filter.between(
     T field, {
-    required String start, // startValue,
+    required String begin, // beginValue,
     required String end, // endValue,
   }) =>
       Filter(
         field: field,
         condition: FilterCondition.between,
-        start: start,
+        begin: begin,
         end: end,
       );
 
