@@ -18,11 +18,17 @@ void main() async {
   ///
 
   /// Returns all categories in the primary language.
-  /// Since the display property is not defined in the method, the latter
-  /// returns only the default fields for each category.
-  /// Default fields are defined by PrestaShop backend, which is the ID.
+  /// The method returns only the category ID and name for each category.
   try {
-    final receivedCategories = await prestashop.getCategories(languageId: 1);
+    final receivedCategories = await prestashop.getCategories(
+      languageId: 1,
+      display: const Display(
+        displayFieldList: [
+          CategoryDisplayField.id,
+          CategoryDisplayField.name,
+        ],
+      ),
+    );
 
     prettyPrint<Category>(
       tagText: 'All categories',
