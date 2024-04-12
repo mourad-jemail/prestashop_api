@@ -11,7 +11,7 @@
 # (the recommended set includes the core lints).
 # The core lints are also what is used by pub.dev for scoring packages.
 
-include: package:lints/recommended.yaml
+include: package:lint/analysis_options.yaml
 
 # Uncomment the following section to specify additional rules.
 
@@ -19,9 +19,22 @@ include: package:lints/recommended.yaml
 #   rules:
 #     - camel_case_types
 
-# analyzer:
-#   exclude:
-#     - path/to/excluded/files/**
+analyzer:
+  exclude:
+    - '**.freezed.dart'
+    - '**.g.dart'
+    - '**.gr.dart'
+    - '**.config.dart'
+    - '**.mocks.dart'
+  errors:
+    missing_return: error
+    must_be_immutable: error
+    must_call_super: error
+    invalid_use_of_protected_member: error
+    parameter_assignments: error
+    sort_unnamed_constructors_first: ignore
+    invalid_annotation_target: ignore
+    always_use_package_imports: ignore
 
 # For more information about the core and recommended set of lints, see
 # https://dart.dev/go/core-lints
