@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$SortFieldOrder<T extends FieldEnumValue> {
+mixin _$SortFieldOrder<T extends SortEnumValue> {
   T get field => throw _privateConstructorUsedError;
   SortOrder get order => throw _privateConstructorUsedError;
 
@@ -25,7 +25,7 @@ mixin _$SortFieldOrder<T extends FieldEnumValue> {
 }
 
 /// @nodoc
-abstract class $SortFieldOrderCopyWith<T extends FieldEnumValue, $Res> {
+abstract class $SortFieldOrderCopyWith<T extends SortEnumValue, $Res> {
   factory $SortFieldOrderCopyWith(
           SortFieldOrder<T> value, $Res Function(SortFieldOrder<T>) then) =
       _$SortFieldOrderCopyWithImpl<T, $Res, SortFieldOrder<T>>;
@@ -34,7 +34,7 @@ abstract class $SortFieldOrderCopyWith<T extends FieldEnumValue, $Res> {
 }
 
 /// @nodoc
-class _$SortFieldOrderCopyWithImpl<T extends FieldEnumValue, $Res,
+class _$SortFieldOrderCopyWithImpl<T extends SortEnumValue, $Res,
         $Val extends SortFieldOrder<T>>
     implements $SortFieldOrderCopyWith<T, $Res> {
   _$SortFieldOrderCopyWithImpl(this._value, this._then);
@@ -64,7 +64,7 @@ class _$SortFieldOrderCopyWithImpl<T extends FieldEnumValue, $Res,
 }
 
 /// @nodoc
-abstract class _$$SortFieldOrderImplCopyWith<T extends FieldEnumValue, $Res>
+abstract class _$$SortFieldOrderImplCopyWith<T extends SortEnumValue, $Res>
     implements $SortFieldOrderCopyWith<T, $Res> {
   factory _$$SortFieldOrderImplCopyWith(_$SortFieldOrderImpl<T> value,
           $Res Function(_$SortFieldOrderImpl<T>) then) =
@@ -75,7 +75,7 @@ abstract class _$$SortFieldOrderImplCopyWith<T extends FieldEnumValue, $Res>
 }
 
 /// @nodoc
-class __$$SortFieldOrderImplCopyWithImpl<T extends FieldEnumValue, $Res>
+class __$$SortFieldOrderImplCopyWithImpl<T extends SortEnumValue, $Res>
     extends _$SortFieldOrderCopyWithImpl<T, $Res, _$SortFieldOrderImpl<T>>
     implements _$$SortFieldOrderImplCopyWith<T, $Res> {
   __$$SortFieldOrderImplCopyWithImpl(_$SortFieldOrderImpl<T> _value,
@@ -103,8 +103,7 @@ class __$$SortFieldOrderImplCopyWithImpl<T extends FieldEnumValue, $Res>
 
 /// @nodoc
 
-class _$SortFieldOrderImpl<T extends FieldEnumValue>
-    extends _SortFieldOrder<T> {
+class _$SortFieldOrderImpl<T extends SortEnumValue> extends _SortFieldOrder<T> {
   const _$SortFieldOrderImpl({required this.field, required this.order})
       : super._();
 
@@ -139,7 +138,7 @@ class _$SortFieldOrderImpl<T extends FieldEnumValue>
           this, _$identity);
 }
 
-abstract class _SortFieldOrder<T extends FieldEnumValue>
+abstract class _SortFieldOrder<T extends SortEnumValue>
     extends SortFieldOrder<T> {
   const factory _SortFieldOrder(
       {required final T field,

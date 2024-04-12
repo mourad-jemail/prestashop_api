@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$Display<T extends FieldEnumValue> {
+mixin _$Display<T extends DisplayEnumValue> {
   List<T> get displayFieldList => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -24,7 +24,7 @@ mixin _$Display<T extends FieldEnumValue> {
 }
 
 /// @nodoc
-abstract class $DisplayCopyWith<T extends FieldEnumValue, $Res> {
+abstract class $DisplayCopyWith<T extends DisplayEnumValue, $Res> {
   factory $DisplayCopyWith(Display<T> value, $Res Function(Display<T>) then) =
       _$DisplayCopyWithImpl<T, $Res, Display<T>>;
   @useResult
@@ -32,7 +32,7 @@ abstract class $DisplayCopyWith<T extends FieldEnumValue, $Res> {
 }
 
 /// @nodoc
-class _$DisplayCopyWithImpl<T extends FieldEnumValue, $Res,
+class _$DisplayCopyWithImpl<T extends DisplayEnumValue, $Res,
     $Val extends Display<T>> implements $DisplayCopyWith<T, $Res> {
   _$DisplayCopyWithImpl(this._value, this._then);
 
@@ -56,7 +56,7 @@ class _$DisplayCopyWithImpl<T extends FieldEnumValue, $Res,
 }
 
 /// @nodoc
-abstract class _$$DisplayImplCopyWith<T extends FieldEnumValue, $Res>
+abstract class _$$DisplayImplCopyWith<T extends DisplayEnumValue, $Res>
     implements $DisplayCopyWith<T, $Res> {
   factory _$$DisplayImplCopyWith(
           _$DisplayImpl<T> value, $Res Function(_$DisplayImpl<T>) then) =
@@ -67,7 +67,7 @@ abstract class _$$DisplayImplCopyWith<T extends FieldEnumValue, $Res>
 }
 
 /// @nodoc
-class __$$DisplayImplCopyWithImpl<T extends FieldEnumValue, $Res>
+class __$$DisplayImplCopyWithImpl<T extends DisplayEnumValue, $Res>
     extends _$DisplayCopyWithImpl<T, $Res, _$DisplayImpl<T>>
     implements _$$DisplayImplCopyWith<T, $Res> {
   __$$DisplayImplCopyWithImpl(
@@ -90,7 +90,7 @@ class __$$DisplayImplCopyWithImpl<T extends FieldEnumValue, $Res>
 
 /// @nodoc
 
-class _$DisplayImpl<T extends FieldEnumValue> extends _Display<T> {
+class _$DisplayImpl<T extends DisplayEnumValue> extends _Display<T> {
   const _$DisplayImpl({required final List<T> displayFieldList})
       : _displayFieldList = displayFieldList,
         super._();
@@ -129,7 +129,7 @@ class _$DisplayImpl<T extends FieldEnumValue> extends _Display<T> {
       __$$DisplayImplCopyWithImpl<T, _$DisplayImpl<T>>(this, _$identity);
 }
 
-abstract class _Display<T extends FieldEnumValue> extends Display<T> {
+abstract class _Display<T extends DisplayEnumValue> extends Display<T> {
   const factory _Display({required final List<T> displayFieldList}) =
       _$DisplayImpl<T>;
   const _Display._() : super._();
