@@ -5,6 +5,7 @@ description: A Dart package designed to simplify interaction with PrestaShop web
 version: 0.0.1
 homepage: https://github.com/MouradJEMAIL/prestashop_api
 repository: https://github.com/MouradJEMAIL/prestashop_api
+issue_tracker: https://github.com/MouradJEMAIL/prestashop_api/issues
 topics:
   - api
   - prestashop
