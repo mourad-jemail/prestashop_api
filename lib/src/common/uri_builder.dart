@@ -38,7 +38,7 @@ String getFilterValue<U extends FilterEnumValue>(Filter<U> filter) {
     case FilterCondition.anyOf:
       return filter.values!.toString().replaceAll(',', '|');
     case FilterCondition.between:
-      return '[${filter.start!},${filter.end!}]';
+      return '[${filter.begin!},${filter.end!}]';
     case FilterCondition.equals:
       return '[${filter.value!}]';
     case FilterCondition.beginsWith:
