@@ -1,5 +1,7 @@
 name: prestashop_api
-description: A sample command-line application with basic argument parsing.
+description: A Dart package designed to simplify interaction with PrestaShop websites by providing 
+  streamlined API integration, automatic model generation, data serialization, and exception 
+  handling.
 version: 0.0.1
 # repository: https://github.com/my_org/my_repo
 
