@@ -17,11 +17,13 @@ void main() async {
   /// Categories
   ///
 
-  /// Returns all categories in the primary language.
+  /// Returns categories in the primary language, with IDs ranging from
+  /// 16 to 150.
   /// The method returns only the category ID and name for each category.
   try {
     final receivedCategories = await prestashop.getCategories(
       languageId: 1,
+      filter: Filter.between(CategoryFilterField.id, begin: '16', end: '150'),
       display: const Display(
         displayFieldList: [
           CategoryDisplayField.id,
@@ -31,7 +33,7 @@ void main() async {
     );
 
     prettyPrint<Category>(
-      tagText: 'All categories',
+      tagText: 'Categories with IDs ranging from 16 to 150',
       data: receivedCategories.entity,
       toJsonMap: categoryToJsonMap,
     );
