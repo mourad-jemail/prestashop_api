@@ -61,4 +61,26 @@ void main() async {
   } catch (e) {
     logger.e('Error caught: $e');
   }
+
+  /// Returns a page of categories in the specified language, with each page
+  /// containing up to 10 categories. The method fetches the third page and
+  /// sorts the categories by their IDs in ascending order.
+  try {
+    final receivedCategoriesPage = await prestashop.getCategoriesPage(
+      languageId: 1,
+      page: 3,
+      perPage: 10,
+      sort: Sort(
+        sortFieldOrderList: [SortFieldOrder.ascending(CategorySortField.id)],
+      ),
+    );
+
+    prettyPrint<Category>(
+      tagText: '\nCategories in third page',
+      data: receivedCategoriesPage.entity,
+      toJsonMap: categoryToJsonMap,
+    );
+  } catch (e) {
+    logger.e('Error caught: $e');
+  }
 }
