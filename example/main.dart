@@ -43,4 +43,22 @@ void main() async {
   } catch (e) {
     logger.e('Error caught: $e');
   }
+
+  /// Returns the category with ID 16 in the primary language, and requests all
+  /// available fields for display.
+  try {
+    final receivedCategory = await prestashop.getCategoryById(
+      languageId: 1,
+      id: 16,
+      display: const Display(displayFieldList: [CategoryDisplayField.all]),
+    );
+
+    prettyPrint<Category>(
+      tagText: '\nCategory with ID 16',
+      data: receivedCategory.entity,
+      toJsonMap: categoryToJsonMap,
+    );
+  } catch (e) {
+    logger.e('Error caught: $e');
+  }
 }
