@@ -14,6 +14,10 @@ import 'common/options/display/display.dart';
 import 'common/options/filter/filter.dart';
 import 'common/options/sort/sort.dart';
 import 'common/options/sort/sort_field_order.dart';
+import 'product/i_product_facade.dart';
+import 'product/model/product.dart';
+import 'product/network/product_data_source.dart';
+import 'product/network/product_enums.dart';
 
 /// A Dart package designed to simplify interaction with PrestaShop websites by
 /// providing streamlined API integration, automatic model generation, data
@@ -55,20 +59,25 @@ import 'common/options/sort/sort_field_order.dart';
 ///   );
 ///  ```
 @LazySingleton(as: ICategoryFacade)
-class PrestashopApi implements ICategoryFacade {
+@LazySingleton(as: IProductFacade)
+class PrestashopApi implements ICategoryFacade, IProductFacade {
   late BaseConfig _baseConfig;
   late Dio _dio;
   late CategoryDataSource _categoryDataSource;
+  late ProductDataSource _productDataSource;
 
   PrestashopApi(
     BaseConfig baseConfig, {
     Dio? dio,
     CategoryDataSource? categoryDataSource,
+    ProductDataSource? productDataSource,
   }) {
     _baseConfig = baseConfig;
     _dio = dio ??= Dio();
     _categoryDataSource =
         categoryDataSource ??= CategoryDataSource(_dio, _baseConfig);
+    _productDataSource =
+        productDataSource ??= ProductDataSource(_dio, _baseConfig);
   }
 
   Dio get dio => _dio;
@@ -76,6 +85,7 @@ class PrestashopApi implements ICategoryFacade {
   set dio(Dio value) {
     _dio = value;
     _categoryDataSource = CategoryDataSource(_dio, _baseConfig);
+    _productDataSource = ProductDataSource(_dio, _baseConfig);
   }
 
   final logger = Logger();
@@ -177,6 +187,123 @@ class PrestashopApi implements ICategoryFacade {
 
       return ReceivedEntity(
         remoteResponse.data.toDomain().categoryList,
+        isNextPageAvailable: remoteResponse.isNextPageAvailable,
+      );
+    } on RestApiException catch (e) {
+      logger.e('RestApiException caught: ${e.statusCode}: ${e.statusMessage}');
+      rethrow;
+    } on PrestashopError catch (e) {
+      logger.e('PrestashopError caught: ${e.statusCode}: ${e.message}');
+      rethrow;
+    } on NoServerResponseException catch (e) {
+      logger.e('NoServerResponseException caught: ${e.message}');
+      rethrow;
+    } on HostLookupException catch (e) {
+      logger.e('HostLookupException caught: ${e.message}');
+      rethrow;
+    } catch (e) {
+      logger.e('Error caught: $e');
+      rethrow;
+    }
+  }
+
+  ///
+  /// Product
+  ///
+
+  @override
+  Future<ReceivedEntity<List<Product>>> getProducts({
+    required int languageId,
+    Filter<ProductFilterField>? filter,
+    Display<ProductDisplayField>? display,
+    Sort<SortFieldOrder<ProductSortField>>? sort,
+  }) async {
+    try {
+      final remoteResponse = await _productDataSource.getProducts(
+        languageId: languageId,
+        filter: filter,
+        display: display,
+        sort: sort,
+      );
+
+      return ReceivedEntity(remoteResponse.data.toDomain().productList);
+    } on RestApiException catch (e) {
+      logger.e('RestApiException caught: ${e.statusCode}: ${e.statusMessage}');
+      rethrow;
+    } on PrestashopError catch (e) {
+      logger.e('PrestashopError caught: ${e.statusCode}: ${e.message}');
+      rethrow;
+    } on NoServerResponseException catch (e) {
+      logger.e('NoServerResponseException caught: ${e.message}');
+      rethrow;
+    } on HostLookupException catch (e) {
+      logger.e('HostLookupException caught: ${e.message}');
+      rethrow;
+    } catch (e) {
+      logger.e('Error caught: $e');
+      rethrow;
+    }
+  }
+
+  @override
+  Future<ReceivedEntity<Product>> getProductById({
+    required int languageId,
+    required int id,
+    Display<ProductDisplayField>? display,
+  }) async {
+    try {
+      final remoteResponse = await _productDataSource.getProducts(
+        languageId: languageId,
+        filter: Filter.equals(ProductFilterField.id, value: '$id'),
+        display: display,
+      );
+
+      final productOutputDTO = remoteResponse.data;
+
+      if (productOutputDTO.toDomain().productList.isNotEmpty) {
+        return ReceivedEntity(productOutputDTO.toDomain().productList[0]);
+      } else {
+        return ReceivedEntity(Product.empty());
+      }
+    } on RestApiException catch (e) {
+      logger.e('RestApiException caught: ${e.statusCode}: ${e.statusMessage}');
+      rethrow;
+    } on PrestashopError catch (e) {
+      logger.e('PrestashopError caught: ${e.statusCode}: ${e.message}');
+      rethrow;
+    } on NoServerResponseException catch (e) {
+      logger.e('NoServerResponseException caught: ${e.message}');
+      rethrow;
+    } on HostLookupException catch (e) {
+      logger.e('HostLookupException caught: ${e.message}');
+      rethrow;
+    } catch (e) {
+      logger.e('Error caught: $e');
+      rethrow;
+    }
+  }
+
+  @override
+  Future<ReceivedEntity<List<Product>>> getProductsPage({
+    required int languageId,
+    required int page,
+    required int perPage,
+    Filter<ProductFilterField>? filter,
+    Display<ProductDisplayField>? display,
+    Sort<SortFieldOrder<ProductSortField>>? sort,
+  }) async {
+    try {
+      final remoteResponse = await _productDataSource.getProductsPage(
+        languageId: languageId,
+        page: page,
+        perPage: perPage,
+        filter: filter,
+        display: display,
+        sort: sort,
+      );
+
+      return ReceivedEntity(
+        remoteResponse.data.toDomain().productList,
         isNextPageAvailable: remoteResponse.isNextPageAvailable,
       );
     } on RestApiException catch (e) {
