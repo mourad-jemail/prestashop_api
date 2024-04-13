@@ -18,7 +18,7 @@ void main() async {
   ///
 
   /// Returns categories in the primary language, with IDs ranging from
-  /// 16 to 150.
+  /// 16 to 150, and sorted by category ID in ascending order.
   /// The method returns only the category ID and name for each category.
   try {
     final receivedCategories = await prestashop.getCategories(
@@ -29,6 +29,9 @@ void main() async {
           CategoryDisplayField.id,
           CategoryDisplayField.name,
         ],
+      ),
+      sort: Sort(
+        sortFieldOrderList: [SortFieldOrder.ascending(CategorySortField.id)],
       ),
     );
 
