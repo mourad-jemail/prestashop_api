@@ -163,7 +163,7 @@ Refine the expected result using the "filter" parameter. Below are exhaustive ex
   // Filter products by specifying an interval between two values
   final filter = Filter.between(
     ProductFilterField.id,
-    start: '1',
+    begin: '1',
     end: '10',
   );
 
@@ -286,7 +286,7 @@ Future<void> main() async {
   // Set filter to fetch products with IDs from 1 to 20
   final filter = Filter.between(
     ProductFilterField.id,
-    start: '1',
+    begin: '1',
     end: '20',
   );
 
