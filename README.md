@@ -33,12 +33,13 @@ Let's explore the package's capabilities together!
     - [2. Filtering Data](#2-filtering-data)
     - [3. Sorting Data](#3-sorting-data)
 - [More Features](#more-features)
-    - [Predefined Models](#predefined-models)
-    - [Implicit Serialization / Deserialization](#implicit-serialization--deserialization)
-    - [Enhanced Query Precision](#enhanced-query-precision)
+    - [1. Predefined Models](#1-predefined-models)
+    - [2. Implicit Serialization / Deserialization](#2-implicit-serialization--deserialization)
+    - [3. Enhanced Query Precision](#3-enhanced-query-precision)
         - [Challenges](#challenges)
         - [Solutions](#solutions)
-    - [Predefined tailored exceptions](#predefined-tailored-exceptions)
+    - [4. Addressing Pagination Limitations](#4-addressing-pagination-limitations)
+    - [5. Predefined tailored exceptions](#5-predefined-tailored-exceptions)
 - [Example using PrestashopApi](#example-using-prestashopapi)
 - [Available API Requests](#available-api-requests)
     - [PrestaShop - Categories](#prestaShop---categories)
@@ -218,15 +219,15 @@ Utilize the "sort" parameter to organize the expected result according to your p
 
 But wait, there's more! prestashop_api still has a host of additional features up its sleeve.
 
-### Predefined Models
+### 1. Predefined Models
 
 prestashop_api offers prebuilt model classes that mirror PrestaShop API entities. You can use these models instantly, eliminating the need to create them manually.
 
-### Implicit Serialization / Deserialization
+### 2. Implicit Serialization / Deserialization
 
 Effortlessly retrieve and manage data from the PrestaShop API. prestashop_api handles serialization and deserialization for you, enabling seamless conversion of data between Dart objects and JSON representations.
 
-### Enhanced Query Precision
+### 3. Enhanced Query Precision
 
 #### Challenges
 
@@ -248,12 +249,12 @@ To address these challenges, prestashop_api provides:
 2. **Standardized Syntax**
    Predefined syntax for implementing functionalities simplifies query construction, reduces syntax errors, and enhances overall query precision and reliability.
 
-### Addressing Pagination Limitations
+### 4. Addressing Pagination Limitations
 
 The pagination feature in the PrestaShop v1.7 API lacks information about the maximum page number in the response headers, making it difficult to determine the availability of a next page in paginated data requests. To address this limitation, prestashop_api provides a straightforward solution.
 In the response of the fetch method, you can simply check the boolean 'isNextPageAvailable' to determine if a next page is available. To see the simplicity of integrating this feature in your code, please consult the following example.
 
-### Predefined tailored exceptions
+### 5. Predefined tailored exceptions
 
 prestashop_api offers a wide range of predefined exceptions, tailored for the PrestaShop API. Save time with ready-to-use exceptions for common errors and unique scenarios, allowing you to focus on building robust applications confidently.
 
