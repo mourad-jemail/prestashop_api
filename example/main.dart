@@ -114,4 +114,22 @@ void main() async {
   } catch (e) {
     logger.e('Error caught: $e');
   }
+
+  /// Returns the product with ID 16 in the primary language, and requests all
+  /// available fields for display.
+  try {
+    final receivedProduct = await prestashop.getProductById(
+      languageId: 1,
+      id: 16,
+      display: const Display(displayFieldList: [ProductDisplayField.all]),
+    );
+
+    prettyPrint<Product>(
+      tagText: '\nProduct with ID 16',
+      data: receivedProduct.entity,
+      toJsonMap: productToJsonMap,
+    );
+  } catch (e) {
+    logger.e('Error caught: $e');
+  }
 }
