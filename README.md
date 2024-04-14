@@ -42,6 +42,7 @@ Let's explore the package's capabilities together!
 - [Example using PrestashopApi](#example-using-prestashopapi)
 - [Available API Requests](#available-api-requests)
     - [PrestaShop - Categories](#prestaShop---categories)
+    - [PrestaShop - Products](#prestaShop---products)
 - [PrestaShop API Documentation Reference](#prestashop-api-documentation-reference)
 - [Feedback](#feedback)
 - [Disclaimer](#disclaimer)
@@ -62,7 +63,7 @@ Let's explore the package's capabilities together!
 
 ## Quickstart
 
-An example speaks volumes compared to a lengthy abstract explanation, so here's a typical request to fetch categories:
+An example speaks volumes compared to a lengthy abstract explanation, so here's a typical request to fetch products:
 
 ### 1. Add to pubspec.yaml
 
@@ -105,14 +106,14 @@ Optionally, you can configure the Dio property of the PrestashopApi instance:
 
 ```dart
   try {
-    // E.g., GET categories in the primary language
-    final receivedCategories = await prestashop.getCategories(languageId: 1);
+    // E.g., GET all products in the primary language
+    final receivedProducts = await prestashop.getProducts(languageId: 1);
 
-    // Print the categories payload in a pretty structured JSON
-    prettyPrint<Category>(
-      tagText: 'Print retrieved categories',
-      data: receivedCategories.entity,
-      toJsonMap: categoryToJsonMap,
+    // Print the products payload in a pretty structured JSON
+    prettyPrint<Product>(
+      tagText: 'Print all products',
+      data: receivedProducts.entity,
+      toJsonMap: productToJsonMap,
     );
   } catch (e) {
     print('Exception caught: $e');
@@ -128,11 +129,11 @@ When calling the PrestaShop API, you can pass various options:
 You have the option to "display" either specific fields or all fields. If no fields are specified, the API will return the default fields it defines.
 
 ```dart
-  // Display `id` and `name` fields for Categories display
+  // Display `id` and `name` fields for products display
   const display = Display(
     displayFieldList: [
-      CategoryDisplayField.id,
-      CategoryDisplayField.name,
+      ProductDisplayField.id,
+      ProductDisplayField.name,
     ],
   );
 
@@ -140,10 +141,10 @@ You have the option to "display" either specific fields or all fields. If no fie
   // Alternatively
   //
   
-  // Display all available fields of Categories
+  // Display all available fields of products
   const display = Display(
     displayFieldList: [
-      CategoryDisplayField.all,
+      ProductDisplayField.all,
     ],
   );
 ```
@@ -153,40 +154,40 @@ You have the option to "display" either specific fields or all fields. If no fie
 Refine the expected result using the "filter" parameter. Below are exhaustive examples for each filter method:
 
 ```dart
-  // Filter categories by matching any of the specified values
+  // Filter products by matching any of the specified values
   final filter = Filter.anyOf(
-    CategoryFilterField.id,
+    ProductFilterField.id,
     values: ['1', '5'],
   );
 
-  // Filter categories by specifying an interval between two values
+  // Filter products by specifying an interval between two values
   final filter = Filter.between(
-    CategoryFilterField.id,
+    ProductFilterField.id,
     start: '1',
     end: '10',
   );
 
-  // Filter categories by exact value (case insensitive)
+  // Filter products by exact value (case insensitive)
   final filter = Filter.equals(
-    CategoryFilterField.name,
+    ProductFilterField.name,
     value: 'Wheels',
   );
 
-  // Filter categories by value prefix (case insensitive)
+  // Filter products by value prefix (case insensitive)
   final filter = Filter.beginsWith(
-    CategoryFilterField.name,
+    ProductFilterField.name,
     value: 'Whe',
   );
 
-  // Filter categories by value suffix (case insensitive)
+  // Filter products by value suffix (case insensitive)
   final filter = Filter.endsWith(
-    CategoryFilterField.name,
+    ProductFilterField.name,
     value: 'els',
   );
 
-  // Filter categories by value contained within (case insensitive)
+  // Filter products by value contained within (case insensitive)
   final filter = Filter.contains(
-    CategoryFilterField.name,
+    ProductFilterField.name,
     value: 'eel',
   );
 ```
@@ -196,10 +197,10 @@ Refine the expected result using the "filter" parameter. Below are exhaustive ex
 Utilize the "sort" parameter to organize the expected result according to your preferences.
 
 ```dart
-  // Sort categories based on `id` in descending order
+  // Sort products based on `id` in descending order
   final sort = Sort(
     sortFieldOrderList: [
-      SortField.descending(CategorySortField.id),
+      SortField.descending(ProductSortField.id),
     ],
   );
 
@@ -207,9 +208,9 @@ Utilize the "sort" parameter to organize the expected result according to your p
   // Alternatively
   //
 
-  // Sort categories based on `id` in ascending order
+  // Sort products based on `id` in ascending order
   final sort = Sort([
-    SortField.ascending(CategorySortField.id),
+    SortField.ascending(ProductSortField.id),
   ]);
 ```
 
@@ -273,37 +274,37 @@ Future<void> main() async {
   // Initialize `PrestashopApi` with base configuration
   final prestashop = PrestashopApi(baseConfig);
 
-  // Specify the category fields to display, such as 'id' and 'name'. If left empty, only IDs will 
+  // Specify the product fields to display, such as 'id' and 'name'. If left empty, only IDs will 
   // be displayed by default
   const display = Display(
     displayFieldList: [
-      CategoryDisplayField.id,
-      CategoryDisplayField.name,
+      ProductDisplayField.id,
+      ProductDisplayField.name,
     ],
   );
 
-  // Set filter to fetch categories with IDs from 1 to 20
+  // Set filter to fetch products with IDs from 1 to 20
   final filter = Filter.between(
-    CategoryFilterField.id,
+    ProductFilterField.id,
     start: '1',
     end: '20',
   );
 
-  // Sort categories by name in descending order
+  // Sort products by name in descending order
   final sort = Sort(
     sortFieldOrderList: [
-      SortFieldOrder.descending(CategorySortField.name),
+      SortFieldOrder.descending(ProductSortField.name),
     ],
   );
 
   try {
-    // Fetch categories with specified parameters using pagination
-    final receivedCategories = await prestashop.getCategoriesPage(
-      // Required property: Set the language ID for category data retrieval
+    // Fetch products with specified parameters using pagination
+    final receivedProducts = await prestashop.getProductsPage(
+      // Required property: Set the language ID for product data retrieval
       languageId: 1,
       // Required property: page number
       page: 2,
-      // Required property: categories count per page
+      // Required property: products count per page
       perPage: 10,
       // Optional properties: filter, display, and sort functionalities
       filter: filter,
@@ -311,13 +312,13 @@ Future<void> main() async {
       sort: sort,
     );
     
-    print('A next page is available: ${receivedCategories.isNextPageAvailable}');
+    print('A next page is available: ${receivedProducts.isNextPageAvailable}');
 
-    // Print retrieved category data in a well formatted way
-    prettyPrint<Category>(
-      tagText: 'Categories with IDs ranging from 11 to 20',
-      data: receivedCategories.entity,
-      toJsonMap: categoryToJsonMap,
+    // Print retrieved product data in a well formatted way
+    prettyPrint<Product>(
+      tagText: 'Products with IDs ranging from 11 to 20',
+      data: receivedProducts.entity,
+      toJsonMap: productToJsonMap,
     );
   } catch (e) {
     // Handle errors
@@ -337,6 +338,14 @@ Below are the current supported API requests. Please note that the development o
 - Get Categories by page
 
 [See Categories API](https://devdocs.prestashop-project.org/1.7/webservice/resources/categories/)
+
+### PrestaShop - Products
+
+- Get Products
+- Retrieve a Product by id
+- Get Products by page
+
+[See Products API](https://devdocs.prestashop-project.org/1.7/webservice/resources/products/)
 
 ## PrestaShop API Documentation Reference
 [PrestaShop Docs](https://devdocs.prestashop-project.org/1.7/webservice/)
