@@ -88,12 +88,13 @@ void main() async {
   /// Products
   ///
 
-
-  /// Returns all products in the primary language.
+  /// Returns products in the primary language, with IDs ranging from
+  /// 16 to 150.
   /// The method returns only the product ID and name for each product.
   try {
     final receivedProducts = await prestashop.getProducts(
       languageId: 1,
+      filter: Filter.between(ProductFilterField.id, begin: '16', end: '150'),
       display: const Display(
         displayFieldList: [
           ProductDisplayField.id,
@@ -103,7 +104,7 @@ void main() async {
     );
 
     prettyPrint<Product>(
-      tagText: 'All products',
+      tagText: 'Products with IDs ranging from 16 to 150',
       data: receivedProducts.entity,
       toJsonMap: productToJsonMap,
     );
