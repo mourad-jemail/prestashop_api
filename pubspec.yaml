@@ -1,6 +1,6 @@
 name: prestashop_api
-description: A Dart package designed to simplify interaction with PrestaShop websites by providing 
-  streamlined API integration, automatic model generation, data serialization, and exception 
+description: A Dart package designed to simplify interaction with PrestaShop websites by providing
+  streamlined API integration, automatic model generation, data serialization, and exception
   handling.
 version: 0.0.1
 homepage: https://github.com/MouradJEMAIL/prestashop_api
@@ -12,6 +12,11 @@ topics:
   - ecommerce
   - rest
   - webservice
+
+platforms:
+  android:
+  ios:
+  web:
 
 environment:
   sdk: '>=3.2.4 <4.0.0'
