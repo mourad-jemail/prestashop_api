@@ -90,11 +90,17 @@ void main() async {
 
 
   /// Returns all products in the primary language.
-  /// Since the display property is not defined in the method, the latter
-  /// returns only the default fields for each product.
-  /// Default fields are defined by PrestaShop backend, which is the ID.
+  /// The method returns only the product ID and name for each product.
   try {
-    final receivedProducts = await prestashop.getProducts(languageId: 1);
+    final receivedProducts = await prestashop.getProducts(
+      languageId: 1,
+      display: const Display(
+        displayFieldList: [
+          ProductDisplayField.id,
+          ProductDisplayField.name,
+        ],
+      ),
+    );
 
     prettyPrint<Product>(
       tagText: 'All products',
