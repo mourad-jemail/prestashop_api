@@ -89,7 +89,7 @@ void main() async {
   ///
 
   /// Returns products in the primary language, with IDs ranging from
-  /// 16 to 150.
+  /// 16 to 150, and sorted by product ID in ascending order.
   /// The method returns only the product ID and name for each product.
   try {
     final receivedProducts = await prestashop.getProducts(
@@ -100,6 +100,9 @@ void main() async {
           ProductDisplayField.id,
           ProductDisplayField.name,
         ],
+      ),
+      sort: Sort(
+        sortFieldOrderList: [SortFieldOrder.ascending(ProductSortField.id)],
       ),
     );
 
