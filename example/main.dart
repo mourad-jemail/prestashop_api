@@ -83,4 +83,25 @@ void main() async {
   } catch (e) {
     logger.e('Error caught: $e');
   }
+
+  ///
+  /// Products
+  ///
+
+
+  /// Returns all products in the primary language.
+  /// Since the display property is not defined in the method, the latter
+  /// returns only the default fields for each product.
+  /// Default fields are defined by PrestaShop backend, which is the ID.
+  try {
+    final receivedProducts = await prestashop.getProducts(languageId: 1);
+
+    prettyPrint<Product>(
+      tagText: 'All products',
+      data: receivedProducts.entity,
+      toJsonMap: productToJsonMap,
+    );
+  } catch (e) {
+    logger.e('Error caught: $e');
+  }
 }
