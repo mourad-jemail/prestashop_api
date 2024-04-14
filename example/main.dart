@@ -132,4 +132,26 @@ void main() async {
   } catch (e) {
     logger.e('Error caught: $e');
   }
+
+  /// Returns a page of products in the specified language, with each page
+  /// containing up to 10 products. The method fetches the third page and
+  /// sorts the products by their IDs in ascending order.
+  try {
+    final receivedProductsPage = await prestashop.getProductsPage(
+      languageId: 1,
+      page: 3,
+      perPage: 10,
+      sort: Sort(
+        sortFieldOrderList: [SortFieldOrder.ascending(ProductSortField.id)],
+      ),
+    );
+
+    prettyPrint<Product>(
+      tagText: '\nProducts in third page',
+      data: receivedProductsPage.entity,
+      toJsonMap: productToJsonMap,
+    );
+  } catch (e) {
+    logger.e('Error caught: $e');
+  }
 }
