@@ -18,6 +18,10 @@ import 'product/i_product_facade.dart';
 import 'product/model/product.dart';
 import 'product/network/product_data_source.dart';
 import 'product/network/product_enums.dart';
+import 'stock_available/i_stock_available_facade.dart';
+import 'stock_available/model/stock_available.dart';
+import 'stock_available/network/stock_available_data_source.dart';
+import 'stock_available/network/stock_available_enums.dart';
 
 /// A Dart package designed to simplify interaction with PrestaShop websites by
 /// providing streamlined API integration, automatic model generation, data
@@ -60,17 +64,21 @@ import 'product/network/product_enums.dart';
 ///  ```
 @LazySingleton(as: ICategoryFacade)
 @LazySingleton(as: IProductFacade)
-class PrestashopApi implements ICategoryFacade, IProductFacade {
+@LazySingleton(as: IStockAvailableFacade)
+class PrestashopApi
+    implements ICategoryFacade, IProductFacade, IStockAvailableFacade {
   late BaseConfig _baseConfig;
   late Dio _dio;
   late CategoryDataSource _categoryDataSource;
   late ProductDataSource _productDataSource;
+  late StockAvailableDataSource _stockAvailableDataSource;
 
   PrestashopApi(
     BaseConfig baseConfig, {
     Dio? dio,
     CategoryDataSource? categoryDataSource,
     ProductDataSource? productDataSource,
+    StockAvailableDataSource? stockAvailableDataSource,
   }) {
     _baseConfig = baseConfig;
     _dio = dio ??= Dio();
@@ -78,6 +86,8 @@ class PrestashopApi implements ICategoryFacade, IProductFacade {
         categoryDataSource ??= CategoryDataSource(_dio, _baseConfig);
     _productDataSource =
         productDataSource ??= ProductDataSource(_dio, _baseConfig);
+    _stockAvailableDataSource = stockAvailableDataSource ??=
+        StockAvailableDataSource(_dio, _baseConfig);
   }
 
   Dio get dio => _dio;
@@ -86,6 +96,7 @@ class PrestashopApi implements ICategoryFacade, IProductFacade {
     _dio = value;
     _categoryDataSource = CategoryDataSource(_dio, _baseConfig);
     _productDataSource = ProductDataSource(_dio, _baseConfig);
+    _stockAvailableDataSource = StockAvailableDataSource(_dio, _baseConfig);
   }
 
   final logger = Logger();
@@ -304,6 +315,120 @@ class PrestashopApi implements ICategoryFacade, IProductFacade {
 
       return ReceivedEntity(
         remoteResponse.data.toDomain().productList,
+        isNextPageAvailable: remoteResponse.isNextPageAvailable,
+      );
+    } on RestApiException catch (e) {
+      logger.e('RestApiException caught: ${e.statusCode}: ${e.statusMessage}');
+      rethrow;
+    } on PrestashopError catch (e) {
+      logger.e('PrestashopError caught: ${e.statusCode}: ${e.message}');
+      rethrow;
+    } on NoServerResponseException catch (e) {
+      logger.e('NoServerResponseException caught: ${e.message}');
+      rethrow;
+    } on HostLookupException catch (e) {
+      logger.e('HostLookupException caught: ${e.message}');
+      rethrow;
+    } catch (e) {
+      logger.e('Error caught: $e');
+      rethrow;
+    }
+  }
+
+  ///
+  /// Stock available
+  ///
+
+  @override
+  Future<ReceivedEntity<List<StockAvailable>>> getStockAvailables({
+    Filter<StockAvailableFilterField>? filter,
+    Display<StockAvailableDisplayField>? display,
+    Sort<SortFieldOrder<StockAvailableSortField>>? sort,
+  }) async {
+    try {
+      final remoteResponse = await _stockAvailableDataSource.getStockAvailables(
+        filter: filter,
+        display: display,
+        sort: sort,
+      );
+
+      return ReceivedEntity(remoteResponse.data.toDomain().stockAvailableList);
+    } on RestApiException catch (e) {
+      logger.e('RestApiException caught: ${e.statusMessage}');
+      rethrow;
+    } on PrestashopError catch (e) {
+      logger.e('PrestashopError caught: ${e.message}');
+      rethrow;
+    } on NoServerResponseException catch (e) {
+      logger.e('NoServerResponseException caught: ${e.message}');
+      rethrow;
+    } on HostLookupException catch (e) {
+      logger.e('HostLookupException caught: ${e.message}');
+      rethrow;
+    } catch (e) {
+      logger.e('Error caught: $e');
+      rethrow;
+    }
+  }
+
+  @override
+  Future<ReceivedEntity<StockAvailable>> getStockAvailableById({
+    required int id,
+    Display<StockAvailableDisplayField>? display,
+  }) async {
+    try {
+      final remoteResponse = await _stockAvailableDataSource.getStockAvailables(
+        filter: Filter.equals(StockAvailableFilterField.id, value: '$id'),
+        display: display,
+      );
+
+      final languageOutputDTO = remoteResponse.data;
+
+      if (languageOutputDTO.toDomain().stockAvailableList.isNotEmpty) {
+        return ReceivedEntity(
+          languageOutputDTO.toDomain().stockAvailableList[0],
+        );
+      } else {
+        return ReceivedEntity(StockAvailable.empty());
+      }
+    } on RestApiException catch (e) {
+      logger.e('RestApiException caught: ${e.statusCode}: ${e.statusMessage}');
+      rethrow;
+    } on PrestashopError catch (e) {
+      logger.e('PrestashopError caught: ${e.statusCode}: ${e.message}');
+      rethrow;
+    } on NoServerResponseException catch (e) {
+      logger.e('NoServerResponseException caught: ${e.message}');
+      rethrow;
+    } on HostLookupException catch (e) {
+      logger.e('HostLookupException caught: ${e.message}');
+      rethrow;
+    } catch (e) {
+      logger.e('Error caught: $e');
+      rethrow;
+    }
+  }
+
+  @override
+  Future<ReceivedEntity<List<StockAvailable>>> getStockAvailablesPage({
+    required int page,
+    required int perPage,
+    Filter<StockAvailableFilterField>? filter,
+    Display<StockAvailableDisplayField>? display,
+    Sort<SortFieldOrder<StockAvailableSortField>>? sort,
+  }) async {
+    try {
+      final remoteResponse =
+          await _stockAvailableDataSource.getStockAvailablesPage(
+        page: page,
+        perPage: perPage,
+        filter: filter,
+        display: display,
+        sort: sort,
+      );
+
+      return ReceivedEntity(
+        remoteResponse.data.toDomain().stockAvailableList,
         isNextPageAvailable: remoteResponse.isNextPageAvailable,
       );
     } on RestApiException catch (e) {
