@@ -151,7 +151,17 @@ void main() async {
       data: receivedProductsPage.entity,
       toJsonMap: productToJsonMap,
     );
+
+    /// Catch all built-in exceptions
+  } on RestApiException catch (e) {
+    logger.e('API error: ${e.statusCode} - ${e.statusMessage}');
+  } on PrestashopError catch (e) {
+    logger.e('PrestaShop error: ${e.statusCode} - ${e.code} - ${e.message}');
+  } on NoServerResponseException catch (e) {
+    logger.e('Timeout error: ${e.message}');
+  } on HostLookupException catch (e) {
+    logger.e('Connection error: ${e.message}');
   } catch (e) {
-    logger.e('Error caught: $e');
+    logger.e('Unknown error: $e');
   }
 }
