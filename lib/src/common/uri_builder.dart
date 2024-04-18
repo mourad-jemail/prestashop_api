@@ -9,6 +9,7 @@ import 'shared/encoders.dart';
 
 const String categoryPath = '/api/categories';
 const String productPath = '/api/products';
+const String stockAvailablePath = '/api/stock_availables';
 
 enum Protocol { http, https }
 
