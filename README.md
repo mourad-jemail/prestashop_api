@@ -44,6 +44,7 @@ Let's explore the package's capabilities together!
 - [Available API Requests](#available-api-requests)
     - [PrestaShop - Categories](#prestaShop---categories)
     - [PrestaShop - Products](#prestaShop---products)
+    - [PrestaShop - Stock Availables](#prestaShop---stock-availables)
 - [PrestaShop API Documentation Reference](#prestashop-api-documentation-reference)
 - [Feedback](#feedback)
 - [Disclaimer](#disclaimer)
@@ -347,6 +348,14 @@ Below are the current supported API requests. Please note that the development o
 - Get Products by page
 
 [See Products API](https://devdocs.prestashop-project.org/1.7/webservice/resources/products/)
+
+### PrestaShop - Stock Availables
+
+- Get Stock Availables
+- Retrieve a Stock Available by id
+- Get Stock Availables by page
+
+[See Stock Availables API](https://devdocs.prestashop-project.org/1.7/webservice/resources/stock_available/)
 
 ## PrestaShop API Documentation Reference
 [PrestaShop Docs](https://devdocs.prestashop-project.org/1.7/webservice/)
