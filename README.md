@@ -71,7 +71,7 @@ An example speaks volumes compared to a lengthy abstract explanation, so here's 
 
 ```yaml
 dependencies:
-  prestashop_api: ^0.0.1
+  prestashop_api: ^0.0.2
 ```
 
 ### 2. Import the package
