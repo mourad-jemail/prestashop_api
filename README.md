@@ -43,6 +43,7 @@ Let's explore the package's capabilities together!
 - [Example using PrestashopApi](#example-using-prestashopapi)
 - [Available API Requests](#available-api-requests)
     - [PrestaShop - Categories](#prestaShop---categories)
+    - [PrestaShop - Languages](#prestaShop---languages)
     - [PrestaShop - Products](#prestaShop---products)
     - [PrestaShop - Stock Availables](#prestaShop---stock-availables)
 - [PrestaShop API Documentation Reference](#prestashop-api-documentation-reference)
@@ -71,7 +72,7 @@ An example speaks volumes compared to a lengthy abstract explanation, so here's 
 
 ```yaml
 dependencies:
-  prestashop_api: ^0.0.2
+  prestashop_api: ^0.1.0
 ```
 
 ### 2. Import the package
@@ -340,6 +341,14 @@ Below are the current supported API requests. Please note that the development o
 - Get Categories by page
 
 [See Categories API](https://devdocs.prestashop-project.org/1.7/webservice/resources/categories/)
+
+### PrestaShop - Languages
+
+- Get Languages
+- Retrieve a Language by id
+- Get Languages by page
+
+[See Languages API](https://devdocs.prestashop-project.org/1.7/webservice/resources/languages/)
 
 ### PrestaShop - Products
 
