@@ -14,6 +14,10 @@ import 'common/options/display/display.dart';
 import 'common/options/filter/filter.dart';
 import 'common/options/sort/sort.dart';
 import 'common/options/sort/sort_field_order.dart';
+import 'language/i_language_facade.dart';
+import 'language/model/language.dart';
+import 'language/network/language_data_source.dart';
+import 'language/network/language_enums.dart';
 import 'product/i_product_facade.dart';
 import 'product/model/product.dart';
 import 'product/network/product_data_source.dart';
@@ -63,13 +67,19 @@ import 'stock_available/network/stock_available_enums.dart';
 ///   );
 ///  ```
 @LazySingleton(as: ICategoryFacade)
+@LazySingleton(as: ILanguageFacade)
 @LazySingleton(as: IProductFacade)
 @LazySingleton(as: IStockAvailableFacade)
 class PrestashopApi
-    implements ICategoryFacade, IProductFacade, IStockAvailableFacade {
+    implements
+        ICategoryFacade,
+        ILanguageFacade,
+        IProductFacade,
+        IStockAvailableFacade {
   late BaseConfig _baseConfig;
   late Dio _dio;
   late CategoryDataSource _categoryDataSource;
+  late LanguageDataSource _languageDataSource;
   late ProductDataSource _productDataSource;
   late StockAvailableDataSource _stockAvailableDataSource;
 
@@ -77,6 +87,7 @@ class PrestashopApi
     BaseConfig baseConfig, {
     Dio? dio,
     CategoryDataSource? categoryDataSource,
+    LanguageDataSource? languageDataSource,
     ProductDataSource? productDataSource,
     StockAvailableDataSource? stockAvailableDataSource,
   }) {
@@ -84,6 +95,8 @@ class PrestashopApi
     _dio = dio ??= Dio();
     _categoryDataSource =
         categoryDataSource ??= CategoryDataSource(_dio, _baseConfig);
+    _languageDataSource =
+        languageDataSource ??= LanguageDataSource(_dio, _baseConfig);
     _productDataSource =
         productDataSource ??= ProductDataSource(_dio, _baseConfig);
     _stockAvailableDataSource = stockAvailableDataSource ??=
@@ -95,6 +108,7 @@ class PrestashopApi
   set dio(Dio value) {
     _dio = value;
     _categoryDataSource = CategoryDataSource(_dio, _baseConfig);
+    _languageDataSource = LanguageDataSource(_dio, _baseConfig);
     _productDataSource = ProductDataSource(_dio, _baseConfig);
     _stockAvailableDataSource = StockAvailableDataSource(_dio, _baseConfig);
   }
@@ -198,6 +212,117 @@ class PrestashopApi
 
       return ReceivedEntity(
         remoteResponse.data.toDomain().categoryList,
+        isNextPageAvailable: remoteResponse.isNextPageAvailable,
+      );
+    } on RestApiException catch (e) {
+      logger.e('RestApiException caught: ${e.statusCode}: ${e.statusMessage}');
+      rethrow;
+    } on PrestashopError catch (e) {
+      logger.e('PrestashopError caught: ${e.statusCode}: ${e.message}');
+      rethrow;
+    } on NoServerResponseException catch (e) {
+      logger.e('NoServerResponseException caught: ${e.message}');
+      rethrow;
+    } on HostLookupException catch (e) {
+      logger.e('HostLookupException caught: ${e.message}');
+      rethrow;
+    } catch (e) {
+      logger.e('Error caught: $e');
+      rethrow;
+    }
+  }
+
+  ///
+  /// Language
+  ///
+
+  @override
+  Future<ReceivedEntity<List<Language>>> getLanguages({
+    Filter<LanguageFilterField>? filter,
+    Display<LanguageDisplayField>? display,
+    Sort<SortFieldOrder<LanguageSortField>>? sort,
+  }) async {
+    try {
+      final remoteResponse = await _languageDataSource.getLanguages(
+        filter: filter,
+        display: display,
+        sort: sort,
+      );
+
+      return ReceivedEntity(remoteResponse.data.toDomain().languageList);
+    } on RestApiException catch (e) {
+      logger.e('RestApiException caught: ${e.statusCode}: ${e.statusMessage}');
+      rethrow;
+    } on PrestashopError catch (e) {
+      logger.e('PrestashopError caught: ${e.statusCode}: ${e.message}');
+      rethrow;
+    } on NoServerResponseException catch (e) {
+      logger.e('NoServerResponseException caught: ${e.message}');
+      rethrow;
+    } on HostLookupException catch (e) {
+      logger.e('HostLookupException caught: ${e.message}');
+      rethrow;
+    } catch (e) {
+      logger.e('Error caught: $e');
+      rethrow;
+    }
+  }
+
+  @override
+  Future<ReceivedEntity<Language>> getLanguageById({
+    required int id,
+    Display<LanguageDisplayField>? display,
+  }) async {
+    try {
+      final remoteResponse = await _languageDataSource.getLanguages(
+        filter: Filter.equals(LanguageFilterField.id, value: '$id'),
+        display: display,
+      );
+
+      final languageOutputDTO = remoteResponse.data;
+
+      if (languageOutputDTO.toDomain().languageList.isNotEmpty) {
+        return ReceivedEntity(languageOutputDTO.toDomain().languageList[0]);
+      } else {
+        return ReceivedEntity(Language.empty());
+      }
+    } on RestApiException catch (e) {
+      logger.e('RestApiException caught: ${e.statusCode}: ${e.statusMessage}');
+      rethrow;
+    } on PrestashopError catch (e) {
+      logger.e('PrestashopError caught: ${e.statusCode}: ${e.message}');
+      rethrow;
+    } on NoServerResponseException catch (e) {
+      logger.e('NoServerResponseException caught: ${e.message}');
+      rethrow;
+    } on HostLookupException catch (e) {
+      logger.e('HostLookupException caught: ${e.message}');
+      rethrow;
+    } catch (e) {
+      logger.e('Error caught: $e');
+      rethrow;
+    }
+  }
+
+  @override
+  Future<ReceivedEntity<List<Language>>> getLanguagesPage({
+    required int page,
+    required int perPage,
+    Filter<LanguageFilterField>? filter,
+    Display<LanguageDisplayField>? display,
+    Sort<SortFieldOrder<LanguageSortField>>? sort,
+  }) async {
+    try {
+      final remoteResponse = await _languageDataSource.getLanguagesPage(
+        page: page,
+        perPage: perPage,
+        filter: filter,
+        display: display,
+        sort: sort,
+      );
+
+      return ReceivedEntity(
+        remoteResponse.data.toDomain().languageList,
         isNextPageAvailable: remoteResponse.isNextPageAvailable,
       );
     } on RestApiException catch (e) {
