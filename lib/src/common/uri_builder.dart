@@ -8,6 +8,7 @@ import 'options/sort/sort_field_order.dart';
 import 'shared/encoders.dart';
 
 const String categoryPath = '/api/categories';
+const String languagePath = '/api/languages';
 const String productPath = '/api/products';
 const String stockAvailablePath = '/api/stock_availables';
 
