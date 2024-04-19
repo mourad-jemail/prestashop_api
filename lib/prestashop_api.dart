@@ -19,3 +19,5 @@ export 'src/common/uri_builder.dart';
 export 'src/prestashop_api.dart';
 export 'src/product/model/product.dart';
 export 'src/product/network/product_enums.dart';
+export 'src/stock_available/model/stock_available.dart';
+export 'src/stock_available/network/stock_available_enums.dart';
