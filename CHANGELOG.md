@@ -9,3 +9,7 @@
 ## 0.1.0
 
 - Added support for 'Language' resource.
+
+## 0.1.1
+
+- Fixed internal links of resources.

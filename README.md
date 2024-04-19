@@ -42,10 +42,10 @@ Let's explore the package's capabilities together!
     - [5. Predefined tailored exceptions](#5-predefined-tailored-exceptions)
 - [Example using PrestashopApi](#example-using-prestashopapi)
 - [Available API Requests](#available-api-requests)
-    - [PrestaShop - Categories](#prestaShop---categories)
-    - [PrestaShop - Languages](#prestaShop---languages)
-    - [PrestaShop - Products](#prestaShop---products)
-    - [PrestaShop - Stock Availables](#prestaShop---stock-availables)
+    - [PrestaShop - Categories](#prestashop---categories)
+    - [PrestaShop - Languages](#prestashop---languages)
+    - [PrestaShop - Products](#prestashop---products)
+    - [PrestaShop - Stock Availables](#prestashop---stock-availables)
 - [PrestaShop API Documentation Reference](#prestashop-api-documentation-reference)
 - [Feedback](#feedback)
 - [Disclaimer](#disclaimer)
@@ -72,7 +72,7 @@ An example speaks volumes compared to a lengthy abstract explanation, so here's 
 
 ```yaml
 dependencies:
-  prestashop_api: ^0.1.0
+  prestashop_api: ^0.1.1
 ```
 
 ### 2. Import the package
