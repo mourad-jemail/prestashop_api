@@ -17,6 +17,8 @@ export 'src/common/options/sort/sort_field_order.dart';
 export 'src/common/shared/utils.dart' show prettyPrint;
 export 'src/common/uri_builder.dart';
 export 'src/prestashop_api.dart';
+export 'src/language/model/language.dart';
+export 'src/language/network/language_enums.dart';
 export 'src/product/model/product.dart';
 export 'src/product/network/product_enums.dart';
 export 'src/stock_available/model/stock_available.dart';
