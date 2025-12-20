@@ -6,16 +6,12 @@ part of 'category_output_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CategoryOutputDTOImpl _$$CategoryOutputDTOImplFromJson(
-        Map<String, dynamic> json) =>
-    _$CategoryOutputDTOImpl(
+_CategoryOutputDTO _$CategoryOutputDTOFromJson(Map<String, dynamic> json) =>
+    _CategoryOutputDTO(
       categoryDTOList: (json['categories'] as List<dynamic>)
           .map((e) => CategoryDTO.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$CategoryOutputDTOImplToJson(
-        _$CategoryOutputDTOImpl instance) =>
-    <String, dynamic>{
-      'categories': instance.categoryDTOList,
-    };
+Map<String, dynamic> _$CategoryOutputDTOToJson(_CategoryOutputDTO instance) =>
+    <String, dynamic>{'categories': instance.categoryDTOList};

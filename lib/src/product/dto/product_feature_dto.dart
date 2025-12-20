@@ -7,7 +7,7 @@ part 'product_feature_dto.freezed.dart';
 part 'product_feature_dto.g.dart';
 
 @freezed
-class ProductFeatureDTO with _$ProductFeatureDTO {
+abstract class ProductFeatureDTO with _$ProductFeatureDTO {
   const ProductFeatureDTO._();
 
   const factory ProductFeatureDTO({
@@ -19,18 +19,15 @@ class ProductFeatureDTO with _$ProductFeatureDTO {
   factory ProductFeatureDTO.fromJson(Map<String, dynamic> json) =>
       _$ProductFeatureDTOFromJson(json);
 
-  factory ProductFeatureDTO.fromDomain(ProductFeature _) {
+  factory ProductFeatureDTO.fromDomain(ProductFeature productFeature) {
     return ProductFeatureDTO(
-      id_: _.id_,
-      idFeatureValue: _.idFeatureValue,
+      id_: productFeature.id_,
+      idFeatureValue: productFeature.idFeatureValue,
     );
   }
 
   ProductFeature toDomain() {
-    return ProductFeature(
-      id_: id_,
-      idFeatureValue: idFeatureValue,
-    );
+    return ProductFeature(id_: id_, idFeatureValue: idFeatureValue);
   }
 }
 

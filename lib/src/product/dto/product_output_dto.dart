@@ -9,7 +9,7 @@ part 'product_output_dto.freezed.dart';
 part 'product_output_dto.g.dart';
 
 @freezed
-class ProductOutputDTO with _$ProductOutputDTO {
+abstract class ProductOutputDTO with _$ProductOutputDTO {
   const ProductOutputDTO._();
 
   const factory ProductOutputDTO({
@@ -19,16 +19,14 @@ class ProductOutputDTO with _$ProductOutputDTO {
   factory ProductOutputDTO.fromJson(Map<String, dynamic> json) =>
       _$ProductOutputDTOFromJson(json);
 
-  factory ProductOutputDTO.fromDomain(ProductOutput _) {
+  factory ProductOutputDTO.fromDomain(ProductOutput productOutput) {
     return ProductOutputDTO(
-      productDTOList: _.productList.fromDomain(),
+      productDTOList: productOutput.productList.fromDomain(),
     );
   }
 
   ProductOutput toDomain() {
-    return ProductOutput(
-      productList: productDTOList.toDomain(),
-    );
+    return ProductOutput(productList: productDTOList.toDomain());
   }
 }
 

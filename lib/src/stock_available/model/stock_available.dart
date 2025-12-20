@@ -6,7 +6,7 @@ part 'stock_available.freezed.dart';
 part 'stock_available.g.dart';
 
 @freezed
-class StockAvailable with _$StockAvailable implements ConvertibleToJson {
+abstract class StockAvailable with _$StockAvailable implements ConvertibleToJson {
   const StockAvailable._();
 
   const factory StockAvailable({

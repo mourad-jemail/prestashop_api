@@ -9,7 +9,7 @@ part 'product_associations.freezed.dart';
 part 'product_associations.g.dart';
 
 @freezed
-class ProductAssociations with _$ProductAssociations {
+abstract class ProductAssociations with _$ProductAssociations {
   const ProductAssociations._();
 
   const factory ProductAssociations({

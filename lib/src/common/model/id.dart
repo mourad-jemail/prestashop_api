@@ -4,10 +4,10 @@ part 'id.freezed.dart';
 part 'id.g.dart';
 
 /// Use this class when representing a list of IDs as strings. Utilizing a
-/// List<Id> type is more descriptive, as it indicates that the strings
-/// represent IDs, compared to using a List<String>.
+/// `List<Id>` type is more descriptive, as it indicates that the strings
+/// represent IDs, compared to using a `List<String>`.
 @freezed
-class Id with _$Id {
+abstract class Id with _$Id {
   const Id._();
 
   const factory Id({

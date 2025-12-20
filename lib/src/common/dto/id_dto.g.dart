@@ -6,11 +6,9 @@ part of 'id_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$IdDTOImpl _$$IdDTOImplFromJson(Map<String, dynamic> json) => _$IdDTOImpl(
-      id_: json['id'] as String,
-    );
+_IdDTO _$IdDTOFromJson(Map<String, dynamic> json) =>
+    _IdDTO(id_: json['id'] as String);
 
-Map<String, dynamic> _$$IdDTOImplToJson(_$IdDTOImpl instance) =>
-    <String, dynamic>{
-      'id': instance.id_,
-    };
+Map<String, dynamic> _$IdDTOToJson(_IdDTO instance) => <String, dynamic>{
+  'id': instance.id_,
+};

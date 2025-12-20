@@ -6,15 +6,12 @@ part of 'error_output_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ErrorOutputDTOImpl _$$ErrorOutputDTOImplFromJson(Map<String, dynamic> json) =>
-    _$ErrorOutputDTOImpl(
+_ErrorOutputDTO _$ErrorOutputDTOFromJson(Map<String, dynamic> json) =>
+    _ErrorOutputDTO(
       errorDTOList: (json['errors'] as List<dynamic>)
           .map((e) => ErrorDTO.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$ErrorOutputDTOImplToJson(
-        _$ErrorOutputDTOImpl instance) =>
-    <String, dynamic>{
-      'errors': instance.errorDTOList,
-    };
+Map<String, dynamic> _$ErrorOutputDTOToJson(_ErrorOutputDTO instance) =>
+    <String, dynamic>{'errors': instance.errorDTOList};

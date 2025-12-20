@@ -4,7 +4,7 @@ part 'stock_available.freezed.dart';
 part 'stock_available.g.dart';
 
 @freezed
-class StockAvailable with _$StockAvailable {
+abstract class StockAvailable with _$StockAvailable {
   const StockAvailable._();
 
   const factory StockAvailable({

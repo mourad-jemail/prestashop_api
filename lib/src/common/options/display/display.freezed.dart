@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,135 +9,269 @@ part of 'display.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$Display<T extends DisplayEnumValue> {
-  List<T> get displayFieldList => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
-  $DisplayCopyWith<T, Display<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+ List<T> get displayFieldList;
+/// Create a copy of Display
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DisplayCopyWith<T, Display<T>> get copyWith => _$DisplayCopyWithImpl<T, Display<T>>(this as Display<T>, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Display<T>&&const DeepCollectionEquality().equals(other.displayFieldList, displayFieldList));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(displayFieldList));
+
+@override
+String toString() {
+  return 'Display<$T>(displayFieldList: $displayFieldList)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $DisplayCopyWith<T extends DisplayEnumValue, $Res> {
-  factory $DisplayCopyWith(Display<T> value, $Res Function(Display<T>) then) =
-      _$DisplayCopyWithImpl<T, $Res, Display<T>>;
-  @useResult
-  $Res call({List<T> displayFieldList});
+abstract mixin class $DisplayCopyWith<T extends DisplayEnumValue,$Res>  {
+  factory $DisplayCopyWith(Display<T> value, $Res Function(Display<T>) _then) = _$DisplayCopyWithImpl;
+@useResult
+$Res call({
+ List<T> displayFieldList
+});
+
+
+
+
 }
-
 /// @nodoc
-class _$DisplayCopyWithImpl<T extends DisplayEnumValue, $Res,
-    $Val extends Display<T>> implements $DisplayCopyWith<T, $Res> {
-  _$DisplayCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? displayFieldList = null,
-  }) {
-    return _then(_value.copyWith(
-      displayFieldList: null == displayFieldList
-          ? _value.displayFieldList
-          : displayFieldList // ignore: cast_nullable_to_non_nullable
-              as List<T>,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$DisplayImplCopyWith<T extends DisplayEnumValue, $Res>
+class _$DisplayCopyWithImpl<T extends DisplayEnumValue,$Res>
     implements $DisplayCopyWith<T, $Res> {
-  factory _$$DisplayImplCopyWith(
-          _$DisplayImpl<T> value, $Res Function(_$DisplayImpl<T>) then) =
-      __$$DisplayImplCopyWithImpl<T, $Res>;
-  @override
-  @useResult
-  $Res call({List<T> displayFieldList});
+  _$DisplayCopyWithImpl(this._self, this._then);
+
+  final Display<T> _self;
+  final $Res Function(Display<T>) _then;
+
+/// Create a copy of Display
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? displayFieldList = null,}) {
+  return _then(_self.copyWith(
+displayFieldList: null == displayFieldList ? _self.displayFieldList : displayFieldList // ignore: cast_nullable_to_non_nullable
+as List<T>,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [Display].
+extension DisplayPatterns<T extends DisplayEnumValue> on Display<T> {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _Display<T> value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _Display() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _Display<T> value)  $default,){
+final _that = this;
+switch (_that) {
+case _Display():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _Display<T> value)?  $default,){
+final _that = this;
+switch (_that) {
+case _Display() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<T> displayFieldList)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _Display() when $default != null:
+return $default(_that.displayFieldList);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<T> displayFieldList)  $default,) {final _that = this;
+switch (_that) {
+case _Display():
+return $default(_that.displayFieldList);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<T> displayFieldList)?  $default,) {final _that = this;
+switch (_that) {
+case _Display() when $default != null:
+return $default(_that.displayFieldList);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
-class __$$DisplayImplCopyWithImpl<T extends DisplayEnumValue, $Res>
-    extends _$DisplayCopyWithImpl<T, $Res, _$DisplayImpl<T>>
-    implements _$$DisplayImplCopyWith<T, $Res> {
-  __$$DisplayImplCopyWithImpl(
-      _$DisplayImpl<T> _value, $Res Function(_$DisplayImpl<T>) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? displayFieldList = null,
-  }) {
-    return _then(_$DisplayImpl<T>(
-      displayFieldList: null == displayFieldList
-          ? _value._displayFieldList
-          : displayFieldList // ignore: cast_nullable_to_non_nullable
-              as List<T>,
-    ));
-  }
+
+class _Display<T extends DisplayEnumValue> extends Display<T> {
+  const _Display({required final  List<T> displayFieldList}): _displayFieldList = displayFieldList,super._();
+  
+
+ final  List<T> _displayFieldList;
+@override List<T> get displayFieldList {
+  if (_displayFieldList is EqualUnmodifiableListView) return _displayFieldList;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_displayFieldList);
+}
+
+
+/// Create a copy of Display
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$DisplayCopyWith<T, _Display<T>> get copyWith => __$DisplayCopyWithImpl<T, _Display<T>>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Display<T>&&const DeepCollectionEquality().equals(other._displayFieldList, _displayFieldList));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_displayFieldList));
+
+@override
+String toString() {
+  return 'Display<$T>(displayFieldList: $displayFieldList)';
+}
+
+
 }
 
 /// @nodoc
+abstract mixin class _$DisplayCopyWith<T extends DisplayEnumValue,$Res> implements $DisplayCopyWith<T, $Res> {
+  factory _$DisplayCopyWith(_Display<T> value, $Res Function(_Display<T>) _then) = __$DisplayCopyWithImpl;
+@override @useResult
+$Res call({
+ List<T> displayFieldList
+});
 
-class _$DisplayImpl<T extends DisplayEnumValue> extends _Display<T> {
-  const _$DisplayImpl({required final List<T> displayFieldList})
-      : _displayFieldList = displayFieldList,
-        super._();
 
-  final List<T> _displayFieldList;
-  @override
-  List<T> get displayFieldList {
-    if (_displayFieldList is EqualUnmodifiableListView)
-      return _displayFieldList;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_displayFieldList);
-  }
 
-  @override
-  String toString() {
-    return 'Display<$T>(displayFieldList: $displayFieldList)';
-  }
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DisplayImpl<T> &&
-            const DeepCollectionEquality()
-                .equals(other._displayFieldList, _displayFieldList));
-  }
+}
+/// @nodoc
+class __$DisplayCopyWithImpl<T extends DisplayEnumValue,$Res>
+    implements _$DisplayCopyWith<T, $Res> {
+  __$DisplayCopyWithImpl(this._self, this._then);
 
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_displayFieldList));
+  final _Display<T> _self;
+  final $Res Function(_Display<T>) _then;
 
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$DisplayImplCopyWith<T, _$DisplayImpl<T>> get copyWith =>
-      __$$DisplayImplCopyWithImpl<T, _$DisplayImpl<T>>(this, _$identity);
+/// Create a copy of Display
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? displayFieldList = null,}) {
+  return _then(_Display<T>(
+displayFieldList: null == displayFieldList ? _self._displayFieldList : displayFieldList // ignore: cast_nullable_to_non_nullable
+as List<T>,
+  ));
 }
 
-abstract class _Display<T extends DisplayEnumValue> extends Display<T> {
-  const factory _Display({required final List<T> displayFieldList}) =
-      _$DisplayImpl<T>;
-  const _Display._() : super._();
 
-  @override
-  List<T> get displayFieldList;
-  @override
-  @JsonKey(ignore: true)
-  _$$DisplayImplCopyWith<T, _$DisplayImpl<T>> get copyWith =>
-      throw _privateConstructorUsedError;
 }
+
+// dart format on

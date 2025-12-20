@@ -5,7 +5,7 @@ import 'language.dart';
 part 'language_output.freezed.dart';
 
 @freezed
-class LanguageOutput with _$LanguageOutput {
+abstract class LanguageOutput with _$LanguageOutput {
   const LanguageOutput._();
 
   const factory LanguageOutput({

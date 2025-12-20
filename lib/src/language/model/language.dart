@@ -6,7 +6,7 @@ part 'language.freezed.dart';
 part 'language.g.dart';
 
 @freezed
-class Language with _$Language implements ConvertibleToJson {
+abstract class Language with _$Language implements ConvertibleToJson {
   const Language._();
 
   const factory Language({

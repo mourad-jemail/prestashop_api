@@ -5,7 +5,7 @@ import 'stock_available.dart';
 part 'stock_available_output.freezed.dart';
 
 @freezed
-class StockAvailableOutput with _$StockAvailableOutput {
+abstract class StockAvailableOutput with _$StockAvailableOutput {
   const StockAvailableOutput._();
 
   const factory StockAvailableOutput({

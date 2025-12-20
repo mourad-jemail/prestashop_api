@@ -5,7 +5,7 @@ import 'error.dart';
 part 'error_output.freezed.dart';
 
 @freezed
-class ErrorOutput with _$ErrorOutput {
+abstract class ErrorOutput with _$ErrorOutput {
   const ErrorOutput._();
 
   const factory ErrorOutput({

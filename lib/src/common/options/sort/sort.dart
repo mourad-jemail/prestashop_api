@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'sort.freezed.dart';
 
 @freezed
-class Sort<SortFieldOrder> with _$Sort<SortFieldOrder> {
+abstract class Sort<SortFieldOrder> with _$Sort<SortFieldOrder> {
   const Sort._();
 
   const factory Sort({

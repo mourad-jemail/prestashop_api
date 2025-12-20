@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,173 +9,275 @@ part of 'stock_available_output_dto.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StockAvailableOutputDTO _$StockAvailableOutputDTOFromJson(
-    Map<String, dynamic> json) {
-  return _StockAvailableOutputDTO.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StockAvailableOutputDTO {
-  @JsonKey(name: 'stock_availables')
-  List<StockAvailableDTO> get stockAvailableDTOList =>
-      throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $StockAvailableOutputDTOCopyWith<StockAvailableOutputDTO> get copyWith =>
-      throw _privateConstructorUsedError;
+@JsonKey(name: 'stock_availables') List<StockAvailableDTO> get stockAvailableDTOList;
+/// Create a copy of StockAvailableOutputDTO
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$StockAvailableOutputDTOCopyWith<StockAvailableOutputDTO> get copyWith => _$StockAvailableOutputDTOCopyWithImpl<StockAvailableOutputDTO>(this as StockAvailableOutputDTO, _$identity);
+
+  /// Serializes this StockAvailableOutputDTO to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StockAvailableOutputDTO&&const DeepCollectionEquality().equals(other.stockAvailableDTOList, stockAvailableDTOList));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(stockAvailableDTOList));
+
+@override
+String toString() {
+  return 'StockAvailableOutputDTO(stockAvailableDTOList: $stockAvailableDTOList)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $StockAvailableOutputDTOCopyWith<$Res> {
-  factory $StockAvailableOutputDTOCopyWith(StockAvailableOutputDTO value,
-          $Res Function(StockAvailableOutputDTO) then) =
-      _$StockAvailableOutputDTOCopyWithImpl<$Res, StockAvailableOutputDTO>;
-  @useResult
-  $Res call(
-      {@JsonKey(name: 'stock_availables')
-      List<StockAvailableDTO> stockAvailableDTOList});
-}
+abstract mixin class $StockAvailableOutputDTOCopyWith<$Res>  {
+  factory $StockAvailableOutputDTOCopyWith(StockAvailableOutputDTO value, $Res Function(StockAvailableOutputDTO) _then) = _$StockAvailableOutputDTOCopyWithImpl;
+@useResult
+$Res call({
+@JsonKey(name: 'stock_availables') List<StockAvailableDTO> stockAvailableDTOList
+});
 
+
+
+
+}
 /// @nodoc
-class _$StockAvailableOutputDTOCopyWithImpl<$Res,
-        $Val extends StockAvailableOutputDTO>
+class _$StockAvailableOutputDTOCopyWithImpl<$Res>
     implements $StockAvailableOutputDTOCopyWith<$Res> {
-  _$StockAvailableOutputDTOCopyWithImpl(this._value, this._then);
+  _$StockAvailableOutputDTOCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final StockAvailableOutputDTO _self;
+  final $Res Function(StockAvailableOutputDTO) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? stockAvailableDTOList = null,
-  }) {
-    return _then(_value.copyWith(
-      stockAvailableDTOList: null == stockAvailableDTOList
-          ? _value.stockAvailableDTOList
-          : stockAvailableDTOList // ignore: cast_nullable_to_non_nullable
-              as List<StockAvailableDTO>,
-    ) as $Val);
-  }
+/// Create a copy of StockAvailableOutputDTO
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? stockAvailableDTOList = null,}) {
+  return _then(_self.copyWith(
+stockAvailableDTOList: null == stockAvailableDTOList ? _self.stockAvailableDTOList : stockAvailableDTOList // ignore: cast_nullable_to_non_nullable
+as List<StockAvailableDTO>,
+  ));
 }
 
-/// @nodoc
-abstract class _$$StockAvailableOutputDTOImplCopyWith<$Res>
-    implements $StockAvailableOutputDTOCopyWith<$Res> {
-  factory _$$StockAvailableOutputDTOImplCopyWith(
-          _$StockAvailableOutputDTOImpl value,
-          $Res Function(_$StockAvailableOutputDTOImpl) then) =
-      __$$StockAvailableOutputDTOImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {@JsonKey(name: 'stock_availables')
-      List<StockAvailableDTO> stockAvailableDTOList});
 }
 
-/// @nodoc
-class __$$StockAvailableOutputDTOImplCopyWithImpl<$Res>
-    extends _$StockAvailableOutputDTOCopyWithImpl<$Res,
-        _$StockAvailableOutputDTOImpl>
-    implements _$$StockAvailableOutputDTOImplCopyWith<$Res> {
-  __$$StockAvailableOutputDTOImplCopyWithImpl(
-      _$StockAvailableOutputDTOImpl _value,
-      $Res Function(_$StockAvailableOutputDTOImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? stockAvailableDTOList = null,
-  }) {
-    return _then(_$StockAvailableOutputDTOImpl(
-      stockAvailableDTOList: null == stockAvailableDTOList
-          ? _value._stockAvailableDTOList
-          : stockAvailableDTOList // ignore: cast_nullable_to_non_nullable
-              as List<StockAvailableDTO>,
-    ));
-  }
+/// Adds pattern-matching-related methods to [StockAvailableOutputDTO].
+extension StockAvailableOutputDTOPatterns on StockAvailableOutputDTO {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _StockAvailableOutputDTO value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _StockAvailableOutputDTO() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _StockAvailableOutputDTO value)  $default,){
+final _that = this;
+switch (_that) {
+case _StockAvailableOutputDTO():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _StockAvailableOutputDTO value)?  $default,){
+final _that = this;
+switch (_that) {
+case _StockAvailableOutputDTO() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'stock_availables')  List<StockAvailableDTO> stockAvailableDTOList)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _StockAvailableOutputDTO() when $default != null:
+return $default(_that.stockAvailableDTOList);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'stock_availables')  List<StockAvailableDTO> stockAvailableDTOList)  $default,) {final _that = this;
+switch (_that) {
+case _StockAvailableOutputDTO():
+return $default(_that.stockAvailableDTOList);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'stock_availables')  List<StockAvailableDTO> stockAvailableDTOList)?  $default,) {final _that = this;
+switch (_that) {
+case _StockAvailableOutputDTO() when $default != null:
+return $default(_that.stockAvailableDTOList);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$StockAvailableOutputDTOImpl extends _StockAvailableOutputDTO {
-  const _$StockAvailableOutputDTOImpl(
-      {@JsonKey(name: 'stock_availables')
-      required final List<StockAvailableDTO> stockAvailableDTOList})
-      : _stockAvailableDTOList = stockAvailableDTOList,
-        super._();
 
-  factory _$StockAvailableOutputDTOImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StockAvailableOutputDTOImplFromJson(json);
+class _StockAvailableOutputDTO extends StockAvailableOutputDTO {
+  const _StockAvailableOutputDTO({@JsonKey(name: 'stock_availables') required final  List<StockAvailableDTO> stockAvailableDTOList}): _stockAvailableDTOList = stockAvailableDTOList,super._();
+  factory _StockAvailableOutputDTO.fromJson(Map<String, dynamic> json) => _$StockAvailableOutputDTOFromJson(json);
 
-  final List<StockAvailableDTO> _stockAvailableDTOList;
-  @override
-  @JsonKey(name: 'stock_availables')
-  List<StockAvailableDTO> get stockAvailableDTOList {
-    if (_stockAvailableDTOList is EqualUnmodifiableListView)
-      return _stockAvailableDTOList;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_stockAvailableDTOList);
-  }
-
-  @override
-  String toString() {
-    return 'StockAvailableOutputDTO(stockAvailableDTOList: $stockAvailableDTOList)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$StockAvailableOutputDTOImpl &&
-            const DeepCollectionEquality()
-                .equals(other._stockAvailableDTOList, _stockAvailableDTOList));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_stockAvailableDTOList));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$StockAvailableOutputDTOImplCopyWith<_$StockAvailableOutputDTOImpl>
-      get copyWith => __$$StockAvailableOutputDTOImplCopyWithImpl<
-          _$StockAvailableOutputDTOImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StockAvailableOutputDTOImplToJson(
-      this,
-    );
-  }
+ final  List<StockAvailableDTO> _stockAvailableDTOList;
+@override@JsonKey(name: 'stock_availables') List<StockAvailableDTO> get stockAvailableDTOList {
+  if (_stockAvailableDTOList is EqualUnmodifiableListView) return _stockAvailableDTOList;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_stockAvailableDTOList);
 }
 
-abstract class _StockAvailableOutputDTO extends StockAvailableOutputDTO {
-  const factory _StockAvailableOutputDTO(
-          {@JsonKey(name: 'stock_availables')
-          required final List<StockAvailableDTO> stockAvailableDTOList}) =
-      _$StockAvailableOutputDTOImpl;
-  const _StockAvailableOutputDTO._() : super._();
 
-  factory _StockAvailableOutputDTO.fromJson(Map<String, dynamic> json) =
-      _$StockAvailableOutputDTOImpl.fromJson;
+/// Create a copy of StockAvailableOutputDTO
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$StockAvailableOutputDTOCopyWith<_StockAvailableOutputDTO> get copyWith => __$StockAvailableOutputDTOCopyWithImpl<_StockAvailableOutputDTO>(this, _$identity);
 
-  @override
-  @JsonKey(name: 'stock_availables')
-  List<StockAvailableDTO> get stockAvailableDTOList;
-  @override
-  @JsonKey(ignore: true)
-  _$$StockAvailableOutputDTOImplCopyWith<_$StockAvailableOutputDTOImpl>
-      get copyWith => throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$StockAvailableOutputDTOToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _StockAvailableOutputDTO&&const DeepCollectionEquality().equals(other._stockAvailableDTOList, _stockAvailableDTOList));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_stockAvailableDTOList));
+
+@override
+String toString() {
+  return 'StockAvailableOutputDTO(stockAvailableDTOList: $stockAvailableDTOList)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$StockAvailableOutputDTOCopyWith<$Res> implements $StockAvailableOutputDTOCopyWith<$Res> {
+  factory _$StockAvailableOutputDTOCopyWith(_StockAvailableOutputDTO value, $Res Function(_StockAvailableOutputDTO) _then) = __$StockAvailableOutputDTOCopyWithImpl;
+@override @useResult
+$Res call({
+@JsonKey(name: 'stock_availables') List<StockAvailableDTO> stockAvailableDTOList
+});
+
+
+
+
+}
+/// @nodoc
+class __$StockAvailableOutputDTOCopyWithImpl<$Res>
+    implements _$StockAvailableOutputDTOCopyWith<$Res> {
+  __$StockAvailableOutputDTOCopyWithImpl(this._self, this._then);
+
+  final _StockAvailableOutputDTO _self;
+  final $Res Function(_StockAvailableOutputDTO) _then;
+
+/// Create a copy of StockAvailableOutputDTO
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? stockAvailableDTOList = null,}) {
+  return _then(_StockAvailableOutputDTO(
+stockAvailableDTOList: null == stockAvailableDTOList ? _self._stockAvailableDTOList : stockAvailableDTOList // ignore: cast_nullable_to_non_nullable
+as List<StockAvailableDTO>,
+  ));
+}
+
+
+}
+
+// dart format on

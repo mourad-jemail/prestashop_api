@@ -4,7 +4,7 @@ part 'product_feature.freezed.dart';
 part 'product_feature.g.dart';
 
 @freezed
-class ProductFeature with _$ProductFeature {
+abstract class ProductFeature with _$ProductFeature {
   const ProductFeature._();
 
   const factory ProductFeature({

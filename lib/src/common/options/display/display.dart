@@ -5,7 +5,7 @@ import '../field_enum_value.dart';
 part 'display.freezed.dart';
 
 @freezed
-class Display<T extends DisplayEnumValue> with _$Display<T> {
+abstract class Display<T extends DisplayEnumValue> with _$Display<T> {
   const Display._();
 
   const factory Display({

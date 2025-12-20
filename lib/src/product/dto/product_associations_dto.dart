@@ -10,7 +10,7 @@ part 'product_associations_dto.freezed.dart';
 part 'product_associations_dto.g.dart';
 
 @freezed
-class ProductAssociationsDTO with _$ProductAssociationsDTO {
+abstract class ProductAssociationsDTO with _$ProductAssociationsDTO {
   const ProductAssociationsDTO._();
 
   const factory ProductAssociationsDTO({
@@ -35,19 +35,25 @@ class ProductAssociationsDTO with _$ProductAssociationsDTO {
   factory ProductAssociationsDTO.fromJson(Map<String, dynamic> json) =>
       _$ProductAssociationsDTOFromJson(json);
 
-  factory ProductAssociationsDTO.fromDomain(ProductAssociations? _) {
+  factory ProductAssociationsDTO.fromDomain(
+    ProductAssociations? productAssociations,
+  ) {
     return ProductAssociationsDTO(
-      categoryDTOs:
-          (_ != null) ? _.categories.fromDomain() : List<IdDTO>.empty(),
-      imageDTOs: (_ != null) ? _.categories.fromDomain() : List<IdDTO>.empty(),
-      productFeatureDTOs: (_ != null)
-          ? _.productFeatures?.fromDomain()
+      categoryDTOs: (productAssociations != null)
+          ? productAssociations.categories.fromDomain()
+          : List<IdDTO>.empty(),
+      imageDTOs: (productAssociations != null)
+          ? productAssociations.categories.fromDomain()
+          : List<IdDTO>.empty(),
+      productFeatureDTOs: (productAssociations != null)
+          ? productAssociations.productFeatures?.fromDomain()
           : List<ProductFeatureDTO>.empty(),
-      stockAvailableDTOs: (_ != null)
-          ? _.stockAvailables?.fromDomain()
+      stockAvailableDTOs: (productAssociations != null)
+          ? productAssociations.stockAvailables?.fromDomain()
           : List<StockAvailableDTO>.empty(),
-      accessoryDTOs:
-          (_ != null) ? _.accessories?.fromDomain() : List<IdDTO>.empty(),
+      accessoryDTOs: (productAssociations != null)
+          ? productAssociations.accessories?.fromDomain()
+          : List<IdDTO>.empty(),
     );
   }
 

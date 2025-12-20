@@ -5,7 +5,7 @@ import '../field_enum_value.dart';
 part 'filter.freezed.dart';
 
 @freezed
-class Filter<T extends FilterEnumValue> with _$Filter<T> {
+abstract class Filter<T extends FilterEnumValue> with _$Filter<T> {
   const Filter._();
 
   const factory Filter({

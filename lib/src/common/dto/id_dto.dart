@@ -6,26 +6,16 @@ part 'id_dto.freezed.dart';
 part 'id_dto.g.dart';
 
 @freezed
-class IdDTO with _$IdDTO {
+abstract class IdDTO with _$IdDTO {
   const IdDTO._();
 
-  const factory IdDTO({
-    @JsonKey(name: 'id') required String id_,
-  }) = _IdDTO;
+  const factory IdDTO({@JsonKey(name: 'id') required String id_}) = _IdDTO;
 
   factory IdDTO.fromJson(Map<String, dynamic> json) => _$IdDTOFromJson(json);
 
-  factory IdDTO.fromDomain(Id _) {
-    return IdDTO(
-      id_: _.id_,
-    );
-  }
+  factory IdDTO.fromDomain(Id id_) => IdDTO(id_: id_.id_);
 
-  Id toDomain() {
-    return Id(
-      id_: id_,
-    );
-  }
+  Id toDomain() => Id(id_: id_);
 }
 
 extension DomainListToDTOList on List<Id> {

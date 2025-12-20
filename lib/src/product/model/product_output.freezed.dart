@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,135 +9,269 @@ part of 'product_output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$ProductOutput {
-  List<Product> get productList => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
-  $ProductOutputCopyWith<ProductOutput> get copyWith =>
-      throw _privateConstructorUsedError;
+ List<Product> get productList;
+/// Create a copy of ProductOutput
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ProductOutputCopyWith<ProductOutput> get copyWith => _$ProductOutputCopyWithImpl<ProductOutput>(this as ProductOutput, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProductOutput&&const DeepCollectionEquality().equals(other.productList, productList));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(productList));
+
+@override
+String toString() {
+  return 'ProductOutput(productList: $productList)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $ProductOutputCopyWith<$Res> {
-  factory $ProductOutputCopyWith(
-          ProductOutput value, $Res Function(ProductOutput) then) =
-      _$ProductOutputCopyWithImpl<$Res, ProductOutput>;
-  @useResult
-  $Res call({List<Product> productList});
-}
+abstract mixin class $ProductOutputCopyWith<$Res>  {
+  factory $ProductOutputCopyWith(ProductOutput value, $Res Function(ProductOutput) _then) = _$ProductOutputCopyWithImpl;
+@useResult
+$Res call({
+ List<Product> productList
+});
 
+
+
+
+}
 /// @nodoc
-class _$ProductOutputCopyWithImpl<$Res, $Val extends ProductOutput>
+class _$ProductOutputCopyWithImpl<$Res>
     implements $ProductOutputCopyWith<$Res> {
-  _$ProductOutputCopyWithImpl(this._value, this._then);
+  _$ProductOutputCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ProductOutput _self;
+  final $Res Function(ProductOutput) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? productList = null,
-  }) {
-    return _then(_value.copyWith(
-      productList: null == productList
-          ? _value.productList
-          : productList // ignore: cast_nullable_to_non_nullable
-              as List<Product>,
-    ) as $Val);
-  }
+/// Create a copy of ProductOutput
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? productList = null,}) {
+  return _then(_self.copyWith(
+productList: null == productList ? _self.productList : productList // ignore: cast_nullable_to_non_nullable
+as List<Product>,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [ProductOutput].
+extension ProductOutputPatterns on ProductOutput {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ProductOutput value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _ProductOutput() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ProductOutput value)  $default,){
+final _that = this;
+switch (_that) {
+case _ProductOutput():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ProductOutput value)?  $default,){
+final _that = this;
+switch (_that) {
+case _ProductOutput() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<Product> productList)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _ProductOutput() when $default != null:
+return $default(_that.productList);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<Product> productList)  $default,) {final _that = this;
+switch (_that) {
+case _ProductOutput():
+return $default(_that.productList);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<Product> productList)?  $default,) {final _that = this;
+switch (_that) {
+case _ProductOutput() when $default != null:
+return $default(_that.productList);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
-abstract class _$$ProductOutputImplCopyWith<$Res>
-    implements $ProductOutputCopyWith<$Res> {
-  factory _$$ProductOutputImplCopyWith(
-          _$ProductOutputImpl value, $Res Function(_$ProductOutputImpl) then) =
-      __$$ProductOutputImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({List<Product> productList});
+
+
+class _ProductOutput extends ProductOutput {
+  const _ProductOutput({required final  List<Product> productList}): _productList = productList,super._();
+  
+
+ final  List<Product> _productList;
+@override List<Product> get productList {
+  if (_productList is EqualUnmodifiableListView) return _productList;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_productList);
+}
+
+
+/// Create a copy of ProductOutput
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ProductOutputCopyWith<_ProductOutput> get copyWith => __$ProductOutputCopyWithImpl<_ProductOutput>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProductOutput&&const DeepCollectionEquality().equals(other._productList, _productList));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_productList));
+
+@override
+String toString() {
+  return 'ProductOutput(productList: $productList)';
+}
+
+
 }
 
 /// @nodoc
-class __$$ProductOutputImplCopyWithImpl<$Res>
-    extends _$ProductOutputCopyWithImpl<$Res, _$ProductOutputImpl>
-    implements _$$ProductOutputImplCopyWith<$Res> {
-  __$$ProductOutputImplCopyWithImpl(
-      _$ProductOutputImpl _value, $Res Function(_$ProductOutputImpl) _then)
-      : super(_value, _then);
+abstract mixin class _$ProductOutputCopyWith<$Res> implements $ProductOutputCopyWith<$Res> {
+  factory _$ProductOutputCopyWith(_ProductOutput value, $Res Function(_ProductOutput) _then) = __$ProductOutputCopyWithImpl;
+@override @useResult
+$Res call({
+ List<Product> productList
+});
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? productList = null,
-  }) {
-    return _then(_$ProductOutputImpl(
-      productList: null == productList
-          ? _value._productList
-          : productList // ignore: cast_nullable_to_non_nullable
-              as List<Product>,
-    ));
-  }
+
+
+
 }
-
 /// @nodoc
+class __$ProductOutputCopyWithImpl<$Res>
+    implements _$ProductOutputCopyWith<$Res> {
+  __$ProductOutputCopyWithImpl(this._self, this._then);
 
-class _$ProductOutputImpl extends _ProductOutput {
-  const _$ProductOutputImpl({required final List<Product> productList})
-      : _productList = productList,
-        super._();
+  final _ProductOutput _self;
+  final $Res Function(_ProductOutput) _then;
 
-  final List<Product> _productList;
-  @override
-  List<Product> get productList {
-    if (_productList is EqualUnmodifiableListView) return _productList;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_productList);
-  }
-
-  @override
-  String toString() {
-    return 'ProductOutput(productList: $productList)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ProductOutputImpl &&
-            const DeepCollectionEquality()
-                .equals(other._productList, _productList));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_productList));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ProductOutputImplCopyWith<_$ProductOutputImpl> get copyWith =>
-      __$$ProductOutputImplCopyWithImpl<_$ProductOutputImpl>(this, _$identity);
+/// Create a copy of ProductOutput
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? productList = null,}) {
+  return _then(_ProductOutput(
+productList: null == productList ? _self._productList : productList // ignore: cast_nullable_to_non_nullable
+as List<Product>,
+  ));
 }
 
-abstract class _ProductOutput extends ProductOutput {
-  const factory _ProductOutput({required final List<Product> productList}) =
-      _$ProductOutputImpl;
-  const _ProductOutput._() : super._();
 
-  @override
-  List<Product> get productList;
-  @override
-  @JsonKey(ignore: true)
-  _$$ProductOutputImplCopyWith<_$ProductOutputImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
+
+// dart format on

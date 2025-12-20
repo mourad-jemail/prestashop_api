@@ -6,7 +6,7 @@ part 'error.freezed.dart';
 part 'error.g.dart';
 
 @freezed
-class Error with _$Error {
+abstract class Error with _$Error {
   const Error._();
 
   const factory Error({

@@ -9,7 +9,7 @@ part 'category_dto.freezed.dart';
 part 'category_dto.g.dart';
 
 @freezed
-class CategoryDTO with _$CategoryDTO {
+abstract class CategoryDTO with _$CategoryDTO {
   const CategoryDTO._();
 
   const factory CategoryDTO({
@@ -44,25 +44,25 @@ class CategoryDTO with _$CategoryDTO {
   factory CategoryDTO.fromJson(Map<String, dynamic> json) =>
       _$CategoryDTOFromJson(json);
 
-  factory CategoryDTO.fromDomain(Category _) {
+  factory CategoryDTO.fromDomain(Category category) {
     return CategoryDTO(
-      id: _.id,
-      idParent: _.idParent,
-      levelDepth: _.levelDepth,
-      nbProductsRecursive: _.nbProductsRecursive,
-      active: _.active,
-      idShopDefault: _.idShopDefault,
-      isRootCategory: _.isRootCategory,
-      position: _.position,
-      dateAdd: _.dateAdd,
-      dateUpd: _.dateUpd,
-      name: _.name,
-      linkRewrite: _.linkRewrite,
-      description: _.description,
-      metaTitle: _.metaTitle,
-      metaDescription: _.metaDescription,
-      metaKeywords: _.metaKeywords,
-      associations: CategoryAssociationsDTO.fromDomain(_.associations),
+      id: category.id,
+      idParent: category.idParent,
+      levelDepth: category.levelDepth,
+      nbProductsRecursive: category.nbProductsRecursive,
+      active: category.active,
+      idShopDefault: category.idShopDefault,
+      isRootCategory: category.isRootCategory,
+      position: category.position,
+      dateAdd: category.dateAdd,
+      dateUpd: category.dateUpd,
+      name: category.name,
+      linkRewrite: category.linkRewrite,
+      description: category.description,
+      metaTitle: category.metaTitle,
+      metaDescription: category.metaDescription,
+      metaKeywords: category.metaKeywords,
+      associations: CategoryAssociationsDTO.fromDomain(category.associations),
     );
   }
 

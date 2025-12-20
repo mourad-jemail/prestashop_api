@@ -8,7 +8,7 @@ part 'language_output_dto.freezed.dart';
 part 'language_output_dto.g.dart';
 
 @freezed
-class LanguageOutputDTO with _$LanguageOutputDTO {
+abstract class LanguageOutputDTO with _$LanguageOutputDTO {
   const LanguageOutputDTO._();
 
   const factory LanguageOutputDTO({
@@ -18,16 +18,14 @@ class LanguageOutputDTO with _$LanguageOutputDTO {
   factory LanguageOutputDTO.fromJson(Map<String, dynamic> json) =>
       _$LanguageOutputDTOFromJson(json);
 
-  factory LanguageOutputDTO.fromDomain(LanguageOutput _) {
+  factory LanguageOutputDTO.fromDomain(LanguageOutput languageOutput) {
     return LanguageOutputDTO(
-      languageDTOList: _.languageList.fromDomain(),
+      languageDTOList: languageOutput.languageList.fromDomain(),
     );
   }
 
   LanguageOutput toDomain() {
-    return LanguageOutput(
-      languageList: languageDTOList.toDomain(),
-    );
+    return LanguageOutput(languageList: languageDTOList.toDomain());
   }
 }
 

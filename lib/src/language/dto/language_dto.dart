@@ -7,7 +7,7 @@ part 'language_dto.freezed.dart';
 part 'language_dto.g.dart';
 
 @freezed
-class LanguageDTO with _$LanguageDTO {
+abstract class LanguageDTO with _$LanguageDTO {
   const LanguageDTO._();
 
   const factory LanguageDTO({
@@ -27,17 +27,17 @@ class LanguageDTO with _$LanguageDTO {
   factory LanguageDTO.fromJson(Map<String, dynamic> json) =>
       _$LanguageDTOFromJson(json);
 
-  factory LanguageDTO.fromDomain(Language _) {
+  factory LanguageDTO.fromDomain(Language language) {
     return LanguageDTO(
-      id: _.id,
-      name: _.name,
-      isoCode: _.isoCode,
-      locale: _.locale,
-      languageCode: _.languageCode,
-      active: _.active,
-      isRtl: _.isRtl,
-      dateFormatLite: _.dateFormatLite,
-      dateFormatFull: _.dateFormatFull,
+      id: language.id,
+      name: language.name,
+      isoCode: language.isoCode,
+      locale: language.locale,
+      languageCode: language.languageCode,
+      active: language.active,
+      isRtl: language.isRtl,
+      dateFormatLite: language.dateFormatLite,
+      dateFormatFull: language.dateFormatFull,
     );
   }
 

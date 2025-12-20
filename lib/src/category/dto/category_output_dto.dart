@@ -8,7 +8,7 @@ part 'category_output_dto.freezed.dart';
 part 'category_output_dto.g.dart';
 
 @freezed
-class CategoryOutputDTO with _$CategoryOutputDTO {
+abstract class CategoryOutputDTO with _$CategoryOutputDTO {
   const CategoryOutputDTO._();
 
   const factory CategoryOutputDTO({
@@ -18,16 +18,14 @@ class CategoryOutputDTO with _$CategoryOutputDTO {
   factory CategoryOutputDTO.fromJson(Map<String, dynamic> json) =>
       _$CategoryOutputDTOFromJson(json);
 
-  factory CategoryOutputDTO.fromDomain(CategoryOutput _) {
+  factory CategoryOutputDTO.fromDomain(CategoryOutput categoryOutput) {
     return CategoryOutputDTO(
-      categoryDTOList: _.categoryList.fromDomain(),
+      categoryDTOList: categoryOutput.categoryList.fromDomain(),
     );
   }
 
   CategoryOutput toDomain() {
-    return CategoryOutput(
-      categoryList: categoryDTOList.toDomain(),
-    );
+    return CategoryOutput(categoryList: categoryDTOList.toDomain());
   }
 }
 

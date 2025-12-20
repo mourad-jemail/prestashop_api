@@ -6,20 +6,19 @@ part of 'language_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LanguageDTOImpl _$$LanguageDTOImplFromJson(Map<String, dynamic> json) =>
-    _$LanguageDTOImpl(
-      id: json['id'] as int,
-      name: json['name'] as String?,
-      isoCode: json['iso_code'] as String?,
-      locale: json['locale'] as String?,
-      languageCode: json['language_code'] as String?,
-      active: boolFromJson(json['active']),
-      isRtl: boolFromJson(json['is_rtl']),
-      dateFormatLite: json['date_format_lite'] as String?,
-      dateFormatFull: json['date_format_full'] as String?,
-    );
+_LanguageDTO _$LanguageDTOFromJson(Map<String, dynamic> json) => _LanguageDTO(
+  id: (json['id'] as num).toInt(),
+  name: json['name'] as String?,
+  isoCode: json['iso_code'] as String?,
+  locale: json['locale'] as String?,
+  languageCode: json['language_code'] as String?,
+  active: boolFromJson(json['active']),
+  isRtl: boolFromJson(json['is_rtl']),
+  dateFormatLite: json['date_format_lite'] as String?,
+  dateFormatFull: json['date_format_full'] as String?,
+);
 
-Map<String, dynamic> _$$LanguageDTOImplToJson(_$LanguageDTOImpl instance) =>
+Map<String, dynamic> _$LanguageDTOToJson(_LanguageDTO instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

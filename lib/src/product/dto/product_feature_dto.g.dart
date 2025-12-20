@@ -6,15 +6,13 @@ part of 'product_feature_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ProductFeatureDTOImpl _$$ProductFeatureDTOImplFromJson(
-        Map<String, dynamic> json) =>
-    _$ProductFeatureDTOImpl(
+_ProductFeatureDTO _$ProductFeatureDTOFromJson(Map<String, dynamic> json) =>
+    _ProductFeatureDTO(
       id_: json['id'] as String,
       idFeatureValue: stringFromJson(json['id_feature_value'] as String?),
     );
 
-Map<String, dynamic> _$$ProductFeatureDTOImplToJson(
-        _$ProductFeatureDTOImpl instance) =>
+Map<String, dynamic> _$ProductFeatureDTOToJson(_ProductFeatureDTO instance) =>
     <String, dynamic>{
       'id': instance.id_,
       'id_feature_value': instance.idFeatureValue,

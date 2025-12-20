@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,166 +9,272 @@ part of 'stock_available.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StockAvailable _$StockAvailableFromJson(Map<String, dynamic> json) {
-  return _StockAvailable.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StockAvailable {
-  String get id_ => throw _privateConstructorUsedError;
-  String get idProductAttribute => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $StockAvailableCopyWith<StockAvailable> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get id_; String get idProductAttribute;
+/// Create a copy of StockAvailable
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$StockAvailableCopyWith<StockAvailable> get copyWith => _$StockAvailableCopyWithImpl<StockAvailable>(this as StockAvailable, _$identity);
+
+  /// Serializes this StockAvailable to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StockAvailable&&(identical(other.id_, id_) || other.id_ == id_)&&(identical(other.idProductAttribute, idProductAttribute) || other.idProductAttribute == idProductAttribute));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id_,idProductAttribute);
+
+@override
+String toString() {
+  return 'StockAvailable(id_: $id_, idProductAttribute: $idProductAttribute)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $StockAvailableCopyWith<$Res> {
-  factory $StockAvailableCopyWith(
-          StockAvailable value, $Res Function(StockAvailable) then) =
-      _$StockAvailableCopyWithImpl<$Res, StockAvailable>;
-  @useResult
-  $Res call({String id_, String idProductAttribute});
-}
+abstract mixin class $StockAvailableCopyWith<$Res>  {
+  factory $StockAvailableCopyWith(StockAvailable value, $Res Function(StockAvailable) _then) = _$StockAvailableCopyWithImpl;
+@useResult
+$Res call({
+ String id_, String idProductAttribute
+});
 
+
+
+
+}
 /// @nodoc
-class _$StockAvailableCopyWithImpl<$Res, $Val extends StockAvailable>
+class _$StockAvailableCopyWithImpl<$Res>
     implements $StockAvailableCopyWith<$Res> {
-  _$StockAvailableCopyWithImpl(this._value, this._then);
+  _$StockAvailableCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final StockAvailable _self;
+  final $Res Function(StockAvailable) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id_ = null,
-    Object? idProductAttribute = null,
-  }) {
-    return _then(_value.copyWith(
-      id_: null == id_
-          ? _value.id_
-          : id_ // ignore: cast_nullable_to_non_nullable
-              as String,
-      idProductAttribute: null == idProductAttribute
-          ? _value.idProductAttribute
-          : idProductAttribute // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of StockAvailable
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? id_ = null,Object? idProductAttribute = null,}) {
+  return _then(_self.copyWith(
+id_: null == id_ ? _self.id_ : id_ // ignore: cast_nullable_to_non_nullable
+as String,idProductAttribute: null == idProductAttribute ? _self.idProductAttribute : idProductAttribute // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$StockAvailableImplCopyWith<$Res>
-    implements $StockAvailableCopyWith<$Res> {
-  factory _$$StockAvailableImplCopyWith(_$StockAvailableImpl value,
-          $Res Function(_$StockAvailableImpl) then) =
-      __$$StockAvailableImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String id_, String idProductAttribute});
 }
 
-/// @nodoc
-class __$$StockAvailableImplCopyWithImpl<$Res>
-    extends _$StockAvailableCopyWithImpl<$Res, _$StockAvailableImpl>
-    implements _$$StockAvailableImplCopyWith<$Res> {
-  __$$StockAvailableImplCopyWithImpl(
-      _$StockAvailableImpl _value, $Res Function(_$StockAvailableImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id_ = null,
-    Object? idProductAttribute = null,
-  }) {
-    return _then(_$StockAvailableImpl(
-      id_: null == id_
-          ? _value.id_
-          : id_ // ignore: cast_nullable_to_non_nullable
-              as String,
-      idProductAttribute: null == idProductAttribute
-          ? _value.idProductAttribute
-          : idProductAttribute // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+/// Adds pattern-matching-related methods to [StockAvailable].
+extension StockAvailablePatterns on StockAvailable {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _StockAvailable value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _StockAvailable() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _StockAvailable value)  $default,){
+final _that = this;
+switch (_that) {
+case _StockAvailable():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _StockAvailable value)?  $default,){
+final _that = this;
+switch (_that) {
+case _StockAvailable() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id_,  String idProductAttribute)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _StockAvailable() when $default != null:
+return $default(_that.id_,_that.idProductAttribute);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id_,  String idProductAttribute)  $default,) {final _that = this;
+switch (_that) {
+case _StockAvailable():
+return $default(_that.id_,_that.idProductAttribute);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id_,  String idProductAttribute)?  $default,) {final _that = this;
+switch (_that) {
+case _StockAvailable() when $default != null:
+return $default(_that.id_,_that.idProductAttribute);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$StockAvailableImpl extends _StockAvailable {
-  const _$StockAvailableImpl(
-      {required this.id_, required this.idProductAttribute})
-      : super._();
 
-  factory _$StockAvailableImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StockAvailableImplFromJson(json);
+class _StockAvailable extends StockAvailable {
+  const _StockAvailable({required this.id_, required this.idProductAttribute}): super._();
+  factory _StockAvailable.fromJson(Map<String, dynamic> json) => _$StockAvailableFromJson(json);
 
-  @override
-  final String id_;
-  @override
-  final String idProductAttribute;
+@override final  String id_;
+@override final  String idProductAttribute;
 
-  @override
-  String toString() {
-    return 'StockAvailable(id_: $id_, idProductAttribute: $idProductAttribute)';
-  }
+/// Create a copy of StockAvailable
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$StockAvailableCopyWith<_StockAvailable> get copyWith => __$StockAvailableCopyWithImpl<_StockAvailable>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$StockAvailableImpl &&
-            (identical(other.id_, id_) || other.id_ == id_) &&
-            (identical(other.idProductAttribute, idProductAttribute) ||
-                other.idProductAttribute == idProductAttribute));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, id_, idProductAttribute);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$StockAvailableImplCopyWith<_$StockAvailableImpl> get copyWith =>
-      __$$StockAvailableImplCopyWithImpl<_$StockAvailableImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StockAvailableImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$StockAvailableToJson(this, );
 }
 
-abstract class _StockAvailable extends StockAvailable {
-  const factory _StockAvailable(
-      {required final String id_,
-      required final String idProductAttribute}) = _$StockAvailableImpl;
-  const _StockAvailable._() : super._();
-
-  factory _StockAvailable.fromJson(Map<String, dynamic> json) =
-      _$StockAvailableImpl.fromJson;
-
-  @override
-  String get id_;
-  @override
-  String get idProductAttribute;
-  @override
-  @JsonKey(ignore: true)
-  _$$StockAvailableImplCopyWith<_$StockAvailableImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _StockAvailable&&(identical(other.id_, id_) || other.id_ == id_)&&(identical(other.idProductAttribute, idProductAttribute) || other.idProductAttribute == idProductAttribute));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id_,idProductAttribute);
+
+@override
+String toString() {
+  return 'StockAvailable(id_: $id_, idProductAttribute: $idProductAttribute)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$StockAvailableCopyWith<$Res> implements $StockAvailableCopyWith<$Res> {
+  factory _$StockAvailableCopyWith(_StockAvailable value, $Res Function(_StockAvailable) _then) = __$StockAvailableCopyWithImpl;
+@override @useResult
+$Res call({
+ String id_, String idProductAttribute
+});
+
+
+
+
+}
+/// @nodoc
+class __$StockAvailableCopyWithImpl<$Res>
+    implements _$StockAvailableCopyWith<$Res> {
+  __$StockAvailableCopyWithImpl(this._self, this._then);
+
+  final _StockAvailable _self;
+  final $Res Function(_StockAvailable) _then;
+
+/// Create a copy of StockAvailable
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? id_ = null,Object? idProductAttribute = null,}) {
+  return _then(_StockAvailable(
+id_: null == id_ ? _self.id_ : id_ // ignore: cast_nullable_to_non_nullable
+as String,idProductAttribute: null == idProductAttribute ? _self.idProductAttribute : idProductAttribute // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

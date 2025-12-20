@@ -7,7 +7,7 @@ part 'category.freezed.dart';
 part 'category.g.dart';
 
 @freezed
-class Category with _$Category {
+abstract class Category with _$Category {
   // In order to define methods/properties in our class, we need to define
   // a private empty constructor. Otherwise, adding getters and methods to our
   // model won't work, and as a result, we get an error. Example:

@@ -8,7 +8,7 @@ part 'error_output_dto.freezed.dart';
 part 'error_output_dto.g.dart';
 
 @freezed
-class ErrorOutputDTO with _$ErrorOutputDTO {
+abstract class ErrorOutputDTO with _$ErrorOutputDTO {
   const ErrorOutputDTO._();
 
   const factory ErrorOutputDTO({
@@ -18,17 +18,11 @@ class ErrorOutputDTO with _$ErrorOutputDTO {
   factory ErrorOutputDTO.fromJson(Map<String, dynamic> json) =>
       _$ErrorOutputDTOFromJson(json);
 
-  factory ErrorOutputDTO.fromDomain(ErrorOutput _) {
-    return ErrorOutputDTO(
-      errorDTOList: _.errorList.fromDomain(),
-    );
+  factory ErrorOutputDTO.fromDomain(ErrorOutput errorOutput) {
+    return ErrorOutputDTO(errorDTOList: errorOutput.errorList.fromDomain());
   }
 
-  ErrorOutput toDomain() {
-    return ErrorOutput(
-      errorList: errorDTOList.toDomain(),
-    );
-  }
+  ErrorOutput toDomain() => ErrorOutput(errorList: errorDTOList.toDomain());
 }
 
 extension DomainListToDTOList on List<Error> {

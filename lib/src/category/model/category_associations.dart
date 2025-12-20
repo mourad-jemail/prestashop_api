@@ -6,7 +6,7 @@ part 'category_associations.freezed.dart';
 part 'category_associations.g.dart';
 
 @freezed
-class CategoryAssociations with _$CategoryAssociations {
+abstract class CategoryAssociations with _$CategoryAssociations {
   const CategoryAssociations._();
 
   const factory CategoryAssociations({

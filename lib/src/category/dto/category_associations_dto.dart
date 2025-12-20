@@ -8,7 +8,7 @@ part 'category_associations_dto.freezed.dart';
 part 'category_associations_dto.g.dart';
 
 @freezed
-class CategoryAssociationsDTO with _$CategoryAssociationsDTO {
+abstract class CategoryAssociationsDTO with _$CategoryAssociationsDTO {
   const CategoryAssociationsDTO._();
 
   factory CategoryAssociationsDTO({
@@ -21,11 +21,16 @@ class CategoryAssociationsDTO with _$CategoryAssociationsDTO {
   factory CategoryAssociationsDTO.fromJson(Map<String, dynamic> json) =>
       _$CategoryAssociationsDTOFromJson(json);
 
-  factory CategoryAssociationsDTO.fromDomain(CategoryAssociations? _) {
+  factory CategoryAssociationsDTO.fromDomain(
+    CategoryAssociations? categoryAssociations,
+  ) {
     return CategoryAssociationsDTO(
-      categoryDTOs:
-          (_ != null) ? _.categories?.fromDomain() : List<IdDTO>.empty(),
-      productDTOs: (_ != null) ? _.products?.fromDomain() : List<IdDTO>.empty(),
+      categoryDTOs: (categoryAssociations != null)
+          ? categoryAssociations.categories?.fromDomain()
+          : List<IdDTO>.empty(),
+      productDTOs: (categoryAssociations != null)
+          ? categoryAssociations.products?.fromDomain()
+          : List<IdDTO>.empty(),
     );
   }
 

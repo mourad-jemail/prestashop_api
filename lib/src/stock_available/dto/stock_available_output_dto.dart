@@ -8,7 +8,7 @@ part 'stock_available_output_dto.freezed.dart';
 part 'stock_available_output_dto.g.dart';
 
 @freezed
-class StockAvailableOutputDTO with _$StockAvailableOutputDTO {
+abstract class StockAvailableOutputDTO with _$StockAvailableOutputDTO {
   const StockAvailableOutputDTO._();
 
   const factory StockAvailableOutputDTO({
@@ -19,9 +19,12 @@ class StockAvailableOutputDTO with _$StockAvailableOutputDTO {
   factory StockAvailableOutputDTO.fromJson(Map<String, dynamic> json) =>
       _$StockAvailableOutputDTOFromJson(json);
 
-  factory StockAvailableOutputDTO.fromDomain(StockAvailableOutput _) {
+  factory StockAvailableOutputDTO.fromDomain(
+    StockAvailableOutput stockAvailableOutput,
+  ) {
     return StockAvailableOutputDTO(
-      stockAvailableDTOList: _.stockAvailableList.fromDomain(),
+      stockAvailableDTOList: stockAvailableOutput.stockAvailableList
+          .fromDomain(),
     );
   }
 

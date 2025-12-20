@@ -6,28 +6,27 @@ part of 'category_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CategoryDTOImpl _$$CategoryDTOImplFromJson(Map<String, dynamic> json) =>
-    _$CategoryDTOImpl(
-      id: json['id'] as int,
-      idParent: stringFromJson(json['id_parent'] as String?),
-      levelDepth: stringFromJson(json['level_depth'] as String?),
-      nbProductsRecursive: stringFromDynamicJson(json['nb_products_recursive']),
-      active: boolFromJson(json['active']),
-      idShopDefault: stringFromJson(json['id_shop_default'] as String?),
-      isRootCategory: boolFromJson(json['is_root_category']),
-      position: stringFromJson(json['position'] as String?),
-      dateAdd: dateTimeFromJson(json['date_add']),
-      dateUpd: dateTimeFromJson(json['date_upd']),
-      name: json['name'] as String?,
-      linkRewrite: json['link_rewrite'] as String?,
-      description: json['description'] as String?,
-      metaTitle: json['meta_title'] as String?,
-      metaDescription: json['meta_description'] as String?,
-      metaKeywords: json['meta_keywords'] as String?,
-      associations: _associationsFromJson(json['associations']),
-    );
+_CategoryDTO _$CategoryDTOFromJson(Map<String, dynamic> json) => _CategoryDTO(
+  id: (json['id'] as num).toInt(),
+  idParent: stringFromJson(json['id_parent'] as String?),
+  levelDepth: stringFromJson(json['level_depth'] as String?),
+  nbProductsRecursive: stringFromDynamicJson(json['nb_products_recursive']),
+  active: boolFromJson(json['active']),
+  idShopDefault: stringFromJson(json['id_shop_default'] as String?),
+  isRootCategory: boolFromJson(json['is_root_category']),
+  position: stringFromJson(json['position'] as String?),
+  dateAdd: dateTimeFromJson(json['date_add']),
+  dateUpd: dateTimeFromJson(json['date_upd']),
+  name: json['name'] as String?,
+  linkRewrite: json['link_rewrite'] as String?,
+  description: json['description'] as String?,
+  metaTitle: json['meta_title'] as String?,
+  metaDescription: json['meta_description'] as String?,
+  metaKeywords: json['meta_keywords'] as String?,
+  associations: _associationsFromJson(json['associations']),
+);
 
-Map<String, dynamic> _$$CategoryDTOImplToJson(_$CategoryDTOImpl instance) =>
+Map<String, dynamic> _$CategoryDTOToJson(_CategoryDTO instance) =>
     <String, dynamic>{
       'id': instance.id,
       'id_parent': instance.idParent,

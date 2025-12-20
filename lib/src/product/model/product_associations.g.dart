@@ -6,9 +6,8 @@ part of 'product_associations.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ProductAssociationsImpl _$$ProductAssociationsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$ProductAssociationsImpl(
+_ProductAssociations _$ProductAssociationsFromJson(Map<String, dynamic> json) =>
+    _ProductAssociations(
       categories: (json['categories'] as List<dynamic>)
           .map((e) => Id.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -26,12 +25,12 @@ _$ProductAssociationsImpl _$$ProductAssociationsImplFromJson(
           .toList(),
     );
 
-Map<String, dynamic> _$$ProductAssociationsImplToJson(
-        _$ProductAssociationsImpl instance) =>
-    <String, dynamic>{
-      'categories': instance.categories,
-      'images': instance.images,
-      'productFeatures': instance.productFeatures,
-      'stockAvailables': instance.stockAvailables,
-      'accessories': instance.accessories,
-    };
+Map<String, dynamic> _$ProductAssociationsToJson(
+  _ProductAssociations instance,
+) => <String, dynamic>{
+  'categories': instance.categories,
+  'images': instance.images,
+  'productFeatures': instance.productFeatures,
+  'stockAvailables': instance.stockAvailables,
+  'accessories': instance.accessories,
+};

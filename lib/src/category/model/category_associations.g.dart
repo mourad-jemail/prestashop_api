@@ -6,20 +6,20 @@ part of 'category_associations.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CategoryAssociationsImpl _$$CategoryAssociationsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$CategoryAssociationsImpl(
-      categories: (json['categories'] as List<dynamic>?)
-          ?.map((e) => Id.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      products: (json['products'] as List<dynamic>?)
-          ?.map((e) => Id.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
+_CategoryAssociations _$CategoryAssociationsFromJson(
+  Map<String, dynamic> json,
+) => _CategoryAssociations(
+  categories: (json['categories'] as List<dynamic>?)
+      ?.map((e) => Id.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  products: (json['products'] as List<dynamic>?)
+      ?.map((e) => Id.fromJson(e as Map<String, dynamic>))
+      .toList(),
+);
 
-Map<String, dynamic> _$$CategoryAssociationsImplToJson(
-        _$CategoryAssociationsImpl instance) =>
-    <String, dynamic>{
-      'categories': instance.categories,
-      'products': instance.products,
-    };
+Map<String, dynamic> _$CategoryAssociationsToJson(
+  _CategoryAssociations instance,
+) => <String, dynamic>{
+  'categories': instance.categories,
+  'products': instance.products,
+};

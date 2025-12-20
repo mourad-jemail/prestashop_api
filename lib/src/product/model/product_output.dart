@@ -5,7 +5,7 @@ import 'product.dart';
 part 'product_output.freezed.dart';
 
 @freezed
-class ProductOutput with _$ProductOutput {
+abstract class ProductOutput with _$ProductOutput {
   const ProductOutput._();
 
   const factory ProductOutput({

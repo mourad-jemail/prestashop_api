@@ -6,7 +6,7 @@ import 'sort_order.dart';
 part 'sort_field_order.freezed.dart';
 
 @freezed
-class SortFieldOrder<T extends SortEnumValue> with _$SortFieldOrder<T> {
+abstract class SortFieldOrder<T extends SortEnumValue> with _$SortFieldOrder<T> {
   const SortFieldOrder._();
 
   const factory SortFieldOrder({

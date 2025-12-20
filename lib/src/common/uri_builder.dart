@@ -37,22 +37,14 @@ String getFilterKey<U extends FilterEnumValue>(U field) =>
 ///    %[els]	End operator: fields ends with the value (not case sensitive)
 ///    %[hee]%	Contains operator: fields contains the value (not case sensitive)
 String getFilterValue<U extends FilterEnumValue>(Filter<U> filter) {
-  switch (filter.condition) {
-    case FilterCondition.anyOf:
-      return filter.values!.toString().replaceAll(',', '|');
-    case FilterCondition.between:
-      return '[${filter.begin!},${filter.end!}]';
-    case FilterCondition.equals:
-      return '[${filter.value!}]';
-    case FilterCondition.beginsWith:
-      return '[${filter.value!}]%';
-    case FilterCondition.endsWith:
-      return '%[${filter.value!}]';
-    case FilterCondition.contains:
-      return '%[${filter.value!}]%';
-    default:
-      return 'Unrecognized filter condition';
-  }
+  return switch (filter.condition) {
+    FilterCondition.anyOf => filter.values!.toString().replaceAll(',', '|'),
+    FilterCondition.between => '[${filter.begin!},${filter.end!}]',
+    FilterCondition.equals => '[${filter.value!}]',
+    FilterCondition.beginsWith => '[${filter.value!}]%',
+    FilterCondition.endsWith => '%[${filter.value!}]',
+    FilterCondition.contains => '%[${filter.value!}]%',
+  };
 }
 
 /// Returns, for example:
@@ -76,11 +68,9 @@ String getDisplayValue<T extends DisplayEnumValue>(List<T> fields) {
 ///    a field name and the expected order separated by a _
 String getSortValue(List<SortFieldOrder> sortFields) {
   return sortFields
-      .map(
-        (sortField) {
-          return '${sortField.field.enumValue}_${sortField.order.enumValue}';
-        },
-      )
+      .map((sortField) {
+        return '${sortField.field.enumValue}_${sortField.order.enumValue}';
+      })
       .toList()
       .toString()
       // The replaceAll() method is used with the regular expression r'\s+'
@@ -151,29 +141,20 @@ class UriBuilder {
 
   UriBuilder setSort(Sort<SortFieldOrder>? sort) {
     if (sort != null && sort.sortFieldOrderList.isNotEmpty) {
-      _updateQueryParameter(
-        'sort',
-        getSortValue(sort.sortFieldOrderList),
-      );
+      _updateQueryParameter('sort', getSortValue(sort.sortFieldOrderList));
     }
 
     return this;
   }
 
-  UriBuilder setLimit({
-    required int page,
-    required int perPage,
-  }) {
+  UriBuilder setLimit({required int page, required int perPage}) {
     final offset = perPage * page - perPage;
 
     // NOTE: The PrestaShop API headers do not provide the maximum page number.
     //  To determine the availability of the next page, we add 1 to the number
     //  of requested items. Later, when we check the number of returned items,
     //  if it equals {limit + 1}, then the next page is available.
-    _updateQueryParameter(
-      'limit',
-      '$offset,${perPage + 1}',
-    );
+    _updateQueryParameter('limit', '$offset,${perPage + 1}');
     return this;
   }
 

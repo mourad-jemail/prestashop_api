@@ -5,7 +5,7 @@ import 'category.dart';
 part 'category_output.freezed.dart';
 
 @freezed
-class CategoryOutput with _$CategoryOutput {
+abstract class CategoryOutput with _$CategoryOutput {
   const CategoryOutput._();
 
   const factory CategoryOutput({
