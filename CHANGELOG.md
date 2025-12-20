@@ -20,4 +20,5 @@
 - Upgrade package dependencies
 - Fix breaking changes introduced by dependency upgrades
 - Add support for Windows, Linux, and macOS
+- Enforce stricter code quality through enhanced analyzer and linter rules
 - No API changes beyond SDK and platform support updates
