@@ -1,5 +1,5 @@
 /// You can make APIs public here.
-library prestashop_api;
+library;
 
 export 'package:dio/dio.dart';
 
