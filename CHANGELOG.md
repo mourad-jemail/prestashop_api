@@ -13,3 +13,11 @@
 ## 0.1.1
 
 - Fixed internal links of resources.
+
+## 1.0.0
+
+- **Breaking:** Require Dart SDK >= 3.8.0
+- Upgrade package dependencies
+- Fix breaking changes introduced by dependency upgrades
+- Add support for Windows, Linux, and macOS
+- No API changes beyond SDK and platform support updates
