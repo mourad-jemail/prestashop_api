@@ -20,21 +20,65 @@ include: package:lint/analysis_options.yaml
 #     - camel_case_types
 
 analyzer:
+  errors:
+    dead_code: info
+    invalid_annotation_target: ignore
+    invalid_assignment: warning
+    invalid_use_of_protected_member: error
+    missing_return: error
+    must_be_immutable: error
+    must_call_super: error
+    parameter_assignments: error
+    sort_unnamed_constructors_first: ignore
+
   exclude:
     - '**.freezed.dart'
     - '**.g.dart'
     - '**.gr.dart'
     - '**.config.dart'
     - '**.mocks.dart'
-  errors:
-    missing_return: error
-    must_be_immutable: error
-    must_call_super: error
-    invalid_use_of_protected_member: error
-    parameter_assignments: error
-    sort_unnamed_constructors_first: ignore
-    invalid_annotation_target: ignore
-    always_use_package_imports: ignore
+
+linter:
+  rules:
+    always_declare_return_types: true
+    always_use_package_imports: false
+    annotate_overrides: true
+    avoid_catches_without_on_clauses: true
+    avoid_empty_else: true
+    avoid_function_literals_in_foreach_calls: true
+    avoid_multiple_declarations_per_line: true
+    avoid_relative_lib_imports: true
+    avoid_returning_null_for_void: true
+    lines_longer_than_80_chars: false
+    no_leading_underscores_for_local_identifiers: true
+    no_wildcard_variable_uses: false
+    prefer_const_constructors: true
+    prefer_interpolation_to_compose_strings: true
+    prefer_is_empty: true
+    prefer_is_not_empty: true
+    prefer_single_quotes: true
+    provide_deprecation_message: true
+    require_trailing_commas: true
+    sort_child_properties_last: true
+    sort_pub_dependencies: true
+    unawaited_futures: false
+    unnecessary_await_in_return: false
+    unnecessary_breaks: false
+    unnecessary_late: false
+    unnecessary_new: false
+    unnecessary_null_checks: false
+    unnecessary_overrides: false
+    unnecessary_parenthesis: false
+
+errors:
+  missing_return: error
+  must_be_immutable: error
+  must_call_super: error
+  invalid_use_of_protected_member: error
+  parameter_assignments: error
+  sort_unnamed_constructors_first: ignore
+  invalid_annotation_target: ignore
+  always_use_package_imports: ignore
 
 # For more information about the core and recommended set of lints, see
 # https://dart.dev/go/core-lints
