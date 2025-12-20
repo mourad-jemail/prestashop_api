@@ -36,7 +36,7 @@ void main() async {
       data: receivedProducts.entity,
       toJsonMap: productToJsonMap,
     );
-  } catch (e) {
+  } on Exception catch (e) {
     logger.e('Error caught: $e');
   }
 
@@ -54,7 +54,7 @@ void main() async {
       data: receivedProduct.entity,
       toJsonMap: productToJsonMap,
     );
-  } catch (e) {
+  } on Exception catch (e) {
     logger.e('Error caught: $e');
   }
 
@@ -86,7 +86,7 @@ void main() async {
     logger.e('Timeout error: ${e.message}');
   } on HostLookupException catch (e) {
     logger.e('Connection error: ${e.message}');
-  } catch (e) {
+  } on Exception catch (e) {
     logger.e('Unknown error: $e');
   }
 }
