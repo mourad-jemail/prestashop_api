@@ -8,13 +8,10 @@ part 'category_output.freezed.dart';
 abstract class CategoryOutput with _$CategoryOutput {
   const CategoryOutput._();
 
-  const factory CategoryOutput({
-    required List<Category> categoryList,
-  }) = _CategoryOutput;
+  const factory CategoryOutput({required List<Category> categoryList}) =
+      _CategoryOutput;
 
-  factory CategoryOutput.empty() => CategoryOutput(
-        categoryList: List.empty(),
-      );
+  factory CategoryOutput.empty() => CategoryOutput(categoryList: List.empty());
 
   bool isEmpty() => List.of(categoryList).isEmpty;
 }

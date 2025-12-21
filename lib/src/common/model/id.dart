@@ -10,13 +10,9 @@ part 'id.g.dart';
 abstract class Id with _$Id {
   const Id._();
 
-  const factory Id({
-    required String id_,
-  }) = _Id;
+  const factory Id({required String id_}) = _Id;
 
-  factory Id.empty() => const Id(
-        id_: '',
-      );
+  factory Id.empty() => const Id(id_: '');
 
   bool isEmpty() => id_.isEmpty;
 

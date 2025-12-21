@@ -6,8 +6,6 @@ part 'received_entity.freezed.dart';
 abstract class ReceivedEntity<T> with _$ReceivedEntity<T> {
   const ReceivedEntity._();
 
-  const factory ReceivedEntity(
-    T entity, {
-    bool? isNextPageAvailable,
-  }) = _ReceivedEntity<T>;
+  const factory ReceivedEntity(T entity, {bool? isNextPageAvailable}) =
+      _ReceivedEntity<T>;
 }

@@ -5,7 +5,6 @@ import 'product_feature.dart';
 import 'stock_available.dart';
 
 part 'product_associations.freezed.dart';
-
 part 'product_associations.g.dart';
 
 @freezed
@@ -20,9 +19,8 @@ abstract class ProductAssociations with _$ProductAssociations {
     List<Id>? accessories,
   }) = _ProductAssociations;
 
-  factory ProductAssociations.empty() => const ProductAssociations(
-        categories: [],
-      );
+  factory ProductAssociations.empty() =>
+      const ProductAssociations(categories: []);
 
   bool isEmpty() => categories.isEmpty;
 

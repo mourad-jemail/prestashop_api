@@ -9,15 +9,9 @@ part 'error.g.dart';
 abstract class Error with _$Error {
   const Error._();
 
-  const factory Error({
-    required int code,
-    required String message,
-  }) = _Error;
+  const factory Error({required int code, required String message}) = _Error;
 
-  factory Error.empty() => const Error(
-        code: 0,
-        message: '',
-      );
+  factory Error.empty() => const Error(code: 0, message: '');
 
   bool isEmpty() => code == 0;
 
@@ -35,10 +29,7 @@ Map<String, dynamic> errorToJsonMap<T>(
   // `prettyPrint` method.
   bool keepEmptyFields,
 ) {
-  return error.toJson().entries.fold<Map<String, dynamic>>(
-    {},
-    (map, entry) {
-      return maybeKeepEmptyFields(map, entry, keepEmptyFields);
-    },
-  );
+  return error.toJson().entries.fold<Map<String, dynamic>>({}, (map, entry) {
+    return maybeKeepEmptyFields(map, entry, keepEmptyFields);
+  });
 }

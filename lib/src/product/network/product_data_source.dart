@@ -22,10 +22,7 @@ class ProductDataSource {
   final Dio _dio;
   final BaseConfig _baseConfig;
 
-  ProductDataSource(
-    this._dio,
-    this._baseConfig,
-  );
+  ProductDataSource(this._dio, this._baseConfig);
 
   /// Retrieves products from the server based on specified filters, display
   /// options, and sort criteria.
@@ -132,22 +129,23 @@ class ProductDataSource {
     Sort<SortFieldOrder<ProductSortField>>? sort,
   }) async {
     // Build the URI with the provided limit, filter, display, and sort options
-    final uriBuilder = UriBuilder(
-      _baseConfig,
-      productPath,
-      languageId: languageId,
+    final uriBuilder =
+        UriBuilder(
+              _baseConfig,
+              productPath,
+              languageId: languageId,
 
-      /// Refer to:
-      /// https://devdocs.prestashop-project.org/1.7/webservice/tutorials/advanced-use/specific-price/
-      productSpecificPrices: {
-        'price[price_tax_incl][use_tax]': '1',
-        'price[price_tax_excl][use_tax]': '0',
-      },
-    )
-        .setLimit(page: page, perPage: perPage)
-        .setFilter(filter)
-        .setDisplay(display)
-        .setSort(sort);
+              /// Refer to:
+              /// https://devdocs.prestashop-project.org/1.7/webservice/tutorials/advanced-use/specific-price/
+              productSpecificPrices: {
+                'price[price_tax_incl][use_tax]': '1',
+                'price[price_tax_excl][use_tax]': '0',
+              },
+            )
+            .setLimit(page: page, perPage: perPage)
+            .setFilter(filter)
+            .setDisplay(display)
+            .setSort(sort);
 
     try {
       Response response;

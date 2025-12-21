@@ -6,8 +6,6 @@ part 'remote_response.freezed.dart';
 abstract class RemoteResponse<T> with _$RemoteResponse<T> {
   const RemoteResponse._();
 
-  const factory RemoteResponse(
-    T data, {
-    bool? isNextPageAvailable,
-  }) = _RemoteResponse<T>;
+  const factory RemoteResponse(T data, {bool? isNextPageAvailable}) =
+      _RemoteResponse<T>;
 }

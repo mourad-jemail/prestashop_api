@@ -5,7 +5,6 @@ import '../model/product_output.dart';
 import 'product_dto.dart';
 
 part 'product_output_dto.freezed.dart';
-
 part 'product_output_dto.g.dart';
 
 @freezed

@@ -8,7 +8,5 @@ part 'display.freezed.dart';
 abstract class Display<T extends DisplayEnumValue> with _$Display<T> {
   const Display._();
 
-  const factory Display({
-    required List<T> displayFieldList,
-  }) = _Display<T>;
+  const factory Display({required List<T> displayFieldList}) = _Display<T>;
 }

@@ -35,8 +35,8 @@ void prettyPrint<T>({
 }) {
   final object = data is List
       ? (data as List<T>)
-          .map((item) => toJsonMap(item, keepEmptyFields))
-          .toList()
+            .map((item) => toJsonMap(item, keepEmptyFields))
+            .toList()
       : toJsonMap(data as T, keepEmptyFields);
 
   final prettyPrinted = const JsonEncoder.withIndent('  ').convert(object);

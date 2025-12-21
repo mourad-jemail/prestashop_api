@@ -12,10 +12,8 @@ abstract class StockAvailable with _$StockAvailable {
     required String idProductAttribute,
   }) = _StockAvailable;
 
-  factory StockAvailable.empty() => const StockAvailable(
-        id_: '',
-        idProductAttribute: '',
-      );
+  factory StockAvailable.empty() =>
+      const StockAvailable(id_: '', idProductAttribute: '');
 
   bool isEmpty() => id_.isEmpty;
 

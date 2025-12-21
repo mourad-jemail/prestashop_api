@@ -12,9 +12,8 @@ abstract class StockAvailableOutput with _$StockAvailableOutput {
     required List<StockAvailable> stockAvailableList,
   }) = _StockAvailableOutput;
 
-  factory StockAvailableOutput.empty() => StockAvailableOutput(
-        stockAvailableList: List.empty(),
-      );
+  factory StockAvailableOutput.empty() =>
+      StockAvailableOutput(stockAvailableList: List.empty());
 
   bool isEmpty() => List.of(stockAvailableList).isEmpty;
 }

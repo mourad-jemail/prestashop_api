@@ -20,10 +20,7 @@ class LanguageDataSource {
   final Dio _dio;
   final BaseConfig _baseConfig;
 
-  LanguageDataSource(
-    this._dio,
-    this._baseConfig,
-  );
+  LanguageDataSource(this._dio, this._baseConfig);
 
   /// Retrieves languages from the server based on specified filters, display
   /// options, and sort criteria.
@@ -39,10 +36,10 @@ class LanguageDataSource {
     Display<LanguageDisplayField>? display,
     Sort<SortFieldOrder<LanguageSortField>>? sort,
   }) async {
-    final uriBuilder = UriBuilder(_baseConfig, languagePath)
-        .setFilter(filter)
-        .setDisplay(display)
-        .setSort(sort);
+    final uriBuilder = UriBuilder(
+      _baseConfig,
+      languagePath,
+    ).setFilter(filter).setDisplay(display).setSort(sort);
 
     try {
       Response response;
@@ -159,8 +156,9 @@ class LanguageDataSource {
         final jsonMap = response.data as Map<String, dynamic>;
 
         // Deserialize the JSON payload into a TaxOutputDTO instance
-        LanguageOutputDTO languageOutputDTO =
-            LanguageOutputDTO.fromJson(jsonMap);
+        LanguageOutputDTO languageOutputDTO = LanguageOutputDTO.fromJson(
+          jsonMap,
+        );
 
         final languageDTOList = languageOutputDTO.languageDTOList;
         bool? isNextPageAvailable = false;

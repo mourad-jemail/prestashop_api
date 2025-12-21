@@ -22,10 +22,7 @@ class CategoryDataSource {
   final Dio _dio;
   final BaseConfig _baseConfig;
 
-  CategoryDataSource(
-    this._dio,
-    this._baseConfig,
-  );
+  CategoryDataSource(this._dio, this._baseConfig);
 
   /// Retrieves categories from the server based on specified filters, display
   /// options, and sort criteria.
@@ -133,15 +130,12 @@ class CategoryDataSource {
     Sort<SortFieldOrder<CategorySortField>>? sort,
   }) async {
     // Build the URI with the provided limit, filter, display, and sort options
-    final uriBuilder = UriBuilder(
-      _baseConfig,
-      categoryPath,
-      languageId: languageId,
-    )
-        .setLimit(page: page, perPage: perPage)
-        .setFilter(filter)
-        .setDisplay(display)
-        .setSort(sort);
+    final uriBuilder =
+        UriBuilder(_baseConfig, categoryPath, languageId: languageId)
+            .setLimit(page: page, perPage: perPage)
+            .setFilter(filter)
+            .setDisplay(display)
+            .setSort(sort);
 
     try {
       Response response;
@@ -178,8 +172,9 @@ class CategoryDataSource {
         final jsonMap = response.data as Map<String, dynamic>;
 
         // Deserialize the JSON payload into a CategoryOutputDTO instance
-        CategoryOutputDTO categoryOutputDTO =
-            CategoryOutputDTO.fromJson(jsonMap);
+        CategoryOutputDTO categoryOutputDTO = CategoryOutputDTO.fromJson(
+          jsonMap,
+        );
 
         final categoryDTOList = categoryOutputDTO.categoryDTOList;
         bool? isNextPageAvailable = false;

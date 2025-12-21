@@ -12,10 +12,8 @@ abstract class ProductFeature with _$ProductFeature {
     required String idFeatureValue,
   }) = _ProductFeature;
 
-  factory ProductFeature.empty() => const ProductFeature(
-        id_: '',
-        idFeatureValue: '',
-      );
+  factory ProductFeature.empty() =>
+      const ProductFeature(id_: '', idFeatureValue: '');
 
   bool isEmpty() => id_.isEmpty;
 

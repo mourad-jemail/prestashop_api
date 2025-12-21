@@ -6,7 +6,6 @@ part 'sort.freezed.dart';
 abstract class Sort<SortFieldOrder> with _$Sort<SortFieldOrder> {
   const Sort._();
 
-  const factory Sort({
-    required List<SortFieldOrder> sortFieldOrderList,
-  }) = _Sort<SortFieldOrder>;
+  const factory Sort({required List<SortFieldOrder> sortFieldOrderList}) =
+      _Sort<SortFieldOrder>;
 }

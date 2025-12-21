@@ -8,13 +8,10 @@ part 'product_output.freezed.dart';
 abstract class ProductOutput with _$ProductOutput {
   const ProductOutput._();
 
-  const factory ProductOutput({
-    required List<Product> productList,
-  }) = _ProductOutput;
+  const factory ProductOutput({required List<Product> productList}) =
+      _ProductOutput;
 
-  factory ProductOutput.empty() => ProductOutput(
-        productList: List.empty(),
-      );
+  factory ProductOutput.empty() => ProductOutput(productList: List.empty());
 
   bool isEmpty() => List.of(productList).isEmpty;
 }

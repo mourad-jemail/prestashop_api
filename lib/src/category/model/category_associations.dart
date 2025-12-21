@@ -14,10 +14,8 @@ abstract class CategoryAssociations with _$CategoryAssociations {
     List<Id>? products,
   }) = _CategoryAssociations;
 
-  factory CategoryAssociations.empty() => const CategoryAssociations(
-        categories: [],
-        products: [],
-      );
+  factory CategoryAssociations.empty() =>
+      const CategoryAssociations(categories: [], products: []);
 
   bool isEmpty() =>
       categories != null &&

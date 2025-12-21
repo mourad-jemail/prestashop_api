@@ -111,30 +111,24 @@ abstract class Product with _$Product {
 ///
 /// We'll utilize this method primarily to pretty-print a list of objects in the
 /// console.
-Map<String, dynamic> productToJsonMap(
-  Product product,
-  bool keepEmptyFields,
-) {
+Map<String, dynamic> productToJsonMap(Product product, bool keepEmptyFields) {
   final entries = product.toJson().entries;
 
-  return entries.fold<Map<String, dynamic>>(
-    {},
-    (map, entry) {
-      final value = entry.value;
+  return entries.fold<Map<String, dynamic>>({}, (map, entry) {
+    final value = entry.value;
 
-      if (value is ProductAssociations) {
-        final filteredAssociations = _filterEmptyAssociations(value);
+    if (value is ProductAssociations) {
+      final filteredAssociations = _filterEmptyAssociations(value);
 
-        if (filteredAssociations.isNotEmpty) {
-          map[entry.key] = filteredAssociations;
-        }
-      } else {
-        map = maybeKeepEmptyFields(map, entry, keepEmptyFields);
+      if (filteredAssociations.isNotEmpty) {
+        map[entry.key] = filteredAssociations;
       }
+    } else {
+      map = maybeKeepEmptyFields(map, entry, keepEmptyFields);
+    }
 
-      return map;
-    },
-  );
+    return map;
+  });
 }
 
 /// Processes the associations of a product, filtering out empty entries based
@@ -148,9 +142,9 @@ Map<String, dynamic> _filterEmptyAssociations(
   final nonEmptyAssociationsMap = associationsMap.entries
       .where((entry) => !isEmpty(entry.value))
       .fold<Map<String, dynamic>>(
-    {},
-    (map, entry) => map..[entry.key] = entry.value,
-  );
+        {},
+        (map, entry) => map..[entry.key] = entry.value,
+      );
 
   return nonEmptyAssociationsMap;
 }

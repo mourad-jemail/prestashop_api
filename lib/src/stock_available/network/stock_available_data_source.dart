@@ -20,10 +20,7 @@ class StockAvailableDataSource {
   final Dio _dio;
   final BaseConfig _baseConfig;
 
-  StockAvailableDataSource(
-    this._dio,
-    this._baseConfig,
-  );
+  StockAvailableDataSource(this._dio, this._baseConfig);
 
   /// Retrieves stock availables from the server based on specified filters,
   /// display options, and sort criteria.
@@ -40,10 +37,10 @@ class StockAvailableDataSource {
     Display<StockAvailableDisplayField>? display,
     Sort<SortFieldOrder<StockAvailableSortField>>? sort,
   }) async {
-    final uriBuilder = UriBuilder(_baseConfig, stockAvailablePath)
-        .setFilter(filter)
-        .setDisplay(display)
-        .setSort(sort);
+    final uriBuilder = UriBuilder(
+      _baseConfig,
+      stockAvailablePath,
+    ).setFilter(filter).setDisplay(display).setSort(sort);
 
     try {
       Response response;
@@ -76,8 +73,9 @@ class StockAvailableDataSource {
         final jsonMap = response.data as Map<String, dynamic>;
 
         // Deserialize the JSON payload into a StockAvailableOutputDTO instance
-        final stockAvailableOutputDTO =
-            StockAvailableOutputDTO.fromJson(jsonMap);
+        final stockAvailableOutputDTO = StockAvailableOutputDTO.fromJson(
+          jsonMap,
+        );
 
         return RemoteResponse<StockAvailableOutputDTO>(stockAvailableOutputDTO);
       } else {

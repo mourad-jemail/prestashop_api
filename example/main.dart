@@ -21,10 +21,7 @@ void main() async {
       languageId: 1,
       filter: Filter.between(ProductFilterField.id, begin: '16', end: '150'),
       display: const Display(
-        displayFieldList: [
-          ProductDisplayField.id,
-          ProductDisplayField.name,
-        ],
+        displayFieldList: [ProductDisplayField.id, ProductDisplayField.name],
       ),
       sort: Sort(
         sortFieldOrderList: [SortFieldOrder.ascending(ProductSortField.id)],
