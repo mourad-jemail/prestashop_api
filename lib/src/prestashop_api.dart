@@ -139,6 +139,11 @@ class PrestashopApi
   /// Category
   ///
 
+  /// Fetches a list of all [Category] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of all categories.
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  /// Requires [languageId] to specify the language of the retrieved data.
   @override
   Future<ReceivedEntity<List<Category>>> getCategories({
     required int languageId,
@@ -156,6 +161,13 @@ class PrestashopApi
     return ReceivedEntity(remoteResponse.data.toDomain().categoryList);
   });
 
+  /// Retrieves a single [Category] by its [id].
+  ///
+  /// Returns a [ReceivedEntity] containing the category.
+  /// Requires [languageId] and the category [id].
+  /// An optional [display] parameter can be provided.
+  /// If no category is found, returns a [ReceivedEntity] containing an empty
+  /// [Category] object.
   @override
   Future<ReceivedEntity<Category>> getCategoryById({
     required int languageId,
@@ -177,6 +189,12 @@ class PrestashopApi
     }
   });
 
+  /// Fetches a paginated list of [Category] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of categories for the
+  /// specified [page].
+  /// Requires [languageId], [page] number, and items [perPage].
+  /// Optional [filter], [display], and [sort] parameters can be provided.
   @override
   Future<ReceivedEntity<List<Category>>> getCategoriesPage({
     required int languageId,
@@ -205,6 +223,10 @@ class PrestashopApi
   /// Language
   ///
 
+  /// Fetches a list of all [Language] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of all languages.
+  /// Optional [filter], [display], and [sort] parameters can be provided.
   @override
   Future<ReceivedEntity<List<Language>>> getLanguages({
     Filter<LanguageFilterField>? filter,
@@ -220,6 +242,13 @@ class PrestashopApi
     return ReceivedEntity(remoteResponse.data.toDomain().languageList);
   });
 
+  /// Retrieves a single [Language] by its [id].
+  ///
+  /// Returns a [ReceivedEntity] containing the language.
+  /// Requires the language [id].
+  /// An optional [display] parameter can be provided.
+  /// If no language is found, returns a [ReceivedEntity] containing an empty
+  /// [Language] object.
   @override
   Future<ReceivedEntity<Language>> getLanguageById({
     required int id,
@@ -239,6 +268,12 @@ class PrestashopApi
     }
   });
 
+  /// Fetches a paginated list of [Language] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of languages for the
+  /// specified [page].
+  /// Requires [page] number and items [perPage].
+  /// Optional [filter], [display], and [sort] parameters can be provided.
   @override
   Future<ReceivedEntity<List<Language>>> getLanguagesPage({
     required int page,
@@ -265,6 +300,11 @@ class PrestashopApi
   /// Product
   ///
 
+  /// Fetches a list of all [Product] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of all products.
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  /// Requires [languageId] to specify the language of the retrieved data.
   @override
   Future<ReceivedEntity<List<Product>>> getProducts({
     required int languageId,
@@ -282,6 +322,13 @@ class PrestashopApi
     return ReceivedEntity(remoteResponse.data.toDomain().productList);
   });
 
+  /// Retrieves a single [Product] by its [id].
+  ///
+  /// Returns a [ReceivedEntity] containing the product.
+  /// Requires [languageId] and the product [id].
+  /// An optional [display] parameter can be provided.
+  /// If no product is found, returns a [ReceivedEntity] containing an empty
+  /// [Product] object.
   @override
   Future<ReceivedEntity<Product>> getProductById({
     required int languageId,
@@ -303,6 +350,12 @@ class PrestashopApi
     }
   });
 
+  /// Fetches a paginated list of [Product] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of products for the
+  /// specified [page].
+  /// Requires [languageId], [page] number, and items [perPage].
+  /// Optional [filter], [display], and [sort] parameters can be provided.
   @override
   Future<ReceivedEntity<List<Product>>> getProductsPage({
     required int languageId,
@@ -331,6 +384,10 @@ class PrestashopApi
   /// Stock available
   ///
 
+  /// Fetches a list of all [StockAvailable] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of all stock availabilities.
+  /// Optional [filter], [display], and [sort] parameters can be provided.
   @override
   Future<ReceivedEntity<List<StockAvailable>>> getStockAvailables({
     Filter<StockAvailableFilterField>? filter,
@@ -346,6 +403,13 @@ class PrestashopApi
     return ReceivedEntity(remoteResponse.data.toDomain().stockAvailableList);
   });
 
+  /// Retrieves a single [StockAvailable] by its [id].
+  ///
+  /// Returns a [ReceivedEntity] containing the stock availability.
+  /// Requires the stock availability [id].
+  /// An optional [display] parameter can be provided.
+  /// If no stock availability is found, returns a [ReceivedEntity] containing
+  /// an empty [StockAvailable] object.
   @override
   Future<ReceivedEntity<StockAvailable>> getStockAvailableById({
     required int id,
@@ -365,6 +429,12 @@ class PrestashopApi
     }
   });
 
+  /// Fetches a paginated list of [StockAvailable] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of stock availabilities
+  /// for the specified [page].
+  /// Requires [page] number and items [perPage].
+  /// Optional [filter], [display], and [sort] parameters can be provided.
   @override
   Future<ReceivedEntity<List<StockAvailable>>> getStockAvailablesPage({
     required int page,
