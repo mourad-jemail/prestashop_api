@@ -253,7 +253,7 @@ To address these challenges, prestashop_api provides:
 
 ### 4. Addressing Pagination Limitations
 
-The pagination feature in the PrestaShop v1.7 API lacks information about the maximum page number in the response headers, making it difficult to determine the availability of a next page in paginated data requests. To address this limitation, prestashop_api provides a straightforward solution.
+The pagination feature in the PrestaShop v1.7.8.11 API lacks information about the maximum page number in the response headers, making it difficult to determine the availability of a next page in paginated data requests. To address this limitation, prestashop_api provides a straightforward solution.
 In the response of the fetch method, you can simply check the boolean 'isNextPageAvailable' to determine if a next page is available. To see the simplicity of integrating this feature in your code, please consult the following example.
 
 ### 5. Predefined tailored exceptions
