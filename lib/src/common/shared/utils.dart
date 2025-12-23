@@ -98,6 +98,15 @@ Map<String, dynamic> entityToJsonMap<T extends ConvertibleToJson>(
 ) {
   final entries = entity.toJson().entries;
 
+  return foldEntries(entries, keepEmptyFields);
+}
+
+/// Folds filtered entries into a map, optionally keeping empty fields based on
+/// [keepEmptyFields].
+Map<String, dynamic> foldEntries(
+  Iterable<MapEntry<String, dynamic>> entries,
+  bool keepEmptyFields,
+) {
   return entries.fold<Map<String, dynamic>>({}, (map, entry) {
     return maybeKeepEmptyFields(map, entry, keepEmptyFields);
   });

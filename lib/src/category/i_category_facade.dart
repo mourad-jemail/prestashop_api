@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import '../common/model/received_entity.dart';
 import '../common/options/display/display.dart';
 import '../common/options/filter/filter.dart';

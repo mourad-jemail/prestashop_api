@@ -14,7 +14,7 @@ export 'src/common/options/display/display.dart';
 export 'src/common/options/filter/filter.dart';
 export 'src/common/options/sort/sort.dart';
 export 'src/common/options/sort/sort_field_order.dart';
-export 'src/common/shared/utils.dart' show prettyPrint;
+export 'src/common/shared/utils.dart' show entityToJsonMap, prettyPrint;
 export 'src/common/uri_builder.dart';
 export 'src/language/model/language.dart';
 export 'src/language/network/language_enums.dart';

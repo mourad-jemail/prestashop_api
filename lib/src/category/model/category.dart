@@ -69,7 +69,7 @@ Map<String, dynamic> categoryToJsonMap<T>(
 ) {
   final filteredEntries = _filterEntries(category.toJson().entries);
 
-  return _foldEntries(filteredEntries, keepEmptyFields);
+  return foldEntries(filteredEntries, keepEmptyFields);
 }
 
 /// Filters entries based on whether they are empty or not.
@@ -79,16 +79,5 @@ Iterable<MapEntry<String, dynamic>> _filterEntries(
   return entries.where((entry) {
     final value = entry.value;
     return value is CategoryAssociations ? !value.isEmpty() : !isEmpty(value);
-  });
-}
-
-/// Folds filtered entries into a map, optionally keeping empty fields based on
-/// [keepEmptyFields].
-Map<String, dynamic> _foldEntries(
-  Iterable<MapEntry<String, dynamic>> entries,
-  bool keepEmptyFields,
-) {
-  return entries.fold<Map<String, dynamic>>({}, (map, entry) {
-    return maybeKeepEmptyFields(map, entry, keepEmptyFields);
   });
 }
