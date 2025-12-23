@@ -16,6 +16,7 @@ export 'src/common/options/sort/sort.dart';
 export 'src/common/options/sort/sort_field_order.dart';
 export 'src/common/shared/utils.dart' show entityToJsonMap, prettyPrint;
 export 'src/common/uri_builder.dart';
+export 'src/country/model/country.dart';
 export 'src/language/model/language.dart';
 export 'src/language/network/language_enums.dart';
 export 'src/prestashop_api.dart';
