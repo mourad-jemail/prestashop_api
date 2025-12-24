@@ -11,7 +11,7 @@ abstract class LanguageDTO with _$LanguageDTO {
   const LanguageDTO._();
 
   const factory LanguageDTO({
-    required int id,
+    int? id,
     String? name,
     @JsonKey(name: 'iso_code') String? isoCode,
     String? locale,

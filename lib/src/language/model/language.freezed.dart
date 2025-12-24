@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Language {
 
- int get id; String? get name; String? get isoCode; String? get locale; String? get languageCode; bool? get active; bool? get isRtl; String? get dateFormatLite; String? get dateFormatFull;
+ int? get id; String? get name; String? get isoCode; String? get locale; String? get languageCode; bool? get active; bool? get isRtl; String? get dateFormatLite; String? get dateFormatFull;
 /// Create a copy of Language
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $LanguageCopyWith<$Res>  {
   factory $LanguageCopyWith(Language value, $Res Function(Language) _then) = _$LanguageCopyWithImpl;
 @useResult
 $Res call({
- int id, String? name, String? isoCode, String? locale, String? languageCode, bool? active, bool? isRtl, String? dateFormatLite, String? dateFormatFull
+ int? id, String? name, String? isoCode, String? locale, String? languageCode, bool? active, bool? isRtl, String? dateFormatLite, String? dateFormatFull
 });
 
 
@@ -65,10 +65,10 @@ class _$LanguageCopyWithImpl<$Res>
 
 /// Create a copy of Language
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = freezed,Object? isoCode = freezed,Object? locale = freezed,Object? languageCode = freezed,Object? active = freezed,Object? isRtl = freezed,Object? dateFormatLite = freezed,Object? dateFormatFull = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? name = freezed,Object? isoCode = freezed,Object? locale = freezed,Object? languageCode = freezed,Object? active = freezed,Object? isRtl = freezed,Object? dateFormatLite = freezed,Object? dateFormatFull = freezed,}) {
   return _then(_self.copyWith(
-id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String?,isoCode: freezed == isoCode ? _self.isoCode : isoCode // ignore: cast_nullable_to_non_nullable
 as String?,locale: freezed == locale ? _self.locale : locale // ignore: cast_nullable_to_non_nullable
 as String?,languageCode: freezed == languageCode ? _self.languageCode : languageCode // ignore: cast_nullable_to_non_nullable
@@ -161,7 +161,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String? name,  String? isoCode,  String? locale,  String? languageCode,  bool? active,  bool? isRtl,  String? dateFormatLite,  String? dateFormatFull)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id,  String? name,  String? isoCode,  String? locale,  String? languageCode,  bool? active,  bool? isRtl,  String? dateFormatLite,  String? dateFormatFull)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Language() when $default != null:
 return $default(_that.id,_that.name,_that.isoCode,_that.locale,_that.languageCode,_that.active,_that.isRtl,_that.dateFormatLite,_that.dateFormatFull);case _:
@@ -182,7 +182,7 @@ return $default(_that.id,_that.name,_that.isoCode,_that.locale,_that.languageCod
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String? name,  String? isoCode,  String? locale,  String? languageCode,  bool? active,  bool? isRtl,  String? dateFormatLite,  String? dateFormatFull)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id,  String? name,  String? isoCode,  String? locale,  String? languageCode,  bool? active,  bool? isRtl,  String? dateFormatLite,  String? dateFormatFull)  $default,) {final _that = this;
 switch (_that) {
 case _Language():
 return $default(_that.id,_that.name,_that.isoCode,_that.locale,_that.languageCode,_that.active,_that.isRtl,_that.dateFormatLite,_that.dateFormatFull);case _:
@@ -202,7 +202,7 @@ return $default(_that.id,_that.name,_that.isoCode,_that.locale,_that.languageCod
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String? name,  String? isoCode,  String? locale,  String? languageCode,  bool? active,  bool? isRtl,  String? dateFormatLite,  String? dateFormatFull)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id,  String? name,  String? isoCode,  String? locale,  String? languageCode,  bool? active,  bool? isRtl,  String? dateFormatLite,  String? dateFormatFull)?  $default,) {final _that = this;
 switch (_that) {
 case _Language() when $default != null:
 return $default(_that.id,_that.name,_that.isoCode,_that.locale,_that.languageCode,_that.active,_that.isRtl,_that.dateFormatLite,_that.dateFormatFull);case _:
@@ -217,10 +217,10 @@ return $default(_that.id,_that.name,_that.isoCode,_that.locale,_that.languageCod
 @JsonSerializable()
 
 class _Language extends Language {
-  const _Language({required this.id, this.name, this.isoCode, this.locale, this.languageCode, this.active, this.isRtl, this.dateFormatLite, this.dateFormatFull}): super._();
+  const _Language({this.id, this.name, this.isoCode, this.locale, this.languageCode, this.active, this.isRtl, this.dateFormatLite, this.dateFormatFull}): super._();
   factory _Language.fromJson(Map<String, dynamic> json) => _$LanguageFromJson(json);
 
-@override final  int id;
+@override final  int? id;
 @override final  String? name;
 @override final  String? isoCode;
 @override final  String? locale;
@@ -263,7 +263,7 @@ abstract mixin class _$LanguageCopyWith<$Res> implements $LanguageCopyWith<$Res>
   factory _$LanguageCopyWith(_Language value, $Res Function(_Language) _then) = __$LanguageCopyWithImpl;
 @override @useResult
 $Res call({
- int id, String? name, String? isoCode, String? locale, String? languageCode, bool? active, bool? isRtl, String? dateFormatLite, String? dateFormatFull
+ int? id, String? name, String? isoCode, String? locale, String? languageCode, bool? active, bool? isRtl, String? dateFormatLite, String? dateFormatFull
 });
 
 
@@ -280,10 +280,10 @@ class __$LanguageCopyWithImpl<$Res>
 
 /// Create a copy of Language
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = freezed,Object? isoCode = freezed,Object? locale = freezed,Object? languageCode = freezed,Object? active = freezed,Object? isRtl = freezed,Object? dateFormatLite = freezed,Object? dateFormatFull = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? name = freezed,Object? isoCode = freezed,Object? locale = freezed,Object? languageCode = freezed,Object? active = freezed,Object? isRtl = freezed,Object? dateFormatLite = freezed,Object? dateFormatFull = freezed,}) {
   return _then(_Language(
-id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String?,isoCode: freezed == isoCode ? _self.isoCode : isoCode // ignore: cast_nullable_to_non_nullable
 as String?,locale: freezed == locale ? _self.locale : locale // ignore: cast_nullable_to_non_nullable
 as String?,languageCode: freezed == languageCode ? _self.languageCode : languageCode // ignore: cast_nullable_to_non_nullable

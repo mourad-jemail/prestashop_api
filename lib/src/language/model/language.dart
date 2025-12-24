@@ -10,7 +10,7 @@ abstract class Language with _$Language implements ConvertibleToJson {
   const Language._();
 
   const factory Language({
-    required int id,
+    int? id,
     String? name,
     String? isoCode,
     String? locale,

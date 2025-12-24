@@ -10,7 +10,7 @@ abstract class Country with _$Country implements ConvertibleToJson {
   const Country._();
 
   const factory Country({
-    required int id,
+    int? id,
     String? idZone,
     String? idCurrency,
     String? callPrefix,

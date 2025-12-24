@@ -20,7 +20,7 @@ abstract class Category with _$Category {
   const Category._();
 
   const factory Category({
-    required int id,
+    int? id,
     String? idParent,
     String? levelDepth,
     String? nbProductsRecursive,

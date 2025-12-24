@@ -11,7 +11,7 @@ abstract class StockAvailableDTO with _$StockAvailableDTO {
   const StockAvailableDTO._();
 
   const factory StockAvailableDTO({
-    required int id,
+    int? id,
     @JsonKey(name: 'id_product') String? idProduct,
     @JsonKey(name: 'id_product_attribute') String? idProductAttribute,
     @JsonKey(name: 'id_shop') String? idShop,

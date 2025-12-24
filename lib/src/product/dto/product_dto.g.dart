@@ -7,7 +7,7 @@ part of 'product_dto.dart';
 // **************************************************************************
 
 _ProductDTO _$ProductDTOFromJson(Map<String, dynamic> json) => _ProductDTO(
-  id: (json['id'] as num).toInt(),
+  id: (json['id'] as num?)?.toInt(),
   idManufacturer: stringFromJson(json['id_manufacturer'] as String?),
   idSupplier: stringFromJson(json['id_supplier'] as String?),
   idDefaultCategory: stringFromJson(json['id_category_default'] as String?),

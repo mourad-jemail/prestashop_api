@@ -12,7 +12,7 @@ abstract class StockAvailable
   const StockAvailable._();
 
   const factory StockAvailable({
-    required int id,
+    int? id,
     String? idProduct,
     String? idProductAttribute,
     String? idShop,

@@ -7,7 +7,7 @@ part of 'country_dto.dart';
 // **************************************************************************
 
 _CountryDTO _$CountryDTOFromJson(Map<String, dynamic> json) => _CountryDTO(
-  id: (json['id'] as num).toInt(),
+  id: (json['id'] as num?)?.toInt(),
   idZone: stringFromJson(json['id_zone'] as String?),
   idCurrency: stringFromJson(json['id_currency'] as String?),
   callPrefix: stringFromJson(json['call_prefix'] as String?),

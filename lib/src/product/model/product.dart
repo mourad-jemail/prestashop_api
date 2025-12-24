@@ -11,7 +11,7 @@ abstract class Product with _$Product {
   const Product._();
 
   const factory Product({
-    required int id,
+    int? id,
     String? idManufacturer,
     String? idSupplier,
     String? idDefaultCategory,

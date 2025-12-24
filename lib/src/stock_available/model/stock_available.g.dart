@@ -8,7 +8,7 @@ part of 'stock_available.dart';
 
 _StockAvailable _$StockAvailableFromJson(Map<String, dynamic> json) =>
     _StockAvailable(
-      id: (json['id'] as num).toInt(),
+      id: (json['id'] as num?)?.toInt(),
       idProduct: json['idProduct'] as String?,
       idProductAttribute: json['idProductAttribute'] as String?,
       idShop: json['idShop'] as String?,

@@ -11,7 +11,7 @@ abstract class CountryDTO with _$CountryDTO {
   const CountryDTO._();
 
   const factory CountryDTO({
-    required int id,
+    int? id,
     @JsonKey(name: 'id_zone', fromJson: stringFromJson) String? idZone,
     @JsonKey(name: 'id_currency', fromJson: stringFromJson) String? idCurrency,
     @JsonKey(name: 'call_prefix', fromJson: stringFromJson) String? callPrefix,

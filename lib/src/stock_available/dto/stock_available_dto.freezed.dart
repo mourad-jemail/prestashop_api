@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$StockAvailableDTO {
 
- int get id;@JsonKey(name: 'id_product') String? get idProduct;@JsonKey(name: 'id_product_attribute') String? get idProductAttribute;@JsonKey(name: 'id_shop') String? get idShop;@JsonKey(name: 'id_shop_group') String? get idShopGroup; String? get quantity;@JsonKey(name: 'depends_on_stock', fromJson: boolFromJson, toJson: boolToJson) bool? get dependsOnStock;@JsonKey(name: 'out_of_stock') String? get outOfStock; String? get location;
+ int? get id;@JsonKey(name: 'id_product') String? get idProduct;@JsonKey(name: 'id_product_attribute') String? get idProductAttribute;@JsonKey(name: 'id_shop') String? get idShop;@JsonKey(name: 'id_shop_group') String? get idShopGroup; String? get quantity;@JsonKey(name: 'depends_on_stock', fromJson: boolFromJson, toJson: boolToJson) bool? get dependsOnStock;@JsonKey(name: 'out_of_stock') String? get outOfStock; String? get location;
 /// Create a copy of StockAvailableDTO
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $StockAvailableDTOCopyWith<$Res>  {
   factory $StockAvailableDTOCopyWith(StockAvailableDTO value, $Res Function(StockAvailableDTO) _then) = _$StockAvailableDTOCopyWithImpl;
 @useResult
 $Res call({
- int id,@JsonKey(name: 'id_product') String? idProduct,@JsonKey(name: 'id_product_attribute') String? idProductAttribute,@JsonKey(name: 'id_shop') String? idShop,@JsonKey(name: 'id_shop_group') String? idShopGroup, String? quantity,@JsonKey(name: 'depends_on_stock', fromJson: boolFromJson, toJson: boolToJson) bool? dependsOnStock,@JsonKey(name: 'out_of_stock') String? outOfStock, String? location
+ int? id,@JsonKey(name: 'id_product') String? idProduct,@JsonKey(name: 'id_product_attribute') String? idProductAttribute,@JsonKey(name: 'id_shop') String? idShop,@JsonKey(name: 'id_shop_group') String? idShopGroup, String? quantity,@JsonKey(name: 'depends_on_stock', fromJson: boolFromJson, toJson: boolToJson) bool? dependsOnStock,@JsonKey(name: 'out_of_stock') String? outOfStock, String? location
 });
 
 
@@ -65,10 +65,10 @@ class _$StockAvailableDTOCopyWithImpl<$Res>
 
 /// Create a copy of StockAvailableDTO
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? idProduct = freezed,Object? idProductAttribute = freezed,Object? idShop = freezed,Object? idShopGroup = freezed,Object? quantity = freezed,Object? dependsOnStock = freezed,Object? outOfStock = freezed,Object? location = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? idProduct = freezed,Object? idProductAttribute = freezed,Object? idShop = freezed,Object? idShopGroup = freezed,Object? quantity = freezed,Object? dependsOnStock = freezed,Object? outOfStock = freezed,Object? location = freezed,}) {
   return _then(_self.copyWith(
-id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,idProduct: freezed == idProduct ? _self.idProduct : idProduct // ignore: cast_nullable_to_non_nullable
+id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int?,idProduct: freezed == idProduct ? _self.idProduct : idProduct // ignore: cast_nullable_to_non_nullable
 as String?,idProductAttribute: freezed == idProductAttribute ? _self.idProductAttribute : idProductAttribute // ignore: cast_nullable_to_non_nullable
 as String?,idShop: freezed == idShop ? _self.idShop : idShop // ignore: cast_nullable_to_non_nullable
 as String?,idShopGroup: freezed == idShopGroup ? _self.idShopGroup : idShopGroup // ignore: cast_nullable_to_non_nullable
@@ -161,7 +161,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id, @JsonKey(name: 'id_product')  String? idProduct, @JsonKey(name: 'id_product_attribute')  String? idProductAttribute, @JsonKey(name: 'id_shop')  String? idShop, @JsonKey(name: 'id_shop_group')  String? idShopGroup,  String? quantity, @JsonKey(name: 'depends_on_stock', fromJson: boolFromJson, toJson: boolToJson)  bool? dependsOnStock, @JsonKey(name: 'out_of_stock')  String? outOfStock,  String? location)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id, @JsonKey(name: 'id_product')  String? idProduct, @JsonKey(name: 'id_product_attribute')  String? idProductAttribute, @JsonKey(name: 'id_shop')  String? idShop, @JsonKey(name: 'id_shop_group')  String? idShopGroup,  String? quantity, @JsonKey(name: 'depends_on_stock', fromJson: boolFromJson, toJson: boolToJson)  bool? dependsOnStock, @JsonKey(name: 'out_of_stock')  String? outOfStock,  String? location)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _StockAvailableDTO() when $default != null:
 return $default(_that.id,_that.idProduct,_that.idProductAttribute,_that.idShop,_that.idShopGroup,_that.quantity,_that.dependsOnStock,_that.outOfStock,_that.location);case _:
@@ -182,7 +182,7 @@ return $default(_that.id,_that.idProduct,_that.idProductAttribute,_that.idShop,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id, @JsonKey(name: 'id_product')  String? idProduct, @JsonKey(name: 'id_product_attribute')  String? idProductAttribute, @JsonKey(name: 'id_shop')  String? idShop, @JsonKey(name: 'id_shop_group')  String? idShopGroup,  String? quantity, @JsonKey(name: 'depends_on_stock', fromJson: boolFromJson, toJson: boolToJson)  bool? dependsOnStock, @JsonKey(name: 'out_of_stock')  String? outOfStock,  String? location)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id, @JsonKey(name: 'id_product')  String? idProduct, @JsonKey(name: 'id_product_attribute')  String? idProductAttribute, @JsonKey(name: 'id_shop')  String? idShop, @JsonKey(name: 'id_shop_group')  String? idShopGroup,  String? quantity, @JsonKey(name: 'depends_on_stock', fromJson: boolFromJson, toJson: boolToJson)  bool? dependsOnStock, @JsonKey(name: 'out_of_stock')  String? outOfStock,  String? location)  $default,) {final _that = this;
 switch (_that) {
 case _StockAvailableDTO():
 return $default(_that.id,_that.idProduct,_that.idProductAttribute,_that.idShop,_that.idShopGroup,_that.quantity,_that.dependsOnStock,_that.outOfStock,_that.location);case _:
@@ -202,7 +202,7 @@ return $default(_that.id,_that.idProduct,_that.idProductAttribute,_that.idShop,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id, @JsonKey(name: 'id_product')  String? idProduct, @JsonKey(name: 'id_product_attribute')  String? idProductAttribute, @JsonKey(name: 'id_shop')  String? idShop, @JsonKey(name: 'id_shop_group')  String? idShopGroup,  String? quantity, @JsonKey(name: 'depends_on_stock', fromJson: boolFromJson, toJson: boolToJson)  bool? dependsOnStock, @JsonKey(name: 'out_of_stock')  String? outOfStock,  String? location)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id, @JsonKey(name: 'id_product')  String? idProduct, @JsonKey(name: 'id_product_attribute')  String? idProductAttribute, @JsonKey(name: 'id_shop')  String? idShop, @JsonKey(name: 'id_shop_group')  String? idShopGroup,  String? quantity, @JsonKey(name: 'depends_on_stock', fromJson: boolFromJson, toJson: boolToJson)  bool? dependsOnStock, @JsonKey(name: 'out_of_stock')  String? outOfStock,  String? location)?  $default,) {final _that = this;
 switch (_that) {
 case _StockAvailableDTO() when $default != null:
 return $default(_that.id,_that.idProduct,_that.idProductAttribute,_that.idShop,_that.idShopGroup,_that.quantity,_that.dependsOnStock,_that.outOfStock,_that.location);case _:
@@ -217,10 +217,10 @@ return $default(_that.id,_that.idProduct,_that.idProductAttribute,_that.idShop,_
 @JsonSerializable()
 
 class _StockAvailableDTO extends StockAvailableDTO {
-  const _StockAvailableDTO({required this.id, @JsonKey(name: 'id_product') this.idProduct, @JsonKey(name: 'id_product_attribute') this.idProductAttribute, @JsonKey(name: 'id_shop') this.idShop, @JsonKey(name: 'id_shop_group') this.idShopGroup, this.quantity, @JsonKey(name: 'depends_on_stock', fromJson: boolFromJson, toJson: boolToJson) this.dependsOnStock, @JsonKey(name: 'out_of_stock') this.outOfStock, this.location}): super._();
+  const _StockAvailableDTO({this.id, @JsonKey(name: 'id_product') this.idProduct, @JsonKey(name: 'id_product_attribute') this.idProductAttribute, @JsonKey(name: 'id_shop') this.idShop, @JsonKey(name: 'id_shop_group') this.idShopGroup, this.quantity, @JsonKey(name: 'depends_on_stock', fromJson: boolFromJson, toJson: boolToJson) this.dependsOnStock, @JsonKey(name: 'out_of_stock') this.outOfStock, this.location}): super._();
   factory _StockAvailableDTO.fromJson(Map<String, dynamic> json) => _$StockAvailableDTOFromJson(json);
 
-@override final  int id;
+@override final  int? id;
 @override@JsonKey(name: 'id_product') final  String? idProduct;
 @override@JsonKey(name: 'id_product_attribute') final  String? idProductAttribute;
 @override@JsonKey(name: 'id_shop') final  String? idShop;
@@ -263,7 +263,7 @@ abstract mixin class _$StockAvailableDTOCopyWith<$Res> implements $StockAvailabl
   factory _$StockAvailableDTOCopyWith(_StockAvailableDTO value, $Res Function(_StockAvailableDTO) _then) = __$StockAvailableDTOCopyWithImpl;
 @override @useResult
 $Res call({
- int id,@JsonKey(name: 'id_product') String? idProduct,@JsonKey(name: 'id_product_attribute') String? idProductAttribute,@JsonKey(name: 'id_shop') String? idShop,@JsonKey(name: 'id_shop_group') String? idShopGroup, String? quantity,@JsonKey(name: 'depends_on_stock', fromJson: boolFromJson, toJson: boolToJson) bool? dependsOnStock,@JsonKey(name: 'out_of_stock') String? outOfStock, String? location
+ int? id,@JsonKey(name: 'id_product') String? idProduct,@JsonKey(name: 'id_product_attribute') String? idProductAttribute,@JsonKey(name: 'id_shop') String? idShop,@JsonKey(name: 'id_shop_group') String? idShopGroup, String? quantity,@JsonKey(name: 'depends_on_stock', fromJson: boolFromJson, toJson: boolToJson) bool? dependsOnStock,@JsonKey(name: 'out_of_stock') String? outOfStock, String? location
 });
 
 
@@ -280,10 +280,10 @@ class __$StockAvailableDTOCopyWithImpl<$Res>
 
 /// Create a copy of StockAvailableDTO
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? idProduct = freezed,Object? idProductAttribute = freezed,Object? idShop = freezed,Object? idShopGroup = freezed,Object? quantity = freezed,Object? dependsOnStock = freezed,Object? outOfStock = freezed,Object? location = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? idProduct = freezed,Object? idProductAttribute = freezed,Object? idShop = freezed,Object? idShopGroup = freezed,Object? quantity = freezed,Object? dependsOnStock = freezed,Object? outOfStock = freezed,Object? location = freezed,}) {
   return _then(_StockAvailableDTO(
-id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,idProduct: freezed == idProduct ? _self.idProduct : idProduct // ignore: cast_nullable_to_non_nullable
+id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int?,idProduct: freezed == idProduct ? _self.idProduct : idProduct // ignore: cast_nullable_to_non_nullable
 as String?,idProductAttribute: freezed == idProductAttribute ? _self.idProductAttribute : idProductAttribute // ignore: cast_nullable_to_non_nullable
 as String?,idShop: freezed == idShop ? _self.idShop : idShop // ignore: cast_nullable_to_non_nullable
 as String?,idShopGroup: freezed == idShopGroup ? _self.idShopGroup : idShopGroup // ignore: cast_nullable_to_non_nullable

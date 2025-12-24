@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Category {
 
- int get id; String? get idParent; String? get levelDepth; String? get nbProductsRecursive; bool? get active; String? get idShopDefault; bool? get isRootCategory; String? get position; DateTime? get dateAdd; DateTime? get dateUpd; String? get name; String? get linkRewrite; String? get description; String? get metaTitle; String? get metaDescription; String? get metaKeywords; CategoryAssociations? get associations;
+ int? get id; String? get idParent; String? get levelDepth; String? get nbProductsRecursive; bool? get active; String? get idShopDefault; bool? get isRootCategory; String? get position; DateTime? get dateAdd; DateTime? get dateUpd; String? get name; String? get linkRewrite; String? get description; String? get metaTitle; String? get metaDescription; String? get metaKeywords; CategoryAssociations? get associations;
 /// Create a copy of Category
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $CategoryCopyWith<$Res>  {
   factory $CategoryCopyWith(Category value, $Res Function(Category) _then) = _$CategoryCopyWithImpl;
 @useResult
 $Res call({
- int id, String? idParent, String? levelDepth, String? nbProductsRecursive, bool? active, String? idShopDefault, bool? isRootCategory, String? position, DateTime? dateAdd, DateTime? dateUpd, String? name, String? linkRewrite, String? description, String? metaTitle, String? metaDescription, String? metaKeywords, CategoryAssociations? associations
+ int? id, String? idParent, String? levelDepth, String? nbProductsRecursive, bool? active, String? idShopDefault, bool? isRootCategory, String? position, DateTime? dateAdd, DateTime? dateUpd, String? name, String? linkRewrite, String? description, String? metaTitle, String? metaDescription, String? metaKeywords, CategoryAssociations? associations
 });
 
 
@@ -65,10 +65,10 @@ class _$CategoryCopyWithImpl<$Res>
 
 /// Create a copy of Category
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? idParent = freezed,Object? levelDepth = freezed,Object? nbProductsRecursive = freezed,Object? active = freezed,Object? idShopDefault = freezed,Object? isRootCategory = freezed,Object? position = freezed,Object? dateAdd = freezed,Object? dateUpd = freezed,Object? name = freezed,Object? linkRewrite = freezed,Object? description = freezed,Object? metaTitle = freezed,Object? metaDescription = freezed,Object? metaKeywords = freezed,Object? associations = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? idParent = freezed,Object? levelDepth = freezed,Object? nbProductsRecursive = freezed,Object? active = freezed,Object? idShopDefault = freezed,Object? isRootCategory = freezed,Object? position = freezed,Object? dateAdd = freezed,Object? dateUpd = freezed,Object? name = freezed,Object? linkRewrite = freezed,Object? description = freezed,Object? metaTitle = freezed,Object? metaDescription = freezed,Object? metaKeywords = freezed,Object? associations = freezed,}) {
   return _then(_self.copyWith(
-id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,idParent: freezed == idParent ? _self.idParent : idParent // ignore: cast_nullable_to_non_nullable
+id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int?,idParent: freezed == idParent ? _self.idParent : idParent // ignore: cast_nullable_to_non_nullable
 as String?,levelDepth: freezed == levelDepth ? _self.levelDepth : levelDepth // ignore: cast_nullable_to_non_nullable
 as String?,nbProductsRecursive: freezed == nbProductsRecursive ? _self.nbProductsRecursive : nbProductsRecursive // ignore: cast_nullable_to_non_nullable
 as String?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
@@ -181,7 +181,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String? idParent,  String? levelDepth,  String? nbProductsRecursive,  bool? active,  String? idShopDefault,  bool? isRootCategory,  String? position,  DateTime? dateAdd,  DateTime? dateUpd,  String? name,  String? linkRewrite,  String? description,  String? metaTitle,  String? metaDescription,  String? metaKeywords,  CategoryAssociations? associations)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id,  String? idParent,  String? levelDepth,  String? nbProductsRecursive,  bool? active,  String? idShopDefault,  bool? isRootCategory,  String? position,  DateTime? dateAdd,  DateTime? dateUpd,  String? name,  String? linkRewrite,  String? description,  String? metaTitle,  String? metaDescription,  String? metaKeywords,  CategoryAssociations? associations)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Category() when $default != null:
 return $default(_that.id,_that.idParent,_that.levelDepth,_that.nbProductsRecursive,_that.active,_that.idShopDefault,_that.isRootCategory,_that.position,_that.dateAdd,_that.dateUpd,_that.name,_that.linkRewrite,_that.description,_that.metaTitle,_that.metaDescription,_that.metaKeywords,_that.associations);case _:
@@ -202,7 +202,7 @@ return $default(_that.id,_that.idParent,_that.levelDepth,_that.nbProductsRecursi
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String? idParent,  String? levelDepth,  String? nbProductsRecursive,  bool? active,  String? idShopDefault,  bool? isRootCategory,  String? position,  DateTime? dateAdd,  DateTime? dateUpd,  String? name,  String? linkRewrite,  String? description,  String? metaTitle,  String? metaDescription,  String? metaKeywords,  CategoryAssociations? associations)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id,  String? idParent,  String? levelDepth,  String? nbProductsRecursive,  bool? active,  String? idShopDefault,  bool? isRootCategory,  String? position,  DateTime? dateAdd,  DateTime? dateUpd,  String? name,  String? linkRewrite,  String? description,  String? metaTitle,  String? metaDescription,  String? metaKeywords,  CategoryAssociations? associations)  $default,) {final _that = this;
 switch (_that) {
 case _Category():
 return $default(_that.id,_that.idParent,_that.levelDepth,_that.nbProductsRecursive,_that.active,_that.idShopDefault,_that.isRootCategory,_that.position,_that.dateAdd,_that.dateUpd,_that.name,_that.linkRewrite,_that.description,_that.metaTitle,_that.metaDescription,_that.metaKeywords,_that.associations);case _:
@@ -222,7 +222,7 @@ return $default(_that.id,_that.idParent,_that.levelDepth,_that.nbProductsRecursi
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String? idParent,  String? levelDepth,  String? nbProductsRecursive,  bool? active,  String? idShopDefault,  bool? isRootCategory,  String? position,  DateTime? dateAdd,  DateTime? dateUpd,  String? name,  String? linkRewrite,  String? description,  String? metaTitle,  String? metaDescription,  String? metaKeywords,  CategoryAssociations? associations)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id,  String? idParent,  String? levelDepth,  String? nbProductsRecursive,  bool? active,  String? idShopDefault,  bool? isRootCategory,  String? position,  DateTime? dateAdd,  DateTime? dateUpd,  String? name,  String? linkRewrite,  String? description,  String? metaTitle,  String? metaDescription,  String? metaKeywords,  CategoryAssociations? associations)?  $default,) {final _that = this;
 switch (_that) {
 case _Category() when $default != null:
 return $default(_that.id,_that.idParent,_that.levelDepth,_that.nbProductsRecursive,_that.active,_that.idShopDefault,_that.isRootCategory,_that.position,_that.dateAdd,_that.dateUpd,_that.name,_that.linkRewrite,_that.description,_that.metaTitle,_that.metaDescription,_that.metaKeywords,_that.associations);case _:
@@ -237,10 +237,10 @@ return $default(_that.id,_that.idParent,_that.levelDepth,_that.nbProductsRecursi
 @JsonSerializable()
 
 class _Category extends Category {
-  const _Category({required this.id, this.idParent, this.levelDepth, this.nbProductsRecursive, this.active, this.idShopDefault, this.isRootCategory, this.position, this.dateAdd, this.dateUpd, this.name, this.linkRewrite, this.description, this.metaTitle, this.metaDescription, this.metaKeywords, this.associations}): super._();
+  const _Category({this.id, this.idParent, this.levelDepth, this.nbProductsRecursive, this.active, this.idShopDefault, this.isRootCategory, this.position, this.dateAdd, this.dateUpd, this.name, this.linkRewrite, this.description, this.metaTitle, this.metaDescription, this.metaKeywords, this.associations}): super._();
   factory _Category.fromJson(Map<String, dynamic> json) => _$CategoryFromJson(json);
 
-@override final  int id;
+@override final  int? id;
 @override final  String? idParent;
 @override final  String? levelDepth;
 @override final  String? nbProductsRecursive;
@@ -291,7 +291,7 @@ abstract mixin class _$CategoryCopyWith<$Res> implements $CategoryCopyWith<$Res>
   factory _$CategoryCopyWith(_Category value, $Res Function(_Category) _then) = __$CategoryCopyWithImpl;
 @override @useResult
 $Res call({
- int id, String? idParent, String? levelDepth, String? nbProductsRecursive, bool? active, String? idShopDefault, bool? isRootCategory, String? position, DateTime? dateAdd, DateTime? dateUpd, String? name, String? linkRewrite, String? description, String? metaTitle, String? metaDescription, String? metaKeywords, CategoryAssociations? associations
+ int? id, String? idParent, String? levelDepth, String? nbProductsRecursive, bool? active, String? idShopDefault, bool? isRootCategory, String? position, DateTime? dateAdd, DateTime? dateUpd, String? name, String? linkRewrite, String? description, String? metaTitle, String? metaDescription, String? metaKeywords, CategoryAssociations? associations
 });
 
 
@@ -308,10 +308,10 @@ class __$CategoryCopyWithImpl<$Res>
 
 /// Create a copy of Category
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? idParent = freezed,Object? levelDepth = freezed,Object? nbProductsRecursive = freezed,Object? active = freezed,Object? idShopDefault = freezed,Object? isRootCategory = freezed,Object? position = freezed,Object? dateAdd = freezed,Object? dateUpd = freezed,Object? name = freezed,Object? linkRewrite = freezed,Object? description = freezed,Object? metaTitle = freezed,Object? metaDescription = freezed,Object? metaKeywords = freezed,Object? associations = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? idParent = freezed,Object? levelDepth = freezed,Object? nbProductsRecursive = freezed,Object? active = freezed,Object? idShopDefault = freezed,Object? isRootCategory = freezed,Object? position = freezed,Object? dateAdd = freezed,Object? dateUpd = freezed,Object? name = freezed,Object? linkRewrite = freezed,Object? description = freezed,Object? metaTitle = freezed,Object? metaDescription = freezed,Object? metaKeywords = freezed,Object? associations = freezed,}) {
   return _then(_Category(
-id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,idParent: freezed == idParent ? _self.idParent : idParent // ignore: cast_nullable_to_non_nullable
+id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int?,idParent: freezed == idParent ? _self.idParent : idParent // ignore: cast_nullable_to_non_nullable
 as String?,levelDepth: freezed == levelDepth ? _self.levelDepth : levelDepth // ignore: cast_nullable_to_non_nullable
 as String?,nbProductsRecursive: freezed == nbProductsRecursive ? _self.nbProductsRecursive : nbProductsRecursive // ignore: cast_nullable_to_non_nullable
 as String?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable

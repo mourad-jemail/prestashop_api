@@ -7,7 +7,7 @@ part of 'language.dart';
 // **************************************************************************
 
 _Language _$LanguageFromJson(Map<String, dynamic> json) => _Language(
-  id: (json['id'] as num).toInt(),
+  id: (json['id'] as num?)?.toInt(),
   name: json['name'] as String?,
   isoCode: json['isoCode'] as String?,
   locale: json['locale'] as String?,

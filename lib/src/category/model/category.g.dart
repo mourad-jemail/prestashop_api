@@ -7,7 +7,7 @@ part of 'category.dart';
 // **************************************************************************
 
 _Category _$CategoryFromJson(Map<String, dynamic> json) => _Category(
-  id: (json['id'] as num).toInt(),
+  id: (json['id'] as num?)?.toInt(),
   idParent: json['idParent'] as String?,
   levelDepth: json['levelDepth'] as String?,
   nbProductsRecursive: json['nbProductsRecursive'] as String?,

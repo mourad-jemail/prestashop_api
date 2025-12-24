@@ -13,7 +13,7 @@ abstract class CategoryDTO with _$CategoryDTO {
   const CategoryDTO._();
 
   const factory CategoryDTO({
-    required int id,
+    int? id,
     @JsonKey(name: 'id_parent', fromJson: stringFromJson) String? idParent,
     @JsonKey(name: 'level_depth', fromJson: stringFromJson) String? levelDepth,
     @JsonKey(name: 'nb_products_recursive', fromJson: stringFromDynamicJson)

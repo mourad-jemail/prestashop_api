@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$LanguageDTO {
 
- int get id; String? get name;@JsonKey(name: 'iso_code') String? get isoCode; String? get locale;@JsonKey(name: 'language_code') String? get languageCode;@JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson) bool? get active;@JsonKey(name: 'is_rtl', fromJson: boolFromJson, toJson: boolToJson) bool? get isRtl;@JsonKey(name: 'date_format_lite') String? get dateFormatLite;@JsonKey(name: 'date_format_full') String? get dateFormatFull;
+ int? get id; String? get name;@JsonKey(name: 'iso_code') String? get isoCode; String? get locale;@JsonKey(name: 'language_code') String? get languageCode;@JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson) bool? get active;@JsonKey(name: 'is_rtl', fromJson: boolFromJson, toJson: boolToJson) bool? get isRtl;@JsonKey(name: 'date_format_lite') String? get dateFormatLite;@JsonKey(name: 'date_format_full') String? get dateFormatFull;
 /// Create a copy of LanguageDTO
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $LanguageDTOCopyWith<$Res>  {
   factory $LanguageDTOCopyWith(LanguageDTO value, $Res Function(LanguageDTO) _then) = _$LanguageDTOCopyWithImpl;
 @useResult
 $Res call({
- int id, String? name,@JsonKey(name: 'iso_code') String? isoCode, String? locale,@JsonKey(name: 'language_code') String? languageCode,@JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson) bool? active,@JsonKey(name: 'is_rtl', fromJson: boolFromJson, toJson: boolToJson) bool? isRtl,@JsonKey(name: 'date_format_lite') String? dateFormatLite,@JsonKey(name: 'date_format_full') String? dateFormatFull
+ int? id, String? name,@JsonKey(name: 'iso_code') String? isoCode, String? locale,@JsonKey(name: 'language_code') String? languageCode,@JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson) bool? active,@JsonKey(name: 'is_rtl', fromJson: boolFromJson, toJson: boolToJson) bool? isRtl,@JsonKey(name: 'date_format_lite') String? dateFormatLite,@JsonKey(name: 'date_format_full') String? dateFormatFull
 });
 
 
@@ -65,10 +65,10 @@ class _$LanguageDTOCopyWithImpl<$Res>
 
 /// Create a copy of LanguageDTO
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = freezed,Object? isoCode = freezed,Object? locale = freezed,Object? languageCode = freezed,Object? active = freezed,Object? isRtl = freezed,Object? dateFormatLite = freezed,Object? dateFormatFull = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? name = freezed,Object? isoCode = freezed,Object? locale = freezed,Object? languageCode = freezed,Object? active = freezed,Object? isRtl = freezed,Object? dateFormatLite = freezed,Object? dateFormatFull = freezed,}) {
   return _then(_self.copyWith(
-id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String?,isoCode: freezed == isoCode ? _self.isoCode : isoCode // ignore: cast_nullable_to_non_nullable
 as String?,locale: freezed == locale ? _self.locale : locale // ignore: cast_nullable_to_non_nullable
 as String?,languageCode: freezed == languageCode ? _self.languageCode : languageCode // ignore: cast_nullable_to_non_nullable
@@ -161,7 +161,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String? name, @JsonKey(name: 'iso_code')  String? isoCode,  String? locale, @JsonKey(name: 'language_code')  String? languageCode, @JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson)  bool? active, @JsonKey(name: 'is_rtl', fromJson: boolFromJson, toJson: boolToJson)  bool? isRtl, @JsonKey(name: 'date_format_lite')  String? dateFormatLite, @JsonKey(name: 'date_format_full')  String? dateFormatFull)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id,  String? name, @JsonKey(name: 'iso_code')  String? isoCode,  String? locale, @JsonKey(name: 'language_code')  String? languageCode, @JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson)  bool? active, @JsonKey(name: 'is_rtl', fromJson: boolFromJson, toJson: boolToJson)  bool? isRtl, @JsonKey(name: 'date_format_lite')  String? dateFormatLite, @JsonKey(name: 'date_format_full')  String? dateFormatFull)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _LanguageDTO() when $default != null:
 return $default(_that.id,_that.name,_that.isoCode,_that.locale,_that.languageCode,_that.active,_that.isRtl,_that.dateFormatLite,_that.dateFormatFull);case _:
@@ -182,7 +182,7 @@ return $default(_that.id,_that.name,_that.isoCode,_that.locale,_that.languageCod
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String? name, @JsonKey(name: 'iso_code')  String? isoCode,  String? locale, @JsonKey(name: 'language_code')  String? languageCode, @JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson)  bool? active, @JsonKey(name: 'is_rtl', fromJson: boolFromJson, toJson: boolToJson)  bool? isRtl, @JsonKey(name: 'date_format_lite')  String? dateFormatLite, @JsonKey(name: 'date_format_full')  String? dateFormatFull)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id,  String? name, @JsonKey(name: 'iso_code')  String? isoCode,  String? locale, @JsonKey(name: 'language_code')  String? languageCode, @JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson)  bool? active, @JsonKey(name: 'is_rtl', fromJson: boolFromJson, toJson: boolToJson)  bool? isRtl, @JsonKey(name: 'date_format_lite')  String? dateFormatLite, @JsonKey(name: 'date_format_full')  String? dateFormatFull)  $default,) {final _that = this;
 switch (_that) {
 case _LanguageDTO():
 return $default(_that.id,_that.name,_that.isoCode,_that.locale,_that.languageCode,_that.active,_that.isRtl,_that.dateFormatLite,_that.dateFormatFull);case _:
@@ -202,7 +202,7 @@ return $default(_that.id,_that.name,_that.isoCode,_that.locale,_that.languageCod
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String? name, @JsonKey(name: 'iso_code')  String? isoCode,  String? locale, @JsonKey(name: 'language_code')  String? languageCode, @JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson)  bool? active, @JsonKey(name: 'is_rtl', fromJson: boolFromJson, toJson: boolToJson)  bool? isRtl, @JsonKey(name: 'date_format_lite')  String? dateFormatLite, @JsonKey(name: 'date_format_full')  String? dateFormatFull)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id,  String? name, @JsonKey(name: 'iso_code')  String? isoCode,  String? locale, @JsonKey(name: 'language_code')  String? languageCode, @JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson)  bool? active, @JsonKey(name: 'is_rtl', fromJson: boolFromJson, toJson: boolToJson)  bool? isRtl, @JsonKey(name: 'date_format_lite')  String? dateFormatLite, @JsonKey(name: 'date_format_full')  String? dateFormatFull)?  $default,) {final _that = this;
 switch (_that) {
 case _LanguageDTO() when $default != null:
 return $default(_that.id,_that.name,_that.isoCode,_that.locale,_that.languageCode,_that.active,_that.isRtl,_that.dateFormatLite,_that.dateFormatFull);case _:
@@ -217,10 +217,10 @@ return $default(_that.id,_that.name,_that.isoCode,_that.locale,_that.languageCod
 @JsonSerializable()
 
 class _LanguageDTO extends LanguageDTO {
-  const _LanguageDTO({required this.id, this.name, @JsonKey(name: 'iso_code') this.isoCode, this.locale, @JsonKey(name: 'language_code') this.languageCode, @JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson) this.active, @JsonKey(name: 'is_rtl', fromJson: boolFromJson, toJson: boolToJson) this.isRtl, @JsonKey(name: 'date_format_lite') this.dateFormatLite, @JsonKey(name: 'date_format_full') this.dateFormatFull}): super._();
+  const _LanguageDTO({this.id, this.name, @JsonKey(name: 'iso_code') this.isoCode, this.locale, @JsonKey(name: 'language_code') this.languageCode, @JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson) this.active, @JsonKey(name: 'is_rtl', fromJson: boolFromJson, toJson: boolToJson) this.isRtl, @JsonKey(name: 'date_format_lite') this.dateFormatLite, @JsonKey(name: 'date_format_full') this.dateFormatFull}): super._();
   factory _LanguageDTO.fromJson(Map<String, dynamic> json) => _$LanguageDTOFromJson(json);
 
-@override final  int id;
+@override final  int? id;
 @override final  String? name;
 @override@JsonKey(name: 'iso_code') final  String? isoCode;
 @override final  String? locale;
@@ -263,7 +263,7 @@ abstract mixin class _$LanguageDTOCopyWith<$Res> implements $LanguageDTOCopyWith
   factory _$LanguageDTOCopyWith(_LanguageDTO value, $Res Function(_LanguageDTO) _then) = __$LanguageDTOCopyWithImpl;
 @override @useResult
 $Res call({
- int id, String? name,@JsonKey(name: 'iso_code') String? isoCode, String? locale,@JsonKey(name: 'language_code') String? languageCode,@JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson) bool? active,@JsonKey(name: 'is_rtl', fromJson: boolFromJson, toJson: boolToJson) bool? isRtl,@JsonKey(name: 'date_format_lite') String? dateFormatLite,@JsonKey(name: 'date_format_full') String? dateFormatFull
+ int? id, String? name,@JsonKey(name: 'iso_code') String? isoCode, String? locale,@JsonKey(name: 'language_code') String? languageCode,@JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson) bool? active,@JsonKey(name: 'is_rtl', fromJson: boolFromJson, toJson: boolToJson) bool? isRtl,@JsonKey(name: 'date_format_lite') String? dateFormatLite,@JsonKey(name: 'date_format_full') String? dateFormatFull
 });
 
 
@@ -280,10 +280,10 @@ class __$LanguageDTOCopyWithImpl<$Res>
 
 /// Create a copy of LanguageDTO
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = freezed,Object? isoCode = freezed,Object? locale = freezed,Object? languageCode = freezed,Object? active = freezed,Object? isRtl = freezed,Object? dateFormatLite = freezed,Object? dateFormatFull = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? name = freezed,Object? isoCode = freezed,Object? locale = freezed,Object? languageCode = freezed,Object? active = freezed,Object? isRtl = freezed,Object? dateFormatLite = freezed,Object? dateFormatFull = freezed,}) {
   return _then(_LanguageDTO(
-id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String?,isoCode: freezed == isoCode ? _self.isoCode : isoCode // ignore: cast_nullable_to_non_nullable
 as String?,locale: freezed == locale ? _self.locale : locale // ignore: cast_nullable_to_non_nullable
 as String?,languageCode: freezed == languageCode ? _self.languageCode : languageCode // ignore: cast_nullable_to_non_nullable

@@ -13,7 +13,7 @@ abstract class ProductDTO with _$ProductDTO {
   const ProductDTO._();
 
   const factory ProductDTO({
-    required int id,
+    int? id,
     @JsonKey(name: 'id_manufacturer', fromJson: stringFromJson)
     String? idManufacturer,
     @JsonKey(name: 'id_supplier', fromJson: stringFromJson) String? idSupplier,

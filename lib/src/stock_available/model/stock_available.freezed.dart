@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$StockAvailable {
 
- int get id; String? get idProduct; String? get idProductAttribute; String? get idShop; String? get idShopGroup; String? get quantity; bool? get dependsOnStock; String? get outOfStock; String? get location;
+ int? get id; String? get idProduct; String? get idProductAttribute; String? get idShop; String? get idShopGroup; String? get quantity; bool? get dependsOnStock; String? get outOfStock; String? get location;
 /// Create a copy of StockAvailable
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $StockAvailableCopyWith<$Res>  {
   factory $StockAvailableCopyWith(StockAvailable value, $Res Function(StockAvailable) _then) = _$StockAvailableCopyWithImpl;
 @useResult
 $Res call({
- int id, String? idProduct, String? idProductAttribute, String? idShop, String? idShopGroup, String? quantity, bool? dependsOnStock, String? outOfStock, String? location
+ int? id, String? idProduct, String? idProductAttribute, String? idShop, String? idShopGroup, String? quantity, bool? dependsOnStock, String? outOfStock, String? location
 });
 
 
@@ -65,10 +65,10 @@ class _$StockAvailableCopyWithImpl<$Res>
 
 /// Create a copy of StockAvailable
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? idProduct = freezed,Object? idProductAttribute = freezed,Object? idShop = freezed,Object? idShopGroup = freezed,Object? quantity = freezed,Object? dependsOnStock = freezed,Object? outOfStock = freezed,Object? location = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? idProduct = freezed,Object? idProductAttribute = freezed,Object? idShop = freezed,Object? idShopGroup = freezed,Object? quantity = freezed,Object? dependsOnStock = freezed,Object? outOfStock = freezed,Object? location = freezed,}) {
   return _then(_self.copyWith(
-id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,idProduct: freezed == idProduct ? _self.idProduct : idProduct // ignore: cast_nullable_to_non_nullable
+id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int?,idProduct: freezed == idProduct ? _self.idProduct : idProduct // ignore: cast_nullable_to_non_nullable
 as String?,idProductAttribute: freezed == idProductAttribute ? _self.idProductAttribute : idProductAttribute // ignore: cast_nullable_to_non_nullable
 as String?,idShop: freezed == idShop ? _self.idShop : idShop // ignore: cast_nullable_to_non_nullable
 as String?,idShopGroup: freezed == idShopGroup ? _self.idShopGroup : idShopGroup // ignore: cast_nullable_to_non_nullable
@@ -161,7 +161,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String? idProduct,  String? idProductAttribute,  String? idShop,  String? idShopGroup,  String? quantity,  bool? dependsOnStock,  String? outOfStock,  String? location)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id,  String? idProduct,  String? idProductAttribute,  String? idShop,  String? idShopGroup,  String? quantity,  bool? dependsOnStock,  String? outOfStock,  String? location)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _StockAvailable() when $default != null:
 return $default(_that.id,_that.idProduct,_that.idProductAttribute,_that.idShop,_that.idShopGroup,_that.quantity,_that.dependsOnStock,_that.outOfStock,_that.location);case _:
@@ -182,7 +182,7 @@ return $default(_that.id,_that.idProduct,_that.idProductAttribute,_that.idShop,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String? idProduct,  String? idProductAttribute,  String? idShop,  String? idShopGroup,  String? quantity,  bool? dependsOnStock,  String? outOfStock,  String? location)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id,  String? idProduct,  String? idProductAttribute,  String? idShop,  String? idShopGroup,  String? quantity,  bool? dependsOnStock,  String? outOfStock,  String? location)  $default,) {final _that = this;
 switch (_that) {
 case _StockAvailable():
 return $default(_that.id,_that.idProduct,_that.idProductAttribute,_that.idShop,_that.idShopGroup,_that.quantity,_that.dependsOnStock,_that.outOfStock,_that.location);case _:
@@ -202,7 +202,7 @@ return $default(_that.id,_that.idProduct,_that.idProductAttribute,_that.idShop,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String? idProduct,  String? idProductAttribute,  String? idShop,  String? idShopGroup,  String? quantity,  bool? dependsOnStock,  String? outOfStock,  String? location)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id,  String? idProduct,  String? idProductAttribute,  String? idShop,  String? idShopGroup,  String? quantity,  bool? dependsOnStock,  String? outOfStock,  String? location)?  $default,) {final _that = this;
 switch (_that) {
 case _StockAvailable() when $default != null:
 return $default(_that.id,_that.idProduct,_that.idProductAttribute,_that.idShop,_that.idShopGroup,_that.quantity,_that.dependsOnStock,_that.outOfStock,_that.location);case _:
@@ -217,10 +217,10 @@ return $default(_that.id,_that.idProduct,_that.idProductAttribute,_that.idShop,_
 @JsonSerializable()
 
 class _StockAvailable extends StockAvailable {
-  const _StockAvailable({required this.id, this.idProduct, this.idProductAttribute, this.idShop, this.idShopGroup, this.quantity, this.dependsOnStock, this.outOfStock, this.location}): super._();
+  const _StockAvailable({this.id, this.idProduct, this.idProductAttribute, this.idShop, this.idShopGroup, this.quantity, this.dependsOnStock, this.outOfStock, this.location}): super._();
   factory _StockAvailable.fromJson(Map<String, dynamic> json) => _$StockAvailableFromJson(json);
 
-@override final  int id;
+@override final  int? id;
 @override final  String? idProduct;
 @override final  String? idProductAttribute;
 @override final  String? idShop;
@@ -263,7 +263,7 @@ abstract mixin class _$StockAvailableCopyWith<$Res> implements $StockAvailableCo
   factory _$StockAvailableCopyWith(_StockAvailable value, $Res Function(_StockAvailable) _then) = __$StockAvailableCopyWithImpl;
 @override @useResult
 $Res call({
- int id, String? idProduct, String? idProductAttribute, String? idShop, String? idShopGroup, String? quantity, bool? dependsOnStock, String? outOfStock, String? location
+ int? id, String? idProduct, String? idProductAttribute, String? idShop, String? idShopGroup, String? quantity, bool? dependsOnStock, String? outOfStock, String? location
 });
 
 
@@ -280,10 +280,10 @@ class __$StockAvailableCopyWithImpl<$Res>
 
 /// Create a copy of StockAvailable
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? idProduct = freezed,Object? idProductAttribute = freezed,Object? idShop = freezed,Object? idShopGroup = freezed,Object? quantity = freezed,Object? dependsOnStock = freezed,Object? outOfStock = freezed,Object? location = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? idProduct = freezed,Object? idProductAttribute = freezed,Object? idShop = freezed,Object? idShopGroup = freezed,Object? quantity = freezed,Object? dependsOnStock = freezed,Object? outOfStock = freezed,Object? location = freezed,}) {
   return _then(_StockAvailable(
-id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,idProduct: freezed == idProduct ? _self.idProduct : idProduct // ignore: cast_nullable_to_non_nullable
+id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int?,idProduct: freezed == idProduct ? _self.idProduct : idProduct // ignore: cast_nullable_to_non_nullable
 as String?,idProductAttribute: freezed == idProductAttribute ? _self.idProductAttribute : idProductAttribute // ignore: cast_nullable_to_non_nullable
 as String?,idShop: freezed == idShop ? _self.idShop : idShop // ignore: cast_nullable_to_non_nullable
 as String?,idShopGroup: freezed == idShopGroup ? _self.idShopGroup : idShopGroup // ignore: cast_nullable_to_non_nullable
