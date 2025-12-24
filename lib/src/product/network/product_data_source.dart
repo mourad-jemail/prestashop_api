@@ -40,7 +40,7 @@ class ProductDataSource {
   }) async {
     final uriBuilder = UriBuilder(
       _baseConfig,
-      productPath,
+      productsPath,
       languageId: languageId,
 
       /// Refer to:
@@ -130,7 +130,7 @@ class ProductDataSource {
     final uriBuilder =
         UriBuilder(
               _baseConfig,
-              productPath,
+              productsPath,
               languageId: languageId,
 
               /// Refer to:

@@ -38,7 +38,7 @@ class LanguageDataSource {
   }) async {
     final uriBuilder = UriBuilder(
       _baseConfig,
-      languagePath,
+      languagesPath,
     ).setFilter(filter).setDisplay(display).setSort(sort);
 
     try {
@@ -118,7 +118,7 @@ class LanguageDataSource {
     Display<LanguageDisplayField>? display,
     Sort<SortFieldOrder<LanguageSortField>>? sort,
   }) async {
-    final uriBuilder = UriBuilder(_baseConfig, languagePath)
+    final uriBuilder = UriBuilder(_baseConfig, languagesPath)
         .setLimit(page: page, perPage: perPage)
         .setFilter(filter)
         .setDisplay(display)

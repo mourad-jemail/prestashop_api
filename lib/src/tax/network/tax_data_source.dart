@@ -40,7 +40,7 @@ class TaxDataSource {
     // Build the URI with the provided filter, display, and sort options
     final uriBuilder = UriBuilder(
       _baseConfig,
-      taxPath,
+      taxesPath,
       languageId: languageId,
     ).setFilter(filter).setDisplay(display).setSort(sort);
 
@@ -127,7 +127,7 @@ class TaxDataSource {
   }) async {
     // Build the URI with the provided limit, filter, display, and sort options
     final uriBuilder =
-        UriBuilder(_baseConfig, taxPath, languageId: languageId)
+        UriBuilder(_baseConfig, taxesPath, languageId: languageId)
             .setLimit(page: page, perPage: perPage)
             .setFilter(filter)
             .setDisplay(display)

@@ -40,7 +40,7 @@ class CountryDataSource {
     // Build the URI with the provided filter, display, and sort options
     final uriBuilder = UriBuilder(
       _baseConfig,
-      countryPath,
+      countriesPath,
       languageId: languageId,
     ).setFilter(filter).setDisplay(display).setSort(sort);
 
@@ -128,7 +128,7 @@ class CountryDataSource {
   }) async {
     // Build the URI with the provided limit, filter, display, and sort options
     final uriBuilder =
-        UriBuilder(_baseConfig, countryPath, languageId: languageId)
+        UriBuilder(_baseConfig, countriesPath, languageId: languageId)
             .setLimit(page: page, perPage: perPage)
             .setFilter(filter)
             .setDisplay(display)

@@ -7,12 +7,12 @@ import 'options/sort/sort.dart';
 import 'options/sort/sort_field_order.dart';
 import 'shared/encoders.dart';
 
-const String categoryPath = '/api/categories';
-const String countryPath = '/api/countries';
-const String languagePath = '/api/languages';
-const String productPath = '/api/products';
-const String stockAvailablePath = '/api/stock_availables';
-const String taxPath = '/api/taxes';
+const String categoriesPath = '/api/categories';
+const String countriesPath = '/api/countries';
+const String languagesPath = '/api/languages';
+const String productsPath = '/api/products';
+const String stockAvailablesPath = '/api/stock_availables';
+const String taxesPath = '/api/taxes';
 
 enum Protocol { http, https }
 

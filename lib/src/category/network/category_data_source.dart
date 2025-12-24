@@ -41,7 +41,7 @@ class CategoryDataSource {
     // Build the URI with the provided filter, display, and sort options
     final uriBuilder = UriBuilder(
       _baseConfig,
-      categoryPath,
+      categoriesPath,
       languageId: languageId,
     ).setFilter(filter).setDisplay(display).setSort(sort);
 
@@ -129,7 +129,7 @@ class CategoryDataSource {
   }) async {
     // Build the URI with the provided limit, filter, display, and sort options
     final uriBuilder =
-        UriBuilder(_baseConfig, categoryPath, languageId: languageId)
+        UriBuilder(_baseConfig, categoriesPath, languageId: languageId)
             .setLimit(page: page, perPage: perPage)
             .setFilter(filter)
             .setDisplay(display)

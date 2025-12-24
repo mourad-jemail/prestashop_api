@@ -39,7 +39,7 @@ class StockAvailableDataSource {
   }) async {
     final uriBuilder = UriBuilder(
       _baseConfig,
-      stockAvailablePath,
+      stockAvailablesPath,
     ).setFilter(filter).setDisplay(display).setSort(sort);
 
     try {
@@ -123,7 +123,7 @@ class StockAvailableDataSource {
     Display<StockAvailableDisplayField>? display,
     Sort<SortFieldOrder<StockAvailableSortField>>? sort,
   }) async {
-    final uriBuilder = UriBuilder(_baseConfig, stockAvailablePath)
+    final uriBuilder = UriBuilder(_baseConfig, stockAvailablesPath)
         .setLimit(page: page, perPage: perPage)
         .setFilter(filter)
         .setDisplay(display)
