@@ -1,3 +1,7 @@
+## 1.1.0
+
+- Added support for 'Country' resource.
+
 ## 1.0.0
 
 - **Breaking:** Require Dart SDK >= 3.8.0

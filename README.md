@@ -72,7 +72,7 @@ An example speaks volumes compared to a lengthy abstract explanation, so here's 
 
 ```yaml
 dependencies:
-  prestashop_api: ^0.1.1
+  prestashop_api: ^1.1.0
 ```
 
 ### 2. Import the package
@@ -341,6 +341,14 @@ Below are the current supported API requests. Please note that the development o
 - Get Categories by page
 
 [See Categories API](https://devdocs.prestashop-project.org/1.7/webservice/resources/categories/)
+
+### PrestaShop - Countries
+
+- Get Countries
+- Retrieve a Country by id
+- Get Countries by page
+
+[See Countries API](https://devdocs.prestashop-project.org/1.7/webservice/resources/countries/)
 
 ### PrestaShop - Languages
 
