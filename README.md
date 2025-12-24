@@ -47,6 +47,7 @@ Let's explore the package's capabilities together!
     - [PrestaShop - Languages](#prestashop---languages)
     - [PrestaShop - Products](#prestashop---products)
     - [PrestaShop - Stock Availables](#prestashop---stock-availables)
+    - [PrestaShop - Taxes](#prestashop---taxes)
 - [PrestaShop API Documentation Reference](#prestashop-api-documentation-reference)
 - [Feedback](#feedback)
 - [Disclaimer](#disclaimer)
@@ -73,7 +74,7 @@ An example speaks volumes compared to a lengthy abstract explanation, so here's 
 
 ```yaml
 dependencies:
-  prestashop_api: ^1.1.0
+  prestashop_api: ^1.2.0
 ```
 
 ### 2. Import the package
@@ -374,6 +375,14 @@ Below are the current supported API requests. Please note that the development o
 - Get Stock Availables by page
 
 [See Stock Availables API](https://devdocs.prestashop-project.org/1.7/webservice/resources/stock_available/)
+
+### PrestaShop - Taxes
+
+- Get Taxes
+- Retrieve a Tax by id
+- Get Taxes by page
+
+[See Taxes API](https://devdocs.prestashop-project.org/1.7/webservice/resources/taxes/)
 
 ## PrestaShop API Documentation Reference
 [PrestaShop Docs](https://devdocs.prestashop-project.org/1.7/webservice/)

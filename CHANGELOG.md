@@ -1,3 +1,7 @@
+## 1.2.0
+
+- Feat: Added support for 'Tax' resource
+
 ## 1.1.1
 
 - Fix: Gracefully handle retrieval of entities missing IDs
