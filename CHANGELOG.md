@@ -1,6 +1,15 @@
+## 1.3.0
+
+- Refactor: Standardized resource naming to plural conventions across API paths and directory
+  structure
+- Refactor: Renamed resource directories (category, country, language, product, stock_available,
+  tax) to their plural forms and updated all imports and references accordingly
+- Docs: Improved documentation comments for consistent StockAvailable terminology
+- Docs: Updated README formatting, version reference, and StockAvailable naming
+
 ## 1.2.0
 
-- Feat: Added support for 'Tax' resource
+- Feat: Added support for 'Taxes' resource
 
 ## 1.1.1
 
@@ -9,7 +18,7 @@
 
 ## 1.1.0
 
-- Feat: Added support for 'Country' resource
+- Feat: Added support for 'Countries' resource
 
 ## 1.0.0
 
@@ -26,11 +35,11 @@
 
 ## 0.1.0
 
-- Feat: Added support for 'Language' resource
+- Feat: Added support for 'Languages' resource
 
 ## 0.0.2
 
-- Feat: Added support for 'Stock Available' resource
+- Feat: Added support for 'Stock availables' resource
 
 ## 0.0.1
 
