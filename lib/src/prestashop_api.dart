@@ -14,6 +14,10 @@ import 'common/options/display/display.dart';
 import 'common/options/filter/filter.dart';
 import 'common/options/sort/sort.dart';
 import 'common/options/sort/sort_field_order.dart';
+import 'country/i_country_facade.dart';
+import 'country/model/country.dart';
+import 'country/network/country_data_source.dart';
+import 'country/network/country_enums.dart';
 import 'language/i_language_facade.dart';
 import 'language/model/language.dart';
 import 'language/network/language_data_source.dart';
@@ -67,17 +71,20 @@ import 'stock_available/network/stock_available_enums.dart';
 ///   );
 ///  ```
 @LazySingleton(as: ICategoryFacade)
+@LazySingleton(as: ICountryFacade)
 @LazySingleton(as: ILanguageFacade)
 @LazySingleton(as: IProductFacade)
 @LazySingleton(as: IStockAvailableFacade)
 class PrestashopApi
     implements
         ICategoryFacade,
+        ICountryFacade,
         ILanguageFacade,
         IProductFacade,
         IStockAvailableFacade {
   final Dio _dio;
   final CategoryDataSource _categoryDataSource;
+  final CountryDataSource _countryDataSource;
   final LanguageDataSource _languageDataSource;
   final ProductDataSource _productDataSource;
   final StockAvailableDataSource _stockAvailableDataSource;
@@ -86,6 +93,7 @@ class PrestashopApi
     BaseConfig baseConfig, {
     Dio? dio,
     CategoryDataSource? categoryDataSource,
+    CountryDataSource? countryDataSource,
     LanguageDataSource? languageDataSource,
     ProductDataSource? productDataSource,
     StockAvailableDataSource? stockAvailableDataSource,
@@ -95,6 +103,7 @@ class PrestashopApi
     return PrestashopApi._internal(
       dioInstance,
       categoryDataSource ?? CategoryDataSource(dioInstance, baseConfig),
+      countryDataSource ?? CountryDataSource(dioInstance, baseConfig),
       languageDataSource ?? LanguageDataSource(dioInstance, baseConfig),
       productDataSource ?? ProductDataSource(dioInstance, baseConfig),
       stockAvailableDataSource ??
@@ -105,6 +114,7 @@ class PrestashopApi
   PrestashopApi._internal(
     this._dio,
     this._categoryDataSource,
+    this._countryDataSource,
     this._languageDataSource,
     this._productDataSource,
     this._stockAvailableDataSource,
@@ -215,6 +225,77 @@ class PrestashopApi
 
     return ReceivedEntity(
       remoteResponse.data.toDomain().categoryList,
+      isNextPageAvailable: remoteResponse.isNextPageAvailable,
+    );
+  });
+
+  ///
+  /// Country
+  ///
+
+  /// Fetches a list of all [Country] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of all countries.
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  /// Requires [languageId] to specify the language of the retrieved data.
+  @override
+  Future<ReceivedEntity<List<Country>>> getCountries({
+    required int languageId,
+    Filter<CountryFilterField>? filter,
+    Display<CountryDisplayField>? display,
+    Sort<SortFieldOrder<CountrySortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _countryDataSource.getCountries(
+      languageId: languageId,
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(remoteResponse.data.toDomain().countryList);
+  });
+
+  @override
+  Future<ReceivedEntity<Country>> getCountryById({
+    required int languageId,
+    required int id,
+    Display<CountryDisplayField>? display,
+  }) => _callApi(() async {
+    final remoteResponse = await _countryDataSource.getCountries(
+      languageId: languageId,
+      filter: Filter.equals(CountryFilterField.id, value: '$id'),
+      display: display,
+    );
+
+    final countryOutputDTO = remoteResponse.data;
+
+    if (countryOutputDTO.toDomain().countryList.isNotEmpty) {
+      return ReceivedEntity(countryOutputDTO.toDomain().countryList[0]);
+    } else {
+      return ReceivedEntity(Country.empty());
+    }
+  });
+
+  @override
+  Future<ReceivedEntity<List<Country>>> getCountriesPage({
+    required int languageId,
+    required int page,
+    required int perPage,
+    Filter<CountryFilterField>? filter,
+    Display<CountryDisplayField>? display,
+    Sort<SortFieldOrder<CountrySortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _countryDataSource.getCountriesPage(
+      languageId: languageId,
+      page: page,
+      perPage: perPage,
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(
+      remoteResponse.data.toDomain().countryList,
       isNextPageAvailable: remoteResponse.isNextPageAvailable,
     );
   });
