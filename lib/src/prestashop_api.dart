@@ -30,10 +30,10 @@ import 'stock_availables/i_stock_available_facade.dart';
 import 'stock_availables/model/stock_available.dart';
 import 'stock_availables/network/stock_available_data_source.dart';
 import 'stock_availables/network/stock_available_enums.dart';
-import 'tax/i_tax_facade.dart';
-import 'tax/model/tax.dart';
-import 'tax/network/tax_data_source.dart';
-import 'tax/network/tax_enums.dart';
+import 'taxes/i_tax_facade.dart';
+import 'taxes/model/tax.dart';
+import 'taxes/network/tax_data_source.dart';
+import 'taxes/network/tax_enums.dart';
 
 /// A Dart package designed to simplify interaction with PrestaShop websites by
 /// providing streamlined API integration, automatic model generation, data
@@ -572,6 +572,7 @@ class PrestashopApi
   ///
   /// Returns a [ReceivedEntity] containing a list of all taxes.
   /// Optional [filter], [display], and [sort] parameters can be provided.
+  /// Requires [languageId] to specify the language of the retrieved data.
   @override
   Future<ReceivedEntity<List<Tax>>> getTaxes({
     required int languageId,

@@ -25,5 +25,5 @@ export 'src/products/model/product.dart';
 export 'src/products/network/product_enums.dart';
 export 'src/stock_availables/model/stock_available.dart';
 export 'src/stock_availables/network/stock_available_enums.dart';
-export 'src/tax/model/tax.dart';
-export 'src/tax/network/tax_enums.dart';
+export 'src/taxes/model/tax.dart';
+export 'src/taxes/network/tax_enums.dart';
