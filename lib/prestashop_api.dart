@@ -4,8 +4,8 @@ library;
 export 'package:dio/dio.dart';
 
 export 'src/base_config.dart';
-export 'src/category/model/category.dart';
-export 'src/category/network/category_enums.dart';
+export 'src/categories/model/category.dart';
+export 'src/categories/network/category_enums.dart';
 export 'src/common/exceptions/custom_exceptions.dart';
 export 'src/common/exceptions/prestashop_error.dart';
 export 'src/common/model/id.dart';

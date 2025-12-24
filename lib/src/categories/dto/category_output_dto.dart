@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../category/dto/category_dto.dart';
-import '../../category/model/category.dart';
-import '../../category/model/category_output.dart';
+import '../../categories/dto/category_dto.dart';
+import '../../categories/model/category.dart';
+import '../../categories/model/category_output.dart';
 
 part 'category_output_dto.freezed.dart';
 part 'category_output_dto.g.dart';

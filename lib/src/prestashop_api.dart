@@ -3,10 +3,10 @@ import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 
 import 'base_config.dart';
-import 'category/i_category_facade.dart';
-import 'category/model/category.dart';
-import 'category/network/category_data_source.dart';
-import 'category/network/category_enums.dart';
+import 'categories/i_category_facade.dart';
+import 'categories/model/category.dart';
+import 'categories/network/category_data_source.dart';
+import 'categories/network/category_enums.dart';
 import 'common/exceptions/custom_exceptions.dart';
 import 'common/exceptions/prestashop_error.dart';
 import 'common/model/received_entity.dart';
@@ -156,7 +156,7 @@ class PrestashopApi
   }
 
   ///
-  /// Category
+  /// Categories
   ///
 
   /// Fetches a list of all [Category] objects.
