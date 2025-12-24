@@ -14,10 +14,10 @@ import 'common/options/display/display.dart';
 import 'common/options/filter/filter.dart';
 import 'common/options/sort/sort.dart';
 import 'common/options/sort/sort_field_order.dart';
-import 'country/i_country_facade.dart';
-import 'country/model/country.dart';
-import 'country/network/country_data_source.dart';
-import 'country/network/country_enums.dart';
+import 'countries/i_country_facade.dart';
+import 'countries/model/country.dart';
+import 'countries/network/country_data_source.dart';
+import 'countries/network/country_enums.dart';
 import 'language/i_language_facade.dart';
 import 'language/model/language.dart';
 import 'language/network/language_data_source.dart';
@@ -265,6 +265,13 @@ class PrestashopApi
     return ReceivedEntity(remoteResponse.data.toDomain().countryList);
   });
 
+  /// Retrieves a single [Country] by its [id].
+  ///
+  /// Returns a [ReceivedEntity] containing the country.
+  /// Requires [languageId] and the country [id].
+  /// An optional [display] parameter can be provided.
+  /// If no country is found, returns a [ReceivedEntity] containing an empty
+  /// [Country] object.
   @override
   Future<ReceivedEntity<Country>> getCountryById({
     required int languageId,
@@ -286,6 +293,12 @@ class PrestashopApi
     }
   });
 
+  /// Fetches a paginated list of [Country] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of countries for the
+  /// specified [page].
+  /// Requires [languageId], [page] number, and items [perPage].
+  /// Optional [filter], [display], and [sort] parameters can be provided.
   @override
   Future<ReceivedEntity<List<Country>>> getCountriesPage({
     required int languageId,
