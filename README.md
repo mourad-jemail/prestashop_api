@@ -2,7 +2,9 @@
 
 ## Motivation
 
-The story of this package began with a simple need: to seamlessly bridge a Flutter app with a PrestaShop website. I found that existing packages were insufficient because, even after integrating any of them, I still needed to:
+The story of this package began with a simple need: to seamlessly bridge a Flutter app with a
+PrestaShop website. I found that existing packages were insufficient because, even after integrating
+any of them, I still needed to:
 
 - Create model classes to mirror API entities.
 - Deal with data de/serialization.
@@ -11,9 +13,11 @@ The story of this package began with a simple need: to seamlessly bridge a Flutt
 - Figure out API errors and create tailored exceptions.
 - ...
 
-Implementing all of these tasks can result in hundreds of lines of code, increasing the likelihood of errors. These main factors drove me to create the prestashop_api package from scratch.
+Implementing all of these tasks can result in hundreds of lines of code, increasing the likelihood
+of errors. These main factors drove me to create the prestashop_api package from scratch.
 
-prestashop_api package alleviates most of those burdens by implementing much of this for you, allowing you to focus more on your app's functionalities.
+prestashop_api package alleviates most of those burdens by implementing much of this for you,
+allowing you to focus more on your app's functionalities.
 
 Let's explore the package's capabilities together!
 
@@ -46,7 +50,7 @@ Let's explore the package's capabilities together!
     - [PrestaShop - Countries](#prestashop---countries)
     - [PrestaShop - Languages](#prestashop---languages)
     - [PrestaShop - Products](#prestashop---products)
-    - [PrestaShop - Stock Availables](#prestashop---stock-availables)
+    - [PrestaShop - Stock availables](#prestashop---stock-availables)
     - [PrestaShop - Taxes](#prestashop---taxes)
 - [PrestaShop API Documentation Reference](#prestashop-api-documentation-reference)
 - [Feedback](#feedback)
@@ -62,19 +66,21 @@ Let's explore the package's capabilities together!
 
 - **Sorting Data:** Sort data based on specified fields and order.
 
-- **Limiting Results and Pagination:** Limit the number of returned results, as a total number and starting from a specific page.
+- **Limiting Results and Pagination:** Limit the number of returned results, as a total number and
+  starting from a specific page.
 
 - And much more...
 
 ## Quickstart
 
-An example speaks volumes compared to a lengthy abstract explanation, so here's a typical request to fetch products:
+An example speaks volumes compared to a lengthy abstract explanation, so here's a typical request to
+fetch products:
 
 ### 1. Add to pubspec.yaml
 
 ```yaml
 dependencies:
-  prestashop_api: ^1.2.0
+  prestashop_api: ^1.3.0
 ```
 
 ### 2. Import the package
@@ -131,7 +137,8 @@ When calling the PrestaShop API, you can pass various options:
 
 ### 1. Display Fields
 
-You have the option to "display" either specific fields or all fields. If no fields are specified, the API will return the default fields it defines.
+You have the option to "display" either specific fields or all fields. If no fields are specified,
+the API will return the default fields it defines.
 
 ```dart
   // Display `id` and `name` fields for products display
@@ -156,7 +163,8 @@ You have the option to "display" either specific fields or all fields. If no fie
 
 ### 2. Filtering Data
 
-Refine the expected result using the "filter" parameter. Below are exhaustive examples for each filter method:
+Refine the expected result using the "filter" parameter. Below are exhaustive examples for each
+filter method:
 
 ```dart
   // Filter products by matching any of the specified values
@@ -225,11 +233,14 @@ But wait, there's more! prestashop_api still has a host of additional features u
 
 ### 1. Predefined Models
 
-prestashop_api offers prebuilt model classes that mirror PrestaShop API entities. You can use these models instantly, eliminating the need to create them manually.
+prestashop_api offers prebuilt model classes that mirror PrestaShop API entities. You can use these
+models instantly, eliminating the need to create them manually.
 
 ### 2. Implicit Serialization / Deserialization
 
-Effortlessly retrieve and manage data from the PrestaShop API. prestashop_api handles serialization and deserialization for you, enabling seamless conversion of data between Dart objects and JSON representations.
+Effortlessly retrieve and manage data from the PrestaShop API. prestashop_api handles serialization
+and deserialization for you, enabling seamless conversion of data between Dart objects and JSON
+representations.
 
 ### 3. Enhanced Query Precision
 
@@ -238,29 +249,40 @@ Effortlessly retrieve and manage data from the PrestaShop API. prestashop_api ha
 Writing queries the traditional way, poses two main challenges:
 
 1. **Limited Field Support**
-   Not all fields in the PrestaShop API support display, filtering, and sorting functionalities. This increases the risk of selecting the wrong fields and causes API error responses.
+   Not all fields in the PrestaShop API support display, filtering, and sorting functionalities.
+   This increases the risk of selecting the wrong fields and causes API error responses.
 
 2. **Complex Syntax**
-   Implementing display, filtering, and sorting functionalities in URL queries requires adherence to specific structuring rules. Failure to follow these conventions can lead to API error responses.
+   Implementing display, filtering, and sorting functionalities in URL queries requires adherence to
+   specific structuring rules. Failure to follow these conventions can lead to API error responses.
 
 #### Solutions
 
 To address these challenges, prestashop_api provides:
 
 1. **Built-in Functionality Fields**
-   Predefined fields for display, filtering, and sorting for every supported resource ensure precise query construction without the risk of selecting unsupported fields.
+   Predefined fields for display, filtering, and sorting for every supported resource ensure precise
+   query construction without the risk of selecting unsupported fields.
 
 2. **Standardized Syntax**
-   Predefined syntax for implementing functionalities simplifies query construction, reduces syntax errors, and enhances overall query precision and reliability.
+   Predefined syntax for implementing functionalities simplifies query construction, reduces syntax
+   errors, and enhances overall query precision and reliability.
 
 ### 4. Addressing Pagination Limitations
 
-The pagination feature in the PrestaShop v1.7.8.11 API lacks information about the maximum page number in the response headers, making it difficult to determine the availability of a next page in paginated data requests. To address this limitation, prestashop_api provides a straightforward solution.
-In the response of the fetch method, you can simply check the boolean 'isNextPageAvailable' to determine if a next page is available. To see the simplicity of integrating this feature in your code, please consult the following example.
+The pagination feature in the PrestaShop v1.7.8.11 API lacks information about the maximum page
+number in the response headers, making it difficult to determine the availability of a next page in
+paginated data requests. To address this limitation, prestashop_api provides a straightforward
+solution.
+In the response of the fetch method, you can simply check the boolean 'isNextPageAvailable' to
+determine if a next page is available. To see the simplicity of integrating this feature in your
+code, please consult the following example.
 
 ### 5. Predefined tailored exceptions
 
-prestashop_api offers a wide range of predefined exceptions, tailored for the PrestaShop API. Save time with ready-to-use exceptions for common errors and unique scenarios, allowing you to focus on building robust applications confidently.
+prestashop_api offers a wide range of predefined exceptions, tailored for the PrestaShop API. Save
+time with ready-to-use exceptions for common errors and unique scenarios, allowing you to focus on
+building robust applications confidently.
 
 ## Example using PrestashopApi
 
@@ -334,7 +356,8 @@ Future<void> main() async {
 
 ## Available API Requests
 
-Below are the current supported API requests. Please note that the development of the package is ongoing, and additional API requests may be added in future updates.
+Below are the current supported API requests. Please note that the development of the package is
+ongoing, and additional API requests may be added in future updates.
 
 ### PrestaShop - Categories
 
@@ -368,13 +391,13 @@ Below are the current supported API requests. Please note that the development o
 
 [See Products API](https://devdocs.prestashop-project.org/1.7/webservice/resources/products/)
 
-### PrestaShop - Stock Availables
+### PrestaShop - Stock availables
 
-- Get Stock Availables
-- Retrieve a Stock Available by id
-- Get Stock Availables by page
+- Get Stock availables
+- Retrieve a Stock available by id
+- Get Stock availables by page
 
-[See Stock Availables API](https://devdocs.prestashop-project.org/1.7/webservice/resources/stock_available/)
+[See Stock availables API](https://devdocs.prestashop-project.org/1.7/webservice/resources/stock_availables/)
 
 ### PrestaShop - Taxes
 
@@ -385,13 +408,20 @@ Below are the current supported API requests. Please note that the development o
 [See Taxes API](https://devdocs.prestashop-project.org/1.7/webservice/resources/taxes/)
 
 ## PrestaShop API Documentation Reference
+
 [PrestaShop Docs](https://devdocs.prestashop-project.org/1.7/webservice/)
 
 ## Feedback
+
 For bugs or feature requests, please use the issue tracker.
 
 ## Disclaimer
-This package is not affiliated with or supported by PrestaShop, "www.prestashop.com". All logos and trademarks are the property of their respective owners.
+
+This package is not affiliated with or supported by PrestaShop, "www.prestashop.com". All logos and
+trademarks are the property of their respective owners.
 
 ## Licensing
-This project is licensed under "The 3-Clause BSD License". See [LICENSE](https://github.com/MouradJEMAIL/prestashop_api/blob/main/LICENSE) for more information.
+
+This project is licensed under "The 3-Clause BSD License".
+See [LICENSE](https://github.com/MouradJEMAIL/prestashop_api/blob/main/LICENSE) for more
+information.
