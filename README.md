@@ -43,6 +43,7 @@ Let's explore the package's capabilities together!
 - [Example using PrestashopApi](#example-using-prestashopapi)
 - [Available API Requests](#available-api-requests)
     - [PrestaShop - Categories](#prestashop---categories)
+    - [PrestaShop - Countries](#prestashop---countries)
     - [PrestaShop - Languages](#prestashop---languages)
     - [PrestaShop - Products](#prestashop---products)
     - [PrestaShop - Stock Availables](#prestashop---stock-availables)
