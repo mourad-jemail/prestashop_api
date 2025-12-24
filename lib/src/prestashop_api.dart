@@ -30,6 +30,10 @@ import 'stock_available/i_stock_available_facade.dart';
 import 'stock_available/model/stock_available.dart';
 import 'stock_available/network/stock_available_data_source.dart';
 import 'stock_available/network/stock_available_enums.dart';
+import 'tax/i_tax_facade.dart';
+import 'tax/model/tax.dart';
+import 'tax/network/tax_data_source.dart';
+import 'tax/network/tax_enums.dart';
 
 /// A Dart package designed to simplify interaction with PrestaShop websites by
 /// providing streamlined API integration, automatic model generation, data
@@ -75,19 +79,22 @@ import 'stock_available/network/stock_available_enums.dart';
 @LazySingleton(as: ILanguageFacade)
 @LazySingleton(as: IProductFacade)
 @LazySingleton(as: IStockAvailableFacade)
+@LazySingleton(as: ITaxFacade)
 class PrestashopApi
     implements
         ICategoryFacade,
         ICountryFacade,
         ILanguageFacade,
         IProductFacade,
-        IStockAvailableFacade {
+        IStockAvailableFacade,
+        ITaxFacade {
   final Dio _dio;
   final CategoryDataSource _categoryDataSource;
   final CountryDataSource _countryDataSource;
   final LanguageDataSource _languageDataSource;
   final ProductDataSource _productDataSource;
   final StockAvailableDataSource _stockAvailableDataSource;
+  final TaxDataSource _taxDataSource;
 
   factory PrestashopApi(
     BaseConfig baseConfig, {
@@ -97,6 +104,7 @@ class PrestashopApi
     LanguageDataSource? languageDataSource,
     ProductDataSource? productDataSource,
     StockAvailableDataSource? stockAvailableDataSource,
+    TaxDataSource? taxDataSource,
   }) {
     final dioInstance = dio ?? Dio();
 
@@ -108,6 +116,7 @@ class PrestashopApi
       productDataSource ?? ProductDataSource(dioInstance, baseConfig),
       stockAvailableDataSource ??
           StockAvailableDataSource(dioInstance, baseConfig),
+      taxDataSource ?? TaxDataSource(dioInstance, baseConfig),
     );
   }
 
@@ -118,6 +127,7 @@ class PrestashopApi
     this._languageDataSource,
     this._productDataSource,
     this._stockAvailableDataSource,
+    this._taxDataSource,
   );
 
   Dio get dio => _dio;
@@ -501,10 +511,12 @@ class PrestashopApi
       display: display,
     );
 
-    final languageOutputDTO = remoteResponse.data;
+    final stockAvailableOutputDTO = remoteResponse.data;
 
-    if (languageOutputDTO.toDomain().stockAvailableList.isNotEmpty) {
-      return ReceivedEntity(languageOutputDTO.toDomain().stockAvailableList[0]);
+    if (stockAvailableOutputDTO.toDomain().stockAvailableList.isNotEmpty) {
+      return ReceivedEntity(
+        stockAvailableOutputDTO.toDomain().stockAvailableList[0],
+      );
     } else {
       return ReceivedEntity(StockAvailable.empty());
     }
@@ -535,6 +547,89 @@ class PrestashopApi
 
     return ReceivedEntity(
       remoteResponse.data.toDomain().stockAvailableList,
+      isNextPageAvailable: remoteResponse.isNextPageAvailable,
+    );
+  });
+
+  ///
+  /// Tax
+  ///
+
+  /// Fetches a list of all [Tax] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of all taxes.
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  @override
+  Future<ReceivedEntity<List<Tax>>> getTaxes({
+    required int languageId,
+    Filter<TaxFilterField>? filter,
+    Display<TaxDisplayField>? display,
+    Sort<SortFieldOrder<TaxSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _taxDataSource.getTaxes(
+      languageId: languageId,
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(remoteResponse.data.toDomain().taxList);
+  });
+
+  /// Retrieves a single [Tax] by its [id].
+  ///
+  /// Returns a [ReceivedEntity] containing the tax.
+  /// Requires [languageId] and the tax [id].
+  /// An optional [display] parameter can be provided.
+  /// If no tax is found, returns a [ReceivedEntity] containing an empty
+  /// [Tax] object.
+  @override
+  Future<ReceivedEntity<Tax>> getTaxById({
+    required int languageId,
+    required int id,
+    Display<TaxDisplayField>? display,
+  }) => _callApi(() async {
+    final remoteResponse = await _taxDataSource.getTaxes(
+      languageId: languageId,
+      filter: Filter.equals(TaxFilterField.id, value: '$id'),
+      display: display,
+    );
+
+    final taxOutputDTO = remoteResponse.data;
+
+    if (taxOutputDTO.toDomain().taxList.isNotEmpty) {
+      return ReceivedEntity(taxOutputDTO.toDomain().taxList[0]);
+    } else {
+      return ReceivedEntity(Tax.empty());
+    }
+  });
+
+  /// Fetches a paginated list of [Tax] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of taxes for the
+  /// specified [page].
+  /// Requires [languageId], [page] number, and items [perPage].
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  @override
+  Future<ReceivedEntity<List<Tax>>> getTaxesPage({
+    required int languageId,
+    required int page,
+    required int perPage,
+    Filter<TaxFilterField>? filter,
+    Display<TaxDisplayField>? display,
+    Sort<SortFieldOrder<TaxSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _taxDataSource.getTaxesPage(
+      languageId: languageId,
+      page: page,
+      perPage: perPage,
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(
+      remoteResponse.data.toDomain().taxList,
       isNextPageAvailable: remoteResponse.isNextPageAvailable,
     );
   });
