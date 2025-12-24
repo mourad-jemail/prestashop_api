@@ -490,7 +490,7 @@ class PrestashopApi
 
   /// Fetches a list of all [StockAvailable] objects.
   ///
-  /// Returns a [ReceivedEntity] containing a list of all stock availabilities.
+  /// Returns a [ReceivedEntity] containing a list of all stock availables.
   /// Optional [filter], [display], and [sort] parameters can be provided.
   @override
   Future<ReceivedEntity<List<StockAvailable>>> getStockAvailables({
@@ -509,10 +509,10 @@ class PrestashopApi
 
   /// Retrieves a single [StockAvailable] by its [id].
   ///
-  /// Returns a [ReceivedEntity] containing the stock availability.
-  /// Requires the stock availability [id].
+  /// Returns a [ReceivedEntity] containing the stock available.
+  /// Requires the stock available [id].
   /// An optional [display] parameter can be provided.
-  /// If no stock availability is found, returns a [ReceivedEntity] containing
+  /// If no stock available is found, returns a [ReceivedEntity] containing
   /// an empty [StockAvailable] object.
   @override
   Future<ReceivedEntity<StockAvailable>> getStockAvailableById({
@@ -537,7 +537,7 @@ class PrestashopApi
 
   /// Fetches a paginated list of [StockAvailable] objects.
   ///
-  /// Returns a [ReceivedEntity] containing a list of stock availabilities
+  /// Returns a [ReceivedEntity] containing a list of stock availables
   /// for the specified [page].
   /// Requires [page] number and items [perPage].
   /// Optional [filter], [display], and [sort] parameters can be provided.
