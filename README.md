@@ -46,6 +46,7 @@ Let's explore the package's capabilities together!
     - [5. Predefined tailored exceptions](#5-predefined-tailored-exceptions)
 - [Example using PrestashopApi](#example-using-prestashopapi)
 - [Available API Requests](#available-api-requests)
+    - [PrestaShop - Addresses](#prestashop---addresses)
     - [PrestaShop - Categories](#prestashop---categories)
     - [PrestaShop - Countries](#prestashop---countries)
     - [PrestaShop - Languages](#prestashop---languages)
@@ -80,7 +81,7 @@ fetch products:
 
 ```yaml
 dependencies:
-  prestashop_api: ^1.3.0
+  prestashop_api:
 ```
 
 ### 2. Import the package
@@ -358,6 +359,14 @@ Future<void> main() async {
 
 Below are the current supported API requests. Please note that the development of the package is
 ongoing, and additional API requests may be added in future updates.
+
+### PrestaShop - Addresses
+
+- Get Addresses
+- Retrieve an Address by id
+- Get Addresses by page
+
+[See Addresses API](https://devdocs.prestashop-project.org/1.7/webservice/resources/addresses/)
 
 ### PrestaShop - Categories
 

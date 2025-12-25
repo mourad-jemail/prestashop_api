@@ -1,3 +1,7 @@
+## 
+
+- Feat: Added support for 'Addresses' resource
+
 ## 1.3.0
 
 - Refactor: Standardized resource naming to plural conventions across API paths and directory
