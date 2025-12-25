@@ -2,6 +2,10 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 
+import 'addresses/i_address_facade.dart';
+import 'addresses/model/address.dart';
+import 'addresses/network/address_data_source.dart';
+import 'addresses/network/address_enums.dart';
 import 'base_config.dart';
 import 'categories/i_category_facade.dart';
 import 'categories/model/category.dart';
@@ -74,6 +78,7 @@ import 'taxes/network/tax_enums.dart';
 ///     ),
 ///   );
 ///  ```
+@LazySingleton(as: IAddressFacade)
 @LazySingleton(as: ICategoryFacade)
 @LazySingleton(as: ICountryFacade)
 @LazySingleton(as: ILanguageFacade)
@@ -82,6 +87,7 @@ import 'taxes/network/tax_enums.dart';
 @LazySingleton(as: ITaxFacade)
 class PrestashopApi
     implements
+        IAddressFacade,
         ICategoryFacade,
         ICountryFacade,
         ILanguageFacade,
@@ -89,6 +95,7 @@ class PrestashopApi
         IStockAvailableFacade,
         ITaxFacade {
   final Dio _dio;
+  final AddressDataSource _addressDataSource;
   final CategoryDataSource _categoryDataSource;
   final CountryDataSource _countryDataSource;
   final LanguageDataSource _languageDataSource;
@@ -99,6 +106,7 @@ class PrestashopApi
   factory PrestashopApi(
     BaseConfig baseConfig, {
     Dio? dio,
+    AddressDataSource? addressDataSource,
     CategoryDataSource? categoryDataSource,
     CountryDataSource? countryDataSource,
     LanguageDataSource? languageDataSource,
@@ -110,6 +118,7 @@ class PrestashopApi
 
     return PrestashopApi._internal(
       dioInstance,
+      addressDataSource ?? AddressDataSource(dioInstance, baseConfig),
       categoryDataSource ?? CategoryDataSource(dioInstance, baseConfig),
       countryDataSource ?? CountryDataSource(dioInstance, baseConfig),
       languageDataSource ?? LanguageDataSource(dioInstance, baseConfig),
@@ -122,6 +131,7 @@ class PrestashopApi
 
   PrestashopApi._internal(
     this._dio,
+    this._addressDataSource,
     this._categoryDataSource,
     this._countryDataSource,
     this._languageDataSource,
@@ -154,6 +164,90 @@ class PrestashopApi
       rethrow;
     }
   }
+
+  ///
+  /// Address
+  ///
+
+  /// Fetches a list of all [Address] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of all addresses.
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  /// Requires [languageId] to specify the language of the retrieved data.
+  @override
+  Future<ReceivedEntity<List<Address>>> getAddresses({
+    required int languageId,
+    Filter<AddressFilterField>? filter,
+    Display<AddressDisplayField>? display,
+    Sort<SortFieldOrder<AddressSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _addressDataSource.getAddresses(
+      languageId: languageId,
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(remoteResponse.data.toDomain().addressList);
+  });
+
+  /// Retrieves a single [Address] by its [id].
+  ///
+  /// Returns a [ReceivedEntity] containing the address.
+  /// Requires [languageId] and the address [id].
+  /// An optional [display] parameter can be provided.
+  /// If no address is found, returns a [ReceivedEntity] containing an empty
+  /// [Address] object.
+  @override
+  Future<ReceivedEntity<Address>> getAddressById({
+    required int languageId,
+    required int id,
+    Display<AddressDisplayField>? display,
+  }) => _callApi(() async {
+    final remoteResponse = await _addressDataSource.getAddresses(
+      languageId: languageId,
+      filter: Filter.equals(AddressFilterField.id, value: '$id'),
+      display: display,
+    );
+
+    final addressOutputDTO = remoteResponse.data;
+
+    if (addressOutputDTO.toDomain().addressList.isNotEmpty) {
+      return ReceivedEntity(addressOutputDTO.toDomain().addressList[0]);
+    } else {
+      return ReceivedEntity(Address.empty());
+    }
+  });
+
+  /// Fetches a paginated list of [Address] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of addresses for the
+  /// specified [page].
+  /// Requires [languageId], [page] number, and items [perPage].
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  @override
+  Future<ReceivedEntity<List<Address>>> getAddressesPage({
+    required int languageId,
+    required int page,
+    required int perPage,
+    Filter<AddressFilterField>? filter,
+    Display<AddressDisplayField>? display,
+    Sort<SortFieldOrder<AddressSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _addressDataSource.getAddressesPage(
+      languageId: languageId,
+      page: page,
+      perPage: perPage,
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(
+      remoteResponse.data.toDomain().addressList,
+      isNextPageAvailable: remoteResponse.isNextPageAvailable,
+    );
+  });
 
   ///
   /// Categories
