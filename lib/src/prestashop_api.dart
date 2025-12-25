@@ -6,6 +6,10 @@ import 'addresses/i_address_facade.dart';
 import 'addresses/model/address.dart';
 import 'addresses/network/address_data_source.dart';
 import 'addresses/network/address_enums.dart';
+import 'attachments/i_attachment_facade.dart';
+import 'attachments/model/attachment.dart';
+import 'attachments/network/attachment_data_source.dart';
+import 'attachments/network/attachment_enums.dart';
 import 'base_config.dart';
 import 'categories/i_category_facade.dart';
 import 'categories/model/category.dart';
@@ -79,6 +83,7 @@ import 'taxes/network/tax_enums.dart';
 ///   );
 ///  ```
 @LazySingleton(as: IAddressFacade)
+@LazySingleton(as: IAttachmentFacade)
 @LazySingleton(as: ICategoryFacade)
 @LazySingleton(as: ICountryFacade)
 @LazySingleton(as: ILanguageFacade)
@@ -88,6 +93,7 @@ import 'taxes/network/tax_enums.dart';
 class PrestashopApi
     implements
         IAddressFacade,
+        IAttachmentFacade,
         ICategoryFacade,
         ICountryFacade,
         ILanguageFacade,
@@ -96,6 +102,7 @@ class PrestashopApi
         ITaxFacade {
   final Dio _dio;
   final AddressDataSource _addressDataSource;
+  final AttachmentDataSource _attachmentDataSource;
   final CategoryDataSource _categoryDataSource;
   final CountryDataSource _countryDataSource;
   final LanguageDataSource _languageDataSource;
@@ -107,6 +114,7 @@ class PrestashopApi
     BaseConfig baseConfig, {
     Dio? dio,
     AddressDataSource? addressDataSource,
+    AttachmentDataSource? attachmentDataSource,
     CategoryDataSource? categoryDataSource,
     CountryDataSource? countryDataSource,
     LanguageDataSource? languageDataSource,
@@ -119,6 +127,7 @@ class PrestashopApi
     return PrestashopApi._internal(
       dioInstance,
       addressDataSource ?? AddressDataSource(dioInstance, baseConfig),
+      attachmentDataSource ?? AttachmentDataSource(dioInstance, baseConfig),
       categoryDataSource ?? CategoryDataSource(dioInstance, baseConfig),
       countryDataSource ?? CountryDataSource(dioInstance, baseConfig),
       languageDataSource ?? LanguageDataSource(dioInstance, baseConfig),
@@ -132,6 +141,7 @@ class PrestashopApi
   PrestashopApi._internal(
     this._dio,
     this._addressDataSource,
+    this._attachmentDataSource,
     this._categoryDataSource,
     this._countryDataSource,
     this._languageDataSource,
@@ -245,6 +255,90 @@ class PrestashopApi
 
     return ReceivedEntity(
       remoteResponse.data.toDomain().addressList,
+      isNextPageAvailable: remoteResponse.isNextPageAvailable,
+    );
+  });
+
+  ///
+  /// Attachment
+  ///
+
+  /// Fetches a list of all [Attachment] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of all attachments.
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  /// Requires [languageId] to specify the language of the retrieved data.
+  @override
+  Future<ReceivedEntity<List<Attachment>>> getAttachments({
+    required int languageId,
+    Filter<AttachmentFilterField>? filter,
+    Display<AttachmentDisplayField>? display,
+    Sort<SortFieldOrder<AttachmentSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _attachmentDataSource.getAttachments(
+      languageId: languageId,
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(remoteResponse.data.toDomain().attachmentList);
+  });
+
+  /// Retrieves a single [Attachment] by its [id].
+  ///
+  /// Returns a [ReceivedEntity] containing the attachment.
+  /// Requires [languageId] and the attachment [id].
+  /// An optional [display] parameter can be provided.
+  /// If no attachment is found, returns a [ReceivedEntity] containing an empty
+  /// [Attachment] object.
+  @override
+  Future<ReceivedEntity<Attachment>> getAttachmentById({
+    required int languageId,
+    required int id,
+    Display<AttachmentDisplayField>? display,
+  }) => _callApi(() async {
+    final remoteResponse = await _attachmentDataSource.getAttachments(
+      languageId: languageId,
+      filter: Filter.equals(AttachmentFilterField.id, value: '$id'),
+      display: display,
+    );
+
+    final attachmentOutputDTO = remoteResponse.data;
+
+    if (attachmentOutputDTO.toDomain().attachmentList.isNotEmpty) {
+      return ReceivedEntity(attachmentOutputDTO.toDomain().attachmentList[0]);
+    } else {
+      return ReceivedEntity(Attachment.empty());
+    }
+  });
+
+  /// Fetches a paginated list of [Attachment] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of attachments for the
+  /// specified [page].
+  /// Requires [languageId], [page] number, and items [perPage].
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  @override
+  Future<ReceivedEntity<List<Attachment>>> getAttachmentsPage({
+    required int languageId,
+    required int page,
+    required int perPage,
+    Filter<AttachmentFilterField>? filter,
+    Display<AttachmentDisplayField>? display,
+    Sort<SortFieldOrder<AttachmentSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _attachmentDataSource.getAttachmentsPage(
+      languageId: languageId,
+      page: page,
+      perPage: perPage,
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(
+      remoteResponse.data.toDomain().attachmentList,
       isNextPageAvailable: remoteResponse.isNextPageAvailable,
     );
   });
