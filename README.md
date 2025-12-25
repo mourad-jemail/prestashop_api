@@ -47,6 +47,7 @@ Let's explore the package's capabilities together!
 - [Example using PrestashopApi](#example-using-prestashopapi)
 - [Available API Requests](#available-api-requests)
     - [PrestaShop - Addresses](#prestashop---addresses)
+    - [PrestaShop - Attachments](#prestashop---attachments)
     - [PrestaShop - Categories](#prestashop---categories)
     - [PrestaShop - Countries](#prestashop---countries)
     - [PrestaShop - Languages](#prestashop---languages)
@@ -367,6 +368,14 @@ ongoing, and additional API requests may be added in future updates.
 - Get Addresses by page
 
 [See Addresses API](https://devdocs.prestashop-project.org/1.7/webservice/resources/addresses/)
+
+### PrestaShop - Attachments
+
+- Get Attachments
+- Retrieve an Attachment by id
+- Get Attachments by page
+
+[See Attachments API](https://devdocs.prestashop-project.org/1.7/webservice/resources/attachments/)
 
 ### PrestaShop - Categories
 

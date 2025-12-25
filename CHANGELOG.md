@@ -1,6 +1,7 @@
 ## 
 
 - Feat: Added support for 'Addresses' resource
+- Feat: Added support for 'Attachments' resource
 
 ## 1.3.0
 
