@@ -23,7 +23,8 @@ enum AddressDisplayField implements DisplayEnumValue {
   dni('dni'),
   deleted('deleted'),
   dateAdd('date_add'),
-  dateUpd('date_upd');
+  dateUpd('date_upd'),
+  all('full');
 
   @override
   final String enumValue;
