@@ -13,6 +13,7 @@ const String languagesPath = '/api/languages';
 const String productsPath = '/api/products';
 const String stockAvailablesPath = '/api/stock_availables';
 const String taxesPath = '/api/taxes';
+const String addressesPath = '/api/addresses';
 
 enum Protocol { http, https }
 
