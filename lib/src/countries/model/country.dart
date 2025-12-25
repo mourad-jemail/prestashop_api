@@ -31,7 +31,7 @@ abstract class Country with _$Country implements ConvertibleToJson {
   // NOTE: With this factory method and the part statement on top, freezed will
   //  automatically ask json_serializable to generate all the necessary
   //  fromJson/toJson for this class. We will only use this method for the
-  //  purpose to pretty-print a list of Category objects in the console
+  //  purpose to pretty-print a list of objects in the console
   factory Country.fromJson(Map<String, dynamic> json) =>
       _$CountryFromJson(json);
 }
