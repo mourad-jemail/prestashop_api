@@ -14,6 +14,7 @@ const String productsPath = '/api/products';
 const String stockAvailablesPath = '/api/stock_availables';
 const String taxesPath = '/api/taxes';
 const String addressesPath = '/api/addresses';
+const String attachmentsPath = '/api/attachments';
 
 enum Protocol { http, https }
 
