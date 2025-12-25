@@ -177,10 +177,10 @@ class CategoryDataSource {
         final categoryDTOList = categoryOutputDTO.categoryDTOList;
         bool? isNextPageAvailable = false;
 
-        // NOTE: Due to limitations in the PrestaShop API, it does not provide
-        //  the maximum page number in the response headers. To determine if the
-        //  next page is available, we add 1 to the requested number of items in
-        //  the [setLimit] method.
+        // NOTE: Due to limitations in the PrestaShop API v1.7.8.11, it does not
+        //  provide the maximum page number in the response headers.
+        //  To determine if the next page is available, we add 1 to the
+        //  requested number of items in the [setLimit] method.
         //
         // Here, we check the number of returned items.
         // If it equals {limit + 1}, then the next page is available.

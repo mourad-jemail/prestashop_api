@@ -173,14 +173,15 @@ class TaxDataSource {
         final taxDTOList = taxOutputDTO.taxDTOList;
         bool? isNextPageAvailable = false;
 
-        // NOTE: Prestashop API headers don't return max page number. So in
-        //  order to get information about next page availability,
-        //  we've previously added 1 to the number of requested items, in the
-        //  [setLimit] method.
+        // NOTE: Due to limitations in the PrestaShop API v1.7.8.11, it does not
+        //  provide the maximum page number in the response headers.
+        //  To determine if the next page is available, we add 1 to the
+        //  requested number of items in the [setLimit] method.
         //
-        //  Here, we're checking the number of returned items: if it's
-        //  equal to {limit + 1}, then, next page is available. Additionally, we
-        //  must remove the last item from the returned list of items.
+        // Here, we check the number of returned items.
+        // If it equals {limit + 1}, then the next page is available.
+        // Additionally, we remove the last item from the returned list to
+        // maintain consistency.
         if (taxDTOList.length > perPage) {
           taxOutputDTO = taxOutputDTO.copyWith(
             taxDTOList: List.from(taxDTOList)..removeLast(),
