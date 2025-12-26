@@ -8,6 +8,7 @@ export 'src/addresses/network/address_enums.dart';
 export 'src/attachments/model/attachment.dart';
 export 'src/attachments/network/attachment_enums.dart';
 export 'src/base_config.dart';
+export 'src/carriers/model/carrier.dart';
 export 'src/categories/model/category.dart';
 export 'src/categories/network/category_enums.dart';
 export 'src/common/exceptions/custom_exceptions.dart';
