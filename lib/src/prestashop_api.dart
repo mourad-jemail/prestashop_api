@@ -11,6 +11,10 @@ import 'attachments/model/attachment.dart';
 import 'attachments/network/attachment_data_source.dart';
 import 'attachments/network/attachment_enums.dart';
 import 'base_config.dart';
+import 'carriers/i_carrier_facade.dart';
+import 'carriers/model/carrier.dart';
+import 'carriers/network/carrier_data_source.dart';
+import 'carriers/network/carrier_enums.dart';
 import 'categories/i_category_facade.dart';
 import 'categories/model/category.dart';
 import 'categories/network/category_data_source.dart';
@@ -84,6 +88,7 @@ import 'taxes/network/tax_enums.dart';
 ///  ```
 @LazySingleton(as: IAddressFacade)
 @LazySingleton(as: IAttachmentFacade)
+@LazySingleton(as: ICarrierFacade)
 @LazySingleton(as: ICategoryFacade)
 @LazySingleton(as: ICountryFacade)
 @LazySingleton(as: ILanguageFacade)
@@ -94,6 +99,7 @@ class PrestashopApi
     implements
         IAddressFacade,
         IAttachmentFacade,
+        ICarrierFacade,
         ICategoryFacade,
         ICountryFacade,
         ILanguageFacade,
@@ -103,6 +109,7 @@ class PrestashopApi
   final Dio _dio;
   final AddressDataSource _addressDataSource;
   final AttachmentDataSource _attachmentDataSource;
+  final CarrierDataSource _carrierDataSource;
   final CategoryDataSource _categoryDataSource;
   final CountryDataSource _countryDataSource;
   final LanguageDataSource _languageDataSource;
@@ -115,6 +122,7 @@ class PrestashopApi
     Dio? dio,
     AddressDataSource? addressDataSource,
     AttachmentDataSource? attachmentDataSource,
+    CarrierDataSource? carrierDataSource,
     CategoryDataSource? categoryDataSource,
     CountryDataSource? countryDataSource,
     LanguageDataSource? languageDataSource,
@@ -128,6 +136,7 @@ class PrestashopApi
       dioInstance,
       addressDataSource ?? AddressDataSource(dioInstance, baseConfig),
       attachmentDataSource ?? AttachmentDataSource(dioInstance, baseConfig),
+      carrierDataSource ?? CarrierDataSource(dioInstance, baseConfig),
       categoryDataSource ?? CategoryDataSource(dioInstance, baseConfig),
       countryDataSource ?? CountryDataSource(dioInstance, baseConfig),
       languageDataSource ?? LanguageDataSource(dioInstance, baseConfig),
@@ -142,6 +151,7 @@ class PrestashopApi
     this._dio,
     this._addressDataSource,
     this._attachmentDataSource,
+    this._carrierDataSource,
     this._categoryDataSource,
     this._countryDataSource,
     this._languageDataSource,
@@ -832,6 +842,90 @@ class PrestashopApi
 
     return ReceivedEntity(
       remoteResponse.data.toDomain().taxList,
+      isNextPageAvailable: remoteResponse.isNextPageAvailable,
+    );
+  });
+
+  ///
+  /// Carrier
+  ///
+
+  /// Fetches a list of all [Carrier] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of all carriers.
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  /// Requires [languageId] to specify the language of the retrieved data.
+  @override
+  Future<ReceivedEntity<List<Carrier>>> getCarriers({
+    required int languageId,
+    Filter<CarrierFilterField>? filter,
+    Display<CarrierDisplayField>? display,
+    Sort<SortFieldOrder<CarrierSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _carrierDataSource.getCarriers(
+      languageId: languageId,
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(remoteResponse.data.toDomain().carrierList);
+  });
+
+  /// Retrieves a single [Carrier] by its [id].
+  ///
+  /// Returns a [ReceivedEntity] containing the carrier.
+  /// Requires [languageId] and the carrier [id].
+  /// An optional [display] parameter can be provided.
+  /// If no carrier is found, returns a [ReceivedEntity] containing an empty
+  /// [Carrier] object.
+  @override
+  Future<ReceivedEntity<Carrier>> getCarrierById({
+    required int languageId,
+    required int id,
+    Display<CarrierDisplayField>? display,
+  }) => _callApi(() async {
+    final remoteResponse = await _carrierDataSource.getCarriers(
+      languageId: languageId,
+      filter: Filter.equals(CarrierFilterField.id, value: '$id'),
+      display: display,
+    );
+
+    final carrierOutputDTO = remoteResponse.data;
+
+    if (carrierOutputDTO.toDomain().carrierList.isNotEmpty) {
+      return ReceivedEntity(carrierOutputDTO.toDomain().carrierList[0]);
+    } else {
+      return ReceivedEntity(Carrier.empty());
+    }
+  });
+
+  /// Fetches a paginated list of [Carrier] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of carriers for the
+  /// specified [page].
+  /// Requires [languageId], [page] number, and items [perPage].
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  @override
+  Future<ReceivedEntity<List<Carrier>>> getCarriersPage({
+    required int languageId,
+    required int page,
+    required int perPage,
+    Filter<CarrierFilterField>? filter,
+    Display<CarrierDisplayField>? display,
+    Sort<SortFieldOrder<CarrierSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _carrierDataSource.getCarriersPage(
+      languageId: languageId,
+      page: page,
+      perPage: perPage,
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(
+      remoteResponse.data.toDomain().carrierList,
       isNextPageAvailable: remoteResponse.isNextPageAvailable,
     );
   });
