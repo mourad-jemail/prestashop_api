@@ -21,7 +21,8 @@ enum CarrierDisplayField implements DisplayEnumValue {
   externalModuleName('external_module_name'),
   needRange('need_range'),
   position('position'),
-  delay('delay');
+  delay('delay'),
+  all('full');
 
   @override
   final String enumValue;
