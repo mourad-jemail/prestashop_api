@@ -28,8 +28,8 @@ _AddressDTO _$AddressDTOFromJson(Map<String, dynamic> json) => _AddressDTO(
   phoneMobile: json['phone_mobile'] as String?,
   dni: json['dni'] as String?,
   deleted: boolFromJson(json['deleted']),
-  dateAdd: dateTimeFromJson(json['date_add']),
-  dateUpd: dateTimeFromJson(json['date_upd']),
+  dateAdd: dateTimeFromJson(json['date_add'] as String?),
+  dateUpd: dateTimeFromJson(json['date_upd'] as String?),
 );
 
 Map<String, dynamic> _$AddressDTOToJson(_AddressDTO instance) =>

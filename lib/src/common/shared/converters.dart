@@ -1,3 +1,5 @@
+import 'date_mapper.dart';
+
 bool boolFromJson(Object? json) {
   if (json == null) {
     return false;
@@ -91,11 +93,12 @@ double? nullableDoubleFromJson(dynamic value, {bool zeroIsNull = false}) {
   return parsed;
 }
 
-DateTime? dateTimeFromJson(Object? json) {
-  if (json is DateTime) {
-    return json;
-  }
-  return null;
+DateTime? dateTimeFromJson(String? value) {
+  return DateMapper.fromApi(value);
+}
+
+String? dateTimeToJson(DateTime? value) {
+  return value == null ? null : DateMapper.toApi(value);
 }
 
 /// Converts a JSON array into a list of objects of type `T`.
