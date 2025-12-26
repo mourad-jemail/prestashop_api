@@ -48,6 +48,7 @@ Let's explore the package's capabilities together!
 - [Available API Requests](#available-api-requests)
     - [PrestaShop - Addresses](#prestashop---addresses)
     - [PrestaShop - Attachments](#prestashop---attachments)
+    - [PrestaShop - Carriers](#prestashop---carriers)
     - [PrestaShop - Categories](#prestashop---categories)
     - [PrestaShop - Countries](#prestashop---countries)
     - [PrestaShop - Languages](#prestashop---languages)
@@ -376,6 +377,14 @@ ongoing, and additional API requests may be added in future updates.
 - Get Attachments by page
 
 [See Attachments API](https://devdocs.prestashop-project.org/1.7/webservice/resources/attachments/)
+
+### PrestaShop - Carriers
+
+- Get Carriers
+- Retrieve a Carrier by id
+- Get Carriers by page
+
+[See Carriers API](https://devdocs.prestashop-project.org/1.7/webservice/resources/carriers/)
 
 ### PrestaShop - Categories
 
