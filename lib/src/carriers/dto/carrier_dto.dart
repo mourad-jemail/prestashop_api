@@ -15,8 +15,8 @@ abstract class CarrierDTO with _$CarrierDTO {
     @JsonKey(fromJson: boolFromJson, toJson: boolToJson) bool? deleted,
     @JsonKey(name: 'is_module', fromJson: boolFromJson, toJson: boolToJson)
     bool? isModule,
-    @JsonKey(name: 'id_tax_rules_group', fromJson: intFromJson)
-    int? idTaxRulesGroup,
+    @JsonKey(name: 'id_tax_rules_group') String? idTaxRulesGroup,
+    @JsonKey(name: 'id_reference') String? idReference,
     String? name,
     @JsonKey(fromJson: boolFromJson, toJson: boolToJson) bool? active,
     @JsonKey(name: 'is_free', fromJson: boolFromJson, toJson: boolToJson)
@@ -28,25 +28,20 @@ abstract class CarrierDTO with _$CarrierDTO {
       toJson: boolToJson,
     )
     bool? shippingHandling,
-    @JsonKey(
-      name: 'shipping_external',
-      fromJson: boolFromJson,
-      toJson: boolToJson,
-    )
-    bool? shippingExternal,
+    @JsonKey(name: 'shipping_external') String? shippingExternal,
     @JsonKey(name: 'range_behavior', fromJson: boolFromJson, toJson: boolToJson)
     bool? rangeBehavior,
     @JsonKey(name: 'shipping_method', fromJson: intFromJson)
     int? shippingMethod,
-    @JsonKey(name: 'max_width', fromJson: intFromJson) int? maxWidth,
-    @JsonKey(name: 'max_height', fromJson: intFromJson) int? maxHeight,
-    @JsonKey(name: 'max_depth', fromJson: intFromJson) int? maxDepth,
-    @JsonKey(name: 'max_weight') double? maxWeight,
-    @JsonKey(fromJson: intFromJson) int? grade,
+    @JsonKey(name: 'max_width', fromJson: nullableIntFromJson) int? maxWidth,
+    @JsonKey(name: 'max_height', fromJson: nullableIntFromJson) int? maxHeight,
+    @JsonKey(name: 'max_depth', fromJson: nullableIntFromJson) int? maxDepth,
+    @JsonKey(name: 'max_weight', fromJson: nullableDoubleFromJson)
+    double? maxWeight,
+    @JsonKey(fromJson: nullableIntFromJson) int? grade,
     @JsonKey(name: 'external_module_name') String? externalModuleName,
-    @JsonKey(name: 'need_range', fromJson: boolFromJson, toJson: boolToJson)
-    bool? needRange,
-    @JsonKey(fromJson: intFromJson) int? position,
+    @JsonKey(name: 'need_range') String? needRange,
+    String? position,
     String? delay,
   }) = _CarrierDTO;
 
@@ -59,6 +54,7 @@ abstract class CarrierDTO with _$CarrierDTO {
       deleted: carrier.deleted,
       isModule: carrier.isModule,
       idTaxRulesGroup: carrier.idTaxRulesGroup,
+      idReference: carrier.idReference,
       name: carrier.name,
       active: carrier.active,
       isFree: carrier.isFree,
@@ -85,6 +81,7 @@ abstract class CarrierDTO with _$CarrierDTO {
       deleted: deleted,
       isModule: isModule,
       idTaxRulesGroup: idTaxRulesGroup,
+      idReference: idReference,
       name: name,
       active: active,
       isFree: isFree,
