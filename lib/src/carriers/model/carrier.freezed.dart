@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Carrier {
 
- int? get id; bool? get deleted; bool? get isModule; int? get idTaxRulesGroup; String? get name; bool? get active; bool? get isFree; String? get url; bool? get shippingHandling; bool? get shippingExternal; bool? get rangeBehavior; int? get shippingMethod; int? get maxWidth; int? get maxHeight; int? get maxDepth; double? get maxWeight; int? get grade; String? get externalModuleName; bool? get needRange; int? get position; String? get delay;
+ int? get id; bool? get deleted; bool? get isModule; String? get idTaxRulesGroup; String? get idReference; String? get name; bool? get active; bool? get isFree; String? get url; bool? get shippingHandling; String? get shippingExternal; bool? get rangeBehavior; int? get shippingMethod; int? get maxWidth; int? get maxHeight; int? get maxDepth; double? get maxWeight; int? get grade; String? get externalModuleName; String? get needRange; String? get position; String? get delay;
 /// Create a copy of Carrier
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $CarrierCopyWith<Carrier> get copyWith => _$CarrierCopyWithImpl<Carrier>(this as
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Carrier&&(identical(other.id, id) || other.id == id)&&(identical(other.deleted, deleted) || other.deleted == deleted)&&(identical(other.isModule, isModule) || other.isModule == isModule)&&(identical(other.idTaxRulesGroup, idTaxRulesGroup) || other.idTaxRulesGroup == idTaxRulesGroup)&&(identical(other.name, name) || other.name == name)&&(identical(other.active, active) || other.active == active)&&(identical(other.isFree, isFree) || other.isFree == isFree)&&(identical(other.url, url) || other.url == url)&&(identical(other.shippingHandling, shippingHandling) || other.shippingHandling == shippingHandling)&&(identical(other.shippingExternal, shippingExternal) || other.shippingExternal == shippingExternal)&&(identical(other.rangeBehavior, rangeBehavior) || other.rangeBehavior == rangeBehavior)&&(identical(other.shippingMethod, shippingMethod) || other.shippingMethod == shippingMethod)&&(identical(other.maxWidth, maxWidth) || other.maxWidth == maxWidth)&&(identical(other.maxHeight, maxHeight) || other.maxHeight == maxHeight)&&(identical(other.maxDepth, maxDepth) || other.maxDepth == maxDepth)&&(identical(other.maxWeight, maxWeight) || other.maxWeight == maxWeight)&&(identical(other.grade, grade) || other.grade == grade)&&(identical(other.externalModuleName, externalModuleName) || other.externalModuleName == externalModuleName)&&(identical(other.needRange, needRange) || other.needRange == needRange)&&(identical(other.position, position) || other.position == position)&&(identical(other.delay, delay) || other.delay == delay));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Carrier&&(identical(other.id, id) || other.id == id)&&(identical(other.deleted, deleted) || other.deleted == deleted)&&(identical(other.isModule, isModule) || other.isModule == isModule)&&(identical(other.idTaxRulesGroup, idTaxRulesGroup) || other.idTaxRulesGroup == idTaxRulesGroup)&&(identical(other.idReference, idReference) || other.idReference == idReference)&&(identical(other.name, name) || other.name == name)&&(identical(other.active, active) || other.active == active)&&(identical(other.isFree, isFree) || other.isFree == isFree)&&(identical(other.url, url) || other.url == url)&&(identical(other.shippingHandling, shippingHandling) || other.shippingHandling == shippingHandling)&&(identical(other.shippingExternal, shippingExternal) || other.shippingExternal == shippingExternal)&&(identical(other.rangeBehavior, rangeBehavior) || other.rangeBehavior == rangeBehavior)&&(identical(other.shippingMethod, shippingMethod) || other.shippingMethod == shippingMethod)&&(identical(other.maxWidth, maxWidth) || other.maxWidth == maxWidth)&&(identical(other.maxHeight, maxHeight) || other.maxHeight == maxHeight)&&(identical(other.maxDepth, maxDepth) || other.maxDepth == maxDepth)&&(identical(other.maxWeight, maxWeight) || other.maxWeight == maxWeight)&&(identical(other.grade, grade) || other.grade == grade)&&(identical(other.externalModuleName, externalModuleName) || other.externalModuleName == externalModuleName)&&(identical(other.needRange, needRange) || other.needRange == needRange)&&(identical(other.position, position) || other.position == position)&&(identical(other.delay, delay) || other.delay == delay));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,id,deleted,isModule,idTaxRulesGroup,name,active,isFree,url,shippingHandling,shippingExternal,rangeBehavior,shippingMethod,maxWidth,maxHeight,maxDepth,maxWeight,grade,externalModuleName,needRange,position,delay]);
+int get hashCode => Object.hashAll([runtimeType,id,deleted,isModule,idTaxRulesGroup,idReference,name,active,isFree,url,shippingHandling,shippingExternal,rangeBehavior,shippingMethod,maxWidth,maxHeight,maxDepth,maxWeight,grade,externalModuleName,needRange,position,delay]);
 
 @override
 String toString() {
-  return 'Carrier(id: $id, deleted: $deleted, isModule: $isModule, idTaxRulesGroup: $idTaxRulesGroup, name: $name, active: $active, isFree: $isFree, url: $url, shippingHandling: $shippingHandling, shippingExternal: $shippingExternal, rangeBehavior: $rangeBehavior, shippingMethod: $shippingMethod, maxWidth: $maxWidth, maxHeight: $maxHeight, maxDepth: $maxDepth, maxWeight: $maxWeight, grade: $grade, externalModuleName: $externalModuleName, needRange: $needRange, position: $position, delay: $delay)';
+  return 'Carrier(id: $id, deleted: $deleted, isModule: $isModule, idTaxRulesGroup: $idTaxRulesGroup, idReference: $idReference, name: $name, active: $active, isFree: $isFree, url: $url, shippingHandling: $shippingHandling, shippingExternal: $shippingExternal, rangeBehavior: $rangeBehavior, shippingMethod: $shippingMethod, maxWidth: $maxWidth, maxHeight: $maxHeight, maxDepth: $maxDepth, maxWeight: $maxWeight, grade: $grade, externalModuleName: $externalModuleName, needRange: $needRange, position: $position, delay: $delay)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $CarrierCopyWith<$Res>  {
   factory $CarrierCopyWith(Carrier value, $Res Function(Carrier) _then) = _$CarrierCopyWithImpl;
 @useResult
 $Res call({
- int? id, bool? deleted, bool? isModule, int? idTaxRulesGroup, String? name, bool? active, bool? isFree, String? url, bool? shippingHandling, bool? shippingExternal, bool? rangeBehavior, int? shippingMethod, int? maxWidth, int? maxHeight, int? maxDepth, double? maxWeight, int? grade, String? externalModuleName, bool? needRange, int? position, String? delay
+ int? id, bool? deleted, bool? isModule, String? idTaxRulesGroup, String? idReference, String? name, bool? active, bool? isFree, String? url, bool? shippingHandling, String? shippingExternal, bool? rangeBehavior, int? shippingMethod, int? maxWidth, int? maxHeight, int? maxDepth, double? maxWeight, int? grade, String? externalModuleName, String? needRange, String? position, String? delay
 });
 
 
@@ -65,19 +65,20 @@ class _$CarrierCopyWithImpl<$Res>
 
 /// Create a copy of Carrier
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? deleted = freezed,Object? isModule = freezed,Object? idTaxRulesGroup = freezed,Object? name = freezed,Object? active = freezed,Object? isFree = freezed,Object? url = freezed,Object? shippingHandling = freezed,Object? shippingExternal = freezed,Object? rangeBehavior = freezed,Object? shippingMethod = freezed,Object? maxWidth = freezed,Object? maxHeight = freezed,Object? maxDepth = freezed,Object? maxWeight = freezed,Object? grade = freezed,Object? externalModuleName = freezed,Object? needRange = freezed,Object? position = freezed,Object? delay = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? deleted = freezed,Object? isModule = freezed,Object? idTaxRulesGroup = freezed,Object? idReference = freezed,Object? name = freezed,Object? active = freezed,Object? isFree = freezed,Object? url = freezed,Object? shippingHandling = freezed,Object? shippingExternal = freezed,Object? rangeBehavior = freezed,Object? shippingMethod = freezed,Object? maxWidth = freezed,Object? maxHeight = freezed,Object? maxDepth = freezed,Object? maxWeight = freezed,Object? grade = freezed,Object? externalModuleName = freezed,Object? needRange = freezed,Object? position = freezed,Object? delay = freezed,}) {
   return _then(_self.copyWith(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int?,deleted: freezed == deleted ? _self.deleted : deleted // ignore: cast_nullable_to_non_nullable
 as bool?,isModule: freezed == isModule ? _self.isModule : isModule // ignore: cast_nullable_to_non_nullable
 as bool?,idTaxRulesGroup: freezed == idTaxRulesGroup ? _self.idTaxRulesGroup : idTaxRulesGroup // ignore: cast_nullable_to_non_nullable
-as int?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String?,idReference: freezed == idReference ? _self.idReference : idReference // ignore: cast_nullable_to_non_nullable
+as String?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
 as bool?,isFree: freezed == isFree ? _self.isFree : isFree // ignore: cast_nullable_to_non_nullable
 as bool?,url: freezed == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
 as String?,shippingHandling: freezed == shippingHandling ? _self.shippingHandling : shippingHandling // ignore: cast_nullable_to_non_nullable
 as bool?,shippingExternal: freezed == shippingExternal ? _self.shippingExternal : shippingExternal // ignore: cast_nullable_to_non_nullable
-as bool?,rangeBehavior: freezed == rangeBehavior ? _self.rangeBehavior : rangeBehavior // ignore: cast_nullable_to_non_nullable
+as String?,rangeBehavior: freezed == rangeBehavior ? _self.rangeBehavior : rangeBehavior // ignore: cast_nullable_to_non_nullable
 as bool?,shippingMethod: freezed == shippingMethod ? _self.shippingMethod : shippingMethod // ignore: cast_nullable_to_non_nullable
 as int?,maxWidth: freezed == maxWidth ? _self.maxWidth : maxWidth // ignore: cast_nullable_to_non_nullable
 as int?,maxHeight: freezed == maxHeight ? _self.maxHeight : maxHeight // ignore: cast_nullable_to_non_nullable
@@ -86,8 +87,8 @@ as int?,maxWeight: freezed == maxWeight ? _self.maxWeight : maxWeight // ignore:
 as double?,grade: freezed == grade ? _self.grade : grade // ignore: cast_nullable_to_non_nullable
 as int?,externalModuleName: freezed == externalModuleName ? _self.externalModuleName : externalModuleName // ignore: cast_nullable_to_non_nullable
 as String?,needRange: freezed == needRange ? _self.needRange : needRange // ignore: cast_nullable_to_non_nullable
-as bool?,position: freezed == position ? _self.position : position // ignore: cast_nullable_to_non_nullable
-as int?,delay: freezed == delay ? _self.delay : delay // ignore: cast_nullable_to_non_nullable
+as String?,position: freezed == position ? _self.position : position // ignore: cast_nullable_to_non_nullable
+as String?,delay: freezed == delay ? _self.delay : delay // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -173,10 +174,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id,  bool? deleted,  bool? isModule,  int? idTaxRulesGroup,  String? name,  bool? active,  bool? isFree,  String? url,  bool? shippingHandling,  bool? shippingExternal,  bool? rangeBehavior,  int? shippingMethod,  int? maxWidth,  int? maxHeight,  int? maxDepth,  double? maxWeight,  int? grade,  String? externalModuleName,  bool? needRange,  int? position,  String? delay)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id,  bool? deleted,  bool? isModule,  String? idTaxRulesGroup,  String? idReference,  String? name,  bool? active,  bool? isFree,  String? url,  bool? shippingHandling,  String? shippingExternal,  bool? rangeBehavior,  int? shippingMethod,  int? maxWidth,  int? maxHeight,  int? maxDepth,  double? maxWeight,  int? grade,  String? externalModuleName,  String? needRange,  String? position,  String? delay)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Carrier() when $default != null:
-return $default(_that.id,_that.deleted,_that.isModule,_that.idTaxRulesGroup,_that.name,_that.active,_that.isFree,_that.url,_that.shippingHandling,_that.shippingExternal,_that.rangeBehavior,_that.shippingMethod,_that.maxWidth,_that.maxHeight,_that.maxDepth,_that.maxWeight,_that.grade,_that.externalModuleName,_that.needRange,_that.position,_that.delay);case _:
+return $default(_that.id,_that.deleted,_that.isModule,_that.idTaxRulesGroup,_that.idReference,_that.name,_that.active,_that.isFree,_that.url,_that.shippingHandling,_that.shippingExternal,_that.rangeBehavior,_that.shippingMethod,_that.maxWidth,_that.maxHeight,_that.maxDepth,_that.maxWeight,_that.grade,_that.externalModuleName,_that.needRange,_that.position,_that.delay);case _:
   return orElse();
 
 }
@@ -194,10 +195,10 @@ return $default(_that.id,_that.deleted,_that.isModule,_that.idTaxRulesGroup,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id,  bool? deleted,  bool? isModule,  int? idTaxRulesGroup,  String? name,  bool? active,  bool? isFree,  String? url,  bool? shippingHandling,  bool? shippingExternal,  bool? rangeBehavior,  int? shippingMethod,  int? maxWidth,  int? maxHeight,  int? maxDepth,  double? maxWeight,  int? grade,  String? externalModuleName,  bool? needRange,  int? position,  String? delay)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id,  bool? deleted,  bool? isModule,  String? idTaxRulesGroup,  String? idReference,  String? name,  bool? active,  bool? isFree,  String? url,  bool? shippingHandling,  String? shippingExternal,  bool? rangeBehavior,  int? shippingMethod,  int? maxWidth,  int? maxHeight,  int? maxDepth,  double? maxWeight,  int? grade,  String? externalModuleName,  String? needRange,  String? position,  String? delay)  $default,) {final _that = this;
 switch (_that) {
 case _Carrier():
-return $default(_that.id,_that.deleted,_that.isModule,_that.idTaxRulesGroup,_that.name,_that.active,_that.isFree,_that.url,_that.shippingHandling,_that.shippingExternal,_that.rangeBehavior,_that.shippingMethod,_that.maxWidth,_that.maxHeight,_that.maxDepth,_that.maxWeight,_that.grade,_that.externalModuleName,_that.needRange,_that.position,_that.delay);case _:
+return $default(_that.id,_that.deleted,_that.isModule,_that.idTaxRulesGroup,_that.idReference,_that.name,_that.active,_that.isFree,_that.url,_that.shippingHandling,_that.shippingExternal,_that.rangeBehavior,_that.shippingMethod,_that.maxWidth,_that.maxHeight,_that.maxDepth,_that.maxWeight,_that.grade,_that.externalModuleName,_that.needRange,_that.position,_that.delay);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -214,10 +215,10 @@ return $default(_that.id,_that.deleted,_that.isModule,_that.idTaxRulesGroup,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id,  bool? deleted,  bool? isModule,  int? idTaxRulesGroup,  String? name,  bool? active,  bool? isFree,  String? url,  bool? shippingHandling,  bool? shippingExternal,  bool? rangeBehavior,  int? shippingMethod,  int? maxWidth,  int? maxHeight,  int? maxDepth,  double? maxWeight,  int? grade,  String? externalModuleName,  bool? needRange,  int? position,  String? delay)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id,  bool? deleted,  bool? isModule,  String? idTaxRulesGroup,  String? idReference,  String? name,  bool? active,  bool? isFree,  String? url,  bool? shippingHandling,  String? shippingExternal,  bool? rangeBehavior,  int? shippingMethod,  int? maxWidth,  int? maxHeight,  int? maxDepth,  double? maxWeight,  int? grade,  String? externalModuleName,  String? needRange,  String? position,  String? delay)?  $default,) {final _that = this;
 switch (_that) {
 case _Carrier() when $default != null:
-return $default(_that.id,_that.deleted,_that.isModule,_that.idTaxRulesGroup,_that.name,_that.active,_that.isFree,_that.url,_that.shippingHandling,_that.shippingExternal,_that.rangeBehavior,_that.shippingMethod,_that.maxWidth,_that.maxHeight,_that.maxDepth,_that.maxWeight,_that.grade,_that.externalModuleName,_that.needRange,_that.position,_that.delay);case _:
+return $default(_that.id,_that.deleted,_that.isModule,_that.idTaxRulesGroup,_that.idReference,_that.name,_that.active,_that.isFree,_that.url,_that.shippingHandling,_that.shippingExternal,_that.rangeBehavior,_that.shippingMethod,_that.maxWidth,_that.maxHeight,_that.maxDepth,_that.maxWeight,_that.grade,_that.externalModuleName,_that.needRange,_that.position,_that.delay);case _:
   return null;
 
 }
@@ -229,19 +230,20 @@ return $default(_that.id,_that.deleted,_that.isModule,_that.idTaxRulesGroup,_tha
 @JsonSerializable()
 
 class _Carrier extends Carrier {
-  const _Carrier({this.id, this.deleted, this.isModule, this.idTaxRulesGroup, this.name, this.active, this.isFree, this.url, this.shippingHandling, this.shippingExternal, this.rangeBehavior, this.shippingMethod, this.maxWidth, this.maxHeight, this.maxDepth, this.maxWeight, this.grade, this.externalModuleName, this.needRange, this.position, this.delay}): super._();
+  const _Carrier({this.id, this.deleted, this.isModule, this.idTaxRulesGroup, this.idReference, this.name, this.active, this.isFree, this.url, this.shippingHandling, this.shippingExternal, this.rangeBehavior, this.shippingMethod, this.maxWidth, this.maxHeight, this.maxDepth, this.maxWeight, this.grade, this.externalModuleName, this.needRange, this.position, this.delay}): super._();
   factory _Carrier.fromJson(Map<String, dynamic> json) => _$CarrierFromJson(json);
 
 @override final  int? id;
 @override final  bool? deleted;
 @override final  bool? isModule;
-@override final  int? idTaxRulesGroup;
+@override final  String? idTaxRulesGroup;
+@override final  String? idReference;
 @override final  String? name;
 @override final  bool? active;
 @override final  bool? isFree;
 @override final  String? url;
 @override final  bool? shippingHandling;
-@override final  bool? shippingExternal;
+@override final  String? shippingExternal;
 @override final  bool? rangeBehavior;
 @override final  int? shippingMethod;
 @override final  int? maxWidth;
@@ -250,8 +252,8 @@ class _Carrier extends Carrier {
 @override final  double? maxWeight;
 @override final  int? grade;
 @override final  String? externalModuleName;
-@override final  bool? needRange;
-@override final  int? position;
+@override final  String? needRange;
+@override final  String? position;
 @override final  String? delay;
 
 /// Create a copy of Carrier
@@ -267,16 +269,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Carrier&&(identical(other.id, id) || other.id == id)&&(identical(other.deleted, deleted) || other.deleted == deleted)&&(identical(other.isModule, isModule) || other.isModule == isModule)&&(identical(other.idTaxRulesGroup, idTaxRulesGroup) || other.idTaxRulesGroup == idTaxRulesGroup)&&(identical(other.name, name) || other.name == name)&&(identical(other.active, active) || other.active == active)&&(identical(other.isFree, isFree) || other.isFree == isFree)&&(identical(other.url, url) || other.url == url)&&(identical(other.shippingHandling, shippingHandling) || other.shippingHandling == shippingHandling)&&(identical(other.shippingExternal, shippingExternal) || other.shippingExternal == shippingExternal)&&(identical(other.rangeBehavior, rangeBehavior) || other.rangeBehavior == rangeBehavior)&&(identical(other.shippingMethod, shippingMethod) || other.shippingMethod == shippingMethod)&&(identical(other.maxWidth, maxWidth) || other.maxWidth == maxWidth)&&(identical(other.maxHeight, maxHeight) || other.maxHeight == maxHeight)&&(identical(other.maxDepth, maxDepth) || other.maxDepth == maxDepth)&&(identical(other.maxWeight, maxWeight) || other.maxWeight == maxWeight)&&(identical(other.grade, grade) || other.grade == grade)&&(identical(other.externalModuleName, externalModuleName) || other.externalModuleName == externalModuleName)&&(identical(other.needRange, needRange) || other.needRange == needRange)&&(identical(other.position, position) || other.position == position)&&(identical(other.delay, delay) || other.delay == delay));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Carrier&&(identical(other.id, id) || other.id == id)&&(identical(other.deleted, deleted) || other.deleted == deleted)&&(identical(other.isModule, isModule) || other.isModule == isModule)&&(identical(other.idTaxRulesGroup, idTaxRulesGroup) || other.idTaxRulesGroup == idTaxRulesGroup)&&(identical(other.idReference, idReference) || other.idReference == idReference)&&(identical(other.name, name) || other.name == name)&&(identical(other.active, active) || other.active == active)&&(identical(other.isFree, isFree) || other.isFree == isFree)&&(identical(other.url, url) || other.url == url)&&(identical(other.shippingHandling, shippingHandling) || other.shippingHandling == shippingHandling)&&(identical(other.shippingExternal, shippingExternal) || other.shippingExternal == shippingExternal)&&(identical(other.rangeBehavior, rangeBehavior) || other.rangeBehavior == rangeBehavior)&&(identical(other.shippingMethod, shippingMethod) || other.shippingMethod == shippingMethod)&&(identical(other.maxWidth, maxWidth) || other.maxWidth == maxWidth)&&(identical(other.maxHeight, maxHeight) || other.maxHeight == maxHeight)&&(identical(other.maxDepth, maxDepth) || other.maxDepth == maxDepth)&&(identical(other.maxWeight, maxWeight) || other.maxWeight == maxWeight)&&(identical(other.grade, grade) || other.grade == grade)&&(identical(other.externalModuleName, externalModuleName) || other.externalModuleName == externalModuleName)&&(identical(other.needRange, needRange) || other.needRange == needRange)&&(identical(other.position, position) || other.position == position)&&(identical(other.delay, delay) || other.delay == delay));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,id,deleted,isModule,idTaxRulesGroup,name,active,isFree,url,shippingHandling,shippingExternal,rangeBehavior,shippingMethod,maxWidth,maxHeight,maxDepth,maxWeight,grade,externalModuleName,needRange,position,delay]);
+int get hashCode => Object.hashAll([runtimeType,id,deleted,isModule,idTaxRulesGroup,idReference,name,active,isFree,url,shippingHandling,shippingExternal,rangeBehavior,shippingMethod,maxWidth,maxHeight,maxDepth,maxWeight,grade,externalModuleName,needRange,position,delay]);
 
 @override
 String toString() {
-  return 'Carrier(id: $id, deleted: $deleted, isModule: $isModule, idTaxRulesGroup: $idTaxRulesGroup, name: $name, active: $active, isFree: $isFree, url: $url, shippingHandling: $shippingHandling, shippingExternal: $shippingExternal, rangeBehavior: $rangeBehavior, shippingMethod: $shippingMethod, maxWidth: $maxWidth, maxHeight: $maxHeight, maxDepth: $maxDepth, maxWeight: $maxWeight, grade: $grade, externalModuleName: $externalModuleName, needRange: $needRange, position: $position, delay: $delay)';
+  return 'Carrier(id: $id, deleted: $deleted, isModule: $isModule, idTaxRulesGroup: $idTaxRulesGroup, idReference: $idReference, name: $name, active: $active, isFree: $isFree, url: $url, shippingHandling: $shippingHandling, shippingExternal: $shippingExternal, rangeBehavior: $rangeBehavior, shippingMethod: $shippingMethod, maxWidth: $maxWidth, maxHeight: $maxHeight, maxDepth: $maxDepth, maxWeight: $maxWeight, grade: $grade, externalModuleName: $externalModuleName, needRange: $needRange, position: $position, delay: $delay)';
 }
 
 
@@ -287,7 +289,7 @@ abstract mixin class _$CarrierCopyWith<$Res> implements $CarrierCopyWith<$Res> {
   factory _$CarrierCopyWith(_Carrier value, $Res Function(_Carrier) _then) = __$CarrierCopyWithImpl;
 @override @useResult
 $Res call({
- int? id, bool? deleted, bool? isModule, int? idTaxRulesGroup, String? name, bool? active, bool? isFree, String? url, bool? shippingHandling, bool? shippingExternal, bool? rangeBehavior, int? shippingMethod, int? maxWidth, int? maxHeight, int? maxDepth, double? maxWeight, int? grade, String? externalModuleName, bool? needRange, int? position, String? delay
+ int? id, bool? deleted, bool? isModule, String? idTaxRulesGroup, String? idReference, String? name, bool? active, bool? isFree, String? url, bool? shippingHandling, String? shippingExternal, bool? rangeBehavior, int? shippingMethod, int? maxWidth, int? maxHeight, int? maxDepth, double? maxWeight, int? grade, String? externalModuleName, String? needRange, String? position, String? delay
 });
 
 
@@ -304,19 +306,20 @@ class __$CarrierCopyWithImpl<$Res>
 
 /// Create a copy of Carrier
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? deleted = freezed,Object? isModule = freezed,Object? idTaxRulesGroup = freezed,Object? name = freezed,Object? active = freezed,Object? isFree = freezed,Object? url = freezed,Object? shippingHandling = freezed,Object? shippingExternal = freezed,Object? rangeBehavior = freezed,Object? shippingMethod = freezed,Object? maxWidth = freezed,Object? maxHeight = freezed,Object? maxDepth = freezed,Object? maxWeight = freezed,Object? grade = freezed,Object? externalModuleName = freezed,Object? needRange = freezed,Object? position = freezed,Object? delay = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? deleted = freezed,Object? isModule = freezed,Object? idTaxRulesGroup = freezed,Object? idReference = freezed,Object? name = freezed,Object? active = freezed,Object? isFree = freezed,Object? url = freezed,Object? shippingHandling = freezed,Object? shippingExternal = freezed,Object? rangeBehavior = freezed,Object? shippingMethod = freezed,Object? maxWidth = freezed,Object? maxHeight = freezed,Object? maxDepth = freezed,Object? maxWeight = freezed,Object? grade = freezed,Object? externalModuleName = freezed,Object? needRange = freezed,Object? position = freezed,Object? delay = freezed,}) {
   return _then(_Carrier(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int?,deleted: freezed == deleted ? _self.deleted : deleted // ignore: cast_nullable_to_non_nullable
 as bool?,isModule: freezed == isModule ? _self.isModule : isModule // ignore: cast_nullable_to_non_nullable
 as bool?,idTaxRulesGroup: freezed == idTaxRulesGroup ? _self.idTaxRulesGroup : idTaxRulesGroup // ignore: cast_nullable_to_non_nullable
-as int?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String?,idReference: freezed == idReference ? _self.idReference : idReference // ignore: cast_nullable_to_non_nullable
+as String?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
 as bool?,isFree: freezed == isFree ? _self.isFree : isFree // ignore: cast_nullable_to_non_nullable
 as bool?,url: freezed == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
 as String?,shippingHandling: freezed == shippingHandling ? _self.shippingHandling : shippingHandling // ignore: cast_nullable_to_non_nullable
 as bool?,shippingExternal: freezed == shippingExternal ? _self.shippingExternal : shippingExternal // ignore: cast_nullable_to_non_nullable
-as bool?,rangeBehavior: freezed == rangeBehavior ? _self.rangeBehavior : rangeBehavior // ignore: cast_nullable_to_non_nullable
+as String?,rangeBehavior: freezed == rangeBehavior ? _self.rangeBehavior : rangeBehavior // ignore: cast_nullable_to_non_nullable
 as bool?,shippingMethod: freezed == shippingMethod ? _self.shippingMethod : shippingMethod // ignore: cast_nullable_to_non_nullable
 as int?,maxWidth: freezed == maxWidth ? _self.maxWidth : maxWidth // ignore: cast_nullable_to_non_nullable
 as int?,maxHeight: freezed == maxHeight ? _self.maxHeight : maxHeight // ignore: cast_nullable_to_non_nullable
@@ -325,8 +328,8 @@ as int?,maxWeight: freezed == maxWeight ? _self.maxWeight : maxWeight // ignore:
 as double?,grade: freezed == grade ? _self.grade : grade // ignore: cast_nullable_to_non_nullable
 as int?,externalModuleName: freezed == externalModuleName ? _self.externalModuleName : externalModuleName // ignore: cast_nullable_to_non_nullable
 as String?,needRange: freezed == needRange ? _self.needRange : needRange // ignore: cast_nullable_to_non_nullable
-as bool?,position: freezed == position ? _self.position : position // ignore: cast_nullable_to_non_nullable
-as int?,delay: freezed == delay ? _self.delay : delay // ignore: cast_nullable_to_non_nullable
+as String?,position: freezed == position ? _self.position : position // ignore: cast_nullable_to_non_nullable
+as String?,delay: freezed == delay ? _self.delay : delay // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
