@@ -51,33 +51,26 @@ abstract class Category with _$Category {
       _$CategoryFromJson(json);
 }
 
-/// Converts a Category object to a JSON-compatible map, optionally keeping
-/// empty fields.
+/// Converts a [Category] into a JSON-compatible map.
 ///
-/// If [keepEmptyFields] is true, all fields, including empty ones, will be
-/// included in the map.
-/// Otherwise, empty fields will be filtered out.
+/// When [keepEmptyFields] is `true`, the raw `toJson()` output is returned.
 ///
-/// For associations, empty entries will be filtered out regardless of the
-/// [keepEmptyFields] value.
+/// When `false`, empty values are removed recursively:
+/// - `null`
+/// - empty strings
+/// - empty lists
+/// - empty maps
 ///
-/// We'll utilize this method primarily to pretty-print a list of objects in the
-/// console.
-Map<String, dynamic> categoryToJsonMap<T>(
+/// This method is intended for debugging and logging purposes
+/// (e.g. pretty-printing API payloads).
+Map<String, dynamic> categoryToJsonMap(
   Category category,
   bool keepEmptyFields,
 ) {
-  final filteredEntries = _filterEntries(category.toJson().entries);
+  final json = category.toJson();
 
-  return foldEntries(filteredEntries, keepEmptyFields);
-}
+  if (keepEmptyFields) return json;
 
-/// Filters entries based on whether they are empty or not.
-Iterable<MapEntry<String, dynamic>> _filterEntries(
-  Iterable<MapEntry<String, dynamic>> entries,
-) {
-  return entries.where((entry) {
-    final value = entry.value;
-    return value is CategoryAssociations ? !value.isEmpty() : !isEmpty(value);
-  });
+  final cleaned = removeEmptyValues(json);
+  return cleaned is Map<String, dynamic> ? cleaned : const {};
 }

@@ -22,26 +22,111 @@ import '../model/error.dart';
 
 /// Logs the provided data in a pretty-printed JSON format.
 ///
-/// [tagText] is an optional string that represents a tag for the log message.
-/// [data] is the data to be logged, which can be a single object or a list of
-/// objects.
-/// [toJsonMap] is a required function that converts an object of type [T] to a
-/// [Map<String, dynamic>].
+/// [tagText] is an optional label printed before the JSON payload.
+/// [data] can be either:
+/// - an object of type [T]
+/// - a `List<T>`
+/// - `null`
+///
+/// [toJsonMap] converts an object of type [T] into a JSON-compatible
+/// `Map<String, dynamic>`, with optional empty-field retention.
+///
+/// When [keepEmptyFields] is `false`, empty strings, empty lists,
+/// empty maps, and `null` values are removed recursively before printing.
+///
+/// Throws an [ArgumentError] if [data] is neither `T` nor `List<T>`.
 void prettyPrint<T>({
   String? tagText,
-  required dynamic data,
+  required Object? data,
   required Map<String, dynamic> Function(T, bool) toJsonMap,
   bool keepEmptyFields = false,
 }) {
-  final object = data is List
-      ? (data as List<T>)
-            .map((item) => toJsonMap(item, keepEmptyFields))
-            .toList()
-      : toJsonMap(data as T, keepEmptyFields);
+  final log = Logger().d;
 
-  final prettyPrinted = const JsonEncoder.withIndent('  ').convert(object);
+  if (data == null) {
+    log('${tagText ?? ''}\nnull');
+    return;
+  }
 
-  Logger().d('${tagText?.trim() ?? ''}\n$prettyPrinted');
+  final Object jsonObject = switch (data) {
+    final List<T> list =>
+      list.map((e) => toJsonMap(e, keepEmptyFields)).toList(),
+    final T value => toJsonMap(value, keepEmptyFields),
+    _ => throw ArgumentError(
+      'prettyPrint expected $T or List<$T>, '
+      'but got ${data.runtimeType}',
+    ),
+  };
+
+  final prettyJson = const JsonEncoder.withIndent('  ').convert(jsonObject);
+
+  log(
+    [
+      if (tagText?.trim().isNotEmpty == true) tagText!.trim(),
+      prettyJson,
+    ].join('\n'),
+  );
+}
+
+/// Recursively removes empty values from a JSON-like structure.
+///
+/// This utility method is designed to clean JSON payloads before logging
+/// or debugging. It traverses the provided [value] and removes:
+/// - `null` values
+/// - empty strings (`""` or strings containing only whitespace)
+/// - empty lists (`[]`)
+/// - empty maps (`{}`)
+///
+/// ### Behavior by type
+/// - **String**: returns `null` if empty or whitespace-only
+/// - **List**:
+///   - recursively cleans each element
+///   - removes elements that become empty
+///   - returns `null` if the resulting list is empty
+/// - **`Map<String, dynamic>`**:
+///   - recursively cleans each value
+///   - removes entries whose values become empty
+///   - returns `null` if the resulting map is empty
+/// - **Other types** (int, bool, DateTime, etc.):
+///   - returned as-is
+///
+/// ### Intended usage
+/// This method is primarily used by logging helpers such as [prettyPrint]
+/// to ensure console output remains readable and free from noise caused
+/// by empty or meaningless fields.
+///
+/// ⚠️ **Note**:
+/// This method is meant for debugging/logging purposes only and should not
+/// be used to alter data sent back to APIs or persisted storage.
+dynamic removeEmptyValues(dynamic value) {
+  bool isBlank(dynamic v) =>
+      v == null ||
+      (v is String && v.trim().isEmpty) ||
+      (v is List && v.isEmpty) ||
+      (v is Map && v.isEmpty);
+
+  if (isBlank(value)) return null;
+
+  if (value is List) {
+    final cleaned = value
+        .map(removeEmptyValues)
+        .where((e) => !isBlank(e))
+        .toList();
+
+    return cleaned.isEmpty ? null : cleaned;
+  }
+
+  if (value is Map<String, dynamic>) {
+    final cleaned = Map.fromEntries(
+      value.entries
+          .map((e) => MapEntry(e.key, removeEmptyValues(e.value)))
+          .where((e) => !isBlank(e.value)),
+    );
+
+    return cleaned.isEmpty ? null : cleaned;
+  }
+
+  return value;
 }
 
 /// Checks if the given [value] is considered empty.
