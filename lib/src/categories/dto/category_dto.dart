@@ -14,13 +14,14 @@ abstract class CategoryDTO with _$CategoryDTO {
 
   const factory CategoryDTO({
     int? id,
-    @JsonKey(name: 'id_parent', fromJson: parseUnsignedId) int? idParent,
-    @JsonKey(name: 'level_depth', fromJson: parseUnsignedId) int? levelDepth,
+    @JsonKey(name: 'id_parent', fromJson: parseNullOrUnsignedId) int? idParent,
+    @JsonKey(name: 'level_depth', fromJson: parseNullOrUnsignedId)
+    int? levelDepth,
     @JsonKey(name: 'nb_products_recursive', fromJson: stringFromDynamicJson)
     String? nbProductsRecursive,
     @JsonKey(name: 'active', fromJson: parseIsBool, toJson: isBoolToJson)
     bool? active,
-    @JsonKey(name: 'id_shop_default', fromJson: parseUnsignedId)
+    @JsonKey(name: 'id_shop_default', fromJson: parseNullOrUnsignedId)
     int? idShopDefault,
     @JsonKey(
       name: 'is_root_category',

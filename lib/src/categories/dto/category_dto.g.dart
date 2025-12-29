@@ -8,11 +8,11 @@ part of 'category_dto.dart';
 
 _CategoryDTO _$CategoryDTOFromJson(Map<String, dynamic> json) => _CategoryDTO(
   id: (json['id'] as num?)?.toInt(),
-  idParent: parseUnsignedId(json['id_parent']),
-  levelDepth: parseUnsignedId(json['level_depth']),
+  idParent: parseNullOrUnsignedId(json['id_parent']),
+  levelDepth: parseNullOrUnsignedId(json['level_depth']),
   nbProductsRecursive: stringFromDynamicJson(json['nb_products_recursive']),
   active: parseIsBool(json['active']),
-  idShopDefault: parseUnsignedId(json['id_shop_default']),
+  idShopDefault: parseNullOrUnsignedId(json['id_shop_default']),
   isRootCategory: parseIsBool(json['is_root_category']),
   position: stringFromDynamicJson(json['position']),
   dateAdd: parseIsDate(json['date_add']),
