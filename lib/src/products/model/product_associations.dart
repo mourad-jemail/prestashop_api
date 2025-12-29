@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../common/model/id.dart';
-import 'product_feature.dart';
+import '../../product_features/model/product_feature.dart';
 import 'stock_available.dart';
 
 part 'product_associations.freezed.dart';

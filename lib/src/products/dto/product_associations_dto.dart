@@ -2,8 +2,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../common/dto/id_dto.dart';
 import '../../common/shared/converters.dart';
+import '../../product_features/dto/product_feature_dto.dart';
 import '../model/product_associations.dart';
-import 'product_feature_dto.dart';
 import 'stock_available_dto.dart';
 
 part 'product_associations_dto.freezed.dart';
