@@ -4,6 +4,7 @@ import '../../common/shared/converters.dart';
 import '../model/carrier.dart';
 
 part 'carrier_dto.freezed.dart';
+
 part 'carrier_dto.g.dart';
 
 @freezed
@@ -38,13 +39,14 @@ abstract class CarrierDTO with _$CarrierDTO {
       toJson: isBoolToJson,
     )
     bool? rangeBehavior,
-    @JsonKey(name: 'shipping_method', fromJson: parseUnsignedId)
+    @JsonKey(name: 'shipping_method', fromJson: parseNullOrUnsignedId)
     int? shippingMethod,
-    @JsonKey(name: 'max_width', fromJson: parseUnsignedId) int? maxWidth,
-    @JsonKey(name: 'max_height', fromJson: parseUnsignedId) int? maxHeight,
-    @JsonKey(name: 'max_depth', fromJson: parseUnsignedId) int? maxDepth,
+    @JsonKey(name: 'max_width', fromJson: parseNullOrUnsignedId) int? maxWidth,
+    @JsonKey(name: 'max_height', fromJson: parseNullOrUnsignedId)
+    int? maxHeight,
+    @JsonKey(name: 'max_depth', fromJson: parseNullOrUnsignedId) int? maxDepth,
     @JsonKey(name: 'max_weight', fromJson: parseIsFloat) double? maxWeight,
-    @JsonKey(fromJson: parseUnsignedId) int? grade,
+    @JsonKey(fromJson: parseNullOrUnsignedId) int? grade,
     @JsonKey(name: 'external_module_name', fromJson: stringFromDynamicJson)
     String? externalModuleName,
     @JsonKey(name: 'need_range', fromJson: stringFromDynamicJson)
