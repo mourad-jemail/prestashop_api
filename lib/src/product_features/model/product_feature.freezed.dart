@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ProductFeature {
 
- String get id_; String get idFeatureValue;
+ int? get id; String? get idFeatureValue; int? get position; String? get name;
 /// Create a copy of ProductFeature
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $ProductFeatureCopyWith<ProductFeature> get copyWith => _$ProductFeatureCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProductFeature&&(identical(other.id_, id_) || other.id_ == id_)&&(identical(other.idFeatureValue, idFeatureValue) || other.idFeatureValue == idFeatureValue));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProductFeature&&(identical(other.id, id) || other.id == id)&&(identical(other.idFeatureValue, idFeatureValue) || other.idFeatureValue == idFeatureValue)&&(identical(other.position, position) || other.position == position)&&(identical(other.name, name) || other.name == name));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id_,idFeatureValue);
+int get hashCode => Object.hash(runtimeType,id,idFeatureValue,position,name);
 
 @override
 String toString() {
-  return 'ProductFeature(id_: $id_, idFeatureValue: $idFeatureValue)';
+  return 'ProductFeature(id: $id, idFeatureValue: $idFeatureValue, position: $position, name: $name)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $ProductFeatureCopyWith<$Res>  {
   factory $ProductFeatureCopyWith(ProductFeature value, $Res Function(ProductFeature) _then) = _$ProductFeatureCopyWithImpl;
 @useResult
 $Res call({
- String id_, String idFeatureValue
+ int? id, String? idFeatureValue, int? position, String? name
 });
 
 
@@ -65,11 +65,13 @@ class _$ProductFeatureCopyWithImpl<$Res>
 
 /// Create a copy of ProductFeature
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id_ = null,Object? idFeatureValue = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? idFeatureValue = freezed,Object? position = freezed,Object? name = freezed,}) {
   return _then(_self.copyWith(
-id_: null == id_ ? _self.id_ : id_ // ignore: cast_nullable_to_non_nullable
-as String,idFeatureValue: null == idFeatureValue ? _self.idFeatureValue : idFeatureValue // ignore: cast_nullable_to_non_nullable
-as String,
+id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int?,idFeatureValue: freezed == idFeatureValue ? _self.idFeatureValue : idFeatureValue // ignore: cast_nullable_to_non_nullable
+as String?,position: freezed == position ? _self.position : position // ignore: cast_nullable_to_non_nullable
+as int?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 
@@ -154,10 +156,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id_,  String idFeatureValue)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id,  String? idFeatureValue,  int? position,  String? name)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ProductFeature() when $default != null:
-return $default(_that.id_,_that.idFeatureValue);case _:
+return $default(_that.id,_that.idFeatureValue,_that.position,_that.name);case _:
   return orElse();
 
 }
@@ -175,10 +177,10 @@ return $default(_that.id_,_that.idFeatureValue);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id_,  String idFeatureValue)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id,  String? idFeatureValue,  int? position,  String? name)  $default,) {final _that = this;
 switch (_that) {
 case _ProductFeature():
-return $default(_that.id_,_that.idFeatureValue);case _:
+return $default(_that.id,_that.idFeatureValue,_that.position,_that.name);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -195,10 +197,10 @@ return $default(_that.id_,_that.idFeatureValue);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id_,  String idFeatureValue)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id,  String? idFeatureValue,  int? position,  String? name)?  $default,) {final _that = this;
 switch (_that) {
 case _ProductFeature() when $default != null:
-return $default(_that.id_,_that.idFeatureValue);case _:
+return $default(_that.id,_that.idFeatureValue,_that.position,_that.name);case _:
   return null;
 
 }
@@ -210,11 +212,13 @@ return $default(_that.id_,_that.idFeatureValue);case _:
 @JsonSerializable()
 
 class _ProductFeature extends ProductFeature {
-  const _ProductFeature({required this.id_, required this.idFeatureValue}): super._();
+  const _ProductFeature({this.id, this.idFeatureValue, this.position, this.name}): super._();
   factory _ProductFeature.fromJson(Map<String, dynamic> json) => _$ProductFeatureFromJson(json);
 
-@override final  String id_;
-@override final  String idFeatureValue;
+@override final  int? id;
+@override final  String? idFeatureValue;
+@override final  int? position;
+@override final  String? name;
 
 /// Create a copy of ProductFeature
 /// with the given fields replaced by the non-null parameter values.
@@ -229,16 +233,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProductFeature&&(identical(other.id_, id_) || other.id_ == id_)&&(identical(other.idFeatureValue, idFeatureValue) || other.idFeatureValue == idFeatureValue));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProductFeature&&(identical(other.id, id) || other.id == id)&&(identical(other.idFeatureValue, idFeatureValue) || other.idFeatureValue == idFeatureValue)&&(identical(other.position, position) || other.position == position)&&(identical(other.name, name) || other.name == name));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id_,idFeatureValue);
+int get hashCode => Object.hash(runtimeType,id,idFeatureValue,position,name);
 
 @override
 String toString() {
-  return 'ProductFeature(id_: $id_, idFeatureValue: $idFeatureValue)';
+  return 'ProductFeature(id: $id, idFeatureValue: $idFeatureValue, position: $position, name: $name)';
 }
 
 
@@ -249,7 +253,7 @@ abstract mixin class _$ProductFeatureCopyWith<$Res> implements $ProductFeatureCo
   factory _$ProductFeatureCopyWith(_ProductFeature value, $Res Function(_ProductFeature) _then) = __$ProductFeatureCopyWithImpl;
 @override @useResult
 $Res call({
- String id_, String idFeatureValue
+ int? id, String? idFeatureValue, int? position, String? name
 });
 
 
@@ -266,11 +270,13 @@ class __$ProductFeatureCopyWithImpl<$Res>
 
 /// Create a copy of ProductFeature
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id_ = null,Object? idFeatureValue = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? idFeatureValue = freezed,Object? position = freezed,Object? name = freezed,}) {
   return _then(_ProductFeature(
-id_: null == id_ ? _self.id_ : id_ // ignore: cast_nullable_to_non_nullable
-as String,idFeatureValue: null == idFeatureValue ? _self.idFeatureValue : idFeatureValue // ignore: cast_nullable_to_non_nullable
-as String,
+id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int?,idFeatureValue: freezed == idFeatureValue ? _self.idFeatureValue : idFeatureValue // ignore: cast_nullable_to_non_nullable
+as String?,position: freezed == position ? _self.position : position // ignore: cast_nullable_to_non_nullable
+as int?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 

@@ -8,12 +8,16 @@ part of 'product_feature.dart';
 
 _ProductFeature _$ProductFeatureFromJson(Map<String, dynamic> json) =>
     _ProductFeature(
-      id_: json['id_'] as String,
-      idFeatureValue: json['idFeatureValue'] as String,
+      id: (json['id'] as num?)?.toInt(),
+      idFeatureValue: json['idFeatureValue'] as String?,
+      position: (json['position'] as num?)?.toInt(),
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$ProductFeatureToJson(_ProductFeature instance) =>
     <String, dynamic>{
-      'id_': instance.id_,
+      'id': instance.id,
       'idFeatureValue': instance.idFeatureValue,
+      'position': instance.position,
+      'name': instance.name,
     };

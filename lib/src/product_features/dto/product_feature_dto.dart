@@ -11,9 +11,10 @@ abstract class ProductFeatureDTO with _$ProductFeatureDTO {
   const ProductFeatureDTO._();
 
   const factory ProductFeatureDTO({
-    @JsonKey(name: 'id') required String id_,
-    @JsonKey(name: 'id_feature_value', fromJson: stringFromJson)
-    required String idFeatureValue,
+    @JsonKey(fromJson: parseNullOrUnsignedId) int? id,
+    @JsonKey(name: 'id_feature_value') String? idFeatureValue,
+    int? position,
+    String? name,
   }) = _ProductFeatureDTO;
 
   factory ProductFeatureDTO.fromJson(Map<String, dynamic> json) =>
@@ -21,13 +22,20 @@ abstract class ProductFeatureDTO with _$ProductFeatureDTO {
 
   factory ProductFeatureDTO.fromDomain(ProductFeature productFeature) {
     return ProductFeatureDTO(
-      id_: productFeature.id_,
+      id: productFeature.id,
       idFeatureValue: productFeature.idFeatureValue,
+      position: productFeature.position,
+      name: productFeature.name,
     );
   }
 
   ProductFeature toDomain() {
-    return ProductFeature(id_: id_, idFeatureValue: idFeatureValue);
+    return ProductFeature(
+      id: id,
+      idFeatureValue: idFeatureValue,
+      position: position,
+      name: name,
+    );
   }
 }
 

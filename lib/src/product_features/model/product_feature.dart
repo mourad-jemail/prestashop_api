@@ -8,14 +8,15 @@ abstract class ProductFeature with _$ProductFeature {
   const ProductFeature._();
 
   const factory ProductFeature({
-    required String id_,
-    required String idFeatureValue,
+    int? id,
+    String? idFeatureValue,
+    int? position,
+    String? name,
   }) = _ProductFeature;
 
-  factory ProductFeature.empty() =>
-      const ProductFeature(id_: '', idFeatureValue: '');
+  factory ProductFeature.empty() => const ProductFeature(id: 0);
 
-  bool isEmpty() => id_.isEmpty;
+  bool isEmpty() => id == 0;
 
   // Since the caller class `ProductAssociations` utilizes `json_serializable`,
   // this class must also use the package.
