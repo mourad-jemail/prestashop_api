@@ -14,10 +14,11 @@ abstract class ProductDTO with _$ProductDTO {
 
   const factory ProductDTO({
     int? id,
-    @JsonKey(name: 'id_manufacturer', fromJson: parseUnsignedId)
+    @JsonKey(name: 'id_manufacturer', fromJson: parseNullOrUnsignedId)
     int? idManufacturer,
-    @JsonKey(name: 'id_supplier', fromJson: parseUnsignedId) int? idSupplier,
-    @JsonKey(name: 'id_category_default', fromJson: parseUnsignedId)
+    @JsonKey(name: 'id_supplier', fromJson: parseNullOrUnsignedId)
+    int? idSupplier,
+    @JsonKey(name: 'id_category_default', fromJson: parseNullOrUnsignedId)
     int? idDefaultCategory,
     @JsonKey(name: 'new', fromJson: stringFromDynamicJson) String? new_,
     @JsonKey(name: 'cache_default_attribute', fromJson: stringFromDynamicJson)
@@ -26,7 +27,7 @@ abstract class ProductDTO with _$ProductDTO {
     String? idDefaultImage,
     @JsonKey(name: 'id_default_combination', fromJson: stringFromDynamicJson)
     String? idDefaultCombination,
-    @JsonKey(name: 'id_tax_rules_group', fromJson: parseUnsignedId)
+    @JsonKey(name: 'id_tax_rules_group', fromJson: parseNullOrUnsignedId)
     int? idTaxRulesGroup,
     @JsonKey(name: 'position_in_category', fromJson: stringFromDynamicJson)
     String? positionInCategory,
@@ -34,7 +35,7 @@ abstract class ProductDTO with _$ProductDTO {
     String? manufacturerName,
     @JsonKey(fromJson: stringFromDynamicJson) String? quantity,
     @JsonKey(fromJson: stringFromDynamicJson) String? type,
-    @JsonKey(name: 'id_shop_default', fromJson: parseUnsignedId)
+    @JsonKey(name: 'id_shop_default', fromJson: parseNullOrUnsignedId)
     int? idShopDefault,
     String? reference,
     @JsonKey(name: 'supplier_reference') String? supplierReference,
@@ -63,8 +64,8 @@ abstract class ProductDTO with _$ProductDTO {
     bool? cacheHasAttachments,
     @JsonKey(name: 'is_virtual', fromJson: parseIsBool, toJson: isBoolToJson)
     bool? isVirtual,
-    @JsonKey(fromJson: parseUnsignedId) int? state,
-    @JsonKey(name: 'additional_delivery_times', fromJson: parseUnsignedId)
+    @JsonKey(fromJson: parseNullOrUnsignedId) int? state,
+    @JsonKey(name: 'additional_delivery_times', fromJson: parseNullOrUnsignedId)
     int? additionalDeliveryTimes,
     @JsonKey(name: 'delivery_in_stock') String? deliveryInStock,
     @JsonKey(name: 'delivery_out_stock') String? deliveryOutStock,
@@ -73,7 +74,7 @@ abstract class ProductDTO with _$ProductDTO {
     @JsonKey(name: 'online_only', fromJson: parseIsBool, toJson: isBoolToJson)
     bool? onlineOnly,
     @JsonKey(fromJson: parseIsFloat, toJson: isFloatToJson) double? ecotax,
-    @JsonKey(name: 'minimal_quantity', fromJson: parseUnsignedId)
+    @JsonKey(name: 'minimal_quantity', fromJson: parseNullOrUnsignedId)
     int? minimalQuantity,
     @JsonKey(name: 'low_stock_threshold', fromJson: stringFromJson)
     String? lowStockThreshold,
@@ -99,13 +100,14 @@ abstract class ProductDTO with _$ProductDTO {
       toJson: isFloatToJson,
     )
     double? additionalShippingCost,
-    @JsonKey(fromJson: parseUnsignedId) int? customizable,
-    @JsonKey(name: 'text_fields', fromJson: parseUnsignedId) int? textFields,
-    @JsonKey(name: 'uploadable_files', fromJson: parseUnsignedId)
+    @JsonKey(fromJson: parseNullOrUnsignedId) int? customizable,
+    @JsonKey(name: 'text_fields', fromJson: parseNullOrUnsignedId)
+    int? textFields,
+    @JsonKey(name: 'uploadable_files', fromJson: parseNullOrUnsignedId)
     int? uploadableFiles,
     @JsonKey(fromJson: parseIsBool, toJson: isBoolToJson) bool? active,
     @JsonKey(name: 'redirect_type') String? redirectType,
-    @JsonKey(name: 'id_type_redirected', fromJson: parseUnsignedId)
+    @JsonKey(name: 'id_type_redirected', fromJson: parseNullOrUnsignedId)
     int? idTypeRedirected,
     @JsonKey(
       name: 'available_for_order',
@@ -134,7 +136,7 @@ abstract class ProductDTO with _$ProductDTO {
     bool? advancedStockManagement,
     @JsonKey(name: 'date_add', fromJson: parseIsDate) DateTime? dateAdd,
     @JsonKey(name: 'date_upd', fromJson: parseIsDate) DateTime? dateUpd,
-    @JsonKey(name: 'pack_stock_type', fromJson: parseUnsignedId)
+    @JsonKey(name: 'pack_stock_type', fromJson: parseNullOrUnsignedId)
     int? packStockType,
     @JsonKey(name: 'meta_description') String? metaDescription,
     @JsonKey(name: 'meta_keywords') String? metaKeywords,
