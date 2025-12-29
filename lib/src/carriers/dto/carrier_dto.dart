@@ -15,8 +15,10 @@ abstract class CarrierDTO with _$CarrierDTO {
     @JsonKey(fromJson: parseIsBool, toJson: isBoolToJson) bool? deleted,
     @JsonKey(name: 'is_module', fromJson: parseIsBool, toJson: isBoolToJson)
     bool? isModule,
-    @JsonKey(name: 'id_tax_rules_group') String? idTaxRulesGroup,
-    @JsonKey(name: 'id_reference') String? idReference,
+    @JsonKey(name: 'id_tax_rules_group', fromJson: stringFromDynamicJson)
+    String? idTaxRulesGroup,
+    @JsonKey(name: 'id_reference', fromJson: stringFromDynamicJson)
+    String? idReference,
     String? name,
     @JsonKey(fromJson: parseIsBool, toJson: isBoolToJson) bool? active,
     @JsonKey(name: 'is_free', fromJson: parseIsBool, toJson: isBoolToJson)
@@ -28,7 +30,8 @@ abstract class CarrierDTO with _$CarrierDTO {
       toJson: isBoolToJson,
     )
     bool? shippingHandling,
-    @JsonKey(name: 'shipping_external') String? shippingExternal,
+    @JsonKey(name: 'shipping_external', fromJson: stringFromDynamicJson)
+    String? shippingExternal,
     @JsonKey(
       name: 'range_behavior',
       fromJson: parseIsBool,
@@ -42,9 +45,11 @@ abstract class CarrierDTO with _$CarrierDTO {
     @JsonKey(name: 'max_depth', fromJson: parseUnsignedId) int? maxDepth,
     @JsonKey(name: 'max_weight', fromJson: parseIsFloat) double? maxWeight,
     @JsonKey(fromJson: parseUnsignedId) int? grade,
-    @JsonKey(name: 'external_module_name') String? externalModuleName,
-    @JsonKey(name: 'need_range') String? needRange,
-    String? position,
+    @JsonKey(name: 'external_module_name', fromJson: stringFromDynamicJson)
+    String? externalModuleName,
+    @JsonKey(name: 'need_range', fromJson: stringFromDynamicJson)
+    String? needRange,
+    @JsonKey(fromJson: stringFromDynamicJson) String? position,
     String? delay,
   }) = _CarrierDTO;
 
