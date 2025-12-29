@@ -11,16 +11,17 @@ abstract class StockAvailableDTO with _$StockAvailableDTO {
   const StockAvailableDTO._();
 
   const factory StockAvailableDTO({
-    int? id,
-    @JsonKey(name: 'id_product') String? idProduct,
-    @JsonKey(name: 'id_product_attribute') String? idProductAttribute,
-    @JsonKey(name: 'id_shop') String? idShop,
-    @JsonKey(name: 'id_shop_group') String? idShopGroup,
+    @JsonKey(fromJson: parseNullOrUnsignedId) int? id,
+    @JsonKey(name: 'id_product', fromJson: parseNullOrUnsignedId) int? idProduct,
+    @JsonKey(name: 'id_product_attribute', fromJson: parseUnsignedId)
+    int? idProductAttribute,
+    @JsonKey(name: 'id_shop', fromJson: parseNullOrUnsignedId) int? idShop,
+    @JsonKey(name: 'id_shop_group', fromJson: parseNullOrUnsignedId) int? idShopGroup,
     String? quantity,
     @JsonKey(
       name: 'depends_on_stock',
-      fromJson: boolFromJson,
-      toJson: boolToJson,
+      fromJson: parseIsBool,
+      toJson: isBoolToJson,
     )
     bool? dependsOnStock,
     @JsonKey(name: 'out_of_stock') String? outOfStock,
@@ -57,4 +58,13 @@ abstract class StockAvailableDTO with _$StockAvailableDTO {
       location: location,
     );
   }
+}
+
+extension DomainListToDTOList on List<StockAvailable> {
+  List<StockAvailableDTO> fromDomain() =>
+      map((e) => StockAvailableDTO.fromDomain(e)).toList();
+}
+
+extension DTOListToDomainList on List<StockAvailableDTO> {
+  List<StockAvailable> toDomain() => map((e) => e.toDomain()).toList();
 }

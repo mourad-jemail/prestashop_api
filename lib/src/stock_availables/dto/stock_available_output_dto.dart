@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../model/stock_available.dart';
 import '../model/stock_available_output.dart';
 import 'stock_available_dto.dart';
 
@@ -33,13 +32,4 @@ abstract class StockAvailableOutputDTO with _$StockAvailableOutputDTO {
       stockAvailableList: stockAvailableDTOList.toDomain(),
     );
   }
-}
-
-extension DomainListToDTOList on List<StockAvailable> {
-  List<StockAvailableDTO> fromDomain() =>
-      map((e) => StockAvailableDTO.fromDomain(e)).toList();
-}
-
-extension DTOListToDomainList on List<StockAvailableDTO> {
-  List<StockAvailable> toDomain() => map((e) => e.toDomain()).toList();
 }

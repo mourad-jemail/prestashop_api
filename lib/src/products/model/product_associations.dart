@@ -2,7 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../common/model/id.dart';
 import '../../product_features/model/product_feature.dart';
-import 'stock_available.dart';
+import '../../stock_availables/model/stock_available.dart';
 
 part 'product_associations.freezed.dart';
 part 'product_associations.g.dart';

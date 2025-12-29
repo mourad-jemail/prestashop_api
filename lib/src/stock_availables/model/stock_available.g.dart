@@ -9,10 +9,10 @@ part of 'stock_available.dart';
 _StockAvailable _$StockAvailableFromJson(Map<String, dynamic> json) =>
     _StockAvailable(
       id: (json['id'] as num?)?.toInt(),
-      idProduct: json['idProduct'] as String?,
-      idProductAttribute: json['idProductAttribute'] as String?,
-      idShop: json['idShop'] as String?,
-      idShopGroup: json['idShopGroup'] as String?,
+      idProduct: (json['idProduct'] as num?)?.toInt(),
+      idProductAttribute: (json['idProductAttribute'] as num?)?.toInt(),
+      idShop: (json['idShop'] as num?)?.toInt(),
+      idShopGroup: (json['idShopGroup'] as num?)?.toInt(),
       quantity: json['quantity'] as String?,
       dependsOnStock: json['dependsOnStock'] as bool?,
       outOfStock: json['outOfStock'] as String?,

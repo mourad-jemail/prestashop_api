@@ -13,10 +13,10 @@ abstract class StockAvailable
 
   const factory StockAvailable({
     int? id,
-    String? idProduct,
-    String? idProductAttribute,
-    String? idShop,
-    String? idShopGroup,
+    int? idProduct,
+    int? idProductAttribute,
+    int? idShop,
+    int? idShopGroup,
     String? quantity,
     bool? dependsOnStock,
     String? outOfStock,
