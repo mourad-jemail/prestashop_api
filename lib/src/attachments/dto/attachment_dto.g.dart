@@ -11,7 +11,7 @@ _AttachmentDTO _$AttachmentDTOFromJson(Map<String, dynamic> json) =>
       id: (json['id'] as num?)?.toInt(),
       file: json['file'] as String?,
       fileName: json['file_name'] as String?,
-      fileSize: intFromJson(json['file_size']),
+      fileSize: parseUnsignedId(json['file_size']),
       mime: json['mime'] as String?,
       name: json['name'] as String?,
       description: json['description'] as String?,
