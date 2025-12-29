@@ -1,5 +1,106 @@
 import 'date_mapper.dart';
 
+/// Parses a PrestaShop `isNullOrUnsignedId` value into a nullable [int].
+///
+/// The input may be `null`, a numeric string, or an integer as returned by the
+/// PrestaShop Webservice. Values that are invalid, negative, or equal to zero
+/// (when [zeroIsNull] is true) are treated as absent and result in `null`.
+///
+/// By convention, PrestaShop identifiers are strictly positive integers.
+int? parseNullOrUnsignedId(dynamic value, {bool zeroIsNull = false}) {
+  if (value == null) return null;
+
+  final parsed = switch (value) {
+    final int v => v,
+    final String v => int.tryParse(v),
+    _ => null,
+  };
+
+  if (parsed == null) return null;
+  if (parsed < 0) return null;
+  if (zeroIsNull && parsed == 0) return null;
+
+  return parsed;
+}
+
+/// Parses a PrestaShop `isUnsignedId` value into a non-nullable [int].
+///
+/// The input may be a numeric string or an integer as returned by the
+/// PrestaShop Webservice. Throws a [FormatException] if the value is
+/// null, non-numeric, zero, or negative.
+///
+/// PrestaShop identifiers are strictly positive integers.
+int parseUnsignedId(dynamic value) {
+  final parsed = switch (value) {
+    final int v => v,
+    final String v => int.tryParse(v),
+    _ => null,
+  };
+
+  if (parsed == null || parsed <= 0) {
+    throw FormatException(
+      'Expected a strictly positive integer (isUnsignedId), got: $value',
+    );
+  }
+
+  return parsed;
+}
+
+/// Parses a PrestaShop `isBool` value into a nullable [bool].
+///
+/// The input may be `null`, a boolean, a numeric value (`1` or `0`),
+/// or their string representations. Returns `null` for absent or
+/// unrecognized values.
+bool? parseIsBool(dynamic value) {
+  if (value == null) return null;
+
+  return switch (value) {
+    final bool v => v,
+    final int v =>
+      v == 1
+          ? true
+          : v == 0
+          ? false
+          : null,
+    final String v => switch (v) {
+      '1' || 'true' => true,
+      '0' || 'false' => false,
+      _ => null,
+    },
+    _ => null,
+  };
+}
+
+/// Serializes a Dart [bool] into a PrestaShop-compatible `isBool` value.
+///
+/// Returns `1` for `true`, `0` for `false`, or `null` if the value is `null`.
+String? isBoolToJson(bool? value) {
+  if (value == null) return null;
+  return value ? '1' : '0';
+}
+
+
+/// Parses a PrestaShop `isDate` value into a nullable [DateTime].
+///
+/// The input may be `null`, an empty string, or a date string returned by the
+/// PrestaShop Webservice (typically `yyyy-MM-dd HH:mm:ss` or `yyyy-MM-dd`).
+/// Sentinel values such as `0000-00-00` or `0000-00-00 00:00:00` are treated
+/// as absent and result in `null`.
+DateTime? parseIsDate(dynamic value) {
+  if (value == null) return null;
+
+  if (value is! String) return null;
+  if (value.isEmpty) return null;
+
+  // PrestaShop "no date" sentinel values
+  if (value.startsWith('0000-00-00')) return null;
+
+  // Normalize MySQL datetime to ISO-8601
+  final normalized = value.contains(' ') ? value.replaceFirst(' ', 'T') : value;
+
+  return DateTime.tryParse(normalized);
+}
+
 bool boolFromJson(Object? json) {
   if (json == null) {
     return false;
@@ -28,13 +129,6 @@ String stringFromDynamicJson(dynamic json) {
     return json.toString();
   }
   return '';
-}
-
-int? intFromJson(Object? json) {
-  if (json is int) {
-    return json;
-  }
-  return null;
 }
 
 /// Safely parses an API value into a nullable [int].

@@ -8,12 +8,12 @@ part of 'address_dto.dart';
 
 _AddressDTO _$AddressDTOFromJson(Map<String, dynamic> json) => _AddressDTO(
   id: (json['id'] as num?)?.toInt(),
-  idCustomer: stringFromJson(json['id_customer'] as String?),
-  idManufacturer: stringFromJson(json['id_manufacturer'] as String?),
-  idSupplier: stringFromJson(json['id_supplier'] as String?),
-  idWarehouse: stringFromJson(json['id_warehouse'] as String?),
-  idCountry: stringFromJson(json['id_country'] as String?),
-  idState: stringFromJson(json['id_state'] as String?),
+  idCustomer: parseNullOrUnsignedId(json['id_customer']),
+  idManufacturer: parseNullOrUnsignedId(json['id_manufacturer']),
+  idSupplier: parseNullOrUnsignedId(json['id_supplier']),
+  idWarehouse: parseNullOrUnsignedId(json['id_warehouse']),
+  idCountry: parseUnsignedId(json['id_country']),
+  idState: parseNullOrUnsignedId(json['id_state']),
   alias: json['alias'] as String?,
   company: json['company'] as String?,
   lastname: json['lastname'] as String?,
@@ -27,9 +27,9 @@ _AddressDTO _$AddressDTOFromJson(Map<String, dynamic> json) => _AddressDTO(
   phone: json['phone'] as String?,
   phoneMobile: json['phone_mobile'] as String?,
   dni: json['dni'] as String?,
-  deleted: boolFromJson(json['deleted']),
-  dateAdd: dateTimeFromJson(json['date_add'] as String?),
-  dateUpd: dateTimeFromJson(json['date_upd'] as String?),
+  deleted: parseIsBool(json['deleted']),
+  dateAdd: parseIsDate(json['date_add']),
+  dateUpd: parseIsDate(json['date_upd']),
 );
 
 Map<String, dynamic> _$AddressDTOToJson(_AddressDTO instance) =>
@@ -54,7 +54,7 @@ Map<String, dynamic> _$AddressDTOToJson(_AddressDTO instance) =>
       'phone': instance.phone,
       'phone_mobile': instance.phoneMobile,
       'dni': instance.dni,
-      'deleted': boolToJson(instance.deleted),
+      'deleted': isBoolToJson(instance.deleted),
       'date_add': instance.dateAdd?.toIso8601String(),
       'date_upd': instance.dateUpd?.toIso8601String(),
     };

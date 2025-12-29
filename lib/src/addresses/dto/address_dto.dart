@@ -4,7 +4,6 @@ import '../../common/shared/converters.dart';
 import '../model/address.dart';
 
 part 'address_dto.freezed.dart';
-
 part 'address_dto.g.dart';
 
 @freezed
@@ -13,14 +12,16 @@ abstract class AddressDTO with _$AddressDTO {
 
   const factory AddressDTO({
     int? id,
-    @JsonKey(name: 'id_customer', fromJson: stringFromJson) String? idCustomer,
-    @JsonKey(name: 'id_manufacturer', fromJson: stringFromJson)
-    String? idManufacturer,
-    @JsonKey(name: 'id_supplier', fromJson: stringFromJson) String? idSupplier,
-    @JsonKey(name: 'id_warehouse', fromJson: stringFromJson)
-    String? idWarehouse,
-    @JsonKey(name: 'id_country', fromJson: stringFromJson) String? idCountry,
-    @JsonKey(name: 'id_state', fromJson: stringFromJson) String? idState,
+    @JsonKey(name: 'id_customer', fromJson: parseNullOrUnsignedId)
+    int? idCustomer,
+    @JsonKey(name: 'id_manufacturer', fromJson: parseNullOrUnsignedId)
+    int? idManufacturer,
+    @JsonKey(name: 'id_supplier', fromJson: parseNullOrUnsignedId)
+    int? idSupplier,
+    @JsonKey(name: 'id_warehouse', fromJson: parseNullOrUnsignedId)
+    int? idWarehouse,
+    @JsonKey(name: 'id_country', fromJson: parseUnsignedId) int? idCountry,
+    @JsonKey(name: 'id_state', fromJson: parseNullOrUnsignedId) int? idState,
     String? alias,
     String? company,
     String? lastname,
@@ -34,9 +35,9 @@ abstract class AddressDTO with _$AddressDTO {
     String? phone,
     @JsonKey(name: 'phone_mobile') String? phoneMobile,
     String? dni,
-    @JsonKey(fromJson: boolFromJson, toJson: boolToJson) bool? deleted,
-    @JsonKey(name: 'date_add', fromJson: dateTimeFromJson) DateTime? dateAdd,
-    @JsonKey(name: 'date_upd', fromJson: dateTimeFromJson) DateTime? dateUpd,
+    @JsonKey(fromJson: parseIsBool, toJson: isBoolToJson) bool? deleted,
+    @JsonKey(name: 'date_add', fromJson: parseIsDate) DateTime? dateAdd,
+    @JsonKey(name: 'date_upd', fromJson: parseIsDate) DateTime? dateUpd,
   }) = _AddressDTO;
 
   factory AddressDTO.fromJson(Map<String, dynamic> json) =>

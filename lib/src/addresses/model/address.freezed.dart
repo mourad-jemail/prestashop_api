@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Address {
 
- int? get id; String? get idCustomer; String? get idManufacturer; String? get idSupplier; String? get idWarehouse; String? get idCountry; String? get idState; String? get alias; String? get company; String? get lastname; String? get firstname; String? get vatNumber; String? get address1; String? get address2; String? get postcode; String? get city; String? get other; String? get phone; String? get phoneMobile; String? get dni; bool? get deleted; DateTime? get dateAdd; DateTime? get dateUpd;
+ int? get id; int? get idCustomer; int? get idManufacturer; int? get idSupplier; int? get idWarehouse; int? get idCountry; int? get idState; String? get alias; String? get company; String? get lastname; String? get firstname; String? get vatNumber; String? get address1; String? get address2; String? get postcode; String? get city; String? get other; String? get phone; String? get phoneMobile; String? get dni; bool? get deleted; DateTime? get dateAdd; DateTime? get dateUpd;
 /// Create a copy of Address
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $AddressCopyWith<$Res>  {
   factory $AddressCopyWith(Address value, $Res Function(Address) _then) = _$AddressCopyWithImpl;
 @useResult
 $Res call({
- int? id, String? idCustomer, String? idManufacturer, String? idSupplier, String? idWarehouse, String? idCountry, String? idState, String? alias, String? company, String? lastname, String? firstname, String? vatNumber, String? address1, String? address2, String? postcode, String? city, String? other, String? phone, String? phoneMobile, String? dni, bool? deleted, DateTime? dateAdd, DateTime? dateUpd
+ int? id, int? idCustomer, int? idManufacturer, int? idSupplier, int? idWarehouse, int? idCountry, int? idState, String? alias, String? company, String? lastname, String? firstname, String? vatNumber, String? address1, String? address2, String? postcode, String? city, String? other, String? phone, String? phoneMobile, String? dni, bool? deleted, DateTime? dateAdd, DateTime? dateUpd
 });
 
 
@@ -69,12 +69,12 @@ class _$AddressCopyWithImpl<$Res>
   return _then(_self.copyWith(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int?,idCustomer: freezed == idCustomer ? _self.idCustomer : idCustomer // ignore: cast_nullable_to_non_nullable
-as String?,idManufacturer: freezed == idManufacturer ? _self.idManufacturer : idManufacturer // ignore: cast_nullable_to_non_nullable
-as String?,idSupplier: freezed == idSupplier ? _self.idSupplier : idSupplier // ignore: cast_nullable_to_non_nullable
-as String?,idWarehouse: freezed == idWarehouse ? _self.idWarehouse : idWarehouse // ignore: cast_nullable_to_non_nullable
-as String?,idCountry: freezed == idCountry ? _self.idCountry : idCountry // ignore: cast_nullable_to_non_nullable
-as String?,idState: freezed == idState ? _self.idState : idState // ignore: cast_nullable_to_non_nullable
-as String?,alias: freezed == alias ? _self.alias : alias // ignore: cast_nullable_to_non_nullable
+as int?,idManufacturer: freezed == idManufacturer ? _self.idManufacturer : idManufacturer // ignore: cast_nullable_to_non_nullable
+as int?,idSupplier: freezed == idSupplier ? _self.idSupplier : idSupplier // ignore: cast_nullable_to_non_nullable
+as int?,idWarehouse: freezed == idWarehouse ? _self.idWarehouse : idWarehouse // ignore: cast_nullable_to_non_nullable
+as int?,idCountry: freezed == idCountry ? _self.idCountry : idCountry // ignore: cast_nullable_to_non_nullable
+as int?,idState: freezed == idState ? _self.idState : idState // ignore: cast_nullable_to_non_nullable
+as int?,alias: freezed == alias ? _self.alias : alias // ignore: cast_nullable_to_non_nullable
 as String?,company: freezed == company ? _self.company : company // ignore: cast_nullable_to_non_nullable
 as String?,lastname: freezed == lastname ? _self.lastname : lastname // ignore: cast_nullable_to_non_nullable
 as String?,firstname: freezed == firstname ? _self.firstname : firstname // ignore: cast_nullable_to_non_nullable
@@ -175,7 +175,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id,  String? idCustomer,  String? idManufacturer,  String? idSupplier,  String? idWarehouse,  String? idCountry,  String? idState,  String? alias,  String? company,  String? lastname,  String? firstname,  String? vatNumber,  String? address1,  String? address2,  String? postcode,  String? city,  String? other,  String? phone,  String? phoneMobile,  String? dni,  bool? deleted,  DateTime? dateAdd,  DateTime? dateUpd)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id,  int? idCustomer,  int? idManufacturer,  int? idSupplier,  int? idWarehouse,  int? idCountry,  int? idState,  String? alias,  String? company,  String? lastname,  String? firstname,  String? vatNumber,  String? address1,  String? address2,  String? postcode,  String? city,  String? other,  String? phone,  String? phoneMobile,  String? dni,  bool? deleted,  DateTime? dateAdd,  DateTime? dateUpd)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Address() when $default != null:
 return $default(_that.id,_that.idCustomer,_that.idManufacturer,_that.idSupplier,_that.idWarehouse,_that.idCountry,_that.idState,_that.alias,_that.company,_that.lastname,_that.firstname,_that.vatNumber,_that.address1,_that.address2,_that.postcode,_that.city,_that.other,_that.phone,_that.phoneMobile,_that.dni,_that.deleted,_that.dateAdd,_that.dateUpd);case _:
@@ -196,7 +196,7 @@ return $default(_that.id,_that.idCustomer,_that.idManufacturer,_that.idSupplier,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id,  String? idCustomer,  String? idManufacturer,  String? idSupplier,  String? idWarehouse,  String? idCountry,  String? idState,  String? alias,  String? company,  String? lastname,  String? firstname,  String? vatNumber,  String? address1,  String? address2,  String? postcode,  String? city,  String? other,  String? phone,  String? phoneMobile,  String? dni,  bool? deleted,  DateTime? dateAdd,  DateTime? dateUpd)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id,  int? idCustomer,  int? idManufacturer,  int? idSupplier,  int? idWarehouse,  int? idCountry,  int? idState,  String? alias,  String? company,  String? lastname,  String? firstname,  String? vatNumber,  String? address1,  String? address2,  String? postcode,  String? city,  String? other,  String? phone,  String? phoneMobile,  String? dni,  bool? deleted,  DateTime? dateAdd,  DateTime? dateUpd)  $default,) {final _that = this;
 switch (_that) {
 case _Address():
 return $default(_that.id,_that.idCustomer,_that.idManufacturer,_that.idSupplier,_that.idWarehouse,_that.idCountry,_that.idState,_that.alias,_that.company,_that.lastname,_that.firstname,_that.vatNumber,_that.address1,_that.address2,_that.postcode,_that.city,_that.other,_that.phone,_that.phoneMobile,_that.dni,_that.deleted,_that.dateAdd,_that.dateUpd);case _:
@@ -216,7 +216,7 @@ return $default(_that.id,_that.idCustomer,_that.idManufacturer,_that.idSupplier,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id,  String? idCustomer,  String? idManufacturer,  String? idSupplier,  String? idWarehouse,  String? idCountry,  String? idState,  String? alias,  String? company,  String? lastname,  String? firstname,  String? vatNumber,  String? address1,  String? address2,  String? postcode,  String? city,  String? other,  String? phone,  String? phoneMobile,  String? dni,  bool? deleted,  DateTime? dateAdd,  DateTime? dateUpd)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id,  int? idCustomer,  int? idManufacturer,  int? idSupplier,  int? idWarehouse,  int? idCountry,  int? idState,  String? alias,  String? company,  String? lastname,  String? firstname,  String? vatNumber,  String? address1,  String? address2,  String? postcode,  String? city,  String? other,  String? phone,  String? phoneMobile,  String? dni,  bool? deleted,  DateTime? dateAdd,  DateTime? dateUpd)?  $default,) {final _that = this;
 switch (_that) {
 case _Address() when $default != null:
 return $default(_that.id,_that.idCustomer,_that.idManufacturer,_that.idSupplier,_that.idWarehouse,_that.idCountry,_that.idState,_that.alias,_that.company,_that.lastname,_that.firstname,_that.vatNumber,_that.address1,_that.address2,_that.postcode,_that.city,_that.other,_that.phone,_that.phoneMobile,_that.dni,_that.deleted,_that.dateAdd,_that.dateUpd);case _:
@@ -235,12 +235,12 @@ class _Address extends Address {
   factory _Address.fromJson(Map<String, dynamic> json) => _$AddressFromJson(json);
 
 @override final  int? id;
-@override final  String? idCustomer;
-@override final  String? idManufacturer;
-@override final  String? idSupplier;
-@override final  String? idWarehouse;
-@override final  String? idCountry;
-@override final  String? idState;
+@override final  int? idCustomer;
+@override final  int? idManufacturer;
+@override final  int? idSupplier;
+@override final  int? idWarehouse;
+@override final  int? idCountry;
+@override final  int? idState;
 @override final  String? alias;
 @override final  String? company;
 @override final  String? lastname;
@@ -291,7 +291,7 @@ abstract mixin class _$AddressCopyWith<$Res> implements $AddressCopyWith<$Res> {
   factory _$AddressCopyWith(_Address value, $Res Function(_Address) _then) = __$AddressCopyWithImpl;
 @override @useResult
 $Res call({
- int? id, String? idCustomer, String? idManufacturer, String? idSupplier, String? idWarehouse, String? idCountry, String? idState, String? alias, String? company, String? lastname, String? firstname, String? vatNumber, String? address1, String? address2, String? postcode, String? city, String? other, String? phone, String? phoneMobile, String? dni, bool? deleted, DateTime? dateAdd, DateTime? dateUpd
+ int? id, int? idCustomer, int? idManufacturer, int? idSupplier, int? idWarehouse, int? idCountry, int? idState, String? alias, String? company, String? lastname, String? firstname, String? vatNumber, String? address1, String? address2, String? postcode, String? city, String? other, String? phone, String? phoneMobile, String? dni, bool? deleted, DateTime? dateAdd, DateTime? dateUpd
 });
 
 
@@ -312,12 +312,12 @@ class __$AddressCopyWithImpl<$Res>
   return _then(_Address(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int?,idCustomer: freezed == idCustomer ? _self.idCustomer : idCustomer // ignore: cast_nullable_to_non_nullable
-as String?,idManufacturer: freezed == idManufacturer ? _self.idManufacturer : idManufacturer // ignore: cast_nullable_to_non_nullable
-as String?,idSupplier: freezed == idSupplier ? _self.idSupplier : idSupplier // ignore: cast_nullable_to_non_nullable
-as String?,idWarehouse: freezed == idWarehouse ? _self.idWarehouse : idWarehouse // ignore: cast_nullable_to_non_nullable
-as String?,idCountry: freezed == idCountry ? _self.idCountry : idCountry // ignore: cast_nullable_to_non_nullable
-as String?,idState: freezed == idState ? _self.idState : idState // ignore: cast_nullable_to_non_nullable
-as String?,alias: freezed == alias ? _self.alias : alias // ignore: cast_nullable_to_non_nullable
+as int?,idManufacturer: freezed == idManufacturer ? _self.idManufacturer : idManufacturer // ignore: cast_nullable_to_non_nullable
+as int?,idSupplier: freezed == idSupplier ? _self.idSupplier : idSupplier // ignore: cast_nullable_to_non_nullable
+as int?,idWarehouse: freezed == idWarehouse ? _self.idWarehouse : idWarehouse // ignore: cast_nullable_to_non_nullable
+as int?,idCountry: freezed == idCountry ? _self.idCountry : idCountry // ignore: cast_nullable_to_non_nullable
+as int?,idState: freezed == idState ? _self.idState : idState // ignore: cast_nullable_to_non_nullable
+as int?,alias: freezed == alias ? _self.alias : alias // ignore: cast_nullable_to_non_nullable
 as String?,company: freezed == company ? _self.company : company // ignore: cast_nullable_to_non_nullable
 as String?,lastname: freezed == lastname ? _self.lastname : lastname // ignore: cast_nullable_to_non_nullable
 as String?,firstname: freezed == firstname ? _self.firstname : firstname // ignore: cast_nullable_to_non_nullable

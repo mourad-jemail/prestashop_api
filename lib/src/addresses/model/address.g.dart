@@ -8,12 +8,12 @@ part of 'address.dart';
 
 _Address _$AddressFromJson(Map<String, dynamic> json) => _Address(
   id: (json['id'] as num?)?.toInt(),
-  idCustomer: json['idCustomer'] as String?,
-  idManufacturer: json['idManufacturer'] as String?,
-  idSupplier: json['idSupplier'] as String?,
-  idWarehouse: json['idWarehouse'] as String?,
-  idCountry: json['idCountry'] as String?,
-  idState: json['idState'] as String?,
+  idCustomer: (json['idCustomer'] as num?)?.toInt(),
+  idManufacturer: (json['idManufacturer'] as num?)?.toInt(),
+  idSupplier: (json['idSupplier'] as num?)?.toInt(),
+  idWarehouse: (json['idWarehouse'] as num?)?.toInt(),
+  idCountry: (json['idCountry'] as num?)?.toInt(),
+  idState: (json['idState'] as num?)?.toInt(),
   alias: json['alias'] as String?,
   company: json['company'] as String?,
   lastname: json['lastname'] as String?,

@@ -11,12 +11,12 @@ abstract class Address with _$Address implements ConvertibleToJson {
 
   const factory Address({
     int? id,
-    String? idCustomer,
-    String? idManufacturer,
-    String? idSupplier,
-    String? idWarehouse,
-    String? idCountry,
-    String? idState,
+    int? idCustomer,
+    int? idManufacturer,
+    int? idSupplier,
+    int? idWarehouse,
+    int? idCountry,
+    int? idState,
     String? alias,
     String? company,
     String? lastname,
