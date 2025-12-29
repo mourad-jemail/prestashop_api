@@ -12,33 +12,36 @@ abstract class CarrierDTO with _$CarrierDTO {
 
   const factory CarrierDTO({
     int? id,
-    @JsonKey(fromJson: boolFromJson, toJson: boolToJson) bool? deleted,
-    @JsonKey(name: 'is_module', fromJson: boolFromJson, toJson: boolToJson)
+    @JsonKey(fromJson: parseIsBool, toJson: isBoolToJson) bool? deleted,
+    @JsonKey(name: 'is_module', fromJson: parseIsBool, toJson: isBoolToJson)
     bool? isModule,
     @JsonKey(name: 'id_tax_rules_group') String? idTaxRulesGroup,
     @JsonKey(name: 'id_reference') String? idReference,
     String? name,
-    @JsonKey(fromJson: boolFromJson, toJson: boolToJson) bool? active,
-    @JsonKey(name: 'is_free', fromJson: boolFromJson, toJson: boolToJson)
+    @JsonKey(fromJson: parseIsBool, toJson: isBoolToJson) bool? active,
+    @JsonKey(name: 'is_free', fromJson: parseIsBool, toJson: isBoolToJson)
     bool? isFree,
     String? url,
     @JsonKey(
       name: 'shipping_handling',
-      fromJson: boolFromJson,
-      toJson: boolToJson,
+      fromJson: parseIsBool,
+      toJson: isBoolToJson,
     )
     bool? shippingHandling,
     @JsonKey(name: 'shipping_external') String? shippingExternal,
-    @JsonKey(name: 'range_behavior', fromJson: boolFromJson, toJson: boolToJson)
+    @JsonKey(
+      name: 'range_behavior',
+      fromJson: parseIsBool,
+      toJson: isBoolToJson,
+    )
     bool? rangeBehavior,
-    @JsonKey(name: 'shipping_method', fromJson: intFromJson)
+    @JsonKey(name: 'shipping_method', fromJson: parseUnsignedId)
     int? shippingMethod,
-    @JsonKey(name: 'max_width', fromJson: nullableIntFromJson) int? maxWidth,
-    @JsonKey(name: 'max_height', fromJson: nullableIntFromJson) int? maxHeight,
-    @JsonKey(name: 'max_depth', fromJson: nullableIntFromJson) int? maxDepth,
-    @JsonKey(name: 'max_weight', fromJson: nullableDoubleFromJson)
-    double? maxWeight,
-    @JsonKey(fromJson: nullableIntFromJson) int? grade,
+    @JsonKey(name: 'max_width', fromJson: parseUnsignedId) int? maxWidth,
+    @JsonKey(name: 'max_height', fromJson: parseUnsignedId) int? maxHeight,
+    @JsonKey(name: 'max_depth', fromJson: parseUnsignedId) int? maxDepth,
+    @JsonKey(name: 'max_weight', fromJson: parseIsFloat) double? maxWeight,
+    @JsonKey(fromJson: parseUnsignedId) int? grade,
     @JsonKey(name: 'external_module_name') String? externalModuleName,
     @JsonKey(name: 'need_range') String? needRange,
     String? position,

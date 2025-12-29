@@ -37,9 +37,9 @@ int parseUnsignedId(dynamic value) {
     _ => null,
   };
 
-  if (parsed == null || parsed <= 0) {
+  if (parsed == null || parsed < 0) {
     throw FormatException(
-      'Expected a strictly positive integer (isUnsignedId), got: $value',
+      'Expected a positive integer (isUnsignedId), got: $value',
     );
   }
 
@@ -100,6 +100,28 @@ DateTime? parseIsDate(dynamic value) {
   final normalized = value.contains(' ') ? value.replaceFirst(' ', 'T') : value;
 
   return DateTime.tryParse(normalized);
+}
+
+/// Parses a PrestaShop `isFloat` value into a nullable [double].
+///
+/// The input may be `null`, a numeric string, or a number as returned by the
+/// PrestaShop Webservice. Empty or invalid values are treated as absent and
+/// result in `null`.
+double? parseIsFloat(dynamic value) {
+  if (value == null) return null;
+
+  final parsed = switch (value) {
+    final double v => v,
+    final int v => v.toDouble(),
+    final String v => double.tryParse(v),
+    _ => null,
+  };
+
+  if (parsed == null || parsed.isNaN || parsed.isInfinite) {
+    return null;
+  }
+
+  return parsed;
 }
 
 bool boolFromJson(Object? json) {
