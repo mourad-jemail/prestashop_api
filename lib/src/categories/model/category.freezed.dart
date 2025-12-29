@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Category {
 
- int? get id; String? get idParent; String? get levelDepth; String? get nbProductsRecursive; bool? get active; String? get idShopDefault; bool? get isRootCategory; String? get position; DateTime? get dateAdd; DateTime? get dateUpd; String? get name; String? get linkRewrite; String? get description; String? get metaTitle; String? get metaDescription; String? get metaKeywords; CategoryAssociations? get associations;
+ int? get id; int? get idParent; int? get levelDepth; String? get nbProductsRecursive; bool? get active; int? get idShopDefault; bool? get isRootCategory; String? get position; DateTime? get dateAdd; DateTime? get dateUpd; String? get name; String? get linkRewrite; String? get description; String? get metaTitle; String? get metaDescription; String? get metaKeywords; CategoryAssociations? get associations;
 /// Create a copy of Category
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $CategoryCopyWith<$Res>  {
   factory $CategoryCopyWith(Category value, $Res Function(Category) _then) = _$CategoryCopyWithImpl;
 @useResult
 $Res call({
- int? id, String? idParent, String? levelDepth, String? nbProductsRecursive, bool? active, String? idShopDefault, bool? isRootCategory, String? position, DateTime? dateAdd, DateTime? dateUpd, String? name, String? linkRewrite, String? description, String? metaTitle, String? metaDescription, String? metaKeywords, CategoryAssociations? associations
+ int? id, int? idParent, int? levelDepth, String? nbProductsRecursive, bool? active, int? idShopDefault, bool? isRootCategory, String? position, DateTime? dateAdd, DateTime? dateUpd, String? name, String? linkRewrite, String? description, String? metaTitle, String? metaDescription, String? metaKeywords, CategoryAssociations? associations
 });
 
 
@@ -69,11 +69,11 @@ class _$CategoryCopyWithImpl<$Res>
   return _then(_self.copyWith(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int?,idParent: freezed == idParent ? _self.idParent : idParent // ignore: cast_nullable_to_non_nullable
-as String?,levelDepth: freezed == levelDepth ? _self.levelDepth : levelDepth // ignore: cast_nullable_to_non_nullable
-as String?,nbProductsRecursive: freezed == nbProductsRecursive ? _self.nbProductsRecursive : nbProductsRecursive // ignore: cast_nullable_to_non_nullable
+as int?,levelDepth: freezed == levelDepth ? _self.levelDepth : levelDepth // ignore: cast_nullable_to_non_nullable
+as int?,nbProductsRecursive: freezed == nbProductsRecursive ? _self.nbProductsRecursive : nbProductsRecursive // ignore: cast_nullable_to_non_nullable
 as String?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
 as bool?,idShopDefault: freezed == idShopDefault ? _self.idShopDefault : idShopDefault // ignore: cast_nullable_to_non_nullable
-as String?,isRootCategory: freezed == isRootCategory ? _self.isRootCategory : isRootCategory // ignore: cast_nullable_to_non_nullable
+as int?,isRootCategory: freezed == isRootCategory ? _self.isRootCategory : isRootCategory // ignore: cast_nullable_to_non_nullable
 as bool?,position: freezed == position ? _self.position : position // ignore: cast_nullable_to_non_nullable
 as String?,dateAdd: freezed == dateAdd ? _self.dateAdd : dateAdd // ignore: cast_nullable_to_non_nullable
 as DateTime?,dateUpd: freezed == dateUpd ? _self.dateUpd : dateUpd // ignore: cast_nullable_to_non_nullable
@@ -181,7 +181,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id,  String? idParent,  String? levelDepth,  String? nbProductsRecursive,  bool? active,  String? idShopDefault,  bool? isRootCategory,  String? position,  DateTime? dateAdd,  DateTime? dateUpd,  String? name,  String? linkRewrite,  String? description,  String? metaTitle,  String? metaDescription,  String? metaKeywords,  CategoryAssociations? associations)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id,  int? idParent,  int? levelDepth,  String? nbProductsRecursive,  bool? active,  int? idShopDefault,  bool? isRootCategory,  String? position,  DateTime? dateAdd,  DateTime? dateUpd,  String? name,  String? linkRewrite,  String? description,  String? metaTitle,  String? metaDescription,  String? metaKeywords,  CategoryAssociations? associations)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Category() when $default != null:
 return $default(_that.id,_that.idParent,_that.levelDepth,_that.nbProductsRecursive,_that.active,_that.idShopDefault,_that.isRootCategory,_that.position,_that.dateAdd,_that.dateUpd,_that.name,_that.linkRewrite,_that.description,_that.metaTitle,_that.metaDescription,_that.metaKeywords,_that.associations);case _:
@@ -202,7 +202,7 @@ return $default(_that.id,_that.idParent,_that.levelDepth,_that.nbProductsRecursi
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id,  String? idParent,  String? levelDepth,  String? nbProductsRecursive,  bool? active,  String? idShopDefault,  bool? isRootCategory,  String? position,  DateTime? dateAdd,  DateTime? dateUpd,  String? name,  String? linkRewrite,  String? description,  String? metaTitle,  String? metaDescription,  String? metaKeywords,  CategoryAssociations? associations)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id,  int? idParent,  int? levelDepth,  String? nbProductsRecursive,  bool? active,  int? idShopDefault,  bool? isRootCategory,  String? position,  DateTime? dateAdd,  DateTime? dateUpd,  String? name,  String? linkRewrite,  String? description,  String? metaTitle,  String? metaDescription,  String? metaKeywords,  CategoryAssociations? associations)  $default,) {final _that = this;
 switch (_that) {
 case _Category():
 return $default(_that.id,_that.idParent,_that.levelDepth,_that.nbProductsRecursive,_that.active,_that.idShopDefault,_that.isRootCategory,_that.position,_that.dateAdd,_that.dateUpd,_that.name,_that.linkRewrite,_that.description,_that.metaTitle,_that.metaDescription,_that.metaKeywords,_that.associations);case _:
@@ -222,7 +222,7 @@ return $default(_that.id,_that.idParent,_that.levelDepth,_that.nbProductsRecursi
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id,  String? idParent,  String? levelDepth,  String? nbProductsRecursive,  bool? active,  String? idShopDefault,  bool? isRootCategory,  String? position,  DateTime? dateAdd,  DateTime? dateUpd,  String? name,  String? linkRewrite,  String? description,  String? metaTitle,  String? metaDescription,  String? metaKeywords,  CategoryAssociations? associations)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id,  int? idParent,  int? levelDepth,  String? nbProductsRecursive,  bool? active,  int? idShopDefault,  bool? isRootCategory,  String? position,  DateTime? dateAdd,  DateTime? dateUpd,  String? name,  String? linkRewrite,  String? description,  String? metaTitle,  String? metaDescription,  String? metaKeywords,  CategoryAssociations? associations)?  $default,) {final _that = this;
 switch (_that) {
 case _Category() when $default != null:
 return $default(_that.id,_that.idParent,_that.levelDepth,_that.nbProductsRecursive,_that.active,_that.idShopDefault,_that.isRootCategory,_that.position,_that.dateAdd,_that.dateUpd,_that.name,_that.linkRewrite,_that.description,_that.metaTitle,_that.metaDescription,_that.metaKeywords,_that.associations);case _:
@@ -241,11 +241,11 @@ class _Category extends Category {
   factory _Category.fromJson(Map<String, dynamic> json) => _$CategoryFromJson(json);
 
 @override final  int? id;
-@override final  String? idParent;
-@override final  String? levelDepth;
+@override final  int? idParent;
+@override final  int? levelDepth;
 @override final  String? nbProductsRecursive;
 @override final  bool? active;
-@override final  String? idShopDefault;
+@override final  int? idShopDefault;
 @override final  bool? isRootCategory;
 @override final  String? position;
 @override final  DateTime? dateAdd;
@@ -291,7 +291,7 @@ abstract mixin class _$CategoryCopyWith<$Res> implements $CategoryCopyWith<$Res>
   factory _$CategoryCopyWith(_Category value, $Res Function(_Category) _then) = __$CategoryCopyWithImpl;
 @override @useResult
 $Res call({
- int? id, String? idParent, String? levelDepth, String? nbProductsRecursive, bool? active, String? idShopDefault, bool? isRootCategory, String? position, DateTime? dateAdd, DateTime? dateUpd, String? name, String? linkRewrite, String? description, String? metaTitle, String? metaDescription, String? metaKeywords, CategoryAssociations? associations
+ int? id, int? idParent, int? levelDepth, String? nbProductsRecursive, bool? active, int? idShopDefault, bool? isRootCategory, String? position, DateTime? dateAdd, DateTime? dateUpd, String? name, String? linkRewrite, String? description, String? metaTitle, String? metaDescription, String? metaKeywords, CategoryAssociations? associations
 });
 
 
@@ -312,11 +312,11 @@ class __$CategoryCopyWithImpl<$Res>
   return _then(_Category(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int?,idParent: freezed == idParent ? _self.idParent : idParent // ignore: cast_nullable_to_non_nullable
-as String?,levelDepth: freezed == levelDepth ? _self.levelDepth : levelDepth // ignore: cast_nullable_to_non_nullable
-as String?,nbProductsRecursive: freezed == nbProductsRecursive ? _self.nbProductsRecursive : nbProductsRecursive // ignore: cast_nullable_to_non_nullable
+as int?,levelDepth: freezed == levelDepth ? _self.levelDepth : levelDepth // ignore: cast_nullable_to_non_nullable
+as int?,nbProductsRecursive: freezed == nbProductsRecursive ? _self.nbProductsRecursive : nbProductsRecursive // ignore: cast_nullable_to_non_nullable
 as String?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
 as bool?,idShopDefault: freezed == idShopDefault ? _self.idShopDefault : idShopDefault // ignore: cast_nullable_to_non_nullable
-as String?,isRootCategory: freezed == isRootCategory ? _self.isRootCategory : isRootCategory // ignore: cast_nullable_to_non_nullable
+as int?,isRootCategory: freezed == isRootCategory ? _self.isRootCategory : isRootCategory // ignore: cast_nullable_to_non_nullable
 as bool?,position: freezed == position ? _self.position : position // ignore: cast_nullable_to_non_nullable
 as String?,dateAdd: freezed == dateAdd ? _self.dateAdd : dateAdd // ignore: cast_nullable_to_non_nullable
 as DateTime?,dateUpd: freezed == dateUpd ? _self.dateUpd : dateUpd // ignore: cast_nullable_to_non_nullable

@@ -8,11 +8,11 @@ part of 'category.dart';
 
 _Category _$CategoryFromJson(Map<String, dynamic> json) => _Category(
   id: (json['id'] as num?)?.toInt(),
-  idParent: json['idParent'] as String?,
-  levelDepth: json['levelDepth'] as String?,
+  idParent: (json['idParent'] as num?)?.toInt(),
+  levelDepth: (json['levelDepth'] as num?)?.toInt(),
   nbProductsRecursive: json['nbProductsRecursive'] as String?,
   active: json['active'] as bool?,
-  idShopDefault: json['idShopDefault'] as String?,
+  idShopDefault: (json['idShopDefault'] as num?)?.toInt(),
   isRootCategory: json['isRootCategory'] as bool?,
   position: json['position'] as String?,
   dateAdd: json['dateAdd'] == null

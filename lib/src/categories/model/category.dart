@@ -21,11 +21,11 @@ abstract class Category with _$Category {
 
   const factory Category({
     int? id,
-    String? idParent,
-    String? levelDepth,
+    int? idParent,
+    int? levelDepth,
     String? nbProductsRecursive,
     bool? active,
-    String? idShopDefault,
+    int? idShopDefault,
     bool? isRootCategory,
     String? position,
     DateTime? dateAdd,

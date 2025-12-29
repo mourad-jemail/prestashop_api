@@ -14,23 +14,22 @@ abstract class CategoryDTO with _$CategoryDTO {
 
   const factory CategoryDTO({
     int? id,
-    @JsonKey(name: 'id_parent', fromJson: stringFromJson) String? idParent,
-    @JsonKey(name: 'level_depth', fromJson: stringFromJson) String? levelDepth,
-    @JsonKey(name: 'nb_products_recursive', fromJson: stringFromDynamicJson)
-    String? nbProductsRecursive,
-    @JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson)
+    @JsonKey(name: 'id_parent', fromJson: parseUnsignedId) int? idParent,
+    @JsonKey(name: 'level_depth', fromJson: parseUnsignedId) int? levelDepth,
+    @JsonKey(name: 'nb_products_recursive') String? nbProductsRecursive,
+    @JsonKey(name: 'active', fromJson: parseIsBool, toJson: isBoolToJson)
     bool? active,
-    @JsonKey(name: 'id_shop_default', fromJson: stringFromJson)
-    String? idShopDefault,
+    @JsonKey(name: 'id_shop_default', fromJson: parseUnsignedId)
+    int? idShopDefault,
     @JsonKey(
       name: 'is_root_category',
-      fromJson: boolFromJson,
-      toJson: boolToJson,
+      fromJson: parseIsBool,
+      toJson: isBoolToJson,
     )
     bool? isRootCategory,
-    @JsonKey(fromJson: stringFromJson) String? position,
-    @JsonKey(name: 'date_add', fromJson: dateTimeFromJson) DateTime? dateAdd,
-    @JsonKey(name: 'date_upd', fromJson: dateTimeFromJson) DateTime? dateUpd,
+    String? position,
+    @JsonKey(name: 'date_add', fromJson: parseIsDate) DateTime? dateAdd,
+    @JsonKey(name: 'date_upd', fromJson: parseIsDate) DateTime? dateUpd,
     String? name,
     @JsonKey(name: 'link_rewrite') String? linkRewrite,
     String? description,
