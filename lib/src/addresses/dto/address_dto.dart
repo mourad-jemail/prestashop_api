@@ -20,7 +20,8 @@ abstract class AddressDTO with _$AddressDTO {
     int? idSupplier,
     @JsonKey(name: 'id_warehouse', fromJson: parseNullOrUnsignedId)
     int? idWarehouse,
-    @JsonKey(name: 'id_country', fromJson: parseUnsignedId) int? idCountry,
+    @JsonKey(name: 'id_country', fromJson: parseNullOrUnsignedId)
+    int? idCountry,
     @JsonKey(name: 'id_state', fromJson: parseNullOrUnsignedId) int? idState,
     String? alias,
     String? company,

@@ -12,7 +12,7 @@ _AddressDTO _$AddressDTOFromJson(Map<String, dynamic> json) => _AddressDTO(
   idManufacturer: parseNullOrUnsignedId(json['id_manufacturer']),
   idSupplier: parseNullOrUnsignedId(json['id_supplier']),
   idWarehouse: parseNullOrUnsignedId(json['id_warehouse']),
-  idCountry: parseUnsignedId(json['id_country']),
+  idCountry: parseNullOrUnsignedId(json['id_country']),
   idState: parseNullOrUnsignedId(json['id_state']),
   alias: json['alias'] as String?,
   company: json['company'] as String?,
