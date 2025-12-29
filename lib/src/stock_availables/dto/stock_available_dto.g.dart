@@ -10,7 +10,7 @@ _StockAvailableDTO _$StockAvailableDTOFromJson(Map<String, dynamic> json) =>
     _StockAvailableDTO(
       id: parseNullOrUnsignedId(json['id']),
       idProduct: parseNullOrUnsignedId(json['id_product']),
-      idProductAttribute: parseUnsignedId(json['id_product_attribute']),
+      idProductAttribute: parseNullOrUnsignedId(json['id_product_attribute']),
       idShop: parseNullOrUnsignedId(json['id_shop']),
       idShopGroup: parseNullOrUnsignedId(json['id_shop_group']),
       quantity: json['quantity'] as String?,

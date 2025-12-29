@@ -13,7 +13,7 @@ abstract class StockAvailableDTO with _$StockAvailableDTO {
   const factory StockAvailableDTO({
     @JsonKey(fromJson: parseNullOrUnsignedId) int? id,
     @JsonKey(name: 'id_product', fromJson: parseNullOrUnsignedId) int? idProduct,
-    @JsonKey(name: 'id_product_attribute', fromJson: parseUnsignedId)
+    @JsonKey(name: 'id_product_attribute', fromJson: parseNullOrUnsignedId)
     int? idProductAttribute,
     @JsonKey(name: 'id_shop', fromJson: parseNullOrUnsignedId) int? idShop,
     @JsonKey(name: 'id_shop_group', fromJson: parseNullOrUnsignedId) int? idShopGroup,
