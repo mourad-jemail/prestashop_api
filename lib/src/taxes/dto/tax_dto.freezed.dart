@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TaxDTO {
 
- int? get id; String? get rate;@JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson) bool? get active;@JsonKey(name: 'deleted', fromJson: boolFromJson, toJson: boolToJson) bool? get deleted; String? get name;
+ int? get id;@JsonKey(fromJson: parseIsFloat, toJson: isFloatToJson) double? get rate;@JsonKey(fromJson: stringFromDynamicJson) String? get active;@JsonKey(fromJson: stringFromDynamicJson) String? get deleted; String? get name;
 /// Create a copy of TaxDTO
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $TaxDTOCopyWith<$Res>  {
   factory $TaxDTOCopyWith(TaxDTO value, $Res Function(TaxDTO) _then) = _$TaxDTOCopyWithImpl;
 @useResult
 $Res call({
- int? id, String? rate,@JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson) bool? active,@JsonKey(name: 'deleted', fromJson: boolFromJson, toJson: boolToJson) bool? deleted, String? name
+ int? id,@JsonKey(fromJson: parseIsFloat, toJson: isFloatToJson) double? rate,@JsonKey(fromJson: stringFromDynamicJson) String? active,@JsonKey(fromJson: stringFromDynamicJson) String? deleted, String? name
 });
 
 
@@ -69,9 +69,9 @@ class _$TaxDTOCopyWithImpl<$Res>
   return _then(_self.copyWith(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int?,rate: freezed == rate ? _self.rate : rate // ignore: cast_nullable_to_non_nullable
-as String?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
-as bool?,deleted: freezed == deleted ? _self.deleted : deleted // ignore: cast_nullable_to_non_nullable
-as bool?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as double?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
+as String?,deleted: freezed == deleted ? _self.deleted : deleted // ignore: cast_nullable_to_non_nullable
+as String?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -157,7 +157,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id,  String? rate, @JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson)  bool? active, @JsonKey(name: 'deleted', fromJson: boolFromJson, toJson: boolToJson)  bool? deleted,  String? name)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id, @JsonKey(fromJson: parseIsFloat, toJson: isFloatToJson)  double? rate, @JsonKey(fromJson: stringFromDynamicJson)  String? active, @JsonKey(fromJson: stringFromDynamicJson)  String? deleted,  String? name)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _TaxDTO() when $default != null:
 return $default(_that.id,_that.rate,_that.active,_that.deleted,_that.name);case _:
@@ -178,7 +178,7 @@ return $default(_that.id,_that.rate,_that.active,_that.deleted,_that.name);case 
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id,  String? rate, @JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson)  bool? active, @JsonKey(name: 'deleted', fromJson: boolFromJson, toJson: boolToJson)  bool? deleted,  String? name)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id, @JsonKey(fromJson: parseIsFloat, toJson: isFloatToJson)  double? rate, @JsonKey(fromJson: stringFromDynamicJson)  String? active, @JsonKey(fromJson: stringFromDynamicJson)  String? deleted,  String? name)  $default,) {final _that = this;
 switch (_that) {
 case _TaxDTO():
 return $default(_that.id,_that.rate,_that.active,_that.deleted,_that.name);case _:
@@ -198,7 +198,7 @@ return $default(_that.id,_that.rate,_that.active,_that.deleted,_that.name);case 
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id,  String? rate, @JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson)  bool? active, @JsonKey(name: 'deleted', fromJson: boolFromJson, toJson: boolToJson)  bool? deleted,  String? name)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id, @JsonKey(fromJson: parseIsFloat, toJson: isFloatToJson)  double? rate, @JsonKey(fromJson: stringFromDynamicJson)  String? active, @JsonKey(fromJson: stringFromDynamicJson)  String? deleted,  String? name)?  $default,) {final _that = this;
 switch (_that) {
 case _TaxDTO() when $default != null:
 return $default(_that.id,_that.rate,_that.active,_that.deleted,_that.name);case _:
@@ -213,13 +213,13 @@ return $default(_that.id,_that.rate,_that.active,_that.deleted,_that.name);case 
 @JsonSerializable()
 
 class _TaxDTO extends TaxDTO {
-  const _TaxDTO({this.id, this.rate, @JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson) this.active, @JsonKey(name: 'deleted', fromJson: boolFromJson, toJson: boolToJson) this.deleted, this.name}): super._();
+  const _TaxDTO({this.id, @JsonKey(fromJson: parseIsFloat, toJson: isFloatToJson) this.rate, @JsonKey(fromJson: stringFromDynamicJson) this.active, @JsonKey(fromJson: stringFromDynamicJson) this.deleted, this.name}): super._();
   factory _TaxDTO.fromJson(Map<String, dynamic> json) => _$TaxDTOFromJson(json);
 
 @override final  int? id;
-@override final  String? rate;
-@override@JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson) final  bool? active;
-@override@JsonKey(name: 'deleted', fromJson: boolFromJson, toJson: boolToJson) final  bool? deleted;
+@override@JsonKey(fromJson: parseIsFloat, toJson: isFloatToJson) final  double? rate;
+@override@JsonKey(fromJson: stringFromDynamicJson) final  String? active;
+@override@JsonKey(fromJson: stringFromDynamicJson) final  String? deleted;
 @override final  String? name;
 
 /// Create a copy of TaxDTO
@@ -255,7 +255,7 @@ abstract mixin class _$TaxDTOCopyWith<$Res> implements $TaxDTOCopyWith<$Res> {
   factory _$TaxDTOCopyWith(_TaxDTO value, $Res Function(_TaxDTO) _then) = __$TaxDTOCopyWithImpl;
 @override @useResult
 $Res call({
- int? id, String? rate,@JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson) bool? active,@JsonKey(name: 'deleted', fromJson: boolFromJson, toJson: boolToJson) bool? deleted, String? name
+ int? id,@JsonKey(fromJson: parseIsFloat, toJson: isFloatToJson) double? rate,@JsonKey(fromJson: stringFromDynamicJson) String? active,@JsonKey(fromJson: stringFromDynamicJson) String? deleted, String? name
 });
 
 
@@ -276,9 +276,9 @@ class __$TaxDTOCopyWithImpl<$Res>
   return _then(_TaxDTO(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int?,rate: freezed == rate ? _self.rate : rate // ignore: cast_nullable_to_non_nullable
-as String?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
-as bool?,deleted: freezed == deleted ? _self.deleted : deleted // ignore: cast_nullable_to_non_nullable
-as bool?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as double?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
+as String?,deleted: freezed == deleted ? _self.deleted : deleted // ignore: cast_nullable_to_non_nullable
+as String?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Tax {
 
- int? get id; String? get rate; bool? get active; bool? get deleted; String? get name;
+ int? get id; double? get rate; String? get active; String? get deleted; String? get name;
 /// Create a copy of Tax
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $TaxCopyWith<$Res>  {
   factory $TaxCopyWith(Tax value, $Res Function(Tax) _then) = _$TaxCopyWithImpl;
 @useResult
 $Res call({
- int? id, String? rate, bool? active, bool? deleted, String? name
+ int? id, double? rate, String? active, String? deleted, String? name
 });
 
 
@@ -69,9 +69,9 @@ class _$TaxCopyWithImpl<$Res>
   return _then(_self.copyWith(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int?,rate: freezed == rate ? _self.rate : rate // ignore: cast_nullable_to_non_nullable
-as String?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
-as bool?,deleted: freezed == deleted ? _self.deleted : deleted // ignore: cast_nullable_to_non_nullable
-as bool?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as double?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
+as String?,deleted: freezed == deleted ? _self.deleted : deleted // ignore: cast_nullable_to_non_nullable
+as String?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -157,7 +157,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id,  String? rate,  bool? active,  bool? deleted,  String? name)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id,  double? rate,  String? active,  String? deleted,  String? name)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Tax() when $default != null:
 return $default(_that.id,_that.rate,_that.active,_that.deleted,_that.name);case _:
@@ -178,7 +178,7 @@ return $default(_that.id,_that.rate,_that.active,_that.deleted,_that.name);case 
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id,  String? rate,  bool? active,  bool? deleted,  String? name)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id,  double? rate,  String? active,  String? deleted,  String? name)  $default,) {final _that = this;
 switch (_that) {
 case _Tax():
 return $default(_that.id,_that.rate,_that.active,_that.deleted,_that.name);case _:
@@ -198,7 +198,7 @@ return $default(_that.id,_that.rate,_that.active,_that.deleted,_that.name);case 
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id,  String? rate,  bool? active,  bool? deleted,  String? name)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id,  double? rate,  String? active,  String? deleted,  String? name)?  $default,) {final _that = this;
 switch (_that) {
 case _Tax() when $default != null:
 return $default(_that.id,_that.rate,_that.active,_that.deleted,_that.name);case _:
@@ -217,9 +217,9 @@ class _Tax extends Tax {
   factory _Tax.fromJson(Map<String, dynamic> json) => _$TaxFromJson(json);
 
 @override final  int? id;
-@override final  String? rate;
-@override final  bool? active;
-@override final  bool? deleted;
+@override final  double? rate;
+@override final  String? active;
+@override final  String? deleted;
 @override final  String? name;
 
 /// Create a copy of Tax
@@ -255,7 +255,7 @@ abstract mixin class _$TaxCopyWith<$Res> implements $TaxCopyWith<$Res> {
   factory _$TaxCopyWith(_Tax value, $Res Function(_Tax) _then) = __$TaxCopyWithImpl;
 @override @useResult
 $Res call({
- int? id, String? rate, bool? active, bool? deleted, String? name
+ int? id, double? rate, String? active, String? deleted, String? name
 });
 
 
@@ -276,9 +276,9 @@ class __$TaxCopyWithImpl<$Res>
   return _then(_Tax(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int?,rate: freezed == rate ? _self.rate : rate // ignore: cast_nullable_to_non_nullable
-as String?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
-as bool?,deleted: freezed == deleted ? _self.deleted : deleted // ignore: cast_nullable_to_non_nullable
-as bool?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as double?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
+as String?,deleted: freezed == deleted ? _self.deleted : deleted // ignore: cast_nullable_to_non_nullable
+as String?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }

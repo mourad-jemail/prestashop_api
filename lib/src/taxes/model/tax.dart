@@ -11,9 +11,9 @@ abstract class Tax with _$Tax implements ConvertibleToJson {
 
   const factory Tax({
     int? id,
-    String? rate,
-    bool? active,
-    bool? deleted,
+    double? rate,
+    String? active,
+    String? deleted,
     String? name,
   }) = _Tax;
 

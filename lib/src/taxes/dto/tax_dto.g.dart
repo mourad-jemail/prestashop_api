@@ -8,16 +8,16 @@ part of 'tax_dto.dart';
 
 _TaxDTO _$TaxDTOFromJson(Map<String, dynamic> json) => _TaxDTO(
   id: (json['id'] as num?)?.toInt(),
-  rate: json['rate'] as String?,
-  active: boolFromJson(json['active']),
-  deleted: boolFromJson(json['deleted']),
+  rate: parseIsFloat(json['rate']),
+  active: stringFromDynamicJson(json['active']),
+  deleted: stringFromDynamicJson(json['deleted']),
   name: json['name'] as String?,
 );
 
 Map<String, dynamic> _$TaxDTOToJson(_TaxDTO instance) => <String, dynamic>{
   'id': instance.id,
-  'rate': instance.rate,
-  'active': boolToJson(instance.active),
-  'deleted': boolToJson(instance.deleted),
+  'rate': isFloatToJson(instance.rate),
+  'active': instance.active,
+  'deleted': instance.deleted,
   'name': instance.name,
 };

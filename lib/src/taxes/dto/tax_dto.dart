@@ -12,11 +12,9 @@ abstract class TaxDTO with _$TaxDTO {
 
   const factory TaxDTO({
     int? id,
-    String? rate,
-    @JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson)
-    bool? active,
-    @JsonKey(name: 'deleted', fromJson: boolFromJson, toJson: boolToJson)
-    bool? deleted,
+    @JsonKey(fromJson: parseIsFloat, toJson: isFloatToJson) double? rate,
+    @JsonKey(fromJson: stringFromDynamicJson) String? active,
+    @JsonKey(fromJson: stringFromDynamicJson) String? deleted,
     String? name,
   }) = _TaxDTO;
 

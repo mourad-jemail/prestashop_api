@@ -8,9 +8,9 @@ part of 'tax.dart';
 
 _Tax _$TaxFromJson(Map<String, dynamic> json) => _Tax(
   id: (json['id'] as num?)?.toInt(),
-  rate: json['rate'] as String?,
-  active: json['active'] as bool?,
-  deleted: json['deleted'] as bool?,
+  rate: (json['rate'] as num?)?.toDouble(),
+  active: json['active'] as String?,
+  deleted: json['deleted'] as String?,
   name: json['name'] as String?,
 );
 
