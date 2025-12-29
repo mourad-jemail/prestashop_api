@@ -12,8 +12,8 @@ _LanguageDTO _$LanguageDTOFromJson(Map<String, dynamic> json) => _LanguageDTO(
   isoCode: json['iso_code'] as String?,
   locale: json['locale'] as String?,
   languageCode: json['language_code'] as String?,
-  active: boolFromJson(json['active']),
-  isRtl: boolFromJson(json['is_rtl']),
+  active: parseIsBool(json['active']),
+  isRtl: parseIsBool(json['is_rtl']),
   dateFormatLite: json['date_format_lite'] as String?,
   dateFormatFull: json['date_format_full'] as String?,
 );
@@ -25,8 +25,8 @@ Map<String, dynamic> _$LanguageDTOToJson(_LanguageDTO instance) =>
       'iso_code': instance.isoCode,
       'locale': instance.locale,
       'language_code': instance.languageCode,
-      'active': boolToJson(instance.active),
-      'is_rtl': boolToJson(instance.isRtl),
+      'active': isBoolToJson(instance.active),
+      'is_rtl': isBoolToJson(instance.isRtl),
       'date_format_lite': instance.dateFormatLite,
       'date_format_full': instance.dateFormatFull,
     };

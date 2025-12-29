@@ -16,9 +16,9 @@ abstract class LanguageDTO with _$LanguageDTO {
     @JsonKey(name: 'iso_code') String? isoCode,
     String? locale,
     @JsonKey(name: 'language_code') String? languageCode,
-    @JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson)
+    @JsonKey(name: 'active', fromJson: parseIsBool, toJson: isBoolToJson)
     bool? active,
-    @JsonKey(name: 'is_rtl', fromJson: boolFromJson, toJson: boolToJson)
+    @JsonKey(name: 'is_rtl', fromJson: parseIsBool, toJson: isBoolToJson)
     bool? isRtl,
     @JsonKey(name: 'date_format_lite') String? dateFormatLite,
     @JsonKey(name: 'date_format_full') String? dateFormatFull,
