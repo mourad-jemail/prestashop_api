@@ -8,8 +8,8 @@ part of 'country.dart';
 
 _Country _$CountryFromJson(Map<String, dynamic> json) => _Country(
   id: (json['id'] as num?)?.toInt(),
-  idZone: json['idZone'] as String?,
-  idCurrency: json['idCurrency'] as String?,
+  idZone: (json['idZone'] as num?)?.toInt(),
+  idCurrency: (json['idCurrency'] as num?)?.toInt(),
   callPrefix: json['callPrefix'] as String?,
   isoCode: json['isoCode'] as String?,
   active: json['active'] as bool?,

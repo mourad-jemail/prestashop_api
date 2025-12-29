@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CountryDTO {
 
- int? get id;@JsonKey(name: 'id_zone', fromJson: stringFromJson) String? get idZone;@JsonKey(name: 'id_currency', fromJson: stringFromJson) String? get idCurrency;@JsonKey(name: 'call_prefix', fromJson: stringFromJson) String? get callPrefix;@JsonKey(name: 'iso_code', fromJson: stringFromJson) String? get isoCode;@JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson) bool? get active;@JsonKey(name: 'contains_states', fromJson: boolFromJson, toJson: boolToJson) bool? get containsStates;@JsonKey(name: 'need_identification_number', fromJson: boolFromJson, toJson: boolToJson) bool? get needIdentificationNumber;@JsonKey(name: 'need_zip_code', fromJson: boolFromJson, toJson: boolToJson) bool? get needZipCode;@JsonKey(name: 'zip_code_format', fromJson: stringFromJson) String? get zipCodeFormat;@JsonKey(name: 'display_tax_label', fromJson: boolFromJson, toJson: boolToJson) bool? get displayTaxLabel; String? get name;
+ int? get id;@JsonKey(name: 'id_zone', fromJson: parseNullOrUnsignedId) int? get idZone;@JsonKey(name: 'id_currency', fromJson: parseNullOrUnsignedId) int? get idCurrency;@JsonKey(name: 'call_prefix') String? get callPrefix;@JsonKey(name: 'iso_code') String? get isoCode;@JsonKey(name: 'active', fromJson: parseIsBool, toJson: isBoolToJson) bool? get active;@JsonKey(name: 'contains_states', fromJson: parseIsBool, toJson: isBoolToJson) bool? get containsStates;@JsonKey(name: 'need_identification_number', fromJson: parseIsBool, toJson: isBoolToJson) bool? get needIdentificationNumber;@JsonKey(name: 'need_zip_code', fromJson: parseIsBool, toJson: isBoolToJson) bool? get needZipCode;@JsonKey(name: 'zip_code_format') String? get zipCodeFormat;@JsonKey(name: 'display_tax_label', fromJson: parseIsBool, toJson: isBoolToJson) bool? get displayTaxLabel; String? get name;
 /// Create a copy of CountryDTO
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $CountryDTOCopyWith<$Res>  {
   factory $CountryDTOCopyWith(CountryDTO value, $Res Function(CountryDTO) _then) = _$CountryDTOCopyWithImpl;
 @useResult
 $Res call({
- int? id,@JsonKey(name: 'id_zone', fromJson: stringFromJson) String? idZone,@JsonKey(name: 'id_currency', fromJson: stringFromJson) String? idCurrency,@JsonKey(name: 'call_prefix', fromJson: stringFromJson) String? callPrefix,@JsonKey(name: 'iso_code', fromJson: stringFromJson) String? isoCode,@JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson) bool? active,@JsonKey(name: 'contains_states', fromJson: boolFromJson, toJson: boolToJson) bool? containsStates,@JsonKey(name: 'need_identification_number', fromJson: boolFromJson, toJson: boolToJson) bool? needIdentificationNumber,@JsonKey(name: 'need_zip_code', fromJson: boolFromJson, toJson: boolToJson) bool? needZipCode,@JsonKey(name: 'zip_code_format', fromJson: stringFromJson) String? zipCodeFormat,@JsonKey(name: 'display_tax_label', fromJson: boolFromJson, toJson: boolToJson) bool? displayTaxLabel, String? name
+ int? id,@JsonKey(name: 'id_zone', fromJson: parseNullOrUnsignedId) int? idZone,@JsonKey(name: 'id_currency', fromJson: parseNullOrUnsignedId) int? idCurrency,@JsonKey(name: 'call_prefix') String? callPrefix,@JsonKey(name: 'iso_code') String? isoCode,@JsonKey(name: 'active', fromJson: parseIsBool, toJson: isBoolToJson) bool? active,@JsonKey(name: 'contains_states', fromJson: parseIsBool, toJson: isBoolToJson) bool? containsStates,@JsonKey(name: 'need_identification_number', fromJson: parseIsBool, toJson: isBoolToJson) bool? needIdentificationNumber,@JsonKey(name: 'need_zip_code', fromJson: parseIsBool, toJson: isBoolToJson) bool? needZipCode,@JsonKey(name: 'zip_code_format') String? zipCodeFormat,@JsonKey(name: 'display_tax_label', fromJson: parseIsBool, toJson: isBoolToJson) bool? displayTaxLabel, String? name
 });
 
 
@@ -69,8 +69,8 @@ class _$CountryDTOCopyWithImpl<$Res>
   return _then(_self.copyWith(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int?,idZone: freezed == idZone ? _self.idZone : idZone // ignore: cast_nullable_to_non_nullable
-as String?,idCurrency: freezed == idCurrency ? _self.idCurrency : idCurrency // ignore: cast_nullable_to_non_nullable
-as String?,callPrefix: freezed == callPrefix ? _self.callPrefix : callPrefix // ignore: cast_nullable_to_non_nullable
+as int?,idCurrency: freezed == idCurrency ? _self.idCurrency : idCurrency // ignore: cast_nullable_to_non_nullable
+as int?,callPrefix: freezed == callPrefix ? _self.callPrefix : callPrefix // ignore: cast_nullable_to_non_nullable
 as String?,isoCode: freezed == isoCode ? _self.isoCode : isoCode // ignore: cast_nullable_to_non_nullable
 as String?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
 as bool?,containsStates: freezed == containsStates ? _self.containsStates : containsStates // ignore: cast_nullable_to_non_nullable
@@ -164,7 +164,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id, @JsonKey(name: 'id_zone', fromJson: stringFromJson)  String? idZone, @JsonKey(name: 'id_currency', fromJson: stringFromJson)  String? idCurrency, @JsonKey(name: 'call_prefix', fromJson: stringFromJson)  String? callPrefix, @JsonKey(name: 'iso_code', fromJson: stringFromJson)  String? isoCode, @JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson)  bool? active, @JsonKey(name: 'contains_states', fromJson: boolFromJson, toJson: boolToJson)  bool? containsStates, @JsonKey(name: 'need_identification_number', fromJson: boolFromJson, toJson: boolToJson)  bool? needIdentificationNumber, @JsonKey(name: 'need_zip_code', fromJson: boolFromJson, toJson: boolToJson)  bool? needZipCode, @JsonKey(name: 'zip_code_format', fromJson: stringFromJson)  String? zipCodeFormat, @JsonKey(name: 'display_tax_label', fromJson: boolFromJson, toJson: boolToJson)  bool? displayTaxLabel,  String? name)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id, @JsonKey(name: 'id_zone', fromJson: parseNullOrUnsignedId)  int? idZone, @JsonKey(name: 'id_currency', fromJson: parseNullOrUnsignedId)  int? idCurrency, @JsonKey(name: 'call_prefix')  String? callPrefix, @JsonKey(name: 'iso_code')  String? isoCode, @JsonKey(name: 'active', fromJson: parseIsBool, toJson: isBoolToJson)  bool? active, @JsonKey(name: 'contains_states', fromJson: parseIsBool, toJson: isBoolToJson)  bool? containsStates, @JsonKey(name: 'need_identification_number', fromJson: parseIsBool, toJson: isBoolToJson)  bool? needIdentificationNumber, @JsonKey(name: 'need_zip_code', fromJson: parseIsBool, toJson: isBoolToJson)  bool? needZipCode, @JsonKey(name: 'zip_code_format')  String? zipCodeFormat, @JsonKey(name: 'display_tax_label', fromJson: parseIsBool, toJson: isBoolToJson)  bool? displayTaxLabel,  String? name)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CountryDTO() when $default != null:
 return $default(_that.id,_that.idZone,_that.idCurrency,_that.callPrefix,_that.isoCode,_that.active,_that.containsStates,_that.needIdentificationNumber,_that.needZipCode,_that.zipCodeFormat,_that.displayTaxLabel,_that.name);case _:
@@ -185,7 +185,7 @@ return $default(_that.id,_that.idZone,_that.idCurrency,_that.callPrefix,_that.is
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id, @JsonKey(name: 'id_zone', fromJson: stringFromJson)  String? idZone, @JsonKey(name: 'id_currency', fromJson: stringFromJson)  String? idCurrency, @JsonKey(name: 'call_prefix', fromJson: stringFromJson)  String? callPrefix, @JsonKey(name: 'iso_code', fromJson: stringFromJson)  String? isoCode, @JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson)  bool? active, @JsonKey(name: 'contains_states', fromJson: boolFromJson, toJson: boolToJson)  bool? containsStates, @JsonKey(name: 'need_identification_number', fromJson: boolFromJson, toJson: boolToJson)  bool? needIdentificationNumber, @JsonKey(name: 'need_zip_code', fromJson: boolFromJson, toJson: boolToJson)  bool? needZipCode, @JsonKey(name: 'zip_code_format', fromJson: stringFromJson)  String? zipCodeFormat, @JsonKey(name: 'display_tax_label', fromJson: boolFromJson, toJson: boolToJson)  bool? displayTaxLabel,  String? name)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id, @JsonKey(name: 'id_zone', fromJson: parseNullOrUnsignedId)  int? idZone, @JsonKey(name: 'id_currency', fromJson: parseNullOrUnsignedId)  int? idCurrency, @JsonKey(name: 'call_prefix')  String? callPrefix, @JsonKey(name: 'iso_code')  String? isoCode, @JsonKey(name: 'active', fromJson: parseIsBool, toJson: isBoolToJson)  bool? active, @JsonKey(name: 'contains_states', fromJson: parseIsBool, toJson: isBoolToJson)  bool? containsStates, @JsonKey(name: 'need_identification_number', fromJson: parseIsBool, toJson: isBoolToJson)  bool? needIdentificationNumber, @JsonKey(name: 'need_zip_code', fromJson: parseIsBool, toJson: isBoolToJson)  bool? needZipCode, @JsonKey(name: 'zip_code_format')  String? zipCodeFormat, @JsonKey(name: 'display_tax_label', fromJson: parseIsBool, toJson: isBoolToJson)  bool? displayTaxLabel,  String? name)  $default,) {final _that = this;
 switch (_that) {
 case _CountryDTO():
 return $default(_that.id,_that.idZone,_that.idCurrency,_that.callPrefix,_that.isoCode,_that.active,_that.containsStates,_that.needIdentificationNumber,_that.needZipCode,_that.zipCodeFormat,_that.displayTaxLabel,_that.name);case _:
@@ -205,7 +205,7 @@ return $default(_that.id,_that.idZone,_that.idCurrency,_that.callPrefix,_that.is
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id, @JsonKey(name: 'id_zone', fromJson: stringFromJson)  String? idZone, @JsonKey(name: 'id_currency', fromJson: stringFromJson)  String? idCurrency, @JsonKey(name: 'call_prefix', fromJson: stringFromJson)  String? callPrefix, @JsonKey(name: 'iso_code', fromJson: stringFromJson)  String? isoCode, @JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson)  bool? active, @JsonKey(name: 'contains_states', fromJson: boolFromJson, toJson: boolToJson)  bool? containsStates, @JsonKey(name: 'need_identification_number', fromJson: boolFromJson, toJson: boolToJson)  bool? needIdentificationNumber, @JsonKey(name: 'need_zip_code', fromJson: boolFromJson, toJson: boolToJson)  bool? needZipCode, @JsonKey(name: 'zip_code_format', fromJson: stringFromJson)  String? zipCodeFormat, @JsonKey(name: 'display_tax_label', fromJson: boolFromJson, toJson: boolToJson)  bool? displayTaxLabel,  String? name)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id, @JsonKey(name: 'id_zone', fromJson: parseNullOrUnsignedId)  int? idZone, @JsonKey(name: 'id_currency', fromJson: parseNullOrUnsignedId)  int? idCurrency, @JsonKey(name: 'call_prefix')  String? callPrefix, @JsonKey(name: 'iso_code')  String? isoCode, @JsonKey(name: 'active', fromJson: parseIsBool, toJson: isBoolToJson)  bool? active, @JsonKey(name: 'contains_states', fromJson: parseIsBool, toJson: isBoolToJson)  bool? containsStates, @JsonKey(name: 'need_identification_number', fromJson: parseIsBool, toJson: isBoolToJson)  bool? needIdentificationNumber, @JsonKey(name: 'need_zip_code', fromJson: parseIsBool, toJson: isBoolToJson)  bool? needZipCode, @JsonKey(name: 'zip_code_format')  String? zipCodeFormat, @JsonKey(name: 'display_tax_label', fromJson: parseIsBool, toJson: isBoolToJson)  bool? displayTaxLabel,  String? name)?  $default,) {final _that = this;
 switch (_that) {
 case _CountryDTO() when $default != null:
 return $default(_that.id,_that.idZone,_that.idCurrency,_that.callPrefix,_that.isoCode,_that.active,_that.containsStates,_that.needIdentificationNumber,_that.needZipCode,_that.zipCodeFormat,_that.displayTaxLabel,_that.name);case _:
@@ -220,20 +220,20 @@ return $default(_that.id,_that.idZone,_that.idCurrency,_that.callPrefix,_that.is
 @JsonSerializable()
 
 class _CountryDTO extends CountryDTO {
-  const _CountryDTO({this.id, @JsonKey(name: 'id_zone', fromJson: stringFromJson) this.idZone, @JsonKey(name: 'id_currency', fromJson: stringFromJson) this.idCurrency, @JsonKey(name: 'call_prefix', fromJson: stringFromJson) this.callPrefix, @JsonKey(name: 'iso_code', fromJson: stringFromJson) this.isoCode, @JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson) this.active, @JsonKey(name: 'contains_states', fromJson: boolFromJson, toJson: boolToJson) this.containsStates, @JsonKey(name: 'need_identification_number', fromJson: boolFromJson, toJson: boolToJson) this.needIdentificationNumber, @JsonKey(name: 'need_zip_code', fromJson: boolFromJson, toJson: boolToJson) this.needZipCode, @JsonKey(name: 'zip_code_format', fromJson: stringFromJson) this.zipCodeFormat, @JsonKey(name: 'display_tax_label', fromJson: boolFromJson, toJson: boolToJson) this.displayTaxLabel, this.name}): super._();
+  const _CountryDTO({this.id, @JsonKey(name: 'id_zone', fromJson: parseNullOrUnsignedId) this.idZone, @JsonKey(name: 'id_currency', fromJson: parseNullOrUnsignedId) this.idCurrency, @JsonKey(name: 'call_prefix') this.callPrefix, @JsonKey(name: 'iso_code') this.isoCode, @JsonKey(name: 'active', fromJson: parseIsBool, toJson: isBoolToJson) this.active, @JsonKey(name: 'contains_states', fromJson: parseIsBool, toJson: isBoolToJson) this.containsStates, @JsonKey(name: 'need_identification_number', fromJson: parseIsBool, toJson: isBoolToJson) this.needIdentificationNumber, @JsonKey(name: 'need_zip_code', fromJson: parseIsBool, toJson: isBoolToJson) this.needZipCode, @JsonKey(name: 'zip_code_format') this.zipCodeFormat, @JsonKey(name: 'display_tax_label', fromJson: parseIsBool, toJson: isBoolToJson) this.displayTaxLabel, this.name}): super._();
   factory _CountryDTO.fromJson(Map<String, dynamic> json) => _$CountryDTOFromJson(json);
 
 @override final  int? id;
-@override@JsonKey(name: 'id_zone', fromJson: stringFromJson) final  String? idZone;
-@override@JsonKey(name: 'id_currency', fromJson: stringFromJson) final  String? idCurrency;
-@override@JsonKey(name: 'call_prefix', fromJson: stringFromJson) final  String? callPrefix;
-@override@JsonKey(name: 'iso_code', fromJson: stringFromJson) final  String? isoCode;
-@override@JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson) final  bool? active;
-@override@JsonKey(name: 'contains_states', fromJson: boolFromJson, toJson: boolToJson) final  bool? containsStates;
-@override@JsonKey(name: 'need_identification_number', fromJson: boolFromJson, toJson: boolToJson) final  bool? needIdentificationNumber;
-@override@JsonKey(name: 'need_zip_code', fromJson: boolFromJson, toJson: boolToJson) final  bool? needZipCode;
-@override@JsonKey(name: 'zip_code_format', fromJson: stringFromJson) final  String? zipCodeFormat;
-@override@JsonKey(name: 'display_tax_label', fromJson: boolFromJson, toJson: boolToJson) final  bool? displayTaxLabel;
+@override@JsonKey(name: 'id_zone', fromJson: parseNullOrUnsignedId) final  int? idZone;
+@override@JsonKey(name: 'id_currency', fromJson: parseNullOrUnsignedId) final  int? idCurrency;
+@override@JsonKey(name: 'call_prefix') final  String? callPrefix;
+@override@JsonKey(name: 'iso_code') final  String? isoCode;
+@override@JsonKey(name: 'active', fromJson: parseIsBool, toJson: isBoolToJson) final  bool? active;
+@override@JsonKey(name: 'contains_states', fromJson: parseIsBool, toJson: isBoolToJson) final  bool? containsStates;
+@override@JsonKey(name: 'need_identification_number', fromJson: parseIsBool, toJson: isBoolToJson) final  bool? needIdentificationNumber;
+@override@JsonKey(name: 'need_zip_code', fromJson: parseIsBool, toJson: isBoolToJson) final  bool? needZipCode;
+@override@JsonKey(name: 'zip_code_format') final  String? zipCodeFormat;
+@override@JsonKey(name: 'display_tax_label', fromJson: parseIsBool, toJson: isBoolToJson) final  bool? displayTaxLabel;
 @override final  String? name;
 
 /// Create a copy of CountryDTO
@@ -269,7 +269,7 @@ abstract mixin class _$CountryDTOCopyWith<$Res> implements $CountryDTOCopyWith<$
   factory _$CountryDTOCopyWith(_CountryDTO value, $Res Function(_CountryDTO) _then) = __$CountryDTOCopyWithImpl;
 @override @useResult
 $Res call({
- int? id,@JsonKey(name: 'id_zone', fromJson: stringFromJson) String? idZone,@JsonKey(name: 'id_currency', fromJson: stringFromJson) String? idCurrency,@JsonKey(name: 'call_prefix', fromJson: stringFromJson) String? callPrefix,@JsonKey(name: 'iso_code', fromJson: stringFromJson) String? isoCode,@JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson) bool? active,@JsonKey(name: 'contains_states', fromJson: boolFromJson, toJson: boolToJson) bool? containsStates,@JsonKey(name: 'need_identification_number', fromJson: boolFromJson, toJson: boolToJson) bool? needIdentificationNumber,@JsonKey(name: 'need_zip_code', fromJson: boolFromJson, toJson: boolToJson) bool? needZipCode,@JsonKey(name: 'zip_code_format', fromJson: stringFromJson) String? zipCodeFormat,@JsonKey(name: 'display_tax_label', fromJson: boolFromJson, toJson: boolToJson) bool? displayTaxLabel, String? name
+ int? id,@JsonKey(name: 'id_zone', fromJson: parseNullOrUnsignedId) int? idZone,@JsonKey(name: 'id_currency', fromJson: parseNullOrUnsignedId) int? idCurrency,@JsonKey(name: 'call_prefix') String? callPrefix,@JsonKey(name: 'iso_code') String? isoCode,@JsonKey(name: 'active', fromJson: parseIsBool, toJson: isBoolToJson) bool? active,@JsonKey(name: 'contains_states', fromJson: parseIsBool, toJson: isBoolToJson) bool? containsStates,@JsonKey(name: 'need_identification_number', fromJson: parseIsBool, toJson: isBoolToJson) bool? needIdentificationNumber,@JsonKey(name: 'need_zip_code', fromJson: parseIsBool, toJson: isBoolToJson) bool? needZipCode,@JsonKey(name: 'zip_code_format') String? zipCodeFormat,@JsonKey(name: 'display_tax_label', fromJson: parseIsBool, toJson: isBoolToJson) bool? displayTaxLabel, String? name
 });
 
 
@@ -290,8 +290,8 @@ class __$CountryDTOCopyWithImpl<$Res>
   return _then(_CountryDTO(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int?,idZone: freezed == idZone ? _self.idZone : idZone // ignore: cast_nullable_to_non_nullable
-as String?,idCurrency: freezed == idCurrency ? _self.idCurrency : idCurrency // ignore: cast_nullable_to_non_nullable
-as String?,callPrefix: freezed == callPrefix ? _self.callPrefix : callPrefix // ignore: cast_nullable_to_non_nullable
+as int?,idCurrency: freezed == idCurrency ? _self.idCurrency : idCurrency // ignore: cast_nullable_to_non_nullable
+as int?,callPrefix: freezed == callPrefix ? _self.callPrefix : callPrefix // ignore: cast_nullable_to_non_nullable
 as String?,isoCode: freezed == isoCode ? _self.isoCode : isoCode // ignore: cast_nullable_to_non_nullable
 as String?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
 as bool?,containsStates: freezed == containsStates ? _self.containsStates : containsStates // ignore: cast_nullable_to_non_nullable

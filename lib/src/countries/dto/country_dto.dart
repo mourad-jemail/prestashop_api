@@ -12,32 +12,32 @@ abstract class CountryDTO with _$CountryDTO {
 
   const factory CountryDTO({
     int? id,
-    @JsonKey(name: 'id_zone', fromJson: stringFromJson) String? idZone,
-    @JsonKey(name: 'id_currency', fromJson: stringFromJson) String? idCurrency,
-    @JsonKey(name: 'call_prefix', fromJson: stringFromJson) String? callPrefix,
-    @JsonKey(name: 'iso_code', fromJson: stringFromJson) String? isoCode,
-    @JsonKey(name: 'active', fromJson: boolFromJson, toJson: boolToJson)
+    @JsonKey(name: 'id_zone', fromJson: parseNullOrUnsignedId) int? idZone,
+    @JsonKey(name: 'id_currency', fromJson: parseNullOrUnsignedId)
+    int? idCurrency,
+    @JsonKey(name: 'call_prefix') String? callPrefix,
+    @JsonKey(name: 'iso_code') String? isoCode,
+    @JsonKey(name: 'active', fromJson: parseIsBool, toJson: isBoolToJson)
     bool? active,
     @JsonKey(
       name: 'contains_states',
-      fromJson: boolFromJson,
-      toJson: boolToJson,
+      fromJson: parseIsBool,
+      toJson: isBoolToJson,
     )
     bool? containsStates,
     @JsonKey(
       name: 'need_identification_number',
-      fromJson: boolFromJson,
-      toJson: boolToJson,
+      fromJson: parseIsBool,
+      toJson: isBoolToJson,
     )
     bool? needIdentificationNumber,
-    @JsonKey(name: 'need_zip_code', fromJson: boolFromJson, toJson: boolToJson)
+    @JsonKey(name: 'need_zip_code', fromJson: parseIsBool, toJson: isBoolToJson)
     bool? needZipCode,
-    @JsonKey(name: 'zip_code_format', fromJson: stringFromJson)
-    String? zipCodeFormat,
+    @JsonKey(name: 'zip_code_format') String? zipCodeFormat,
     @JsonKey(
       name: 'display_tax_label',
-      fromJson: boolFromJson,
-      toJson: boolToJson,
+      fromJson: parseIsBool,
+      toJson: isBoolToJson,
     )
     bool? displayTaxLabel,
     String? name,
