@@ -73,7 +73,8 @@ bool? parseIsBool(dynamic value) {
 
 /// Serializes a Dart [bool] into a PrestaShop-compatible `isBool` value.
 ///
-/// Returns `1` for `true`, `0` for `false`, or `null` if the value is `null`.
+/// Returns `"1"` for `true`, `"0"` for `false`, or `null` if the value is
+/// `null`.
 String? isBoolToJson(bool? value) {
   if (value == null) return null;
   return value ? '1' : '0';
