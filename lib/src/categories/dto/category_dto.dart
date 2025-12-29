@@ -16,7 +16,8 @@ abstract class CategoryDTO with _$CategoryDTO {
     int? id,
     @JsonKey(name: 'id_parent', fromJson: parseUnsignedId) int? idParent,
     @JsonKey(name: 'level_depth', fromJson: parseUnsignedId) int? levelDepth,
-    @JsonKey(name: 'nb_products_recursive') String? nbProductsRecursive,
+    @JsonKey(name: 'nb_products_recursive', fromJson: stringFromDynamicJson)
+    String? nbProductsRecursive,
     @JsonKey(name: 'active', fromJson: parseIsBool, toJson: isBoolToJson)
     bool? active,
     @JsonKey(name: 'id_shop_default', fromJson: parseUnsignedId)
@@ -27,7 +28,7 @@ abstract class CategoryDTO with _$CategoryDTO {
       toJson: isBoolToJson,
     )
     bool? isRootCategory,
-    String? position,
+    @JsonKey(fromJson: stringFromDynamicJson) String? position,
     @JsonKey(name: 'date_add', fromJson: parseIsDate) DateTime? dateAdd,
     @JsonKey(name: 'date_upd', fromJson: parseIsDate) DateTime? dateUpd,
     String? name,
