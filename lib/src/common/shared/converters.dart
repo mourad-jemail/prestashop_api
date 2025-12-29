@@ -80,7 +80,6 @@ String? isBoolToJson(bool? value) {
   return value ? '1' : '0';
 }
 
-
 /// Parses a PrestaShop `isDate` value into a nullable [DateTime].
 ///
 /// The input may be `null`, an empty string, or a date string returned by the
@@ -122,6 +121,18 @@ double? parseIsFloat(dynamic value) {
   }
 
   return parsed;
+}
+
+/// Serializes a Dart [double] into a PrestaShop-compatible `isFloat` value.
+///
+/// Returns `null` if the value is `null`, NaN, or infinite.
+/// Otherwise returns a string representation using dot decimal notation.
+String? isFloatToJson(double? value) {
+  if (value == null) return null;
+  if (value.isNaN || value.isInfinite) return null;
+
+  // String is safer than number for PrestaShop Webservice
+  return value.toString();
 }
 
 bool boolFromJson(Object? json) {

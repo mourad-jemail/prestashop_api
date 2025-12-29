@@ -14,117 +14,124 @@ abstract class ProductDTO with _$ProductDTO {
 
   const factory ProductDTO({
     int? id,
-    @JsonKey(name: 'id_manufacturer', fromJson: stringFromJson)
-    String? idManufacturer,
-    @JsonKey(name: 'id_supplier', fromJson: stringFromJson) String? idSupplier,
-    @JsonKey(name: 'id_category_default', fromJson: stringFromJson)
-    String? idDefaultCategory,
-    @JsonKey(name: 'new', fromJson: boolFromJson, toJson: boolToJson)
-    bool? isNew,
+    @JsonKey(name: 'id_manufacturer', fromJson: parseUnsignedId)
+    int? idManufacturer,
+    @JsonKey(name: 'id_supplier', fromJson: parseUnsignedId) int? idSupplier,
+    @JsonKey(name: 'id_category_default', fromJson: parseUnsignedId)
+    int? idDefaultCategory,
+    String? new_,
+    @JsonKey(name: 'cache_default_attribute') String? cacheDefaultAttribute,
+    @JsonKey(name: 'id_default_image') String? idDefaultImage,
+    @JsonKey(name: 'id_default_combination', fromJson: stringFromDynamicJson)
+    String? idDefaultCombination,
+    @JsonKey(name: 'id_tax_rules_group', fromJson: parseUnsignedId)
+    int? idTaxRulesGroup,
+    @JsonKey(name: 'position_in_category') String? positionInCategory,
+    @JsonKey(name: 'manufacturer_name', fromJson: stringFromDynamicJson)
+    String? manufacturerName,
+    String? quantity,
+    String? type,
+    @JsonKey(name: 'id_shop_default', fromJson: parseUnsignedId)
+    int? idShopDefault,
+    String? reference,
+    @JsonKey(name: 'supplier_reference') String? supplierReference,
+    String? location,
+    @JsonKey(fromJson: parseIsFloat) double? width,
+    @JsonKey(fromJson: parseIsFloat) double? height,
+    @JsonKey(fromJson: parseIsFloat) double? depth,
+    @JsonKey(fromJson: parseIsFloat) double? weight,
     @JsonKey(
-      name: 'cache_default_attribute',
-      fromJson: boolFromJson,
-      toJson: boolToJson,
+      name: 'quantity_discount',
+      fromJson: parseIsBool,
+      toJson: isBoolToJson,
     )
-    bool? cacheDefaultAttribute,
-    @JsonKey(name: 'id_default_image', fromJson: stringFromJson)
-    String? idDefaultImage,
-    @JsonKey(name: 'id_default_combination', fromJson: intFromJson)
-    int? idDefaultCombination,
-    @JsonKey(name: 'id_tax_rules_group', fromJson: stringFromJson)
-    String? idTaxRulesGroup,
-    @JsonKey(name: 'position_in_category', fromJson: stringFromJson)
-    String? positionInCategory,
+    bool? quantityDiscount,
+    String? ean13,
+    String? isbn,
+    String? upc,
+    String? mpn,
+    @JsonKey(name: 'cache_is_pack', fromJson: parseIsBool, toJson: isBoolToJson)
+    bool? cacheIsPack,
     @JsonKey(
-      name: 'manufacturer_name',
-      fromJson: boolFromJson,
-      toJson: boolToJson,
+      name: 'cache_has_attachments',
+      fromJson: parseIsBool,
+      toJson: isBoolToJson,
     )
-    bool? manufacturerName,
-    @JsonKey(fromJson: stringFromJson) String? quantity,
-    @JsonKey(fromJson: stringFromJson) String? type,
-    @JsonKey(name: 'id_shop_default', fromJson: stringFromJson)
-    String? idShopDefault,
-    @JsonKey(fromJson: stringFromJson) String? reference,
-    @JsonKey(name: 'supplier_reference', fromJson: stringFromJson)
-    String? supplierReference,
-    @JsonKey(fromJson: stringFromJson) String? location,
-    @JsonKey(fromJson: stringFromJson) String? width,
-    @JsonKey(fromJson: stringFromJson) String? height,
-    @JsonKey(fromJson: stringFromJson) String? depth,
-    @JsonKey(fromJson: stringFromJson) String? weight,
-    @JsonKey(name: 'quantity_discount', fromJson: stringFromJson)
-    String? quantityDiscount,
-    @JsonKey(fromJson: stringFromJson) String? ean13,
-    @JsonKey(fromJson: stringFromJson) String? isbn,
-    @JsonKey(fromJson: stringFromJson) String? upc,
-    @JsonKey(fromJson: stringFromJson) String? mpn,
-    @JsonKey(name: 'cache_is_pack', fromJson: stringFromJson)
-    String? cacheIsPack,
-    @JsonKey(name: 'cache_has_attachments', fromJson: stringFromJson)
-    String? cacheHasAttachments,
-    @JsonKey(name: 'is_virtual', fromJson: boolFromJson, toJson: boolToJson)
+    bool? cacheHasAttachments,
+    @JsonKey(name: 'is_virtual', fromJson: parseIsBool, toJson: isBoolToJson)
     bool? isVirtual,
-    @JsonKey(fromJson: boolFromJson, toJson: boolToJson) bool? state,
-    @JsonKey(name: 'additional_delivery_times', fromJson: stringFromJson)
-    String? additionalDeliveryTimes,
+    @JsonKey(fromJson: parseUnsignedId) int? state,
+    @JsonKey(name: 'additional_delivery_times', fromJson: parseUnsignedId)
+    int? additionalDeliveryTimes,
     @JsonKey(name: 'delivery_in_stock') String? deliveryInStock,
     @JsonKey(name: 'delivery_out_stock') String? deliveryOutStock,
-    @JsonKey(name: 'product_type', fromJson: stringFromJson)
-    String? productType,
-    @JsonKey(name: 'on_sale', fromJson: boolFromJson, toJson: boolToJson)
+    @JsonKey(name: 'on_sale', fromJson: parseIsBool, toJson: isBoolToJson)
     bool? onSale,
-    @JsonKey(name: 'online_only', fromJson: boolFromJson, toJson: boolToJson)
+    @JsonKey(name: 'online_only', fromJson: parseIsBool, toJson: isBoolToJson)
     bool? onlineOnly,
-    @JsonKey(fromJson: stringFromJson) String? ecotax,
-    @JsonKey(name: 'minimal_quantity', fromJson: stringFromJson)
-    String? minimalQuantity,
+    @JsonKey(fromJson: parseIsFloat, toJson: isFloatToJson) double? ecotax,
+    @JsonKey(name: 'minimal_quantity', fromJson: parseUnsignedId)
+    int? minimalQuantity,
     @JsonKey(name: 'low_stock_threshold', fromJson: stringFromJson)
     String? lowStockThreshold,
     @JsonKey(
       name: 'low_stock_alert',
-      fromJson: boolFromJson,
-      toJson: boolToJson,
+      fromJson: parseIsBool,
+      toJson: isBoolToJson,
     )
     bool? lowStockAlert,
-    @JsonKey(fromJson: stringFromJson) String? price,
-    @JsonKey(name: 'wholesale_price', fromJson: stringFromJson)
-    String? wholesalePrice,
+    @JsonKey(fromJson: parseIsFloat, toJson: isFloatToJson) double? price,
+    @JsonKey(
+      name: 'wholesale_price',
+      fromJson: parseIsFloat,
+      toJson: isFloatToJson,
+    )
+    double? wholesalePrice,
     @JsonKey(fromJson: stringFromJson) String? unity,
-    @JsonKey(name: 'unit_price_ratio', fromJson: stringFromJson)
-    String? unitPriceRatio,
-    @JsonKey(name: 'additional_shipping_cost', fromJson: stringFromJson)
-    String? additionalShippingCost,
-    @JsonKey(fromJson: stringFromJson) String? customizable,
-    @JsonKey(name: 'text_fields', fromJson: stringFromJson) String? textFields,
-    @JsonKey(name: 'uploadable_files', fromJson: stringFromJson)
-    String? uploadableFiles,
-    @JsonKey(fromJson: boolFromJson, toJson: boolToJson) bool? active,
-    @JsonKey(name: 'redirect_type', fromJson: stringFromJson)
-    String? redirectType,
-    @JsonKey(name: 'id_type_redirected', fromJson: stringFromJson)
-    String? idTypeRedirected,
+    @JsonKey(name: 'unit_price_ratio') String? unitPriceRatio,
+    @JsonKey(
+      name: 'additional_shipping_cost',
+      fromJson: parseIsFloat,
+      toJson: isFloatToJson,
+    )
+    double? additionalShippingCost,
+    @JsonKey(fromJson: parseUnsignedId) int? customizable,
+    @JsonKey(name: 'text_fields', fromJson: parseUnsignedId) int? textFields,
+    @JsonKey(name: 'uploadable_files', fromJson: parseUnsignedId)
+    int? uploadableFiles,
+    @JsonKey(fromJson: parseIsBool, toJson: isBoolToJson) bool? active,
+    @JsonKey(name: 'redirect_type') String? redirectType,
+    @JsonKey(name: 'id_type_redirected', fromJson: parseUnsignedId)
+    int? idTypeRedirected,
     @JsonKey(
       name: 'available_for_order',
-      fromJson: boolFromJson,
-      toJson: boolToJson,
+      fromJson: parseIsBool,
+      toJson: isBoolToJson,
     )
     bool? availableForOrder,
-    @JsonKey(name: 'available_date', fromJson: dateTimeFromJson)
+    @JsonKey(name: 'available_date', fromJson: parseIsDate)
     DateTime? availableDate,
-    @JsonKey(name: 'show_condition', fromJson: boolFromJson, toJson: boolToJson)
+    @JsonKey(
+      name: 'show_condition',
+      fromJson: parseIsBool,
+      toJson: isBoolToJson,
+    )
     bool? showCondition,
-    @JsonKey(fromJson: stringFromJson) String? condition,
-    @JsonKey(name: 'show_price', fromJson: boolFromJson, toJson: boolToJson)
+    String? condition,
+    @JsonKey(name: 'show_price', fromJson: parseIsBool, toJson: isBoolToJson)
     bool? showPrice,
-    @JsonKey(fromJson: stringFromJson) String? indexed,
-    @JsonKey(fromJson: stringFromJson) String? visibility,
-    @JsonKey(name: 'advanced_stock_management', fromJson: stringFromJson)
-    String? advancedStockManagement,
-    @JsonKey(name: 'date_add', fromJson: dateTimeFromJson) DateTime? dateAdd,
-    @JsonKey(name: 'date_upd', fromJson: dateTimeFromJson) DateTime? dateUpd,
-    @JsonKey(name: 'pack_stock_type', fromJson: stringFromJson)
-    String? packStockType,
+    @JsonKey(fromJson: parseIsBool, toJson: isBoolToJson) bool? indexed,
+    String? visibility,
+    @JsonKey(
+      name: 'advanced_stock_management',
+      fromJson: parseIsBool,
+      toJson: isBoolToJson,
+    )
+    bool? advancedStockManagement,
+    @JsonKey(name: 'date_add', fromJson: parseIsDate) DateTime? dateAdd,
+    @JsonKey(name: 'date_upd', fromJson: parseIsDate) DateTime? dateUpd,
+    @JsonKey(name: 'pack_stock_type', fromJson: parseUnsignedId)
+    int? packStockType,
     @JsonKey(name: 'meta_description') String? metaDescription,
     @JsonKey(name: 'meta_keywords') String? metaKeywords,
     @JsonKey(name: 'meta_title') String? metaTitle,
@@ -134,10 +141,8 @@ abstract class ProductDTO with _$ProductDTO {
     @JsonKey(name: 'description_short') String? descriptionShort,
     @JsonKey(name: 'available_now') String? availableNow,
     @JsonKey(name: 'available_later') String? availableLater,
-    @JsonKey(name: 'price_tax_incl', fromJson: stringFromJson)
-    String? priceTaxIncluded,
-    @JsonKey(name: 'price_tax_excl', fromJson: stringFromJson)
-    String? priceTaxExcluded,
+    @JsonKey(name: 'price_tax_incl') String? priceTaxIncluded,
+    @JsonKey(name: 'price_tax_excl') String? priceTaxExcluded,
     @JsonKey(fromJson: _associationsDTOFromJson)
     ProductAssociationsDTO? associations,
   }) = _ProductDTO;
@@ -151,7 +156,7 @@ abstract class ProductDTO with _$ProductDTO {
       idManufacturer: product.idManufacturer,
       idSupplier: product.idSupplier,
       idDefaultCategory: product.idDefaultCategory,
-      isNew: product.isNew,
+      new_: product.new_,
       cacheDefaultAttribute: product.cacheDefaultAttribute,
       idDefaultImage: product.idDefaultImage,
       idDefaultCombination: product.idDefaultCombination,
@@ -180,7 +185,6 @@ abstract class ProductDTO with _$ProductDTO {
       additionalDeliveryTimes: product.additionalDeliveryTimes,
       deliveryInStock: product.deliveryInStock,
       deliveryOutStock: product.deliveryOutStock,
-      productType: product.productType,
       onSale: product.onSale,
       onlineOnly: product.onlineOnly,
       ecotax: product.ecotax,
@@ -230,7 +234,7 @@ abstract class ProductDTO with _$ProductDTO {
       idManufacturer: idManufacturer,
       idSupplier: idSupplier,
       idDefaultCategory: idDefaultCategory,
-      isNew: isNew,
+      new_: new_,
       cacheDefaultAttribute: cacheDefaultAttribute,
       idDefaultImage: idDefaultImage,
       idDefaultCombination: idDefaultCombination,
@@ -259,7 +263,6 @@ abstract class ProductDTO with _$ProductDTO {
       additionalDeliveryTimes: additionalDeliveryTimes,
       deliveryInStock: deliveryInStock,
       deliveryOutStock: deliveryOutStock,
-      productType: productType,
       onSale: onSale,
       onlineOnly: onlineOnly,
       ecotax: ecotax,
