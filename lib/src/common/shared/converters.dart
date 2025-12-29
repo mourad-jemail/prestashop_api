@@ -156,13 +156,19 @@ String stringFromJson(String? json) {
   return '';
 }
 
-String stringFromDynamicJson(dynamic json) {
-  if (json is String) {
-    return json;
-  } else if (json is int) {
-    return json.toString();
-  }
-  return '';
+/// Converts an API value to a consistent [String] for the domain, or `null` if the value is not valid.
+///
+/// Handles:
+/// - `String` → returned as-is
+/// - `int` or `double` → converted to string
+/// - `null` or other unexpected types → returns `null`
+String? stringFromDynamicJson(dynamic value) {
+  return switch (value) {
+    final String s => s,
+    final int i => i.toString(),
+    final double d => d.toString(),
+    _ => null,
+  };
 }
 
 /// Safely parses an API value into a nullable [int].

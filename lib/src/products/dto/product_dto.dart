@@ -19,18 +19,21 @@ abstract class ProductDTO with _$ProductDTO {
     @JsonKey(name: 'id_supplier', fromJson: parseUnsignedId) int? idSupplier,
     @JsonKey(name: 'id_category_default', fromJson: parseUnsignedId)
     int? idDefaultCategory,
-    String? new_,
-    @JsonKey(name: 'cache_default_attribute') String? cacheDefaultAttribute,
-    @JsonKey(name: 'id_default_image') String? idDefaultImage,
+    @JsonKey(name: 'new', fromJson: stringFromDynamicJson) String? new_,
+    @JsonKey(name: 'cache_default_attribute', fromJson: stringFromDynamicJson)
+    String? cacheDefaultAttribute,
+    @JsonKey(name: 'id_default_image', fromJson: stringFromDynamicJson)
+    String? idDefaultImage,
     @JsonKey(name: 'id_default_combination', fromJson: stringFromDynamicJson)
     String? idDefaultCombination,
     @JsonKey(name: 'id_tax_rules_group', fromJson: parseUnsignedId)
     int? idTaxRulesGroup,
-    @JsonKey(name: 'position_in_category') String? positionInCategory,
+    @JsonKey(name: 'position_in_category', fromJson: stringFromDynamicJson)
+    String? positionInCategory,
     @JsonKey(name: 'manufacturer_name', fromJson: stringFromDynamicJson)
     String? manufacturerName,
-    String? quantity,
-    String? type,
+    @JsonKey(fromJson: stringFromDynamicJson) String? quantity,
+    @JsonKey(fromJson: stringFromDynamicJson) String? type,
     @JsonKey(name: 'id_shop_default', fromJson: parseUnsignedId)
     int? idShopDefault,
     String? reference,
@@ -88,7 +91,8 @@ abstract class ProductDTO with _$ProductDTO {
     )
     double? wholesalePrice,
     @JsonKey(fromJson: stringFromJson) String? unity,
-    @JsonKey(name: 'unit_price_ratio') String? unitPriceRatio,
+    @JsonKey(name: 'unit_price_ratio', fromJson: stringFromDynamicJson)
+    String? unitPriceRatio,
     @JsonKey(
       name: 'additional_shipping_cost',
       fromJson: parseIsFloat,
