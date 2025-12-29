@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AttachmentDTO {
 
- int? get id; String? get file;@JsonKey(name: 'file_name') String? get fileName;@JsonKey(name: 'file_size', fromJson: parseUnsignedId) int? get fileSize; String? get mime; String? get name; String? get description;@JsonKey(fromJson: _associationsFromJson) AttachmentAssociationsDTO? get associations;
+ int? get id; String? get file;@JsonKey(name: 'file_name') String? get fileName;@JsonKey(name: 'file_size', fromJson: parseNullOrUnsignedId) int? get fileSize; String? get mime; String? get name; String? get description;@JsonKey(fromJson: _associationsFromJson) AttachmentAssociationsDTO? get associations;
 /// Create a copy of AttachmentDTO
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $AttachmentDTOCopyWith<$Res>  {
   factory $AttachmentDTOCopyWith(AttachmentDTO value, $Res Function(AttachmentDTO) _then) = _$AttachmentDTOCopyWithImpl;
 @useResult
 $Res call({
- int? id, String? file,@JsonKey(name: 'file_name') String? fileName,@JsonKey(name: 'file_size', fromJson: parseUnsignedId) int? fileSize, String? mime, String? name, String? description,@JsonKey(fromJson: _associationsFromJson) AttachmentAssociationsDTO? associations
+ int? id, String? file,@JsonKey(name: 'file_name') String? fileName,@JsonKey(name: 'file_size', fromJson: parseNullOrUnsignedId) int? fileSize, String? mime, String? name, String? description,@JsonKey(fromJson: _associationsFromJson) AttachmentAssociationsDTO? associations
 });
 
 
@@ -172,7 +172,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id,  String? file, @JsonKey(name: 'file_name')  String? fileName, @JsonKey(name: 'file_size', fromJson: parseUnsignedId)  int? fileSize,  String? mime,  String? name,  String? description, @JsonKey(fromJson: _associationsFromJson)  AttachmentAssociationsDTO? associations)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id,  String? file, @JsonKey(name: 'file_name')  String? fileName, @JsonKey(name: 'file_size', fromJson: parseNullOrUnsignedId)  int? fileSize,  String? mime,  String? name,  String? description, @JsonKey(fromJson: _associationsFromJson)  AttachmentAssociationsDTO? associations)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AttachmentDTO() when $default != null:
 return $default(_that.id,_that.file,_that.fileName,_that.fileSize,_that.mime,_that.name,_that.description,_that.associations);case _:
@@ -193,7 +193,7 @@ return $default(_that.id,_that.file,_that.fileName,_that.fileSize,_that.mime,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id,  String? file, @JsonKey(name: 'file_name')  String? fileName, @JsonKey(name: 'file_size', fromJson: parseUnsignedId)  int? fileSize,  String? mime,  String? name,  String? description, @JsonKey(fromJson: _associationsFromJson)  AttachmentAssociationsDTO? associations)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id,  String? file, @JsonKey(name: 'file_name')  String? fileName, @JsonKey(name: 'file_size', fromJson: parseNullOrUnsignedId)  int? fileSize,  String? mime,  String? name,  String? description, @JsonKey(fromJson: _associationsFromJson)  AttachmentAssociationsDTO? associations)  $default,) {final _that = this;
 switch (_that) {
 case _AttachmentDTO():
 return $default(_that.id,_that.file,_that.fileName,_that.fileSize,_that.mime,_that.name,_that.description,_that.associations);case _:
@@ -213,7 +213,7 @@ return $default(_that.id,_that.file,_that.fileName,_that.fileSize,_that.mime,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id,  String? file, @JsonKey(name: 'file_name')  String? fileName, @JsonKey(name: 'file_size', fromJson: parseUnsignedId)  int? fileSize,  String? mime,  String? name,  String? description, @JsonKey(fromJson: _associationsFromJson)  AttachmentAssociationsDTO? associations)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id,  String? file, @JsonKey(name: 'file_name')  String? fileName, @JsonKey(name: 'file_size', fromJson: parseNullOrUnsignedId)  int? fileSize,  String? mime,  String? name,  String? description, @JsonKey(fromJson: _associationsFromJson)  AttachmentAssociationsDTO? associations)?  $default,) {final _that = this;
 switch (_that) {
 case _AttachmentDTO() when $default != null:
 return $default(_that.id,_that.file,_that.fileName,_that.fileSize,_that.mime,_that.name,_that.description,_that.associations);case _:
@@ -228,13 +228,13 @@ return $default(_that.id,_that.file,_that.fileName,_that.fileSize,_that.mime,_th
 @JsonSerializable()
 
 class _AttachmentDTO extends AttachmentDTO {
-  const _AttachmentDTO({this.id, this.file, @JsonKey(name: 'file_name') this.fileName, @JsonKey(name: 'file_size', fromJson: parseUnsignedId) this.fileSize, this.mime, this.name, this.description, @JsonKey(fromJson: _associationsFromJson) this.associations}): super._();
+  const _AttachmentDTO({this.id, this.file, @JsonKey(name: 'file_name') this.fileName, @JsonKey(name: 'file_size', fromJson: parseNullOrUnsignedId) this.fileSize, this.mime, this.name, this.description, @JsonKey(fromJson: _associationsFromJson) this.associations}): super._();
   factory _AttachmentDTO.fromJson(Map<String, dynamic> json) => _$AttachmentDTOFromJson(json);
 
 @override final  int? id;
 @override final  String? file;
 @override@JsonKey(name: 'file_name') final  String? fileName;
-@override@JsonKey(name: 'file_size', fromJson: parseUnsignedId) final  int? fileSize;
+@override@JsonKey(name: 'file_size', fromJson: parseNullOrUnsignedId) final  int? fileSize;
 @override final  String? mime;
 @override final  String? name;
 @override final  String? description;
@@ -273,7 +273,7 @@ abstract mixin class _$AttachmentDTOCopyWith<$Res> implements $AttachmentDTOCopy
   factory _$AttachmentDTOCopyWith(_AttachmentDTO value, $Res Function(_AttachmentDTO) _then) = __$AttachmentDTOCopyWithImpl;
 @override @useResult
 $Res call({
- int? id, String? file,@JsonKey(name: 'file_name') String? fileName,@JsonKey(name: 'file_size', fromJson: parseUnsignedId) int? fileSize, String? mime, String? name, String? description,@JsonKey(fromJson: _associationsFromJson) AttachmentAssociationsDTO? associations
+ int? id, String? file,@JsonKey(name: 'file_name') String? fileName,@JsonKey(name: 'file_size', fromJson: parseNullOrUnsignedId) int? fileSize, String? mime, String? name, String? description,@JsonKey(fromJson: _associationsFromJson) AttachmentAssociationsDTO? associations
 });
 
 

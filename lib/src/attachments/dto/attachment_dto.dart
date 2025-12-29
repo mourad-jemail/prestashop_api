@@ -16,7 +16,7 @@ abstract class AttachmentDTO with _$AttachmentDTO {
     int? id,
     String? file,
     @JsonKey(name: 'file_name') String? fileName,
-    @JsonKey(name: 'file_size', fromJson: parseUnsignedId) int? fileSize,
+    @JsonKey(name: 'file_size', fromJson: parseNullOrUnsignedId) int? fileSize,
     String? mime,
     String? name,
     String? description,
