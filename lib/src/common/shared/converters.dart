@@ -99,6 +99,24 @@ DateTime? parseIsDate(dynamic value) {
   return DateTime.tryParse(normalized);
 }
 
+/// Serializes a Dart [DateTime] into a PrestaShop-compatible `isDate` string.
+///
+/// Returns `null` if [value] is `null`.
+/// Produces the MySQL DATETIME format: `yyyy-MM-dd HH:mm:ss`,
+/// which is what PrestaShop Webservice expects.
+String? isDateToJson(DateTime? value) {
+  if (value == null) return null;
+
+  String twoDigits(int n) => n.toString().padLeft(2, '0');
+
+  return '${value.year}-'
+      '${twoDigits(value.month)}-'
+      '${twoDigits(value.day)} '
+      '${twoDigits(value.hour)}:'
+      '${twoDigits(value.minute)}:'
+      '${twoDigits(value.second)}';
+}
+
 /// Parses a PrestaShop `isFloat` value into a nullable [double].
 ///
 /// The input may be `null`, a numeric string, or a number as returned by the
