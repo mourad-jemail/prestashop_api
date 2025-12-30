@@ -49,7 +49,7 @@ Map<String, dynamic> _$CarrierDTOToJson(_CarrierDTO instance) =>
       'max_width': instance.maxWidth,
       'max_height': instance.maxHeight,
       'max_depth': instance.maxDepth,
-      'max_weight': instance.maxWeight,
+      'max_weight': isFloatToJson(instance.maxWeight),
       'grade': instance.grade,
       'external_module_name': instance.externalModuleName,
       'need_range': instance.needRange,

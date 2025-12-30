@@ -4,7 +4,6 @@ import '../../common/shared/converters.dart';
 import '../model/carrier.dart';
 
 part 'carrier_dto.freezed.dart';
-
 part 'carrier_dto.g.dart';
 
 @freezed
@@ -45,7 +44,8 @@ abstract class CarrierDTO with _$CarrierDTO {
     @JsonKey(name: 'max_height', fromJson: parseNullOrUnsignedId)
     int? maxHeight,
     @JsonKey(name: 'max_depth', fromJson: parseNullOrUnsignedId) int? maxDepth,
-    @JsonKey(name: 'max_weight', fromJson: parseIsFloat) double? maxWeight,
+    @JsonKey(name: 'max_weight', fromJson: parseIsFloat, toJson: isFloatToJson)
+    double? maxWeight,
     @JsonKey(fromJson: parseNullOrUnsignedId) int? grade,
     @JsonKey(name: 'external_module_name', fromJson: stringFromDynamicJson)
     String? externalModuleName,
