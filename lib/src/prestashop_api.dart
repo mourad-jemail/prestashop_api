@@ -364,6 +364,90 @@ class PrestashopApi
   });
 
   ///
+  /// Carrier
+  ///
+
+  /// Fetches a list of all [Carrier] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of all carriers.
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  /// Requires [languageId] to specify the language of the retrieved data.
+  @override
+  Future<ReceivedEntity<List<Carrier>>> getCarriers({
+    required int languageId,
+    Filter<CarrierFilterField>? filter,
+    Display<CarrierDisplayField>? display,
+    Sort<SortFieldOrder<CarrierSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _carrierDataSource.getCarriers(
+      languageId: languageId,
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(remoteResponse.data.toDomain().carrierList);
+  });
+
+  /// Retrieves a single [Carrier] by its [id].
+  ///
+  /// Returns a [ReceivedEntity] containing the carrier.
+  /// Requires [languageId] and the carrier [id].
+  /// An optional [display] parameter can be provided.
+  /// If no carrier is found, returns a [ReceivedEntity] containing an empty
+  /// [Carrier] object.
+  @override
+  Future<ReceivedEntity<Carrier>> getCarrierById({
+    required int languageId,
+    required int id,
+    Display<CarrierDisplayField>? display,
+  }) => _callApi(() async {
+    final remoteResponse = await _carrierDataSource.getCarriers(
+      languageId: languageId,
+      filter: Filter.equals(CarrierFilterField.id, value: '$id'),
+      display: display,
+    );
+
+    final carrierOutputDTO = remoteResponse.data;
+
+    if (carrierOutputDTO.toDomain().carrierList.isNotEmpty) {
+      return ReceivedEntity(carrierOutputDTO.toDomain().carrierList[0]);
+    } else {
+      return ReceivedEntity(Carrier.empty());
+    }
+  });
+
+  /// Fetches a paginated list of [Carrier] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of carriers for the
+  /// specified [page].
+  /// Requires [languageId], [page] number, and items [perPage].
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  @override
+  Future<ReceivedEntity<List<Carrier>>> getCarriersPage({
+    required int languageId,
+    required int page,
+    required int perPage,
+    Filter<CarrierFilterField>? filter,
+    Display<CarrierDisplayField>? display,
+    Sort<SortFieldOrder<CarrierSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _carrierDataSource.getCarriersPage(
+      languageId: languageId,
+      page: page,
+      perPage: perPage,
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(
+      remoteResponse.data.toDomain().carrierList,
+      isNextPageAvailable: remoteResponse.isNextPageAvailable,
+    );
+  });
+
+  ///
   /// Categories
   ///
 
@@ -931,90 +1015,6 @@ class PrestashopApi
 
     return ReceivedEntity(
       remoteResponse.data.toDomain().taxList,
-      isNextPageAvailable: remoteResponse.isNextPageAvailable,
-    );
-  });
-
-  ///
-  /// Carrier
-  ///
-
-  /// Fetches a list of all [Carrier] objects.
-  ///
-  /// Returns a [ReceivedEntity] containing a list of all carriers.
-  /// Optional [filter], [display], and [sort] parameters can be provided.
-  /// Requires [languageId] to specify the language of the retrieved data.
-  @override
-  Future<ReceivedEntity<List<Carrier>>> getCarriers({
-    required int languageId,
-    Filter<CarrierFilterField>? filter,
-    Display<CarrierDisplayField>? display,
-    Sort<SortFieldOrder<CarrierSortField>>? sort,
-  }) => _callApi(() async {
-    final remoteResponse = await _carrierDataSource.getCarriers(
-      languageId: languageId,
-      filter: filter,
-      display: display,
-      sort: sort,
-    );
-
-    return ReceivedEntity(remoteResponse.data.toDomain().carrierList);
-  });
-
-  /// Retrieves a single [Carrier] by its [id].
-  ///
-  /// Returns a [ReceivedEntity] containing the carrier.
-  /// Requires [languageId] and the carrier [id].
-  /// An optional [display] parameter can be provided.
-  /// If no carrier is found, returns a [ReceivedEntity] containing an empty
-  /// [Carrier] object.
-  @override
-  Future<ReceivedEntity<Carrier>> getCarrierById({
-    required int languageId,
-    required int id,
-    Display<CarrierDisplayField>? display,
-  }) => _callApi(() async {
-    final remoteResponse = await _carrierDataSource.getCarriers(
-      languageId: languageId,
-      filter: Filter.equals(CarrierFilterField.id, value: '$id'),
-      display: display,
-    );
-
-    final carrierOutputDTO = remoteResponse.data;
-
-    if (carrierOutputDTO.toDomain().carrierList.isNotEmpty) {
-      return ReceivedEntity(carrierOutputDTO.toDomain().carrierList[0]);
-    } else {
-      return ReceivedEntity(Carrier.empty());
-    }
-  });
-
-  /// Fetches a paginated list of [Carrier] objects.
-  ///
-  /// Returns a [ReceivedEntity] containing a list of carriers for the
-  /// specified [page].
-  /// Requires [languageId], [page] number, and items [perPage].
-  /// Optional [filter], [display], and [sort] parameters can be provided.
-  @override
-  Future<ReceivedEntity<List<Carrier>>> getCarriersPage({
-    required int languageId,
-    required int page,
-    required int perPage,
-    Filter<CarrierFilterField>? filter,
-    Display<CarrierDisplayField>? display,
-    Sort<SortFieldOrder<CarrierSortField>>? sort,
-  }) => _callApi(() async {
-    final remoteResponse = await _carrierDataSource.getCarriersPage(
-      languageId: languageId,
-      page: page,
-      perPage: perPage,
-      filter: filter,
-      display: display,
-      sort: sort,
-    );
-
-    return ReceivedEntity(
-      remoteResponse.data.toDomain().carrierList,
       isNextPageAvailable: remoteResponse.isNextPageAvailable,
     );
   });
