@@ -13,9 +13,9 @@ _StockAvailable _$StockAvailableFromJson(Map<String, dynamic> json) =>
       idProductAttribute: (json['idProductAttribute'] as num?)?.toInt(),
       idShop: (json['idShop'] as num?)?.toInt(),
       idShopGroup: (json['idShopGroup'] as num?)?.toInt(),
-      quantity: json['quantity'] as String?,
+      quantity: (json['quantity'] as num?)?.toInt(),
       dependsOnStock: json['dependsOnStock'] as bool?,
-      outOfStock: json['outOfStock'] as String?,
+      outOfStock: (json['outOfStock'] as num?)?.toInt(),
       location: json['location'] as String?,
     );
 

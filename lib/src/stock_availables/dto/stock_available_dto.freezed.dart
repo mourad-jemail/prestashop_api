@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$StockAvailableDTO {
 
-@JsonKey(fromJson: parseNullOrUnsignedId) int? get id;@JsonKey(name: 'id_product', fromJson: parseNullOrUnsignedId) int? get idProduct;@JsonKey(name: 'id_product_attribute', fromJson: parseNullOrUnsignedId) int? get idProductAttribute;@JsonKey(name: 'id_shop', fromJson: parseNullOrUnsignedId) int? get idShop;@JsonKey(name: 'id_shop_group', fromJson: parseNullOrUnsignedId) int? get idShopGroup; String? get quantity;@JsonKey(name: 'depends_on_stock', fromJson: parseIsBool, toJson: isBoolToJson) bool? get dependsOnStock;@JsonKey(name: 'out_of_stock') String? get outOfStock; String? get location;
+@JsonKey(fromJson: parseNullOrUnsignedId) int? get id;@JsonKey(name: 'id_product', fromJson: parseNullOrUnsignedId) int? get idProduct;@JsonKey(name: 'id_product_attribute', fromJson: parseNullOrUnsignedId) int? get idProductAttribute;@JsonKey(name: 'id_shop', fromJson: parseNullOrUnsignedId) int? get idShop;@JsonKey(name: 'id_shop_group', fromJson: parseNullOrUnsignedId) int? get idShopGroup;@JsonKey(fromJson: parseIsInt, toJson: isIntToJson) int? get quantity;@JsonKey(name: 'depends_on_stock', fromJson: parseIsBool, toJson: isBoolToJson) bool? get dependsOnStock;@JsonKey(name: 'out_of_stock', fromJson: parseIsInt, toJson: isIntToJson) int? get outOfStock; String? get location;
 /// Create a copy of StockAvailableDTO
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $StockAvailableDTOCopyWith<$Res>  {
   factory $StockAvailableDTOCopyWith(StockAvailableDTO value, $Res Function(StockAvailableDTO) _then) = _$StockAvailableDTOCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(fromJson: parseNullOrUnsignedId) int? id,@JsonKey(name: 'id_product', fromJson: parseNullOrUnsignedId) int? idProduct,@JsonKey(name: 'id_product_attribute', fromJson: parseNullOrUnsignedId) int? idProductAttribute,@JsonKey(name: 'id_shop', fromJson: parseNullOrUnsignedId) int? idShop,@JsonKey(name: 'id_shop_group', fromJson: parseNullOrUnsignedId) int? idShopGroup, String? quantity,@JsonKey(name: 'depends_on_stock', fromJson: parseIsBool, toJson: isBoolToJson) bool? dependsOnStock,@JsonKey(name: 'out_of_stock') String? outOfStock, String? location
+@JsonKey(fromJson: parseNullOrUnsignedId) int? id,@JsonKey(name: 'id_product', fromJson: parseNullOrUnsignedId) int? idProduct,@JsonKey(name: 'id_product_attribute', fromJson: parseNullOrUnsignedId) int? idProductAttribute,@JsonKey(name: 'id_shop', fromJson: parseNullOrUnsignedId) int? idShop,@JsonKey(name: 'id_shop_group', fromJson: parseNullOrUnsignedId) int? idShopGroup,@JsonKey(fromJson: parseIsInt, toJson: isIntToJson) int? quantity,@JsonKey(name: 'depends_on_stock', fromJson: parseIsBool, toJson: isBoolToJson) bool? dependsOnStock,@JsonKey(name: 'out_of_stock', fromJson: parseIsInt, toJson: isIntToJson) int? outOfStock, String? location
 });
 
 
@@ -73,9 +73,9 @@ as int?,idProductAttribute: freezed == idProductAttribute ? _self.idProductAttri
 as int?,idShop: freezed == idShop ? _self.idShop : idShop // ignore: cast_nullable_to_non_nullable
 as int?,idShopGroup: freezed == idShopGroup ? _self.idShopGroup : idShopGroup // ignore: cast_nullable_to_non_nullable
 as int?,quantity: freezed == quantity ? _self.quantity : quantity // ignore: cast_nullable_to_non_nullable
-as String?,dependsOnStock: freezed == dependsOnStock ? _self.dependsOnStock : dependsOnStock // ignore: cast_nullable_to_non_nullable
+as int?,dependsOnStock: freezed == dependsOnStock ? _self.dependsOnStock : dependsOnStock // ignore: cast_nullable_to_non_nullable
 as bool?,outOfStock: freezed == outOfStock ? _self.outOfStock : outOfStock // ignore: cast_nullable_to_non_nullable
-as String?,location: freezed == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
+as int?,location: freezed == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -161,7 +161,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(fromJson: parseNullOrUnsignedId)  int? id, @JsonKey(name: 'id_product', fromJson: parseNullOrUnsignedId)  int? idProduct, @JsonKey(name: 'id_product_attribute', fromJson: parseNullOrUnsignedId)  int? idProductAttribute, @JsonKey(name: 'id_shop', fromJson: parseNullOrUnsignedId)  int? idShop, @JsonKey(name: 'id_shop_group', fromJson: parseNullOrUnsignedId)  int? idShopGroup,  String? quantity, @JsonKey(name: 'depends_on_stock', fromJson: parseIsBool, toJson: isBoolToJson)  bool? dependsOnStock, @JsonKey(name: 'out_of_stock')  String? outOfStock,  String? location)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(fromJson: parseNullOrUnsignedId)  int? id, @JsonKey(name: 'id_product', fromJson: parseNullOrUnsignedId)  int? idProduct, @JsonKey(name: 'id_product_attribute', fromJson: parseNullOrUnsignedId)  int? idProductAttribute, @JsonKey(name: 'id_shop', fromJson: parseNullOrUnsignedId)  int? idShop, @JsonKey(name: 'id_shop_group', fromJson: parseNullOrUnsignedId)  int? idShopGroup, @JsonKey(fromJson: parseIsInt, toJson: isIntToJson)  int? quantity, @JsonKey(name: 'depends_on_stock', fromJson: parseIsBool, toJson: isBoolToJson)  bool? dependsOnStock, @JsonKey(name: 'out_of_stock', fromJson: parseIsInt, toJson: isIntToJson)  int? outOfStock,  String? location)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _StockAvailableDTO() when $default != null:
 return $default(_that.id,_that.idProduct,_that.idProductAttribute,_that.idShop,_that.idShopGroup,_that.quantity,_that.dependsOnStock,_that.outOfStock,_that.location);case _:
@@ -182,7 +182,7 @@ return $default(_that.id,_that.idProduct,_that.idProductAttribute,_that.idShop,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(fromJson: parseNullOrUnsignedId)  int? id, @JsonKey(name: 'id_product', fromJson: parseNullOrUnsignedId)  int? idProduct, @JsonKey(name: 'id_product_attribute', fromJson: parseNullOrUnsignedId)  int? idProductAttribute, @JsonKey(name: 'id_shop', fromJson: parseNullOrUnsignedId)  int? idShop, @JsonKey(name: 'id_shop_group', fromJson: parseNullOrUnsignedId)  int? idShopGroup,  String? quantity, @JsonKey(name: 'depends_on_stock', fromJson: parseIsBool, toJson: isBoolToJson)  bool? dependsOnStock, @JsonKey(name: 'out_of_stock')  String? outOfStock,  String? location)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(fromJson: parseNullOrUnsignedId)  int? id, @JsonKey(name: 'id_product', fromJson: parseNullOrUnsignedId)  int? idProduct, @JsonKey(name: 'id_product_attribute', fromJson: parseNullOrUnsignedId)  int? idProductAttribute, @JsonKey(name: 'id_shop', fromJson: parseNullOrUnsignedId)  int? idShop, @JsonKey(name: 'id_shop_group', fromJson: parseNullOrUnsignedId)  int? idShopGroup, @JsonKey(fromJson: parseIsInt, toJson: isIntToJson)  int? quantity, @JsonKey(name: 'depends_on_stock', fromJson: parseIsBool, toJson: isBoolToJson)  bool? dependsOnStock, @JsonKey(name: 'out_of_stock', fromJson: parseIsInt, toJson: isIntToJson)  int? outOfStock,  String? location)  $default,) {final _that = this;
 switch (_that) {
 case _StockAvailableDTO():
 return $default(_that.id,_that.idProduct,_that.idProductAttribute,_that.idShop,_that.idShopGroup,_that.quantity,_that.dependsOnStock,_that.outOfStock,_that.location);case _:
@@ -202,7 +202,7 @@ return $default(_that.id,_that.idProduct,_that.idProductAttribute,_that.idShop,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(fromJson: parseNullOrUnsignedId)  int? id, @JsonKey(name: 'id_product', fromJson: parseNullOrUnsignedId)  int? idProduct, @JsonKey(name: 'id_product_attribute', fromJson: parseNullOrUnsignedId)  int? idProductAttribute, @JsonKey(name: 'id_shop', fromJson: parseNullOrUnsignedId)  int? idShop, @JsonKey(name: 'id_shop_group', fromJson: parseNullOrUnsignedId)  int? idShopGroup,  String? quantity, @JsonKey(name: 'depends_on_stock', fromJson: parseIsBool, toJson: isBoolToJson)  bool? dependsOnStock, @JsonKey(name: 'out_of_stock')  String? outOfStock,  String? location)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(fromJson: parseNullOrUnsignedId)  int? id, @JsonKey(name: 'id_product', fromJson: parseNullOrUnsignedId)  int? idProduct, @JsonKey(name: 'id_product_attribute', fromJson: parseNullOrUnsignedId)  int? idProductAttribute, @JsonKey(name: 'id_shop', fromJson: parseNullOrUnsignedId)  int? idShop, @JsonKey(name: 'id_shop_group', fromJson: parseNullOrUnsignedId)  int? idShopGroup, @JsonKey(fromJson: parseIsInt, toJson: isIntToJson)  int? quantity, @JsonKey(name: 'depends_on_stock', fromJson: parseIsBool, toJson: isBoolToJson)  bool? dependsOnStock, @JsonKey(name: 'out_of_stock', fromJson: parseIsInt, toJson: isIntToJson)  int? outOfStock,  String? location)?  $default,) {final _that = this;
 switch (_that) {
 case _StockAvailableDTO() when $default != null:
 return $default(_that.id,_that.idProduct,_that.idProductAttribute,_that.idShop,_that.idShopGroup,_that.quantity,_that.dependsOnStock,_that.outOfStock,_that.location);case _:
@@ -217,7 +217,7 @@ return $default(_that.id,_that.idProduct,_that.idProductAttribute,_that.idShop,_
 @JsonSerializable()
 
 class _StockAvailableDTO extends StockAvailableDTO {
-  const _StockAvailableDTO({@JsonKey(fromJson: parseNullOrUnsignedId) this.id, @JsonKey(name: 'id_product', fromJson: parseNullOrUnsignedId) this.idProduct, @JsonKey(name: 'id_product_attribute', fromJson: parseNullOrUnsignedId) this.idProductAttribute, @JsonKey(name: 'id_shop', fromJson: parseNullOrUnsignedId) this.idShop, @JsonKey(name: 'id_shop_group', fromJson: parseNullOrUnsignedId) this.idShopGroup, this.quantity, @JsonKey(name: 'depends_on_stock', fromJson: parseIsBool, toJson: isBoolToJson) this.dependsOnStock, @JsonKey(name: 'out_of_stock') this.outOfStock, this.location}): super._();
+  const _StockAvailableDTO({@JsonKey(fromJson: parseNullOrUnsignedId) this.id, @JsonKey(name: 'id_product', fromJson: parseNullOrUnsignedId) this.idProduct, @JsonKey(name: 'id_product_attribute', fromJson: parseNullOrUnsignedId) this.idProductAttribute, @JsonKey(name: 'id_shop', fromJson: parseNullOrUnsignedId) this.idShop, @JsonKey(name: 'id_shop_group', fromJson: parseNullOrUnsignedId) this.idShopGroup, @JsonKey(fromJson: parseIsInt, toJson: isIntToJson) this.quantity, @JsonKey(name: 'depends_on_stock', fromJson: parseIsBool, toJson: isBoolToJson) this.dependsOnStock, @JsonKey(name: 'out_of_stock', fromJson: parseIsInt, toJson: isIntToJson) this.outOfStock, this.location}): super._();
   factory _StockAvailableDTO.fromJson(Map<String, dynamic> json) => _$StockAvailableDTOFromJson(json);
 
 @override@JsonKey(fromJson: parseNullOrUnsignedId) final  int? id;
@@ -225,9 +225,9 @@ class _StockAvailableDTO extends StockAvailableDTO {
 @override@JsonKey(name: 'id_product_attribute', fromJson: parseNullOrUnsignedId) final  int? idProductAttribute;
 @override@JsonKey(name: 'id_shop', fromJson: parseNullOrUnsignedId) final  int? idShop;
 @override@JsonKey(name: 'id_shop_group', fromJson: parseNullOrUnsignedId) final  int? idShopGroup;
-@override final  String? quantity;
+@override@JsonKey(fromJson: parseIsInt, toJson: isIntToJson) final  int? quantity;
 @override@JsonKey(name: 'depends_on_stock', fromJson: parseIsBool, toJson: isBoolToJson) final  bool? dependsOnStock;
-@override@JsonKey(name: 'out_of_stock') final  String? outOfStock;
+@override@JsonKey(name: 'out_of_stock', fromJson: parseIsInt, toJson: isIntToJson) final  int? outOfStock;
 @override final  String? location;
 
 /// Create a copy of StockAvailableDTO
@@ -263,7 +263,7 @@ abstract mixin class _$StockAvailableDTOCopyWith<$Res> implements $StockAvailabl
   factory _$StockAvailableDTOCopyWith(_StockAvailableDTO value, $Res Function(_StockAvailableDTO) _then) = __$StockAvailableDTOCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(fromJson: parseNullOrUnsignedId) int? id,@JsonKey(name: 'id_product', fromJson: parseNullOrUnsignedId) int? idProduct,@JsonKey(name: 'id_product_attribute', fromJson: parseNullOrUnsignedId) int? idProductAttribute,@JsonKey(name: 'id_shop', fromJson: parseNullOrUnsignedId) int? idShop,@JsonKey(name: 'id_shop_group', fromJson: parseNullOrUnsignedId) int? idShopGroup, String? quantity,@JsonKey(name: 'depends_on_stock', fromJson: parseIsBool, toJson: isBoolToJson) bool? dependsOnStock,@JsonKey(name: 'out_of_stock') String? outOfStock, String? location
+@JsonKey(fromJson: parseNullOrUnsignedId) int? id,@JsonKey(name: 'id_product', fromJson: parseNullOrUnsignedId) int? idProduct,@JsonKey(name: 'id_product_attribute', fromJson: parseNullOrUnsignedId) int? idProductAttribute,@JsonKey(name: 'id_shop', fromJson: parseNullOrUnsignedId) int? idShop,@JsonKey(name: 'id_shop_group', fromJson: parseNullOrUnsignedId) int? idShopGroup,@JsonKey(fromJson: parseIsInt, toJson: isIntToJson) int? quantity,@JsonKey(name: 'depends_on_stock', fromJson: parseIsBool, toJson: isBoolToJson) bool? dependsOnStock,@JsonKey(name: 'out_of_stock', fromJson: parseIsInt, toJson: isIntToJson) int? outOfStock, String? location
 });
 
 
@@ -288,9 +288,9 @@ as int?,idProductAttribute: freezed == idProductAttribute ? _self.idProductAttri
 as int?,idShop: freezed == idShop ? _self.idShop : idShop // ignore: cast_nullable_to_non_nullable
 as int?,idShopGroup: freezed == idShopGroup ? _self.idShopGroup : idShopGroup // ignore: cast_nullable_to_non_nullable
 as int?,quantity: freezed == quantity ? _self.quantity : quantity // ignore: cast_nullable_to_non_nullable
-as String?,dependsOnStock: freezed == dependsOnStock ? _self.dependsOnStock : dependsOnStock // ignore: cast_nullable_to_non_nullable
+as int?,dependsOnStock: freezed == dependsOnStock ? _self.dependsOnStock : dependsOnStock // ignore: cast_nullable_to_non_nullable
 as bool?,outOfStock: freezed == outOfStock ? _self.outOfStock : outOfStock // ignore: cast_nullable_to_non_nullable
-as String?,location: freezed == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
+as int?,location: freezed == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }

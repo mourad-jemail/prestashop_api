@@ -17,9 +17,9 @@ abstract class StockAvailable
     int? idProductAttribute,
     int? idShop,
     int? idShopGroup,
-    String? quantity,
+    int? quantity,
     bool? dependsOnStock,
-    String? outOfStock,
+    int? outOfStock,
     String? location,
   }) = _StockAvailable;
 

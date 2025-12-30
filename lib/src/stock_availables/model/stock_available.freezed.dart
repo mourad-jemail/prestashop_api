@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$StockAvailable {
 
- int? get id; int? get idProduct; int? get idProductAttribute; int? get idShop; int? get idShopGroup; String? get quantity; bool? get dependsOnStock; String? get outOfStock; String? get location;
+ int? get id; int? get idProduct; int? get idProductAttribute; int? get idShop; int? get idShopGroup; int? get quantity; bool? get dependsOnStock; int? get outOfStock; String? get location;
 /// Create a copy of StockAvailable
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $StockAvailableCopyWith<$Res>  {
   factory $StockAvailableCopyWith(StockAvailable value, $Res Function(StockAvailable) _then) = _$StockAvailableCopyWithImpl;
 @useResult
 $Res call({
- int? id, int? idProduct, int? idProductAttribute, int? idShop, int? idShopGroup, String? quantity, bool? dependsOnStock, String? outOfStock, String? location
+ int? id, int? idProduct, int? idProductAttribute, int? idShop, int? idShopGroup, int? quantity, bool? dependsOnStock, int? outOfStock, String? location
 });
 
 
@@ -73,9 +73,9 @@ as int?,idProductAttribute: freezed == idProductAttribute ? _self.idProductAttri
 as int?,idShop: freezed == idShop ? _self.idShop : idShop // ignore: cast_nullable_to_non_nullable
 as int?,idShopGroup: freezed == idShopGroup ? _self.idShopGroup : idShopGroup // ignore: cast_nullable_to_non_nullable
 as int?,quantity: freezed == quantity ? _self.quantity : quantity // ignore: cast_nullable_to_non_nullable
-as String?,dependsOnStock: freezed == dependsOnStock ? _self.dependsOnStock : dependsOnStock // ignore: cast_nullable_to_non_nullable
+as int?,dependsOnStock: freezed == dependsOnStock ? _self.dependsOnStock : dependsOnStock // ignore: cast_nullable_to_non_nullable
 as bool?,outOfStock: freezed == outOfStock ? _self.outOfStock : outOfStock // ignore: cast_nullable_to_non_nullable
-as String?,location: freezed == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
+as int?,location: freezed == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -161,7 +161,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id,  int? idProduct,  int? idProductAttribute,  int? idShop,  int? idShopGroup,  String? quantity,  bool? dependsOnStock,  String? outOfStock,  String? location)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id,  int? idProduct,  int? idProductAttribute,  int? idShop,  int? idShopGroup,  int? quantity,  bool? dependsOnStock,  int? outOfStock,  String? location)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _StockAvailable() when $default != null:
 return $default(_that.id,_that.idProduct,_that.idProductAttribute,_that.idShop,_that.idShopGroup,_that.quantity,_that.dependsOnStock,_that.outOfStock,_that.location);case _:
@@ -182,7 +182,7 @@ return $default(_that.id,_that.idProduct,_that.idProductAttribute,_that.idShop,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id,  int? idProduct,  int? idProductAttribute,  int? idShop,  int? idShopGroup,  String? quantity,  bool? dependsOnStock,  String? outOfStock,  String? location)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id,  int? idProduct,  int? idProductAttribute,  int? idShop,  int? idShopGroup,  int? quantity,  bool? dependsOnStock,  int? outOfStock,  String? location)  $default,) {final _that = this;
 switch (_that) {
 case _StockAvailable():
 return $default(_that.id,_that.idProduct,_that.idProductAttribute,_that.idShop,_that.idShopGroup,_that.quantity,_that.dependsOnStock,_that.outOfStock,_that.location);case _:
@@ -202,7 +202,7 @@ return $default(_that.id,_that.idProduct,_that.idProductAttribute,_that.idShop,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id,  int? idProduct,  int? idProductAttribute,  int? idShop,  int? idShopGroup,  String? quantity,  bool? dependsOnStock,  String? outOfStock,  String? location)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id,  int? idProduct,  int? idProductAttribute,  int? idShop,  int? idShopGroup,  int? quantity,  bool? dependsOnStock,  int? outOfStock,  String? location)?  $default,) {final _that = this;
 switch (_that) {
 case _StockAvailable() when $default != null:
 return $default(_that.id,_that.idProduct,_that.idProductAttribute,_that.idShop,_that.idShopGroup,_that.quantity,_that.dependsOnStock,_that.outOfStock,_that.location);case _:
@@ -225,9 +225,9 @@ class _StockAvailable extends StockAvailable {
 @override final  int? idProductAttribute;
 @override final  int? idShop;
 @override final  int? idShopGroup;
-@override final  String? quantity;
+@override final  int? quantity;
 @override final  bool? dependsOnStock;
-@override final  String? outOfStock;
+@override final  int? outOfStock;
 @override final  String? location;
 
 /// Create a copy of StockAvailable
@@ -263,7 +263,7 @@ abstract mixin class _$StockAvailableCopyWith<$Res> implements $StockAvailableCo
   factory _$StockAvailableCopyWith(_StockAvailable value, $Res Function(_StockAvailable) _then) = __$StockAvailableCopyWithImpl;
 @override @useResult
 $Res call({
- int? id, int? idProduct, int? idProductAttribute, int? idShop, int? idShopGroup, String? quantity, bool? dependsOnStock, String? outOfStock, String? location
+ int? id, int? idProduct, int? idProductAttribute, int? idShop, int? idShopGroup, int? quantity, bool? dependsOnStock, int? outOfStock, String? location
 });
 
 
@@ -288,9 +288,9 @@ as int?,idProductAttribute: freezed == idProductAttribute ? _self.idProductAttri
 as int?,idShop: freezed == idShop ? _self.idShop : idShop // ignore: cast_nullable_to_non_nullable
 as int?,idShopGroup: freezed == idShopGroup ? _self.idShopGroup : idShopGroup // ignore: cast_nullable_to_non_nullable
 as int?,quantity: freezed == quantity ? _self.quantity : quantity // ignore: cast_nullable_to_non_nullable
-as String?,dependsOnStock: freezed == dependsOnStock ? _self.dependsOnStock : dependsOnStock // ignore: cast_nullable_to_non_nullable
+as int?,dependsOnStock: freezed == dependsOnStock ? _self.dependsOnStock : dependsOnStock // ignore: cast_nullable_to_non_nullable
 as bool?,outOfStock: freezed == outOfStock ? _self.outOfStock : outOfStock // ignore: cast_nullable_to_non_nullable
-as String?,location: freezed == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
+as int?,location: freezed == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
