@@ -30,8 +30,10 @@ abstract class CategoryDTO with _$CategoryDTO {
     )
     bool? isRootCategory,
     @JsonKey(fromJson: stringFromDynamicJson) String? position,
-    @JsonKey(name: 'date_add', fromJson: parseIsDate) DateTime? dateAdd,
-    @JsonKey(name: 'date_upd', fromJson: parseIsDate) DateTime? dateUpd,
+    @JsonKey(name: 'date_add', fromJson: parseIsDate, toJson: isDateToJson)
+    DateTime? dateAdd,
+    @JsonKey(name: 'date_upd', fromJson: parseIsDate, toJson: isDateToJson)
+    DateTime? dateUpd,
     String? name,
     @JsonKey(name: 'link_rewrite') String? linkRewrite,
     String? description,
