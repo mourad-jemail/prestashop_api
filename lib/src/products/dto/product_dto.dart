@@ -76,8 +76,7 @@ abstract class ProductDTO with _$ProductDTO {
     @JsonKey(fromJson: parseIsFloat, toJson: isFloatToJson) double? ecotax,
     @JsonKey(name: 'minimal_quantity', fromJson: parseNullOrUnsignedId)
     int? minimalQuantity,
-    @JsonKey(name: 'low_stock_threshold', fromJson: stringFromJson)
-    String? lowStockThreshold,
+    @JsonKey(name: 'low_stock_threshold') String? lowStockThreshold,
     @JsonKey(
       name: 'low_stock_alert',
       fromJson: parseIsBool,
@@ -91,7 +90,7 @@ abstract class ProductDTO with _$ProductDTO {
       toJson: isFloatToJson,
     )
     double? wholesalePrice,
-    @JsonKey(fromJson: stringFromJson) String? unity,
+    String? unity,
     @JsonKey(name: 'unit_price_ratio', fromJson: stringFromDynamicJson)
     String? unitPriceRatio,
     @JsonKey(
