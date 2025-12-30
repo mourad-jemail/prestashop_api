@@ -15,6 +15,7 @@ const String countriesPath = '/api/countries';
 const String languagesPath = '/api/languages';
 const String productsPath = '/api/products';
 const String stockAvailablesPath = '/api/stock_availables';
+const String taxRuleGroupsPath = '/api/tax_rule_groups';
 const String taxesPath = '/api/taxes';
 
 enum Protocol { http, https }
