@@ -44,7 +44,7 @@ _Product _$ProductFromJson(Map<String, dynamic> json) => _Product(
   onlineOnly: json['onlineOnly'] as bool?,
   ecotax: (json['ecotax'] as num?)?.toDouble(),
   minimalQuantity: (json['minimalQuantity'] as num?)?.toInt(),
-  lowStockThreshold: json['lowStockThreshold'] as String?,
+  lowStockThreshold: (json['lowStockThreshold'] as num?)?.toInt(),
   lowStockAlert: json['lowStockAlert'] as bool?,
   price: (json['price'] as num?)?.toDouble(),
   wholesalePrice: (json['wholesalePrice'] as num?)?.toDouble(),

@@ -40,10 +40,10 @@ abstract class ProductDTO with _$ProductDTO {
     String? reference,
     @JsonKey(name: 'supplier_reference') String? supplierReference,
     String? location,
-    @JsonKey(fromJson: parseIsFloat) double? width,
-    @JsonKey(fromJson: parseIsFloat) double? height,
-    @JsonKey(fromJson: parseIsFloat) double? depth,
-    @JsonKey(fromJson: parseIsFloat) double? weight,
+    @JsonKey(fromJson: parseIsFloat, toJson: isFloatToJson) double? width,
+    @JsonKey(fromJson: parseIsFloat, toJson: isFloatToJson) double? height,
+    @JsonKey(fromJson: parseIsFloat, toJson: isFloatToJson) double? depth,
+    @JsonKey(fromJson: parseIsFloat, toJson: isFloatToJson) double? weight,
     @JsonKey(
       name: 'quantity_discount',
       fromJson: parseIsBool,
@@ -76,7 +76,12 @@ abstract class ProductDTO with _$ProductDTO {
     @JsonKey(fromJson: parseIsFloat, toJson: isFloatToJson) double? ecotax,
     @JsonKey(name: 'minimal_quantity', fromJson: parseNullOrUnsignedId)
     int? minimalQuantity,
-    @JsonKey(name: 'low_stock_threshold') String? lowStockThreshold,
+    @JsonKey(
+      name: 'low_stock_threshold',
+      fromJson: parseIsInt,
+      toJson: isIntToJson,
+    )
+    int? lowStockThreshold,
     @JsonKey(
       name: 'low_stock_alert',
       fromJson: parseIsBool,
@@ -114,7 +119,11 @@ abstract class ProductDTO with _$ProductDTO {
       toJson: isBoolToJson,
     )
     bool? availableForOrder,
-    @JsonKey(name: 'available_date', fromJson: parseIsDate)
+    @JsonKey(
+      name: 'available_date',
+      fromJson: parseIsDate,
+      toJson: isDateToJson,
+    )
     DateTime? availableDate,
     @JsonKey(
       name: 'show_condition',
@@ -133,8 +142,10 @@ abstract class ProductDTO with _$ProductDTO {
       toJson: isBoolToJson,
     )
     bool? advancedStockManagement,
-    @JsonKey(name: 'date_add', fromJson: parseIsDate) DateTime? dateAdd,
-    @JsonKey(name: 'date_upd', fromJson: parseIsDate) DateTime? dateUpd,
+    @JsonKey(name: 'date_add', fromJson: parseIsDate, toJson: isDateToJson)
+    DateTime? dateAdd,
+    @JsonKey(name: 'date_upd', fromJson: parseIsDate, toJson: isDateToJson)
+    DateTime? dateUpd,
     @JsonKey(name: 'pack_stock_type', fromJson: parseNullOrUnsignedId)
     int? packStockType,
     @JsonKey(name: 'meta_description') String? metaDescription,

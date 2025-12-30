@@ -48,7 +48,7 @@ abstract class Product with _$Product {
     bool? onlineOnly,
     double? ecotax,
     int? minimalQuantity,
-    String? lowStockThreshold,
+    int? lowStockThreshold,
     bool? lowStockAlert,
     double? price,
     double? wholesalePrice,
