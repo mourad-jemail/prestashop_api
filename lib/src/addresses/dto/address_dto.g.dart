@@ -55,6 +55,6 @@ Map<String, dynamic> _$AddressDTOToJson(_AddressDTO instance) =>
       'phone_mobile': instance.phoneMobile,
       'dni': instance.dni,
       'deleted': isBoolToJson(instance.deleted),
-      'date_add': instance.dateAdd?.toIso8601String(),
-      'date_upd': instance.dateUpd?.toIso8601String(),
+      'date_add': isDateToJson(instance.dateAdd),
+      'date_upd': isDateToJson(instance.dateUpd),
     };

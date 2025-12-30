@@ -37,8 +37,10 @@ abstract class AddressDTO with _$AddressDTO {
     @JsonKey(name: 'phone_mobile') String? phoneMobile,
     String? dni,
     @JsonKey(fromJson: parseIsBool, toJson: isBoolToJson) bool? deleted,
-    @JsonKey(name: 'date_add', fromJson: parseIsDate) DateTime? dateAdd,
-    @JsonKey(name: 'date_upd', fromJson: parseIsDate) DateTime? dateUpd,
+    @JsonKey(name: 'date_add', fromJson: parseIsDate, toJson: isDateToJson)
+    DateTime? dateAdd,
+    @JsonKey(name: 'date_upd', fromJson: parseIsDate, toJson: isDateToJson)
+    DateTime? dateUpd,
   }) = _AddressDTO;
 
   factory AddressDTO.fromJson(Map<String, dynamic> json) =>
