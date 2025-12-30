@@ -15,7 +15,8 @@ abstract class CountryDTO with _$CountryDTO {
     @JsonKey(name: 'id_zone', fromJson: parseNullOrUnsignedId) int? idZone,
     @JsonKey(name: 'id_currency', fromJson: parseNullOrUnsignedId)
     int? idCurrency,
-    @JsonKey(name: 'call_prefix') String? callPrefix,
+    @JsonKey(name: 'call_prefix', fromJson: parseIsInt, toJson: isIntToJson)
+    int? callPrefix,
     @JsonKey(name: 'iso_code') String? isoCode,
     @JsonKey(name: 'active', fromJson: parseIsBool, toJson: isBoolToJson)
     bool? active,

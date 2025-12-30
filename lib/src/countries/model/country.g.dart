@@ -10,7 +10,7 @@ _Country _$CountryFromJson(Map<String, dynamic> json) => _Country(
   id: (json['id'] as num?)?.toInt(),
   idZone: (json['idZone'] as num?)?.toInt(),
   idCurrency: (json['idCurrency'] as num?)?.toInt(),
-  callPrefix: json['callPrefix'] as String?,
+  callPrefix: (json['callPrefix'] as num?)?.toInt(),
   isoCode: json['isoCode'] as String?,
   active: json['active'] as bool?,
   containsStates: json['containsStates'] as bool?,

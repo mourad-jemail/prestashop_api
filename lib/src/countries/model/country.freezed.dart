@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Country {
 
- int? get id; int? get idZone; int? get idCurrency; String? get callPrefix; String? get isoCode; bool? get active; bool? get containsStates; bool? get needIdentificationNumber; bool? get needZipCode; String? get zipCodeFormat; bool? get displayTaxLabel; String? get name;
+ int? get id; int? get idZone; int? get idCurrency; int? get callPrefix; String? get isoCode; bool? get active; bool? get containsStates; bool? get needIdentificationNumber; bool? get needZipCode; String? get zipCodeFormat; bool? get displayTaxLabel; String? get name;
 /// Create a copy of Country
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $CountryCopyWith<$Res>  {
   factory $CountryCopyWith(Country value, $Res Function(Country) _then) = _$CountryCopyWithImpl;
 @useResult
 $Res call({
- int? id, int? idZone, int? idCurrency, String? callPrefix, String? isoCode, bool? active, bool? containsStates, bool? needIdentificationNumber, bool? needZipCode, String? zipCodeFormat, bool? displayTaxLabel, String? name
+ int? id, int? idZone, int? idCurrency, int? callPrefix, String? isoCode, bool? active, bool? containsStates, bool? needIdentificationNumber, bool? needZipCode, String? zipCodeFormat, bool? displayTaxLabel, String? name
 });
 
 
@@ -71,7 +71,7 @@ id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int?,idZone: freezed == idZone ? _self.idZone : idZone // ignore: cast_nullable_to_non_nullable
 as int?,idCurrency: freezed == idCurrency ? _self.idCurrency : idCurrency // ignore: cast_nullable_to_non_nullable
 as int?,callPrefix: freezed == callPrefix ? _self.callPrefix : callPrefix // ignore: cast_nullable_to_non_nullable
-as String?,isoCode: freezed == isoCode ? _self.isoCode : isoCode // ignore: cast_nullable_to_non_nullable
+as int?,isoCode: freezed == isoCode ? _self.isoCode : isoCode // ignore: cast_nullable_to_non_nullable
 as String?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
 as bool?,containsStates: freezed == containsStates ? _self.containsStates : containsStates // ignore: cast_nullable_to_non_nullable
 as bool?,needIdentificationNumber: freezed == needIdentificationNumber ? _self.needIdentificationNumber : needIdentificationNumber // ignore: cast_nullable_to_non_nullable
@@ -164,7 +164,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id,  int? idZone,  int? idCurrency,  String? callPrefix,  String? isoCode,  bool? active,  bool? containsStates,  bool? needIdentificationNumber,  bool? needZipCode,  String? zipCodeFormat,  bool? displayTaxLabel,  String? name)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id,  int? idZone,  int? idCurrency,  int? callPrefix,  String? isoCode,  bool? active,  bool? containsStates,  bool? needIdentificationNumber,  bool? needZipCode,  String? zipCodeFormat,  bool? displayTaxLabel,  String? name)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Country() when $default != null:
 return $default(_that.id,_that.idZone,_that.idCurrency,_that.callPrefix,_that.isoCode,_that.active,_that.containsStates,_that.needIdentificationNumber,_that.needZipCode,_that.zipCodeFormat,_that.displayTaxLabel,_that.name);case _:
@@ -185,7 +185,7 @@ return $default(_that.id,_that.idZone,_that.idCurrency,_that.callPrefix,_that.is
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id,  int? idZone,  int? idCurrency,  String? callPrefix,  String? isoCode,  bool? active,  bool? containsStates,  bool? needIdentificationNumber,  bool? needZipCode,  String? zipCodeFormat,  bool? displayTaxLabel,  String? name)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id,  int? idZone,  int? idCurrency,  int? callPrefix,  String? isoCode,  bool? active,  bool? containsStates,  bool? needIdentificationNumber,  bool? needZipCode,  String? zipCodeFormat,  bool? displayTaxLabel,  String? name)  $default,) {final _that = this;
 switch (_that) {
 case _Country():
 return $default(_that.id,_that.idZone,_that.idCurrency,_that.callPrefix,_that.isoCode,_that.active,_that.containsStates,_that.needIdentificationNumber,_that.needZipCode,_that.zipCodeFormat,_that.displayTaxLabel,_that.name);case _:
@@ -205,7 +205,7 @@ return $default(_that.id,_that.idZone,_that.idCurrency,_that.callPrefix,_that.is
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id,  int? idZone,  int? idCurrency,  String? callPrefix,  String? isoCode,  bool? active,  bool? containsStates,  bool? needIdentificationNumber,  bool? needZipCode,  String? zipCodeFormat,  bool? displayTaxLabel,  String? name)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id,  int? idZone,  int? idCurrency,  int? callPrefix,  String? isoCode,  bool? active,  bool? containsStates,  bool? needIdentificationNumber,  bool? needZipCode,  String? zipCodeFormat,  bool? displayTaxLabel,  String? name)?  $default,) {final _that = this;
 switch (_that) {
 case _Country() when $default != null:
 return $default(_that.id,_that.idZone,_that.idCurrency,_that.callPrefix,_that.isoCode,_that.active,_that.containsStates,_that.needIdentificationNumber,_that.needZipCode,_that.zipCodeFormat,_that.displayTaxLabel,_that.name);case _:
@@ -226,7 +226,7 @@ class _Country extends Country {
 @override final  int? id;
 @override final  int? idZone;
 @override final  int? idCurrency;
-@override final  String? callPrefix;
+@override final  int? callPrefix;
 @override final  String? isoCode;
 @override final  bool? active;
 @override final  bool? containsStates;
@@ -269,7 +269,7 @@ abstract mixin class _$CountryCopyWith<$Res> implements $CountryCopyWith<$Res> {
   factory _$CountryCopyWith(_Country value, $Res Function(_Country) _then) = __$CountryCopyWithImpl;
 @override @useResult
 $Res call({
- int? id, int? idZone, int? idCurrency, String? callPrefix, String? isoCode, bool? active, bool? containsStates, bool? needIdentificationNumber, bool? needZipCode, String? zipCodeFormat, bool? displayTaxLabel, String? name
+ int? id, int? idZone, int? idCurrency, int? callPrefix, String? isoCode, bool? active, bool? containsStates, bool? needIdentificationNumber, bool? needZipCode, String? zipCodeFormat, bool? displayTaxLabel, String? name
 });
 
 
@@ -292,7 +292,7 @@ id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int?,idZone: freezed == idZone ? _self.idZone : idZone // ignore: cast_nullable_to_non_nullable
 as int?,idCurrency: freezed == idCurrency ? _self.idCurrency : idCurrency // ignore: cast_nullable_to_non_nullable
 as int?,callPrefix: freezed == callPrefix ? _self.callPrefix : callPrefix // ignore: cast_nullable_to_non_nullable
-as String?,isoCode: freezed == isoCode ? _self.isoCode : isoCode // ignore: cast_nullable_to_non_nullable
+as int?,isoCode: freezed == isoCode ? _self.isoCode : isoCode // ignore: cast_nullable_to_non_nullable
 as String?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
 as bool?,containsStates: freezed == containsStates ? _self.containsStates : containsStates // ignore: cast_nullable_to_non_nullable
 as bool?,needIdentificationNumber: freezed == needIdentificationNumber ? _self.needIdentificationNumber : needIdentificationNumber // ignore: cast_nullable_to_non_nullable

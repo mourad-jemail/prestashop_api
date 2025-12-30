@@ -125,6 +125,34 @@ String? isFloatToJson(double? value) {
   return value.toString();
 }
 
+/// Parses a PrestaShop `isInt` value into a nullable [int].
+///
+/// The input may be `null`, a numeric string, or an integer as returned by the
+/// PrestaShop Webservice. Empty or invalid values are treated as absent and
+/// result in `null`.
+int? parseIsInt(dynamic value) {
+  if (value == null) return null;
+
+  final parsed = switch (value) {
+    final int v => v,
+    final String v => int.tryParse(v),
+    _ => null,
+  };
+
+  return parsed;
+}
+
+/// Serializes a Dart [int] into a PrestaShop-compatible `isInt` value.
+///
+/// Returns `null` if the value is `null`. Otherwise returns the integer
+/// value as-is.
+String? isIntToJson(int? value) {
+  if (value == null) return null;
+
+  // String is safer than number for PrestaShop Webservice
+  return value.toString();
+}
+
 /// Converts an API value to a consistent [String] for the domain, or `null` if the value is not valid.
 ///
 /// Handles:

@@ -13,7 +13,7 @@ abstract class Country with _$Country implements ConvertibleToJson {
     int? id,
     int? idZone,
     int? idCurrency,
-    String? callPrefix,
+    int? callPrefix,
     String? isoCode,
     bool? active,
     bool? containsStates,
