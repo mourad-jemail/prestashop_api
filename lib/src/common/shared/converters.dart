@@ -1,5 +1,3 @@
-import 'date_mapper.dart';
-
 /// Parses a PrestaShop `isNullOrUnsignedId` value into a nullable [int].
 ///
 /// The input may be `null`, a numeric string, or an integer as returned by the
@@ -135,27 +133,6 @@ String? isFloatToJson(double? value) {
   return value.toString();
 }
 
-bool boolFromJson(Object? json) {
-  if (json == null) {
-    return false;
-  }
-  return json == '1';
-}
-
-String boolToJson(bool? value) {
-  if (value == null) {
-    return '';
-  }
-  return value ? '1' : '0';
-}
-
-String stringFromJson(String? json) {
-  if (json is String) {
-    return json;
-  }
-  return '';
-}
-
 /// Converts an API value to a consistent [String] for the domain, or `null` if the value is not valid.
 ///
 /// Handles:
@@ -169,62 +146,6 @@ String? stringFromDynamicJson(dynamic value) {
     final double d => d.toString(),
     _ => null,
   };
-}
-
-/// Safely parses an API value into a nullable [int].
-///
-/// This converter is designed to handle inconsistent backend representations
-/// commonly found in legacy APIs (e.g. PrestaShop), where numeric identifiers
-/// may be returned as:
-/// - an [int] (`1`)
-/// - a [String] (`"1"`)
-/// - `0` or `"0"` as a sentinel value meaning “no value”
-/// - `null`
-///
-/// By default, the value `0` (or `"0"`) is interpreted as `null`, which allows
-/// the domain layer to work with a clean and meaningful `int?`.
-///
-/// ### Examples
-/// ```dart
-/// nullableIntFromJson(5);        // → 5
-/// nullableIntFromJson("12");     // → 12
-/// nullableIntFromJson(0);        // → null
-/// nullableIntFromJson("0");      // → null
-/// nullableIntFromJson(null);     // → null
-/// ```
-///
-/// Set [zeroIsNull] to `true` if `0` is not considered a valid value.
-///
-/// This function should be used at the DTO / serialization boundary to
-/// normalize API data before it reaches the domain layer.
-int? nullableIntFromJson(dynamic value, {bool zeroIsNull = false}) {
-  if (value == null) return null;
-
-  final parsed = switch (value) {
-    final int v => v,
-    final String v => int.tryParse(v),
-    _ => null,
-  };
-
-  if (parsed == null) return null;
-  if (zeroIsNull && parsed == 0) return null;
-
-  return parsed;
-}
-
-double? nullableDoubleFromJson(dynamic value, {bool zeroIsNull = false}) {
-  if (value == null) return null;
-
-  final parsed = switch (value) {
-    final double v => v,
-    final String v => double.tryParse(v),
-    _ => null,
-  };
-
-  if (parsed == null) return null;
-  if (zeroIsNull && parsed == 0) return null;
-
-  return parsed;
 }
 
 /// Converts a JSON array into a list of objects of type `T`.
