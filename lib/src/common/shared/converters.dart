@@ -227,14 +227,6 @@ double? nullableDoubleFromJson(dynamic value, {bool zeroIsNull = false}) {
   return parsed;
 }
 
-DateTime? dateTimeFromJson(String? value) {
-  return DateMapper.fromApi(value);
-}
-
-String? dateTimeToJson(DateTime? value) {
-  return value == null ? null : DateMapper.toApi(value);
-}
-
 /// Converts a JSON array into a list of objects of type `T`.
 List<T> listOfObjectsFromJson<T>(
   Object? json,
