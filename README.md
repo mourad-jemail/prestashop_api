@@ -52,8 +52,11 @@ Let's explore the package's capabilities together!
     - [PrestaShop - Categories](#prestashop---categories)
     - [PrestaShop - Countries](#prestashop---countries)
     - [PrestaShop - Languages](#prestashop---languages)
+    - [PrestaShop - Product features](#prestashop---product-features)
     - [PrestaShop - Products](#prestashop---products)
     - [PrestaShop - Stock availables](#prestashop---stock-availables)
+    - [PrestaShop - Tax rule groups](#prestashop---tax-rule-groups)
+    - [PrestaShop - Tax rules](#prestashop---tax-rules)
     - [PrestaShop - Taxes](#prestashop---taxes)
 - [PrestaShop API Documentation Reference](#prestashop-api-documentation-reference)
 - [Feedback](#feedback)
@@ -341,7 +344,7 @@ Future<void> main() async {
       display: display,
       sort: sort,
     );
-    
+
     print('A next page is available: ${receivedProducts.isNextPageAvailable}');
 
     // Print retrieved product data in a well formatted way
@@ -410,6 +413,14 @@ ongoing, and additional API requests may be added in future updates.
 
 [See Languages API](https://devdocs.prestashop-project.org/1.7/webservice/resources/languages/)
 
+### PrestaShop - Product features
+
+- Get Product features
+- Retrieve a Product feature by id
+- Get Product features by page
+
+[See Product features API](https://devdocs.prestashop-project.org/1.7/webservice/resources/product_features/)
+
 ### PrestaShop - Products
 
 - Get Products
@@ -425,6 +436,22 @@ ongoing, and additional API requests may be added in future updates.
 - Get Stock availables by page
 
 [See Stock availables API](https://devdocs.prestashop-project.org/1.7/webservice/resources/stock_availables/)
+
+### PrestaShop - Tax rules
+
+- Get Tax rules
+- Retrieve a Tax rule by id
+- Get Tax rules by page
+
+[See Tax rules API](https://devdocs.prestashop-project.org/1.7/webservice/resources/tax_rules/)
+
+### PrestaShop - Tax rule groups
+
+- Get Tax rule groups
+- Retrieve a Tax rule group by id
+- Get Tax rule groups by page
+
+[See Tax rule groups API](https://devdocs.prestashop-project.org/1.7/webservice/resources/tax_rule_groups/)
 
 ### PrestaShop - Taxes
 

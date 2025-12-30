@@ -1,8 +1,12 @@
-## 
+## 1.4.0
 
 - Feat: Added support for 'Addresses' resource
 - Feat: Added support for 'Attachments' resource
 - Feat: Added support for 'Carriers' resource
+- Feat: Added support for 'Tax rule groups' resource
+- Feat: Added support for 'Tax rules' resource
+- Refactor: Improved PrestaShop data handling with stricter ID and date converters
+- Docs: Minor documentation fixes and clarifications
 
 ## 1.3.0
 
