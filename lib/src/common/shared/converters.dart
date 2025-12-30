@@ -1,11 +1,9 @@
 /// Parses a PrestaShop `isNullOrUnsignedId` value into a nullable [int].
 ///
 /// The input may be `null`, a numeric string, or an integer as returned by the
-/// PrestaShop Webservice. Values that are invalid, negative, or equal to zero
-/// (when [zeroIsNull] is true) are treated as absent and result in `null`.
-///
-/// By convention, PrestaShop identifiers are strictly positive integers.
-int? parseNullOrUnsignedId(dynamic value, {bool zeroIsNull = false}) {
+/// PrestaShop Webservice. Values that are invalid, or negative are treated as
+/// absent and result in `null`.
+int? parseNullOrUnsignedId(dynamic value) {
   if (value == null) return null;
 
   final parsed = switch (value) {
@@ -16,7 +14,6 @@ int? parseNullOrUnsignedId(dynamic value, {bool zeroIsNull = false}) {
 
   if (parsed == null) return null;
   if (parsed < 0) return null;
-  if (zeroIsNull && parsed == 0) return null;
 
   return parsed;
 }
