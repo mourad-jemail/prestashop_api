@@ -18,29 +18,6 @@ int? parseNullOrUnsignedId(dynamic value) {
   return parsed;
 }
 
-/// Parses a PrestaShop `isUnsignedId` value into a non-nullable [int].
-///
-/// The input may be a numeric string or an integer as returned by the
-/// PrestaShop Webservice. Throws a [FormatException] if the value is
-/// null, non-numeric, zero, or negative.
-///
-/// PrestaShop identifiers are strictly positive integers.
-int parseUnsignedId(dynamic value) {
-  final parsed = switch (value) {
-    final int v => v,
-    final String v => int.tryParse(v),
-    _ => null,
-  };
-
-  if (parsed == null || parsed < 0) {
-    throw FormatException(
-      'Expected a positive integer (isUnsignedId), got: $value',
-    );
-  }
-
-  return parsed;
-}
-
 /// Parses a PrestaShop `isBool` value into a nullable [bool].
 ///
 /// The input may be `null`, a boolean, a numeric value (`1` or `0`),
