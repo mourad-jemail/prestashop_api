@@ -46,6 +46,10 @@ import 'tax_rule_groups/i_tax_rule_group_facade.dart';
 import 'tax_rule_groups/model/tax_rule_group.dart';
 import 'tax_rule_groups/network/tax_rule_group_date_source.dart';
 import 'tax_rule_groups/network/tax_rule_group_enums.dart';
+import 'tax_rules/i_tax_rule_facade.dart';
+import 'tax_rules/model/tax_rule.dart';
+import 'tax_rules/network/tax_rule_data_source.dart';
+import 'tax_rules/network/tax_rule_enums.dart';
 import 'taxes/i_tax_facade.dart';
 import 'taxes/model/tax.dart';
 import 'taxes/network/tax_data_source.dart';
@@ -99,6 +103,7 @@ import 'taxes/network/tax_enums.dart';
 @LazySingleton(as: IProductFacade)
 @LazySingleton(as: IStockAvailableFacade)
 @LazySingleton(as: ITaxRuleGroupFacade)
+@LazySingleton(as: ITaxRuleFacade)
 @LazySingleton(as: ITaxFacade)
 class PrestashopApi
     implements
@@ -111,6 +116,7 @@ class PrestashopApi
         IProductFacade,
         IStockAvailableFacade,
         ITaxRuleGroupFacade,
+        ITaxRuleFacade,
         ITaxFacade {
   final Dio _dio;
   final AddressDataSource _addressDataSource;
@@ -122,6 +128,7 @@ class PrestashopApi
   final ProductDataSource _productDataSource;
   final StockAvailableDataSource _stockAvailableDataSource;
   final TaxRuleGroupDataSource _taxRuleGroupDataSource;
+  final TaxRuleDataSource _taxRuleDataSource;
   final TaxDataSource _taxDataSource;
 
   factory PrestashopApi(
@@ -136,6 +143,7 @@ class PrestashopApi
     ProductDataSource? productDataSource,
     StockAvailableDataSource? stockAvailableDataSource,
     TaxRuleGroupDataSource? taxRuleGroupDataSource,
+    TaxRuleDataSource? taxRuleDataSource,
     TaxDataSource? taxDataSource,
   }) {
     final dioInstance = dio ?? Dio();
@@ -152,6 +160,7 @@ class PrestashopApi
       stockAvailableDataSource ??
           StockAvailableDataSource(dioInstance, baseConfig),
       taxRuleGroupDataSource ?? TaxRuleGroupDataSource(dioInstance, baseConfig),
+      taxRuleDataSource ?? TaxRuleDataSource(dioInstance, baseConfig),
       taxDataSource ?? TaxDataSource(dioInstance, baseConfig),
     );
   }
@@ -167,6 +176,7 @@ class PrestashopApi
     this._productDataSource,
     this._stockAvailableDataSource,
     this._taxRuleGroupDataSource,
+    this._taxRuleDataSource,
     this._taxDataSource,
   );
 
@@ -931,6 +941,83 @@ class PrestashopApi
 
     return ReceivedEntity(
       remoteResponse.data.toDomain().taxRuleGroupList,
+      isNextPageAvailable: remoteResponse.isNextPageAvailable,
+    );
+  });
+
+  ///
+  /// Tax Rule
+  ///
+
+  /// Fetches a list of all [TaxRule] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of all tax rules.
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  @override
+  Future<ReceivedEntity<List<TaxRule>>> getTaxRules({
+    Filter<TaxRuleFilterField>? filter,
+    Display<TaxRuleDisplayField>? display,
+    Sort<SortFieldOrder<TaxRuleSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _taxRuleDataSource.getTaxRules(
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(remoteResponse.data.toDomain().taxRuleList);
+  });
+
+  /// Retrieves a single [TaxRule] by its [id].
+  ///
+  /// Returns a [ReceivedEntity] containing the tax rule groups.
+  /// Requires the tax rule group [id].
+  /// An optional [display] parameter can be provided.
+  /// If no tax rule group is found, returns a [ReceivedEntity] containing an
+  /// empty [TaxRule] object.
+  @override
+  Future<ReceivedEntity<TaxRule>> getTaxRuleById({
+    required int id,
+    Display<TaxRuleDisplayField>? display,
+  }) => _callApi(() async {
+    final remoteResponse = await _taxRuleDataSource.getTaxRules(
+      filter: Filter.equals(TaxRuleFilterField.id, value: '$id'),
+      display: display,
+    );
+
+    final taxRuleOutputDTO = remoteResponse.data;
+
+    if (taxRuleOutputDTO.toDomain().taxRuleList.isNotEmpty) {
+      return ReceivedEntity(taxRuleOutputDTO.toDomain().taxRuleList[0]);
+    } else {
+      return ReceivedEntity(TaxRule.empty());
+    }
+  });
+
+  /// Fetches a paginated list of [TaxRule] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of tax rule groups for the
+  /// specified [page].
+  /// Requires [page] number, and items [perPage].
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  @override
+  Future<ReceivedEntity<List<TaxRule>>> getTaxRulesPage({
+    required int page,
+    required int perPage,
+    Filter<TaxRuleFilterField>? filter,
+    Display<TaxRuleDisplayField>? display,
+    Sort<SortFieldOrder<TaxRuleSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _taxRuleDataSource.getTaxRulesPage(
+      page: page,
+      perPage: perPage,
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(
+      remoteResponse.data.toDomain().taxRuleList,
       isNextPageAvailable: remoteResponse.isNextPageAvailable,
     );
   });
