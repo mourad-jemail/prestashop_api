@@ -1,3 +1,7 @@
+## 
+
+- Feat: Added support for 'Cart rules' resource
+
 ## 1.4.0
 
 - Feat: Added support for 'Addresses' resource

@@ -49,6 +49,7 @@ Let's explore the package's capabilities together!
     - [PrestaShop - Addresses](#prestashop---addresses)
     - [PrestaShop - Attachments](#prestashop---attachments)
     - [PrestaShop - Carriers](#prestashop---carriers)
+    - [PrestaShop - Cart rules](#prestashop---cart-rules)
     - [PrestaShop - Categories](#prestashop---categories)
     - [PrestaShop - Countries](#prestashop---countries)
     - [PrestaShop - Languages](#prestashop---languages)
@@ -388,6 +389,14 @@ ongoing, and additional API requests may be added in future updates.
 - Get Carriers by page
 
 [See Carriers API](https://devdocs.prestashop-project.org/1.7/webservice/resources/carriers/)
+
+### PrestaShop - Cart rules
+
+- Get Cart rules
+- Retrieve a Cart rule by id
+- Get Cart rules by page
+
+[See Cart rules API](https://devdocs.prestashop-project.org/1.7/webservice/resources/cart_rules/)
 
 ### PrestaShop - Categories
 
