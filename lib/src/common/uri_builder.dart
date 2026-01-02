@@ -11,6 +11,7 @@ const String addressesPath = '/api/addresses';
 const String attachmentsPath = '/api/attachments';
 const String carriersPath = '/api/carriers';
 const String cartRulesPath = '/api/cart_rules';
+const String cartsPath = '/api/carts';
 const String categoriesPath = '/api/categories';
 const String countriesPath = '/api/countries';
 const String languagesPath = '/api/languages';
