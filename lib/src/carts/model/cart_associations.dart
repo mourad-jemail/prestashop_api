@@ -13,7 +13,7 @@ abstract class CartAssociations with _$CartAssociations {
 
   factory CartAssociations.empty() => const CartAssociations(cartRows: []);
 
-  bool isEmpty() => cartRows != null && cartRows!.isEmpty;
+  bool isEmpty() => cartRows == null || cartRows!.isEmpty;
 
   factory CartAssociations.fromJson(Map<String, dynamic> json) =>
       _$CartAssociationsFromJson(json);
