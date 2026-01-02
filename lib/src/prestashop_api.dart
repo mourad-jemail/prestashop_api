@@ -19,6 +19,10 @@ import 'cart_rules/i_cart_rule_facade.dart';
 import 'cart_rules/model/cart_rule.dart';
 import 'cart_rules/network/cart_rule_data_source.dart';
 import 'cart_rules/network/cart_rule_enums.dart';
+import 'carts/i_cart_facade.dart';
+import 'carts/model/cart.dart';
+import 'carts/network/cart_data_source.dart';
+import 'carts/network/cart_enums.dart';
 import 'categories/i_category_facade.dart';
 import 'categories/model/category.dart';
 import 'categories/network/category_data_source.dart';
@@ -101,6 +105,7 @@ import 'taxes/network/tax_enums.dart';
 @LazySingleton(as: IAddressFacade)
 @LazySingleton(as: IAttachmentFacade)
 @LazySingleton(as: ICarrierFacade)
+@LazySingleton(as: ICartFacade)
 @LazySingleton(as: ICartRuleFacade)
 @LazySingleton(as: ICategoryFacade)
 @LazySingleton(as: ICountryFacade)
@@ -115,6 +120,7 @@ class PrestashopApi
         IAddressFacade,
         IAttachmentFacade,
         ICarrierFacade,
+        ICartFacade,
         ICartRuleFacade,
         ICategoryFacade,
         ICountryFacade,
@@ -128,6 +134,7 @@ class PrestashopApi
   final AddressDataSource _addressDataSource;
   final AttachmentDataSource _attachmentDataSource;
   final CarrierDataSource _carrierDataSource;
+  final CartDataSource _cartDataSource;
   final CartRuleDataSource _cartRuleDataSource;
   final CategoryDataSource _categoryDataSource;
   final CountryDataSource _countryDataSource;
@@ -144,6 +151,7 @@ class PrestashopApi
     AddressDataSource? addressDataSource,
     AttachmentDataSource? attachmentDataSource,
     CarrierDataSource? carrierDataSource,
+    CartDataSource? cartDataSource,
     CartRuleDataSource? cartRuleDataSource,
     CategoryDataSource? categoryDataSource,
     CountryDataSource? countryDataSource,
@@ -161,6 +169,7 @@ class PrestashopApi
       addressDataSource ?? AddressDataSource(dioInstance, baseConfig),
       attachmentDataSource ?? AttachmentDataSource(dioInstance, baseConfig),
       carrierDataSource ?? CarrierDataSource(dioInstance, baseConfig),
+      cartDataSource ?? CartDataSource(dioInstance, baseConfig),
       cartRuleDataSource ?? CartRuleDataSource(dioInstance, baseConfig),
       categoryDataSource ?? CategoryDataSource(dioInstance, baseConfig),
       countryDataSource ?? CountryDataSource(dioInstance, baseConfig),
@@ -179,6 +188,7 @@ class PrestashopApi
     this._addressDataSource,
     this._attachmentDataSource,
     this._carrierDataSource,
+    this._cartDataSource,
     this._cartRuleDataSource,
     this._categoryDataSource,
     this._countryDataSource,
@@ -463,6 +473,84 @@ class PrestashopApi
 
     return ReceivedEntity(
       remoteResponse.data.toDomain().carrierList,
+      isNextPageAvailable: remoteResponse.isNextPageAvailable,
+    );
+  });
+
+  ///
+  /// Cart
+  ///
+
+  /// Fetches a list of all [Cart] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of all carts.
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  /// Requires [languageId] to specify the language of the retrieved data.
+  @override
+  Future<ReceivedEntity<List<Cart>>> getCarts({
+    Filter<CartFilterField>? filter,
+    Display<CartDisplayField>? display,
+    Sort<SortFieldOrder<CartSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _cartDataSource.getCarts(
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(remoteResponse.data.toDomain().cartList);
+  });
+
+  /// Retrieves a single [Cart] by its [id].
+  ///
+  /// Returns a [ReceivedEntity] containing the carrier.
+  /// Requires the cart [id].
+  /// An optional [display] parameter can be provided.
+  /// If no cart is found, returns a [ReceivedEntity] containing an empty
+  /// [Cart] object.
+  @override
+  Future<ReceivedEntity<Cart>> getCartById({
+    required int id,
+    Display<CartDisplayField>? display,
+  }) => _callApi(() async {
+    final remoteResponse = await _cartDataSource.getCarts(
+      filter: Filter.equals(CartFilterField.id, value: '$id'),
+      display: display,
+    );
+
+    final cartList = remoteResponse.data.toDomain().cartList;
+
+    if (cartList.isNotEmpty) {
+      return ReceivedEntity(cartList[0]);
+    } else {
+      return ReceivedEntity(Cart.empty());
+    }
+  });
+
+  /// Fetches a paginated list of [Cart] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of carts for the
+  /// specified [page].
+  /// Requires [languageId], [page] number, and items [perPage].
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  @override
+  Future<ReceivedEntity<List<Cart>>> getCartsPage({
+    required int page,
+    required int perPage,
+    Filter<CartFilterField>? filter,
+    Display<CartDisplayField>? display,
+    Sort<SortFieldOrder<CartSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _cartDataSource.getCartsPage(
+      page: page,
+      perPage: perPage,
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(
+      remoteResponse.data.toDomain().cartList,
       isNextPageAvailable: remoteResponse.isNextPageAvailable,
     );
   });

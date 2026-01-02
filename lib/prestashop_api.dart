@@ -12,6 +12,7 @@ export 'src/carriers/model/carrier.dart';
 export 'src/carriers/network/carrier_enums.dart';
 export 'src/cart_rules/model/cart_rule.dart';
 export 'src/cart_rules/network/cart_rule_enums.dart';
+export 'src/carts/model/cart.dart';
 export 'src/carts/network/cart_enums.dart';
 export 'src/categories/model/category.dart';
 export 'src/categories/network/category_enums.dart';
