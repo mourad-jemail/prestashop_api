@@ -20,10 +20,21 @@ abstract class CartRowDto with _$CartRowDto {
   factory CartRowDto.fromJson(Map<String, dynamic> json) =>
       _$CartRowDtoFromJson(json);
 
-  factory CartRowDto.fromDomain(CartRow cartRow) =>
-      CartRowDto(idProduct: cartRow.idProduct);
+  factory CartRowDto.fromDomain(CartRow cartRow) => CartRowDto(
+    idProduct: cartRow.idProduct,
+    idProductAttribute: cartRow.idProductAttribute,
+    idAddressDelivery: cartRow.idAddressDelivery,
+    idCustomization: cartRow.idCustomization,
+    quantity: cartRow.quantity,
+  );
 
-  CartRow toDomain() => CartRow(idProduct: idProduct);
+  CartRow toDomain() => CartRow(
+    idProduct: idProduct,
+    idProductAttribute: idProductAttribute,
+    idAddressDelivery: idAddressDelivery,
+    idCustomization: idCustomization,
+    quantity: quantity,
+  );
 }
 
 extension DomainListToDTOList on List<CartRow> {

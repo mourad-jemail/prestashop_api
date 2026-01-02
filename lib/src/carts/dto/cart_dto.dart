@@ -42,7 +42,7 @@ abstract class CartDto with _$CartDto {
       fromJson: parseIsBool,
       toJson: isBoolToJson,
     )
-    bool? allowSeperatedPackage,
+    bool? allowSeparatedPackage,
     @JsonKey(name: 'date_add', fromJson: parseIsDate, toJson: isDateToJson)
     DateTime? dateAdd,
     @JsonKey(name: 'date_upd', fromJson: parseIsDate, toJson: isDateToJson)
@@ -56,15 +56,47 @@ abstract class CartDto with _$CartDto {
   factory CartDto.fromDomain(Cart cart) {
     return CartDto(
       id: cart.id,
+      idAddressDelivery: cart.idAddressDelivery,
+      idAddressInvoice: cart.idAddressInvoice,
+      idCurrency: cart.idCurrency,
+      idCustomer: cart.idCustomer,
+      idGuest: cart.idGuest,
+      idLang: cart.idLang,
+      idShopGroup: cart.idShopGroup,
+      idShop: cart.idShop,
+      idCarrier: cart.idCarrier,
+      recyclable: cart.recyclable,
+      gift: cart.gift,
+      giftMessage: cart.giftMessage,
+      mobileTheme: cart.mobileTheme,
+      deliveryOption: cart.deliveryOption,
+      secureKey: cart.secureKey,
+      allowSeparatedPackage: cart.allowSeparatedPackage,
       dateAdd: cart.dateAdd,
       dateUpd: cart.dateUpd,
-      associations: CartAssociationsDto.fromDomain(cart.associations),
+      associations: CartAssociationsDto.fromDomain(cart.associations!),
     );
   }
 
   Cart toDomain() {
     return Cart(
       id: id,
+      idAddressDelivery: idAddressDelivery,
+      idAddressInvoice: idAddressInvoice,
+      idCurrency: idCurrency,
+      idCustomer: idCustomer,
+      idGuest: idGuest,
+      idLang: idLang,
+      idShopGroup: idShopGroup,
+      idShop: idShop,
+      idCarrier: idCarrier,
+      recyclable: recyclable,
+      gift: gift,
+      giftMessage: giftMessage,
+      mobileTheme: mobileTheme,
+      deliveryOption: deliveryOption,
+      secureKey: secureKey,
+      allowSeparatedPackage: allowSeparatedPackage,
       dateAdd: dateAdd,
       dateUpd: dateUpd,
       associations: associations?.toDomain(),
