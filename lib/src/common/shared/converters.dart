@@ -125,6 +125,40 @@ String? isFloatToJson(double? value) {
   return value.toString();
 }
 
+/// Parses a PrestaShop `isNegativeFloat` value into a nullable [double].
+///
+/// The input may be `null`, a numeric string, or a number as returned by the
+/// PrestaShop Webservice. Positive, invalid, NaN, or infinite values are
+/// rejected and result in `null`.
+double? parseIsNegativeFloat(dynamic value) {
+  if (value == null) return null;
+
+  final parsed = switch (value) {
+    final double v => v,
+    final int v => v.toDouble(),
+    final String v => double.tryParse(v),
+    _ => null,
+  };
+
+  if (parsed == null || parsed.isNaN || parsed.isInfinite) {
+    return null;
+  }
+
+  return parsed <= 0 ? parsed : null;
+}
+
+/// Serializes a Dart [double] into a PrestaShop-compatible `isNegativeFloat` value.
+///
+/// Returns `null` if the value is `null`, positive, NaN, or infinite.
+/// Otherwise returns a string representation using dot decimal notation.
+String? isNegativeFloatToJson(double? value) {
+  if (value == null) return null;
+  if (value.isNaN || value.isInfinite) return null;
+  if (value > 0) return null;
+
+  return value.toString();
+}
+
 /// Parses a PrestaShop `isInt` value into a nullable [int].
 ///
 /// The input may be `null`, a numeric string, or an integer as returned by the
