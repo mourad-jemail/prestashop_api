@@ -14,7 +14,8 @@ abstract class CombinationAssociationsDTO with _$CombinationAssociationsDTO {
   const factory CombinationAssociationsDTO({
     @JsonKey(name: 'product_option_values', fromJson: _listOfIdDTOsFromJson)
     List<IdDTO>? productOptionValueDTOs,
-    @JsonKey(name: 'images', fromJson: _listOfIdDTOsFromJson) List<IdDTO>? imageDTOs,
+    @JsonKey(name: 'images', fromJson: _listOfIdDTOsFromJson)
+    List<IdDTO>? imageDTOs,
   }) = _CombinationAssociationsDTO;
 
   factory CombinationAssociationsDTO.fromJson(Map<String, dynamic> json) =>

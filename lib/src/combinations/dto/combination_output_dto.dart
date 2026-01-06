@@ -26,9 +26,7 @@ abstract class CombinationOutputDTO with _$CombinationOutputDTO {
   }
 
   CombinationOutput toDomain() {
-    return CombinationOutput(
-      combinationList: combinationDTOList.toDomain(),
-    );
+    return CombinationOutput(combinationList: combinationDTOList.toDomain());
   }
 }
 

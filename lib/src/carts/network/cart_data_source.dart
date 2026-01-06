@@ -123,12 +123,11 @@ class CartDataSource {
     Sort<SortFieldOrder<CartSortField>>? sort,
   }) async {
     // Build the URI with the provided limit, filter, display, and sort options
-    final uriBuilder =
-        UriBuilder(_baseConfig, cartsPath)
-            .setLimit(page: page, perPage: perPage)
-            .setFilter(filter)
-            .setDisplay(display)
-            .setSort(sort);
+    final uriBuilder = UriBuilder(_baseConfig, cartsPath)
+        .setLimit(page: page, perPage: perPage)
+        .setFilter(filter)
+        .setDisplay(display)
+        .setSort(sort);
 
     try {
       Response response;

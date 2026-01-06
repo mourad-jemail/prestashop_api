@@ -18,6 +18,6 @@ abstract class CartRuleOutputDTO with _$CartRuleOutputDTO {
   const CartRuleOutputDTO._();
 
   CartRuleOutput toDomain() => CartRuleOutput(
-        cartRuleList: cartRuleList.map((e) => e.toDomain()).toList(),
-      );
+    cartRuleList: cartRuleList.map((e) => e.toDomain()).toList(),
+  );
 }
