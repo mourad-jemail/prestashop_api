@@ -30,6 +30,7 @@ export 'src/common/shared/utils.dart' show entityToJsonMap, prettyPrint;
 export 'src/common/uri_builder.dart';
 export 'src/configurations/i_configuration_facade.dart';
 export 'src/configurations/model/configuration.dart';
+export 'src/configurations/network/configuration_data_source.dart';
 export 'src/configurations/network/configuration_enums.dart';
 export 'src/countries/model/country.dart';
 export 'src/countries/network/country_enums.dart';
