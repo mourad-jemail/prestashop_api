@@ -1,5 +1,6 @@
 ## 
 
+- Feat: Added support for 'Combinations' resource
 - Feat: Added support for 'Carts' resource
 - Feat: Added support for 'Cart rules' resource
 
