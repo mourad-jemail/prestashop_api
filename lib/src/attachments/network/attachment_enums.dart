@@ -8,7 +8,6 @@ enum AttachmentDisplayField implements DisplayEnumValue {
   mime('mime'),
   name('name'),
   description('description'),
-  associations('associations'),
   all('full');
 
   @override
@@ -21,8 +20,8 @@ enum AttachmentFilterField implements FilterEnumValue {
   id('id'),
   file('file'),
   fileName('file_name'),
-  mime('mime'),
-  name('name');
+  fileSize('file_size'),
+  mime('mime');
 
   @override
   final String enumValue;
@@ -34,8 +33,10 @@ enum AttachmentSortField implements SortEnumValue {
   id('id'),
   file('file'),
   fileName('file_name'),
+  fileSize('file_size'),
   mime('mime'),
-  name('name');
+  name('name'),
+  description('description');
 
   @override
   final String enumValue;

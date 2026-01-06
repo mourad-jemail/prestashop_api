@@ -1,22 +1,5 @@
 import '../../common/options/field_enum_value.dart';
 
-enum CategoryFilterField implements FilterEnumValue {
-  id('id'),
-  idParent('id_parent'),
-  levelDepth('level_depth'),
-  nbProductsRecursive('nb_products_recursive'),
-  active('active'),
-  idShopDefault('id_shop_default'),
-  isRootCategory('is_root_category'),
-  position('position'),
-  name('name');
-
-  @override
-  final String enumValue;
-
-  const CategoryFilterField(this.enumValue);
-}
-
 enum CategoryDisplayField implements DisplayEnumValue {
   id('id'),
   idParent('id_parent'),
@@ -42,6 +25,22 @@ enum CategoryDisplayField implements DisplayEnumValue {
   final String enumValue;
 
   const CategoryDisplayField(this.enumValue);
+}
+
+enum CategoryFilterField implements FilterEnumValue {
+  id('id'),
+  idParent('id_parent'),
+  levelDepth('level_depth'),
+  nbProductsRecursive('nb_products_recursive'),
+  active('active'),
+  idShopDefault('id_shop_default'),
+  isRootCategory('is_root_category'),
+  position('position');
+
+  @override
+  final String enumValue;
+
+  const CategoryFilterField(this.enumValue);
 }
 
 enum CategorySortField implements SortEnumValue {

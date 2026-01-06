@@ -44,7 +44,15 @@ enum AddressFilterField implements FilterEnumValue {
   company('company'),
   lastname('lastname'),
   firstname('firstname'),
+  vatNumber('vat_number'),
+  address1('address1'),
+  address2('address2'),
+  postcode('postcode'),
   city('city'),
+  other('other'),
+  phone('phone'),
+  phoneMobile('phone_mobile'),
+  dni('dni'),
   deleted('deleted');
 
   @override
@@ -55,13 +63,26 @@ enum AddressFilterField implements FilterEnumValue {
 
 enum AddressSortField implements SortEnumValue {
   id('id'),
+  idCustomer('id_customer'),
+  idManufacturer('id_manufacturer'),
+  idSupplier('id_supplier'),
+  idWarehouse('id_warehouse'),
+  idCountry('id_country'),
+  idState('id_state'),
   alias('alias'),
   company('company'),
   lastname('lastname'),
   firstname('firstname'),
+  vatNumber('vat_number'),
+  address1('address1'),
+  address2('address2'),
+  postcode('postcode'),
   city('city'),
-  dateAdd('date_add'),
-  dateUpd('date_upd');
+  other('other'),
+  phone('phone'),
+  phoneMobile('phone_mobile'),
+  dni('dni'),
+  deleted('deleted');
 
   @override
   final String enumValue;

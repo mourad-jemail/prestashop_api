@@ -1,71 +1,5 @@
 import '../../common/options/field_enum_value.dart';
 
-enum ProductFilterField implements FilterEnumValue {
-  id('id'),
-  idManufacturer('id_manufacturer'),
-  idSupplier('id_supplier'),
-  idCategoryDefault('id_category_default'),
-  cacheDefaultAttribute('cache_default_attribute'),
-  idDefaultImage('id_default_image'),
-  idDefaultCombination('id_default_combination'),
-  idTaxRulesGroup('id_tax_rules_group'),
-  positionInCategory('position_in_category'),
-  manufacturerName('manufacturer_name'),
-  quantity('quantity'),
-  type('type'),
-  idShopDefault('id_shop_default'),
-  reference('reference'),
-  supplierReference('supplier_reference'),
-  location('location'),
-  width('width'),
-  height('height'),
-  depth('depth'),
-  weight('weight'),
-  quantityDiscount('quantity_discount'),
-  ean13('ean13'),
-  isbn('isbn'),
-  upc('upc'),
-  mpn('mpn'),
-  cacheIsPack('cache_is_pack'),
-  cacheHasAttachments('cache_has_attachments'),
-  isVirtual('is_virtual'),
-  state('state'),
-  additionalDeliveryTimes('additional_delivery_times'),
-  productType('product_type'),
-  onSale('on_sale'),
-  onlineOnly('online_only'),
-  ecotax('ecotax'),
-  minimalQuantity('minimal_quantity'),
-  lowStockThreshold('low_stock_threshold'),
-  lowStockAlert('low_stock_alert'),
-  price('price'),
-  wholesalePrice('wholesale_price'),
-  unity('unity'),
-  unitPriceRatio('unit_price_ratio'),
-  additionalShippingCost('additional_shipping_cost'),
-  customizable('customizable'),
-  textFields('text_fields'),
-  uploadableFiles('uploadable_files'),
-  active('active'),
-  redirectType('redirect_type'),
-  idTypeRedirected('id_type_redirected'),
-  availableForOrder('available_for_order'),
-  availableDate('available_date'),
-  showCondition('show_condition'),
-  condition('condition'),
-  showPrice('show_price'),
-  indexed('indexed'),
-  visibility('visibility'),
-  advancedStockManagement('advanced_stock_management'),
-  packStockType('pack_stock_type'),
-  name('name');
-
-  @override
-  final String enumValue;
-
-  const ProductFilterField(this.enumValue);
-}
-
 enum ProductDisplayField implements DisplayEnumValue {
   id('id'),
   idManufacturer('id_manufacturer'),
@@ -146,6 +80,72 @@ enum ProductDisplayField implements DisplayEnumValue {
   final String enumValue;
 
   const ProductDisplayField(this.enumValue);
+}
+
+enum ProductFilterField implements FilterEnumValue {
+  id('id'),
+  idManufacturer('id_manufacturer'),
+  idSupplier('id_supplier'),
+  idCategoryDefault('id_category_default'),
+  isNew('new'),
+  cacheDefaultAttribute('cache_default_attribute'),
+  idDefaultImage('id_default_image'),
+  idDefaultCombination('id_default_combination'),
+  idTaxRulesGroup('id_tax_rules_group'),
+  positionInCategory('position_in_category'),
+  manufacturerName('manufacturer_name'),
+  quantity('quantity'),
+  type('type'),
+  idShopDefault('id_shop_default'),
+  reference('reference'),
+  supplierReference('supplier_reference'),
+  location('location'),
+  width('width'),
+  height('height'),
+  depth('depth'),
+  weight('weight'),
+  quantityDiscount('quantity_discount'),
+  ean13('ean13'),
+  isbn('isbn'),
+  upc('upc'),
+  mpn('mpn'),
+  cacheIsPack('cache_is_pack'),
+  cacheHasAttachments('cache_has_attachments'),
+  isVirtual('is_virtual'),
+  state('state'),
+  additionalDeliveryTimes('additional_delivery_times'),
+  productType('product_type'),
+  onSale('on_sale'),
+  onlineOnly('online_only'),
+  ecotax('ecotax'),
+  minimalQuantity('minimal_quantity'),
+  lowStockThreshold('low_stock_threshold'),
+  lowStockAlert('low_stock_alert'),
+  price('price'),
+  wholesalePrice('wholesale_price'),
+  unity('unity'),
+  unitPriceRatio('unit_price_ratio'),
+  additionalShippingCost('additional_shipping_cost'),
+  customizable('customizable'),
+  textFields('text_fields'),
+  uploadableFiles('uploadable_files'),
+  active('active'),
+  redirectType('redirect_type'),
+  idTypeRedirected('id_type_redirected'),
+  availableForOrder('available_for_order'),
+  availableDate('available_date'),
+  showCondition('show_condition'),
+  condition('condition'),
+  showPrice('show_price'),
+  indexed('indexed'),
+  visibility('visibility'),
+  advancedStockManagement('advanced_stock_management'),
+  packStockType('pack_stock_type');
+
+  @override
+  final String enumValue;
+
+  const ProductFilterField(this.enumValue);
 }
 
 enum ProductSortField implements SortEnumValue {
