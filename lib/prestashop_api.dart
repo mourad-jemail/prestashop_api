@@ -17,6 +17,7 @@ export 'src/carts/network/cart_enums.dart';
 export 'src/categories/model/category.dart';
 export 'src/categories/network/category_enums.dart';
 export 'src/combinations/model/combination.dart';
+export 'src/combinations/network/combination_enums.dart';
 export 'src/common/exceptions/custom_exceptions.dart';
 export 'src/common/exceptions/prestashop_error.dart';
 export 'src/common/model/id.dart';
