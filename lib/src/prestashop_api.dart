@@ -27,6 +27,10 @@ import 'categories/i_category_facade.dart';
 import 'categories/model/category.dart';
 import 'categories/network/category_data_source.dart';
 import 'categories/network/category_enums.dart';
+import 'combinations/i_combination_facade.dart';
+import 'combinations/model/combination.dart';
+import 'combinations/network/combination_data_source.dart';
+import 'combinations/network/combination_enums.dart';
 import 'common/exceptions/custom_exceptions.dart';
 import 'common/exceptions/prestashop_error.dart';
 import 'common/model/received_entity.dart';
@@ -108,6 +112,7 @@ import 'taxes/network/tax_enums.dart';
 @LazySingleton(as: ICartFacade)
 @LazySingleton(as: ICartRuleFacade)
 @LazySingleton(as: ICategoryFacade)
+@LazySingleton(as: ICombinationFacade)
 @LazySingleton(as: ICountryFacade)
 @LazySingleton(as: ILanguageFacade)
 @LazySingleton(as: IProductFacade)
@@ -123,6 +128,7 @@ class PrestashopApi
         ICartFacade,
         ICartRuleFacade,
         ICategoryFacade,
+        ICombinationFacade,
         ICountryFacade,
         ILanguageFacade,
         IProductFacade,
@@ -137,6 +143,7 @@ class PrestashopApi
   final CartDataSource _cartDataSource;
   final CartRuleDataSource _cartRuleDataSource;
   final CategoryDataSource _categoryDataSource;
+  final CombinationDataSource _combinationDataSource;
   final CountryDataSource _countryDataSource;
   final LanguageDataSource _languageDataSource;
   final ProductDataSource _productDataSource;
@@ -154,6 +161,7 @@ class PrestashopApi
     CartDataSource? cartDataSource,
     CartRuleDataSource? cartRuleDataSource,
     CategoryDataSource? categoryDataSource,
+    CombinationDataSource? combinationDataSource,
     CountryDataSource? countryDataSource,
     LanguageDataSource? languageDataSource,
     ProductDataSource? productDataSource,
@@ -172,6 +180,7 @@ class PrestashopApi
       cartDataSource ?? CartDataSource(dioInstance, baseConfig),
       cartRuleDataSource ?? CartRuleDataSource(dioInstance, baseConfig),
       categoryDataSource ?? CategoryDataSource(dioInstance, baseConfig),
+      combinationDataSource ?? CombinationDataSource(dioInstance, baseConfig),
       countryDataSource ?? CountryDataSource(dioInstance, baseConfig),
       languageDataSource ?? LanguageDataSource(dioInstance, baseConfig),
       productDataSource ?? ProductDataSource(dioInstance, baseConfig),
@@ -191,6 +200,7 @@ class PrestashopApi
     this._cartDataSource,
     this._cartRuleDataSource,
     this._categoryDataSource,
+    this._combinationDataSource,
     this._countryDataSource,
     this._languageDataSource,
     this._productDataSource,
@@ -719,6 +729,83 @@ class PrestashopApi
 
     return ReceivedEntity(
       remoteResponse.data.toDomain().categoryList,
+      isNextPageAvailable: remoteResponse.isNextPageAvailable,
+    );
+  });
+
+  ///
+  /// Combination
+  ///
+
+  /// Fetches a list of all [Combination] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of all combinations.
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  @override
+  Future<ReceivedEntity<List<Combination>>> getCombinations({
+    Filter<CombinationFilterField>? filter,
+    Display<CombinationDisplayField>? display,
+    Sort<SortFieldOrder<CombinationSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _combinationDataSource.getCombinations(
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(remoteResponse.data.toDomain().combinationList);
+  });
+
+  /// Retrieves a single [Combination] by its [id].
+  ///
+  /// Returns a [ReceivedEntity] containing the combination.
+  /// Requires [languageId] and the combination [id].
+  /// An optional [display] parameter can be provided.
+  /// If no combination is found, returns a [ReceivedEntity] containing an empty
+  /// [Combination] object.
+  @override
+  Future<ReceivedEntity<Combination>> getCombinationById({
+    required int id,
+    Display<CombinationDisplayField>? display,
+  }) => _callApi(() async {
+    final remoteResponse = await _combinationDataSource.getCombinations(
+      filter: Filter.equals(CombinationFilterField.id, value: '$id'),
+      display: display,
+    );
+
+    final combinationList = remoteResponse.data.toDomain().combinationList;
+
+    if (combinationList.isNotEmpty) {
+      return ReceivedEntity(combinationList[0]);
+    } else {
+      return ReceivedEntity(Combination.empty());
+    }
+  });
+
+  /// Fetches a paginated list of [Combination] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of combinations for the
+  /// specified [page].
+  /// Requires [languageId], [page] number, and items [perPage].
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  @override
+  Future<ReceivedEntity<List<Combination>>> getCombinationsPage({
+    required int page,
+    required int perPage,
+    Filter<CombinationFilterField>? filter,
+    Display<CombinationDisplayField>? display,
+    Sort<SortFieldOrder<CombinationSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _combinationDataSource.getCombinationsPage(
+      page: page,
+      perPage: perPage,
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(
+      remoteResponse.data.toDomain().combinationList,
       isNextPageAvailable: remoteResponse.isNextPageAvailable,
     );
   });
