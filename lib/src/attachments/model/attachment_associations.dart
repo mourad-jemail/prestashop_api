@@ -12,7 +12,8 @@ abstract class AttachmentAssociations with _$AttachmentAssociations {
   const factory AttachmentAssociations({List<Id>? products}) =
       _AttachmentAssociations;
 
-  factory AttachmentAssociations.empty() => const AttachmentAssociations();
+  factory AttachmentAssociations.empty() =>
+      const AttachmentAssociations(products: []);
 
   bool isEmpty() => products == null || products!.isEmpty;
 
