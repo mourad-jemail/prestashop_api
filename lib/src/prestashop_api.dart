@@ -280,10 +280,10 @@ class PrestashopApi
       display: display,
     );
 
-    final addressOutputDTO = remoteResponse.data;
+    final addressList = remoteResponse.data.toDomain().addressList;
 
-    if (addressOutputDTO.toDomain().addressList.isNotEmpty) {
-      return ReceivedEntity(addressOutputDTO.toDomain().addressList[0]);
+    if (addressList.isNotEmpty) {
+      return ReceivedEntity(addressList[0]);
     } else {
       return ReceivedEntity(Address.empty());
     }
@@ -364,10 +364,10 @@ class PrestashopApi
       display: display,
     );
 
-    final attachmentOutputDTO = remoteResponse.data;
+    final attachmentList = remoteResponse.data.toDomain().attachmentList;
 
-    if (attachmentOutputDTO.toDomain().attachmentList.isNotEmpty) {
-      return ReceivedEntity(attachmentOutputDTO.toDomain().attachmentList[0]);
+    if (attachmentList.isNotEmpty) {
+      return ReceivedEntity(attachmentList[0]);
     } else {
       return ReceivedEntity(Attachment.empty());
     }
@@ -448,10 +448,10 @@ class PrestashopApi
       display: display,
     );
 
-    final carrierOutputDTO = remoteResponse.data;
+    final carrierList = remoteResponse.data.toDomain().carrierList;
 
-    if (carrierOutputDTO.toDomain().carrierList.isNotEmpty) {
-      return ReceivedEntity(carrierOutputDTO.toDomain().carrierList[0]);
+    if (carrierList.isNotEmpty) {
+      return ReceivedEntity(carrierList[0]);
     } else {
       return ReceivedEntity(Carrier.empty());
     }
@@ -610,10 +610,10 @@ class PrestashopApi
       display: display,
     );
 
-    final cartRuleOutputDTO = remoteResponse.data;
+    final cartRuleList = remoteResponse.data.toDomain().cartRuleList;
 
-    if (cartRuleOutputDTO.toDomain().cartRuleList.isNotEmpty) {
-      return ReceivedEntity(cartRuleOutputDTO.toDomain().cartRuleList[0]);
+    if (cartRuleList.isNotEmpty) {
+      return ReceivedEntity(cartRuleList[0]);
     } else {
       return ReceivedEntity(CartRule.empty());
     }
@@ -694,10 +694,10 @@ class PrestashopApi
       display: display,
     );
 
-    final categoryOutputDTO = remoteResponse.data;
+    final categoryList = remoteResponse.data.toDomain().categoryList;
 
-    if (categoryOutputDTO.toDomain().categoryList.isNotEmpty) {
-      return ReceivedEntity(categoryOutputDTO.toDomain().categoryList[0]);
+    if (categoryList.isNotEmpty) {
+      return ReceivedEntity(categoryList[0]);
     } else {
       return ReceivedEntity(Category.empty());
     }
@@ -855,10 +855,10 @@ class PrestashopApi
       display: display,
     );
 
-    final countryOutputDTO = remoteResponse.data;
+    final countryList = remoteResponse.data.toDomain().countryList;
 
-    if (countryOutputDTO.toDomain().countryList.isNotEmpty) {
-      return ReceivedEntity(countryOutputDTO.toDomain().countryList[0]);
+    if (countryList.isNotEmpty) {
+      return ReceivedEntity(countryList[0]);
     } else {
       return ReceivedEntity(Country.empty());
     }
@@ -934,10 +934,10 @@ class PrestashopApi
       display: display,
     );
 
-    final languageOutputDTO = remoteResponse.data;
+    final languageList = remoteResponse.data.toDomain().languageList;
 
-    if (languageOutputDTO.toDomain().languageList.isNotEmpty) {
-      return ReceivedEntity(languageOutputDTO.toDomain().languageList[0]);
+    if (languageList.isNotEmpty) {
+      return ReceivedEntity(languageList[0]);
     } else {
       return ReceivedEntity(Language.empty());
     }
@@ -1016,10 +1016,10 @@ class PrestashopApi
       display: display,
     );
 
-    final productOutputDTO = remoteResponse.data;
+    final productList = remoteResponse.data.toDomain().productList;
 
-    if (productOutputDTO.toDomain().productList.isNotEmpty) {
-      return ReceivedEntity(productOutputDTO.toDomain().productList[0]);
+    if (productList.isNotEmpty) {
+      return ReceivedEntity(productList[0]);
     } else {
       return ReceivedEntity(Product.empty());
     }
@@ -1095,12 +1095,12 @@ class PrestashopApi
       display: display,
     );
 
-    final stockAvailableOutputDTO = remoteResponse.data;
+    final stockAvailableList = remoteResponse.data
+        .toDomain()
+        .stockAvailableList;
 
-    if (stockAvailableOutputDTO.toDomain().stockAvailableList.isNotEmpty) {
-      return ReceivedEntity(
-        stockAvailableOutputDTO.toDomain().stockAvailableList[0],
-      );
+    if (stockAvailableList.isNotEmpty) {
+      return ReceivedEntity(stockAvailableList[0]);
     } else {
       return ReceivedEntity(StockAvailable.empty());
     }
@@ -1175,12 +1175,10 @@ class PrestashopApi
       display: display,
     );
 
-    final taxRuleGroupOutputDTO = remoteResponse.data;
+    final taxRuleGroupList = remoteResponse.data.toDomain().taxRuleGroupList;
 
-    if (taxRuleGroupOutputDTO.toDomain().taxRuleGroupList.isNotEmpty) {
-      return ReceivedEntity(
-        taxRuleGroupOutputDTO.toDomain().taxRuleGroupList[0],
-      );
+    if (taxRuleGroupList.isNotEmpty) {
+      return ReceivedEntity(taxRuleGroupList[0]);
     } else {
       return ReceivedEntity(TaxRuleGroup.empty());
     }
@@ -1254,10 +1252,10 @@ class PrestashopApi
       display: display,
     );
 
-    final taxRuleOutputDTO = remoteResponse.data;
+    final taxRuleList = remoteResponse.data.toDomain().taxRuleList;
 
-    if (taxRuleOutputDTO.toDomain().taxRuleList.isNotEmpty) {
-      return ReceivedEntity(taxRuleOutputDTO.toDomain().taxRuleList[0]);
+    if (taxRuleList.isNotEmpty) {
+      return ReceivedEntity(taxRuleList[0]);
     } else {
       return ReceivedEntity(TaxRule.empty());
     }
@@ -1336,10 +1334,10 @@ class PrestashopApi
       display: display,
     );
 
-    final taxOutputDTO = remoteResponse.data;
+    final taxList = remoteResponse.data.toDomain().taxList;
 
-    if (taxOutputDTO.toDomain().taxList.isNotEmpty) {
-      return ReceivedEntity(taxOutputDTO.toDomain().taxList[0]);
+    if (taxList.isNotEmpty) {
+      return ReceivedEntity(taxList[0]);
     } else {
       return ReceivedEntity(Tax.empty());
     }
