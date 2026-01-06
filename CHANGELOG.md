@@ -1,4 +1,4 @@
-## 
+## 1.5.0
 
 - Feat: Added support for 'Configurations' resource
 - Refactor: Updated resource enums to refine filter, display, and sort fields across multiple
