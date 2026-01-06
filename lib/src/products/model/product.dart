@@ -98,23 +98,52 @@ abstract class Product with _$Product {
       _$ProductFromJson(json);
 }
 
-/// Converts a [Product] into a JSON-compatible map.
+/// Converts a Product object to a JSON-compatible map, optionally keeping empty
+/// fields.
 ///
-/// When [keepEmptyFields] is `true`, the raw `toJson()` output is returned.
+/// If [keepEmptyFields] is true, all fields, including empty ones, will be
+/// included in the map.
+/// Otherwise, empty fields will be filtered out.
 ///
-/// When `false`, empty values are removed recursively:
-/// - `null`
-/// - empty strings
-/// - empty lists
-/// - empty maps
+/// For associations, empty entries will be filtered out regardless of the
+/// [keepEmptyFields] value.
 ///
-/// This method is intended for debugging and logging purposes
-/// (e.g. pretty-printing API payloads).
+/// We'll utilize this method primarily to pretty-print a list of objects in the
+/// console.
 Map<String, dynamic> productToJsonMap(Product product, bool keepEmptyFields) {
-  final json = product.toJson();
+  final entries = product.toJson().entries;
 
-  if (keepEmptyFields) return json;
+  return entries.fold<Map<String, dynamic>>({}, (map, entry) {
+    final value = entry.value;
 
-  final cleaned = removeEmptyValues(json);
-  return cleaned is Map<String, dynamic> ? cleaned : const {};
+    if (value is ProductAssociations) {
+      final filteredAssociations = _filterEmptyAssociations(value);
+
+      if (filteredAssociations.isNotEmpty) {
+        map[entry.key] = filteredAssociations;
+      }
+    } else {
+      map = maybeKeepEmptyFields(map, entry, keepEmptyFields);
+    }
+
+    return map;
+  });
+}
+
+/// Processes the associations of a product, filtering out empty entries based
+/// on the presence of values.
+/// Returns a map containing only non-empty association entries.
+Map<String, dynamic> _filterEmptyAssociations(
+  ProductAssociations associations,
+) {
+  final associationsMap = associations.toJson();
+
+  final nonEmptyAssociationsMap = associationsMap.entries
+      .where((entry) => !isEmpty(entry.value))
+      .fold<Map<String, dynamic>>(
+        {},
+        (map, entry) => map..[entry.key] = entry.value,
+      );
+
+  return nonEmptyAssociationsMap;
 }
