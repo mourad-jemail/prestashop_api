@@ -28,6 +28,7 @@ export 'src/common/options/sort/sort.dart';
 export 'src/common/options/sort/sort_field_order.dart';
 export 'src/common/shared/utils.dart' show entityToJsonMap, prettyPrint;
 export 'src/common/uri_builder.dart';
+export 'src/configurations/model/configuration.dart';
 export 'src/countries/model/country.dart';
 export 'src/countries/network/country_enums.dart';
 export 'src/languages/model/language.dart';
