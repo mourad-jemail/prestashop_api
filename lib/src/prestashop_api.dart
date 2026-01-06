@@ -38,6 +38,10 @@ import 'common/options/display/display.dart';
 import 'common/options/filter/filter.dart';
 import 'common/options/sort/sort.dart';
 import 'common/options/sort/sort_field_order.dart';
+import 'configurations/i_configuration_facade.dart';
+import 'configurations/model/configuration.dart';
+import 'configurations/network/configuration_data_source.dart';
+import 'configurations/network/configuration_enums.dart';
 import 'countries/i_country_facade.dart';
 import 'countries/model/country.dart';
 import 'countries/network/country_data_source.dart';
@@ -114,6 +118,7 @@ import 'taxes/network/tax_enums.dart';
 @LazySingleton(as: ICategoryFacade)
 @LazySingleton(as: ICombinationFacade)
 @LazySingleton(as: ICountryFacade)
+@LazySingleton(as: IConfigurationFacade)
 @LazySingleton(as: ILanguageFacade)
 @LazySingleton(as: IProductFacade)
 @LazySingleton(as: IStockAvailableFacade)
@@ -130,6 +135,7 @@ class PrestashopApi
         ICategoryFacade,
         ICombinationFacade,
         ICountryFacade,
+        IConfigurationFacade,
         ILanguageFacade,
         IProductFacade,
         IStockAvailableFacade,
@@ -145,6 +151,7 @@ class PrestashopApi
   final CategoryDataSource _categoryDataSource;
   final CombinationDataSource _combinationDataSource;
   final CountryDataSource _countryDataSource;
+  final ConfigurationDataSource _configurationDataSource;
   final LanguageDataSource _languageDataSource;
   final ProductDataSource _productDataSource;
   final StockAvailableDataSource _stockAvailableDataSource;
@@ -163,6 +170,7 @@ class PrestashopApi
     CategoryDataSource? categoryDataSource,
     CombinationDataSource? combinationDataSource,
     CountryDataSource? countryDataSource,
+    ConfigurationDataSource? configurationDataSource,
     LanguageDataSource? languageDataSource,
     ProductDataSource? productDataSource,
     StockAvailableDataSource? stockAvailableDataSource,
@@ -182,6 +190,8 @@ class PrestashopApi
       categoryDataSource ?? CategoryDataSource(dioInstance, baseConfig),
       combinationDataSource ?? CombinationDataSource(dioInstance, baseConfig),
       countryDataSource ?? CountryDataSource(dioInstance, baseConfig),
+      configurationDataSource ??
+          ConfigurationDataSource(dioInstance, baseConfig),
       languageDataSource ?? LanguageDataSource(dioInstance, baseConfig),
       productDataSource ?? ProductDataSource(dioInstance, baseConfig),
       stockAvailableDataSource ??
@@ -202,6 +212,7 @@ class PrestashopApi
     this._categoryDataSource,
     this._combinationDataSource,
     this._countryDataSource,
+    this._configurationDataSource,
     this._languageDataSource,
     this._productDataSource,
     this._stockAvailableDataSource,
@@ -806,6 +817,83 @@ class PrestashopApi
 
     return ReceivedEntity(
       remoteResponse.data.toDomain().combinationList,
+      isNextPageAvailable: remoteResponse.isNextPageAvailable,
+    );
+  });
+
+  ///
+  /// Configuration
+  ///
+
+  /// Fetches a list of all [Configuration] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of all configurations.
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  @override
+  Future<ReceivedEntity<List<Configuration>>> getConfigurations({
+    Filter<ConfigurationFilterField>? filter,
+    Display<ConfigurationDisplayField>? display,
+    Sort<SortFieldOrder<ConfigurationSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _configurationDataSource.getConfigurations(
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(remoteResponse.data.toDomain().configurationList);
+  });
+
+  /// Retrieves a single [Configuration] by its [id].
+  ///
+  /// Returns a [ReceivedEntity] containing the tax.
+  /// Requires the configuration [id].
+  /// An optional [display] parameter can be provided.
+  /// If no tax is found, returns a [ReceivedEntity] containing an empty
+  /// [Configuration] object.
+  @override
+  Future<ReceivedEntity<Configuration>> getConfigurationById({
+    required int id,
+    Display<ConfigurationDisplayField>? display,
+  }) => _callApi(() async {
+    final remoteResponse = await _configurationDataSource.getConfigurations(
+      filter: Filter.equals(ConfigurationFilterField.id, value: '$id'),
+      display: display,
+    );
+
+    final configurationList = remoteResponse.data.toDomain().configurationList;
+
+    if (configurationList.isNotEmpty) {
+      return ReceivedEntity(configurationList[0]);
+    } else {
+      return ReceivedEntity(Configuration.empty());
+    }
+  });
+
+  /// Fetches a paginated list of [Configuration] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of configurations for the
+  /// specified [page].
+  /// Requires [page] number, and items [perPage].
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  @override
+  Future<ReceivedEntity<List<Configuration>>> getConfigurationsPage({
+    required int page,
+    required int perPage,
+    Filter<ConfigurationFilterField>? filter,
+    Display<ConfigurationDisplayField>? display,
+    Sort<SortFieldOrder<ConfigurationSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _configurationDataSource.getConfigurationsPage(
+      page: page,
+      perPage: perPage,
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(
+      remoteResponse.data.toDomain().configurationList,
       isNextPageAvailable: remoteResponse.isNextPageAvailable,
     );
   });
