@@ -7,7 +7,7 @@ void main() async {
   /// Create a PrestashopApi object
   final prestashop = PrestashopApi(
     BaseConfig(
-      baseUrl: 'www.your-website.com',
+      baseUrl: 'www.your-prestashop-backend-url.com',
       apiKey: 'YOUR-API-KEY-XXXXXXXXX',
       protocol: Protocol.https,
     ),
