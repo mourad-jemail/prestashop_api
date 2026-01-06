@@ -53,6 +53,7 @@ Let's explore the package's capabilities together!
     - [PrestaShop - Carts](#prestashop---carts)
     - [PrestaShop - Categories](#prestashop---categories)
     - [PrestaShop - Combinations](#prestashop---combinations)
+    - [PrestaShop - Configurations](#prestashop---configurations)
     - [PrestaShop - Countries](#prestashop---countries)
     - [PrestaShop - Languages](#prestashop---languages)
     - [PrestaShop - Product features](#prestashop---product-features)
@@ -415,6 +416,14 @@ ongoing, and additional API requests may be added in future updates.
 - Get Combinations by page
 
 [See Combinations API](https://devdocs.prestashop-project.org/1.7/webservice/resources/combinations/)
+
+### PrestaShop - Configurations
+
+- Get Configurations
+- Retrieve a Configuration by id
+- Get Configurations by page
+
+[See Configurations API](https://devdocs.prestashop-project.org/1.7/webservice/resources/configurations/)
 
 ### PrestaShop - Categories
 
