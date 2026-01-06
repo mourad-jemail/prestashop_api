@@ -28,8 +28,6 @@ analyzer:
   exclude:
     - '**.freezed.dart'
     - '**.g.dart'
-    - '**.gr.dart'
-    - '**.config.dart'
     - '**.mocks.dart'
 
 linter:
