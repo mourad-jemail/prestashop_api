@@ -409,6 +409,14 @@ ongoing, and additional API requests may be added in future updates.
 
 [See Carts API](https://devdocs.prestashop-project.org/1.7/webservice/resources/carts/)
 
+### PrestaShop - Categories
+
+- Get Categories
+- Retrieve a Category by id
+- Get Categories by page
+
+[See Categories API](https://devdocs.prestashop-project.org/1.7/webservice/resources/categories/)
+
 ### PrestaShop - Combinations
 
 - Get Combinations
@@ -424,14 +432,6 @@ ongoing, and additional API requests may be added in future updates.
 - Get Configurations by page
 
 [See Configurations API](https://devdocs.prestashop-project.org/1.7/webservice/resources/configurations/)
-
-### PrestaShop - Categories
-
-- Get Categories
-- Retrieve a Category by id
-- Get Categories by page
-
-[See Categories API](https://devdocs.prestashop-project.org/1.7/webservice/resources/categories/)
 
 ### PrestaShop - Countries
 
