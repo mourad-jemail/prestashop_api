@@ -18,10 +18,8 @@ abstract class CategoryAssociations with _$CategoryAssociations {
       const CategoryAssociations(categories: [], products: []);
 
   bool isEmpty() =>
-      categories != null &&
-      products != null &&
-      categories!.isEmpty &&
-      products!.isEmpty;
+      (categories == null || categories!.isEmpty) &&
+      (products == null || products!.isEmpty);
 
   // Since the caller class `Category` utilizes `json_serializable`, this class
   // must also use the package.
