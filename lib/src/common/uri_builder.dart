@@ -13,6 +13,7 @@ const String carriersPath = '/api/carriers';
 const String cartRulesPath = '/api/cart_rules';
 const String cartsPath = '/api/carts';
 const String categoriesPath = '/api/categories';
+const String combinationsPath = '/api/combinations';
 const String countriesPath = '/api/countries';
 const String languagesPath = '/api/languages';
 const String productsPath = '/api/products';
