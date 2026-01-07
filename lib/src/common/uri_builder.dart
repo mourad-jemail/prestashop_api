@@ -15,6 +15,7 @@ const String cartsPath = '/api/carts';
 const String categoriesPath = '/api/categories';
 const String combinationsPath = '/api/combinations';
 const String configurationsPath = '/api/configurations';
+const String contactsPath = '/api/contacts';
 const String countriesPath = '/api/countries';
 const String languagesPath = '/api/languages';
 const String productsPath = '/api/products';
