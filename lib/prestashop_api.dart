@@ -35,6 +35,7 @@ export 'src/configurations/network/configuration_enums.dart';
 export 'src/contacts/model/contact.dart';
 export 'src/contacts/network/contact_enums.dart';
 export 'src/content_management_system/model/content_management_system.dart';
+export 'src/content_management_system/network/content_management_system_enums.dart';
 export 'src/countries/model/country.dart';
 export 'src/countries/network/country_enums.dart';
 export 'src/languages/model/language.dart';
