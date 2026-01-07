@@ -15,8 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ContactDTO {
 
- int? get id;// ALWAYS use converters for ambiguous types!
- String? get name;@JsonKey(name: 'customer_service', fromJson: parseIsBool, toJson: isBoolToJson) bool? get customerService; String? get email; String? get description;
+ int? get id; String? get name;@JsonKey(name: 'customer_service', fromJson: parseIsBool, toJson: isBoolToJson) bool? get customerService; String? get email; String? get description;
 /// Create a copy of ContactDTO
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -218,7 +217,6 @@ class _ContactDTO extends ContactDTO {
   factory _ContactDTO.fromJson(Map<String, dynamic> json) => _$ContactDTOFromJson(json);
 
 @override final  int? id;
-// ALWAYS use converters for ambiguous types!
 @override final  String? name;
 @override@JsonKey(name: 'customer_service', fromJson: parseIsBool, toJson: isBoolToJson) final  bool? customerService;
 @override final  String? email;
