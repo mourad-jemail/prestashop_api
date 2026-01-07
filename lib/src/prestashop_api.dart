@@ -113,12 +113,12 @@ import 'taxes/network/tax_enums.dart';
 @LazySingleton(as: IAddressFacade)
 @LazySingleton(as: IAttachmentFacade)
 @LazySingleton(as: ICarrierFacade)
-@LazySingleton(as: ICartFacade)
 @LazySingleton(as: ICartRuleFacade)
+@LazySingleton(as: ICartFacade)
 @LazySingleton(as: ICategoryFacade)
 @LazySingleton(as: ICombinationFacade)
-@LazySingleton(as: ICountryFacade)
 @LazySingleton(as: IConfigurationFacade)
+@LazySingleton(as: ICountryFacade)
 @LazySingleton(as: ILanguageFacade)
 @LazySingleton(as: IProductFacade)
 @LazySingleton(as: IStockAvailableFacade)
@@ -130,12 +130,12 @@ class PrestashopApi
         IAddressFacade,
         IAttachmentFacade,
         ICarrierFacade,
-        ICartFacade,
         ICartRuleFacade,
+        ICartFacade,
         ICategoryFacade,
         ICombinationFacade,
-        ICountryFacade,
         IConfigurationFacade,
+        ICountryFacade,
         ILanguageFacade,
         IProductFacade,
         IStockAvailableFacade,
@@ -146,12 +146,12 @@ class PrestashopApi
   final AddressDataSource _addressDataSource;
   final AttachmentDataSource _attachmentDataSource;
   final CarrierDataSource _carrierDataSource;
-  final CartDataSource _cartDataSource;
   final CartRuleDataSource _cartRuleDataSource;
+  final CartDataSource _cartDataSource;
   final CategoryDataSource _categoryDataSource;
   final CombinationDataSource _combinationDataSource;
-  final CountryDataSource _countryDataSource;
   final ConfigurationDataSource _configurationDataSource;
+  final CountryDataSource _countryDataSource;
   final LanguageDataSource _languageDataSource;
   final ProductDataSource _productDataSource;
   final StockAvailableDataSource _stockAvailableDataSource;
@@ -168,9 +168,9 @@ class PrestashopApi
     CartDataSource? cartDataSource,
     CartRuleDataSource? cartRuleDataSource,
     CategoryDataSource? categoryDataSource,
+    ConfigurationDataSource? configurationDataSource,
     CombinationDataSource? combinationDataSource,
     CountryDataSource? countryDataSource,
-    ConfigurationDataSource? configurationDataSource,
     LanguageDataSource? languageDataSource,
     ProductDataSource? productDataSource,
     StockAvailableDataSource? stockAvailableDataSource,
@@ -185,13 +185,13 @@ class PrestashopApi
       addressDataSource ?? AddressDataSource(dioInstance, baseConfig),
       attachmentDataSource ?? AttachmentDataSource(dioInstance, baseConfig),
       carrierDataSource ?? CarrierDataSource(dioInstance, baseConfig),
-      cartDataSource ?? CartDataSource(dioInstance, baseConfig),
       cartRuleDataSource ?? CartRuleDataSource(dioInstance, baseConfig),
+      cartDataSource ?? CartDataSource(dioInstance, baseConfig),
       categoryDataSource ?? CategoryDataSource(dioInstance, baseConfig),
       combinationDataSource ?? CombinationDataSource(dioInstance, baseConfig),
-      countryDataSource ?? CountryDataSource(dioInstance, baseConfig),
       configurationDataSource ??
           ConfigurationDataSource(dioInstance, baseConfig),
+      countryDataSource ?? CountryDataSource(dioInstance, baseConfig),
       languageDataSource ?? LanguageDataSource(dioInstance, baseConfig),
       productDataSource ?? ProductDataSource(dioInstance, baseConfig),
       stockAvailableDataSource ??
@@ -207,12 +207,12 @@ class PrestashopApi
     this._addressDataSource,
     this._attachmentDataSource,
     this._carrierDataSource,
-    this._cartDataSource,
     this._cartRuleDataSource,
+    this._cartDataSource,
     this._categoryDataSource,
     this._combinationDataSource,
-    this._countryDataSource,
     this._configurationDataSource,
+    this._countryDataSource,
     this._languageDataSource,
     this._productDataSource,
     this._stockAvailableDataSource,
@@ -499,84 +499,6 @@ class PrestashopApi
   });
 
   ///
-  /// Cart
-  ///
-
-  /// Fetches a list of all [Cart] objects.
-  ///
-  /// Returns a [ReceivedEntity] containing a list of all carts.
-  /// Optional [filter], [display], and [sort] parameters can be provided.
-  /// Requires [languageId] to specify the language of the retrieved data.
-  @override
-  Future<ReceivedEntity<List<Cart>>> getCarts({
-    Filter<CartFilterField>? filter,
-    Display<CartDisplayField>? display,
-    Sort<SortFieldOrder<CartSortField>>? sort,
-  }) => _callApi(() async {
-    final remoteResponse = await _cartDataSource.getCarts(
-      filter: filter,
-      display: display,
-      sort: sort,
-    );
-
-    return ReceivedEntity(remoteResponse.data.toDomain().cartList);
-  });
-
-  /// Retrieves a single [Cart] by its [id].
-  ///
-  /// Returns a [ReceivedEntity] containing the carrier.
-  /// Requires the cart [id].
-  /// An optional [display] parameter can be provided.
-  /// If no cart is found, returns a [ReceivedEntity] containing an empty
-  /// [Cart] object.
-  @override
-  Future<ReceivedEntity<Cart>> getCartById({
-    required int id,
-    Display<CartDisplayField>? display,
-  }) => _callApi(() async {
-    final remoteResponse = await _cartDataSource.getCarts(
-      filter: Filter.equals(CartFilterField.id, value: '$id'),
-      display: display,
-    );
-
-    final cartList = remoteResponse.data.toDomain().cartList;
-
-    if (cartList.isNotEmpty) {
-      return ReceivedEntity(cartList[0]);
-    } else {
-      return ReceivedEntity(Cart.empty());
-    }
-  });
-
-  /// Fetches a paginated list of [Cart] objects.
-  ///
-  /// Returns a [ReceivedEntity] containing a list of carts for the
-  /// specified [page].
-  /// Requires [languageId], [page] number, and items [perPage].
-  /// Optional [filter], [display], and [sort] parameters can be provided.
-  @override
-  Future<ReceivedEntity<List<Cart>>> getCartsPage({
-    required int page,
-    required int perPage,
-    Filter<CartFilterField>? filter,
-    Display<CartDisplayField>? display,
-    Sort<SortFieldOrder<CartSortField>>? sort,
-  }) => _callApi(() async {
-    final remoteResponse = await _cartDataSource.getCartsPage(
-      page: page,
-      perPage: perPage,
-      filter: filter,
-      display: display,
-      sort: sort,
-    );
-
-    return ReceivedEntity(
-      remoteResponse.data.toDomain().cartList,
-      isNextPageAvailable: remoteResponse.isNextPageAvailable,
-    );
-  });
-
-  ///
   /// Cart Rule
   ///
 
@@ -656,6 +578,84 @@ class PrestashopApi
 
     return ReceivedEntity(
       remoteResponse.data.toDomain().cartRuleList,
+      isNextPageAvailable: remoteResponse.isNextPageAvailable,
+    );
+  });
+
+  ///
+  /// Cart
+  ///
+
+  /// Fetches a list of all [Cart] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of all carts.
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  /// Requires [languageId] to specify the language of the retrieved data.
+  @override
+  Future<ReceivedEntity<List<Cart>>> getCarts({
+    Filter<CartFilterField>? filter,
+    Display<CartDisplayField>? display,
+    Sort<SortFieldOrder<CartSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _cartDataSource.getCarts(
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(remoteResponse.data.toDomain().cartList);
+  });
+
+  /// Retrieves a single [Cart] by its [id].
+  ///
+  /// Returns a [ReceivedEntity] containing the carrier.
+  /// Requires the cart [id].
+  /// An optional [display] parameter can be provided.
+  /// If no cart is found, returns a [ReceivedEntity] containing an empty
+  /// [Cart] object.
+  @override
+  Future<ReceivedEntity<Cart>> getCartById({
+    required int id,
+    Display<CartDisplayField>? display,
+  }) => _callApi(() async {
+    final remoteResponse = await _cartDataSource.getCarts(
+      filter: Filter.equals(CartFilterField.id, value: '$id'),
+      display: display,
+    );
+
+    final cartList = remoteResponse.data.toDomain().cartList;
+
+    if (cartList.isNotEmpty) {
+      return ReceivedEntity(cartList[0]);
+    } else {
+      return ReceivedEntity(Cart.empty());
+    }
+  });
+
+  /// Fetches a paginated list of [Cart] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of carts for the
+  /// specified [page].
+  /// Requires [languageId], [page] number, and items [perPage].
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  @override
+  Future<ReceivedEntity<List<Cart>>> getCartsPage({
+    required int page,
+    required int perPage,
+    Filter<CartFilterField>? filter,
+    Display<CartDisplayField>? display,
+    Sort<SortFieldOrder<CartSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _cartDataSource.getCartsPage(
+      page: page,
+      perPage: perPage,
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(
+      remoteResponse.data.toDomain().cartList,
       isNextPageAvailable: remoteResponse.isNextPageAvailable,
     );
   });
