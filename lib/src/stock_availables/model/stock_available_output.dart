@@ -13,7 +13,7 @@ abstract class StockAvailableOutput with _$StockAvailableOutput {
   }) = _StockAvailableOutput;
 
   factory StockAvailableOutput.empty() =>
-      StockAvailableOutput(stockAvailableList: List.empty());
+      const StockAvailableOutput(stockAvailableList: []);
 
-  bool isEmpty() => List.of(stockAvailableList).isEmpty;
+  bool isEmpty() => stockAvailableList.isEmpty;
 }

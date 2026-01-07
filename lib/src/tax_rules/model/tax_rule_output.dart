@@ -11,7 +11,7 @@ abstract class TaxRuleOutput with _$TaxRuleOutput {
   const factory TaxRuleOutput({required List<TaxRule> taxRuleList}) =
       _TaxRuleOutput;
 
-  factory TaxRuleOutput.empty() => TaxRuleOutput(taxRuleList: List.empty());
+  factory TaxRuleOutput.empty() => const TaxRuleOutput(taxRuleList: []);
 
-  bool isEmpty() => List.of(taxRuleList).isEmpty;
+  bool isEmpty() => taxRuleList.isEmpty;
 }

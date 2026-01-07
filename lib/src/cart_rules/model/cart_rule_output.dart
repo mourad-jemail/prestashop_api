@@ -11,7 +11,7 @@ abstract class CartRuleOutput with _$CartRuleOutput {
   const factory CartRuleOutput({required List<CartRule> cartRuleList}) =
       _CartRuleOutput;
 
-  factory CartRuleOutput.empty() => CartRuleOutput(cartRuleList: List.empty());
+  factory CartRuleOutput.empty() => const CartRuleOutput(cartRuleList: []);
 
-  bool isEmpty() => List.of(cartRuleList).isEmpty;
+  bool isEmpty() => cartRuleList.isEmpty;
 }

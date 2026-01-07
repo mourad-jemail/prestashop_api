@@ -10,7 +10,7 @@ abstract class CartOutput with _$CartOutput {
 
   const factory CartOutput({required List<Cart> cartList}) = _CartOutput;
 
-  factory CartOutput.empty() => CartOutput(cartList: List.empty());
+  factory CartOutput.empty() => const CartOutput(cartList: []);
 
-  bool isEmpty() => List.of(cartList).isEmpty;
+  bool isEmpty() => cartList.isEmpty;
 }

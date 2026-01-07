@@ -11,7 +11,7 @@ abstract class CategoryOutput with _$CategoryOutput {
   const factory CategoryOutput({required List<Category> categoryList}) =
       _CategoryOutput;
 
-  factory CategoryOutput.empty() => CategoryOutput(categoryList: List.empty());
+  factory CategoryOutput.empty() => const CategoryOutput(categoryList: []);
 
-  bool isEmpty() => List.of(categoryList).isEmpty;
+  bool isEmpty() => categoryList.isEmpty;
 }

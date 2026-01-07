@@ -13,7 +13,7 @@ abstract class ConfigurationOutput with _$ConfigurationOutput {
   }) = _ConfigurationOutput;
 
   factory ConfigurationOutput.empty() =>
-      ConfigurationOutput(configurationList: List.empty());
+      const ConfigurationOutput(configurationList: []);
 
-  bool isEmpty() => List.of(configurationList).isEmpty;
+  bool isEmpty() => configurationList.isEmpty;
 }

@@ -10,7 +10,7 @@ abstract class ErrorOutput with _$ErrorOutput {
 
   const factory ErrorOutput({required List<Error> errorList}) = _ErrorOutput;
 
-  factory ErrorOutput.empty() => ErrorOutput(errorList: List.empty());
+  factory ErrorOutput.empty() => const ErrorOutput(errorList: []);
 
-  bool isEmpty() => List.of(errorList).isEmpty;
+  bool isEmpty() => errorList.isEmpty;
 }

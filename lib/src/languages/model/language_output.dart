@@ -11,7 +11,7 @@ abstract class LanguageOutput with _$LanguageOutput {
   const factory LanguageOutput({required List<Language> languageList}) =
       _LanguageOutput;
 
-  factory LanguageOutput.empty() => LanguageOutput(languageList: List.empty());
+  factory LanguageOutput.empty() => const LanguageOutput(languageList: []);
 
-  bool isEmpty() => List.of(languageList).isEmpty;
+  bool isEmpty() => languageList.isEmpty;
 }

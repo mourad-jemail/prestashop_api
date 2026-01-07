@@ -13,7 +13,7 @@ abstract class TaxRuleGroupOutput with _$TaxRuleGroupOutput {
   }) = _TaxRuleGroupOutput;
 
   factory TaxRuleGroupOutput.empty() =>
-      TaxRuleGroupOutput(taxRuleGroupList: List.empty());
+      const TaxRuleGroupOutput(taxRuleGroupList: []);
 
-  bool isEmpty() => List.of(taxRuleGroupList).isEmpty;
+  bool isEmpty() => taxRuleGroupList.isEmpty;
 }

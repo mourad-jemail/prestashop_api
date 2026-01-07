@@ -11,7 +11,7 @@ abstract class CountryOutput with _$CountryOutput {
   const factory CountryOutput({required List<Country> countryList}) =
       _CountryOutput;
 
-  factory CountryOutput.empty() => CountryOutput(countryList: List.empty());
+  factory CountryOutput.empty() => const CountryOutput(countryList: []);
 
-  bool isEmpty() => List.of(countryList).isEmpty;
+  bool isEmpty() => countryList.isEmpty;
 }

@@ -10,7 +10,7 @@ abstract class TaxOutput with _$TaxOutput {
 
   const factory TaxOutput({required List<Tax> taxList}) = _TaxOutput;
 
-  factory TaxOutput.empty() => TaxOutput(taxList: List.empty());
+  factory TaxOutput.empty() => const TaxOutput(taxList: []);
 
-  bool isEmpty() => List.of(taxList).isEmpty;
+  bool isEmpty() => taxList.isEmpty;
 }

@@ -12,7 +12,7 @@ abstract class AttachmentOutput with _$AttachmentOutput {
       _AttachmentOutput;
 
   factory AttachmentOutput.empty() =>
-      AttachmentOutput(attachmentList: List.empty());
+      const AttachmentOutput(attachmentList: []);
 
-  bool isEmpty() => List.of(attachmentList).isEmpty;
+  bool isEmpty() => attachmentList.isEmpty;
 }

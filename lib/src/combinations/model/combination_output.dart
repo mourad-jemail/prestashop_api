@@ -13,7 +13,7 @@ abstract class CombinationOutput with _$CombinationOutput {
   }) = _CombinationOutput;
 
   factory CombinationOutput.empty() =>
-      CombinationOutput(combinationList: List.empty());
+      const CombinationOutput(combinationList: []);
 
-  bool isEmpty() => List.of(combinationList).isEmpty;
+  bool isEmpty() => combinationList.isEmpty;
 }

@@ -11,7 +11,7 @@ abstract class CarrierOutput with _$CarrierOutput {
   const factory CarrierOutput({required List<Carrier> carrierList}) =
       _CarrierOutput;
 
-  factory CarrierOutput.empty() => CarrierOutput(carrierList: List.empty());
+  factory CarrierOutput.empty() => const CarrierOutput(carrierList: []);
 
-  bool isEmpty() => List.of(carrierList).isEmpty;
+  bool isEmpty() => carrierList.isEmpty;
 }

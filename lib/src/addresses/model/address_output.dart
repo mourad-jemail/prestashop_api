@@ -11,7 +11,7 @@ abstract class AddressOutput with _$AddressOutput {
   const factory AddressOutput({required List<Address> addressList}) =
       _AddressOutput;
 
-  factory AddressOutput.empty() => AddressOutput(addressList: List.empty());
+  factory AddressOutput.empty() => const AddressOutput(addressList: []);
 
-  bool isEmpty() => List.of(addressList).isEmpty;
+  bool isEmpty() => addressList.isEmpty;
 }

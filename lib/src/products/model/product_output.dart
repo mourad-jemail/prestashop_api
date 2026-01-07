@@ -11,7 +11,7 @@ abstract class ProductOutput with _$ProductOutput {
   const factory ProductOutput({required List<Product> productList}) =
       _ProductOutput;
 
-  factory ProductOutput.empty() => ProductOutput(productList: List.empty());
+  factory ProductOutput.empty() => const ProductOutput(productList: []);
 
-  bool isEmpty() => List.of(productList).isEmpty;
+  bool isEmpty() => productList.isEmpty;
 }
