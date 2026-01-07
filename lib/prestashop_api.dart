@@ -32,6 +32,7 @@ export 'src/configurations/i_configuration_facade.dart';
 export 'src/configurations/model/configuration.dart';
 export 'src/configurations/network/configuration_data_source.dart';
 export 'src/configurations/network/configuration_enums.dart';
+export 'src/contacts/model/contact.dart';
 export 'src/countries/model/country.dart';
 export 'src/countries/network/country_enums.dart';
 export 'src/languages/model/language.dart';
