@@ -54,6 +54,7 @@ Let's explore the package's capabilities together!
     - [PrestaShop - Categories](#prestashop---categories)
     - [PrestaShop - Combinations](#prestashop---combinations)
     - [PrestaShop - Configurations](#prestashop---configurations)
+    - [PrestaShop - Contacts](#prestashop---contacts)
     - [PrestaShop - Countries](#prestashop---countries)
     - [PrestaShop - Languages](#prestashop---languages)
     - [PrestaShop - Product features](#prestashop---product-features)
@@ -432,6 +433,14 @@ ongoing, and additional API requests may be added in future updates.
 - Get Configurations by page
 
 [See Configurations API](https://devdocs.prestashop-project.org/1.7/webservice/resources/configurations/)
+
+### PrestaShop - Contacts
+
+- Get Contacts
+- Retrieve a Contact by id
+- Get Contacts by page
+
+[See Contacts API](https://devdocs.prestashop-project.org/1.7/webservice/resources/contacts/)
 
 ### PrestaShop - Countries
 

@@ -1,3 +1,7 @@
+##
+
+- Feat: Added support for 'Contacts' resource
+
 ## 1.5.0
 
 - Feat: Added support for 'Configurations' resource
