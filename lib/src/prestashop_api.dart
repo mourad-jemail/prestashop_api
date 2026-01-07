@@ -42,6 +42,10 @@ import 'configurations/i_configuration_facade.dart';
 import 'configurations/model/configuration.dart';
 import 'configurations/network/configuration_data_source.dart';
 import 'configurations/network/configuration_enums.dart';
+import 'contacts/i_contact_facade.dart';
+import 'contacts/model/contact.dart';
+import 'contacts/network/contact_data_source.dart';
+import 'contacts/network/contact_enums.dart';
 import 'countries/i_country_facade.dart';
 import 'countries/model/country.dart';
 import 'countries/network/country_data_source.dart';
@@ -118,6 +122,7 @@ import 'taxes/network/tax_enums.dart';
 @LazySingleton(as: ICategoryFacade)
 @LazySingleton(as: ICombinationFacade)
 @LazySingleton(as: IConfigurationFacade)
+@LazySingleton(as: IContactFacade)
 @LazySingleton(as: ICountryFacade)
 @LazySingleton(as: ILanguageFacade)
 @LazySingleton(as: IProductFacade)
@@ -135,6 +140,7 @@ class PrestashopApi
         ICategoryFacade,
         ICombinationFacade,
         IConfigurationFacade,
+        IContactFacade,
         ICountryFacade,
         ILanguageFacade,
         IProductFacade,
@@ -151,6 +157,7 @@ class PrestashopApi
   final CategoryDataSource _categoryDataSource;
   final CombinationDataSource _combinationDataSource;
   final ConfigurationDataSource _configurationDataSource;
+  final ContactDataSource _contactDataSource;
   final CountryDataSource _countryDataSource;
   final LanguageDataSource _languageDataSource;
   final ProductDataSource _productDataSource;
@@ -169,6 +176,7 @@ class PrestashopApi
     CartRuleDataSource? cartRuleDataSource,
     CategoryDataSource? categoryDataSource,
     ConfigurationDataSource? configurationDataSource,
+    ContactDataSource? contactDataSource,
     CombinationDataSource? combinationDataSource,
     CountryDataSource? countryDataSource,
     LanguageDataSource? languageDataSource,
@@ -191,6 +199,7 @@ class PrestashopApi
       combinationDataSource ?? CombinationDataSource(dioInstance, baseConfig),
       configurationDataSource ??
           ConfigurationDataSource(dioInstance, baseConfig),
+      contactDataSource ?? ContactDataSource(dioInstance, baseConfig),
       countryDataSource ?? CountryDataSource(dioInstance, baseConfig),
       languageDataSource ?? LanguageDataSource(dioInstance, baseConfig),
       productDataSource ?? ProductDataSource(dioInstance, baseConfig),
@@ -212,6 +221,7 @@ class PrestashopApi
     this._categoryDataSource,
     this._combinationDataSource,
     this._configurationDataSource,
+    this._contactDataSource,
     this._countryDataSource,
     this._languageDataSource,
     this._productDataSource,
@@ -894,6 +904,90 @@ class PrestashopApi
 
     return ReceivedEntity(
       remoteResponse.data.toDomain().configurationList,
+      isNextPageAvailable: remoteResponse.isNextPageAvailable,
+    );
+  });
+
+  ///
+  /// Contact
+  ///
+
+  /// Fetches a list of all [Contact] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of all contacts.
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  /// Requires [languageId] to specify the language of the retrieved data.
+  @override
+  Future<ReceivedEntity<List<Contact>>> getContacts({
+    required int languageId,
+    Filter<ContactFilterField>? filter,
+    Display<ContactDisplayField>? display,
+    Sort<SortFieldOrder<ContactSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _contactDataSource.getContacts(
+      languageId: languageId,
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(remoteResponse.data.toDomain().contactList);
+  });
+
+  /// Retrieves a single [Contact] by its [id].
+  ///
+  /// Returns a [ReceivedEntity] containing the contact.
+  /// Requires [languageId] and the contact [id].
+  /// An optional [display] parameter can be provided.
+  /// If no contact is found, returns a [ReceivedEntity] containing an empty
+  /// [Contact] object.
+  @override
+  Future<ReceivedEntity<Contact>> getContactById({
+    required int languageId,
+    required int id,
+    Display<ContactDisplayField>? display,
+  }) => _callApi(() async {
+    final remoteResponse = await _contactDataSource.getContacts(
+      languageId: languageId,
+      filter: Filter.equals(ContactFilterField.id, value: '$id'),
+      display: display,
+    );
+
+    final contactList = remoteResponse.data.toDomain().contactList;
+
+    if (contactList.isNotEmpty) {
+      return ReceivedEntity(contactList.first);
+    } else {
+      return ReceivedEntity(Contact.empty());
+    }
+  });
+
+  /// Fetches a paginated list of [Contact] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of contacts for the
+  /// specified [page].
+  /// Requires [languageId], [page] number, and items [perPage].
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  @override
+  Future<ReceivedEntity<List<Contact>>> getContactsPage({
+    required int languageId,
+    required int page,
+    required int perPage,
+    Filter<ContactFilterField>? filter,
+    Display<ContactDisplayField>? display,
+    Sort<SortFieldOrder<ContactSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _contactDataSource.getContactsPage(
+      languageId: languageId,
+      page: page,
+      perPage: perPage,
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(
+      remoteResponse.data.toDomain().contactList,
       isNextPageAvailable: remoteResponse.isNextPageAvailable,
     );
   });
