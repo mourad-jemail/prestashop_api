@@ -46,6 +46,10 @@ import 'contacts/i_contact_facade.dart';
 import 'contacts/model/contact.dart';
 import 'contacts/network/contact_data_source.dart';
 import 'contacts/network/contact_enums.dart';
+import 'content_management_system/i_content_management_system_facade.dart';
+import 'content_management_system/model/content_management_system.dart';
+import 'content_management_system/network/content_management_system_data_source.dart';
+import 'content_management_system/network/content_management_system_enums.dart';
 import 'countries/i_country_facade.dart';
 import 'countries/model/country.dart';
 import 'countries/network/country_data_source.dart';
@@ -123,6 +127,7 @@ import 'taxes/network/tax_enums.dart';
 @LazySingleton(as: ICombinationFacade)
 @LazySingleton(as: IConfigurationFacade)
 @LazySingleton(as: IContactFacade)
+@LazySingleton(as: IContentManagementSystemFacade)
 @LazySingleton(as: ICountryFacade)
 @LazySingleton(as: ILanguageFacade)
 @LazySingleton(as: IProductFacade)
@@ -141,6 +146,7 @@ class PrestashopApi
         ICombinationFacade,
         IConfigurationFacade,
         IContactFacade,
+        IContentManagementSystemFacade,
         ICountryFacade,
         ILanguageFacade,
         IProductFacade,
@@ -158,6 +164,7 @@ class PrestashopApi
   final CombinationDataSource _combinationDataSource;
   final ConfigurationDataSource _configurationDataSource;
   final ContactDataSource _contactDataSource;
+  final ContentManagementSystemDataSource _contentManagementSystemDataSource;
   final CountryDataSource _countryDataSource;
   final LanguageDataSource _languageDataSource;
   final ProductDataSource _productDataSource;
@@ -177,6 +184,7 @@ class PrestashopApi
     CategoryDataSource? categoryDataSource,
     ConfigurationDataSource? configurationDataSource,
     ContactDataSource? contactDataSource,
+    ContentManagementSystemDataSource? contentManagementSystemDataSource,
     CombinationDataSource? combinationDataSource,
     CountryDataSource? countryDataSource,
     LanguageDataSource? languageDataSource,
@@ -200,6 +208,8 @@ class PrestashopApi
       configurationDataSource ??
           ConfigurationDataSource(dioInstance, baseConfig),
       contactDataSource ?? ContactDataSource(dioInstance, baseConfig),
+      contentManagementSystemDataSource ??
+          ContentManagementSystemDataSource(dioInstance, baseConfig),
       countryDataSource ?? CountryDataSource(dioInstance, baseConfig),
       languageDataSource ?? LanguageDataSource(dioInstance, baseConfig),
       productDataSource ?? ProductDataSource(dioInstance, baseConfig),
@@ -222,6 +232,7 @@ class PrestashopApi
     this._combinationDataSource,
     this._configurationDataSource,
     this._contactDataSource,
+    this._contentManagementSystemDataSource,
     this._countryDataSource,
     this._languageDataSource,
     this._productDataSource,
@@ -988,6 +999,103 @@ class PrestashopApi
 
     return ReceivedEntity(
       remoteResponse.data.toDomain().contactList,
+      isNextPageAvailable: remoteResponse.isNextPageAvailable,
+    );
+  });
+
+  ///
+  /// Content management system
+  ///
+
+  /// Fetches a list of all [ContentManagementSystem] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of all CMS pages.
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  /// Requires [languageId] to specify the language of the retrieved data.
+  @override
+  Future<ReceivedEntity<List<ContentManagementSystem>>>
+  getContentManagementSystems({
+    required int languageId,
+    Filter<ContentManagementSystemFilterField>? filter,
+    Display<ContentManagementSystemDisplayField>? display,
+    Sort<SortFieldOrder<ContentManagementSystemSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _contentManagementSystemDataSource
+        .getContentManagementSystems(
+          languageId: languageId,
+          filter: filter,
+          display: display,
+          sort: sort,
+        );
+
+    return ReceivedEntity(
+      remoteResponse.data.toDomain().contentManagementSystemList,
+    );
+  });
+
+  /// Retrieves a single [ContentManagementSystem] by its [id].
+  ///
+  /// Returns a [ReceivedEntity] containing the CMS page.
+  /// Requires [languageId] and the CMS page [id].
+  /// An optional [display] parameter can be provided.
+  /// If no CMS page is found, returns a [ReceivedEntity] containing an empty
+  /// [ContentManagementSystem] object.
+  @override
+  Future<ReceivedEntity<ContentManagementSystem>>
+  getContentManagementSystemById({
+    required int languageId,
+    required int id,
+    Display<ContentManagementSystemDisplayField>? display,
+  }) => _callApi(() async {
+    final remoteResponse = await _contentManagementSystemDataSource
+        .getContentManagementSystems(
+          languageId: languageId,
+          filter: Filter.equals(
+            ContentManagementSystemFilterField.id,
+            value: '$id',
+          ),
+          display: display,
+        );
+
+    final contentManagementSystemList = remoteResponse.data
+        .toDomain()
+        .contentManagementSystemList;
+
+    if (contentManagementSystemList.isNotEmpty) {
+      return ReceivedEntity(contentManagementSystemList[0]);
+    } else {
+      return ReceivedEntity(ContentManagementSystem.empty());
+    }
+  });
+
+  /// Fetches a paginated list of [ContentManagementSystem] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of CMS pages for the
+  /// specified [page].
+  /// Requires [languageId], [page] number, and items [perPage].
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  @override
+  Future<ReceivedEntity<List<ContentManagementSystem>>>
+  getContentManagementSystemsPage({
+    required int languageId,
+    required int page,
+    required int perPage,
+    Filter<ContentManagementSystemFilterField>? filter,
+    Display<ContentManagementSystemDisplayField>? display,
+    Sort<SortFieldOrder<ContentManagementSystemSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _contentManagementSystemDataSource
+        .getContentManagementSystemsPage(
+          languageId: languageId,
+          page: page,
+          perPage: perPage,
+          filter: filter,
+          display: display,
+          sort: sort,
+        );
+
+    return ReceivedEntity(
+      remoteResponse.data.toDomain().contentManagementSystemList,
       isNextPageAvailable: remoteResponse.isNextPageAvailable,
     );
   });
