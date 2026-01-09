@@ -1,5 +1,6 @@
-## [Unreleased]
+## 1.6.0
 
+- Feat: Added support for 'Suppliers' resource
 - Test: Added unit tests for 'Products' resource
 - Feat: Added support for 'Currencies' resource
 - Feat: Added support for 'Product features' resource

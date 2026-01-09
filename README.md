@@ -62,6 +62,7 @@ Let's explore the package's capabilities together!
     - [PrestaShop - Product features](#prestashop---product-features)
     - [PrestaShop - Products](#prestashop---products)
     - [PrestaShop - Stock availables](#prestashop---stock-availables)
+    - [PrestaShop - Suppliers](#prestashop---suppliers)
     - [PrestaShop - Tax rule groups](#prestashop---tax-rule-groups)
     - [PrestaShop - Tax rules](#prestashop---tax-rules)
     - [PrestaShop - Taxes](#prestashop---taxes)
@@ -499,6 +500,14 @@ ongoing, and additional API requests may be added in future updates.
 - Get Stock availables by page
 
 [See Stock availables API](https://devdocs.prestashop-project.org/1.7/webservice/resources/stock_availables/)
+
+### PrestaShop - Suppliers
+
+- Get Suppliers
+- Retrieve a Supplier by id
+- Get Suppliers by page
+
+[See Suppliers API](https://devdocs.prestashop-project.org/1.7/webservice/resources/suppliers/)
 
 ### PrestaShop - Tax rule groups
 
