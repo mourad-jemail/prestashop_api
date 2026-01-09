@@ -491,14 +491,6 @@ ongoing, and additional API requests may be added in future updates.
 
 [See Stock availables API](https://devdocs.prestashop-project.org/1.7/webservice/resources/stock_availables/)
 
-### PrestaShop - Tax rules
-
-- Get Tax rules
-- Retrieve a Tax rule by id
-- Get Tax rules by page
-
-[See Tax rules API](https://devdocs.prestashop-project.org/1.7/webservice/resources/tax_rules/)
-
 ### PrestaShop - Tax rule groups
 
 - Get Tax rule groups
@@ -506,6 +498,14 @@ ongoing, and additional API requests may be added in future updates.
 - Get Tax rule groups by page
 
 [See Tax rule groups API](https://devdocs.prestashop-project.org/1.7/webservice/resources/tax_rule_groups/)
+
+### PrestaShop - Tax rules
+
+- Get Tax rules
+- Retrieve a Tax rule by id
+- Get Tax rules by page
+
+[See Tax rules API](https://devdocs.prestashop-project.org/1.7/webservice/resources/tax_rules/)
 
 ### PrestaShop - Taxes
 
