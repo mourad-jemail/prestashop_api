@@ -74,6 +74,11 @@ import 'stock_availables/i_stock_available_facade.dart';
 import 'stock_availables/model/stock_available.dart';
 import 'stock_availables/network/stock_available_data_source.dart';
 import 'stock_availables/network/stock_available_enums.dart';
+import 'suppliers/dto/supplier_output_dto.dart';
+import 'suppliers/i_supplier_facade.dart';
+import 'suppliers/model/supplier.dart';
+import 'suppliers/network/supplier_data_source.dart';
+import 'suppliers/network/supplier_enums.dart';
 import 'tax_rule_groups/i_tax_rule_group_facade.dart';
 import 'tax_rule_groups/model/tax_rule_group.dart';
 import 'tax_rule_groups/network/tax_rule_group_date_source.dart';
@@ -142,6 +147,7 @@ import 'taxes/network/tax_enums.dart';
 @LazySingleton(as: IProductFeatureFacade)
 @LazySingleton(as: IProductFacade)
 @LazySingleton(as: IStockAvailableFacade)
+@LazySingleton(as: ISupplierFacade)
 @LazySingleton(as: ITaxRuleGroupFacade)
 @LazySingleton(as: ITaxRuleFacade)
 @LazySingleton(as: ITaxFacade)
@@ -163,6 +169,7 @@ class PrestashopApi
         IProductFeatureFacade,
         IProductFacade,
         IStockAvailableFacade,
+        ISupplierFacade,
         ITaxRuleGroupFacade,
         ITaxRuleFacade,
         ITaxFacade {
@@ -183,6 +190,7 @@ class PrestashopApi
   final ProductFeatureDataSource _productFeatureDataSource;
   final ProductDataSource _productDataSource;
   final StockAvailableDataSource _stockAvailableDataSource;
+  final SupplierDataSource _supplierDataSource;
   final TaxRuleGroupDataSource _taxRuleGroupDataSource;
   final TaxRuleDataSource _taxRuleDataSource;
   final TaxDataSource _taxDataSource;
@@ -206,6 +214,7 @@ class PrestashopApi
     ProductFeatureDataSource? productFeatureDataSource,
     ProductDataSource? productDataSource,
     StockAvailableDataSource? stockAvailableDataSource,
+    SupplierDataSource? supplierDataSource,
     TaxRuleGroupDataSource? taxRuleGroupDataSource,
     TaxRuleDataSource? taxRuleDataSource,
     TaxDataSource? taxDataSource,
@@ -234,6 +243,7 @@ class PrestashopApi
       productDataSource ?? ProductDataSource(dioInstance, baseConfig),
       stockAvailableDataSource ??
           StockAvailableDataSource(dioInstance, baseConfig),
+      supplierDataSource ?? SupplierDataSource(dioInstance, baseConfig),
       taxRuleGroupDataSource ?? TaxRuleGroupDataSource(dioInstance, baseConfig),
       taxRuleDataSource ?? TaxRuleDataSource(dioInstance, baseConfig),
       taxDataSource ?? TaxDataSource(dioInstance, baseConfig),
@@ -258,6 +268,7 @@ class PrestashopApi
     this._productFeatureDataSource,
     this._productDataSource,
     this._stockAvailableDataSource,
+    this._supplierDataSource,
     this._taxRuleGroupDataSource,
     this._taxRuleDataSource,
     this._taxDataSource,
@@ -1612,6 +1623,76 @@ class PrestashopApi
 
     return ReceivedEntity(
       remoteResponse.data.toDomain().stockAvailableList,
+      isNextPageAvailable: remoteResponse.isNextPageAvailable,
+    );
+  });
+
+  /// Fetches a [Supplier] by its [id].
+  ///
+  /// Returns a [ReceivedEntity] containing the supplier with the specified
+  /// [id]. Optional [display] parameter can be provided.
+  @override
+  Future<ReceivedEntity<Supplier>> getSupplierById({
+    required int languageId,
+    required int id,
+    Display<SupplierDisplayField>? display,
+  }) => _callApi(() async {
+    final remoteResponse = await _supplierDataSource.getSuppliers(
+      languageId: languageId,
+      filter: Filter.equals(SupplierFilterField.id, value: id.toString()),
+      display: display,
+    );
+
+    return ReceivedEntity(remoteResponse.data.supplierDTOList.first.toDomain());
+  });
+
+  /// Fetches a list of [Supplier] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of suppliers.
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  @override
+  Future<ReceivedEntity<List<Supplier>>> getSuppliers({
+    required int languageId,
+    Filter<SupplierFilterField>? filter,
+    Display<SupplierDisplayField>? display,
+    Sort<SortFieldOrder<SupplierSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _supplierDataSource.getSuppliers(
+      languageId: languageId,
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(remoteResponse.data.supplierDTOList.toDomain());
+  });
+
+  /// Fetches a paginated list of [Supplier] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of suppliers for the
+  /// specified [page].
+  /// Requires [page] number and items [perPage].
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  @override
+  Future<ReceivedEntity<List<Supplier>>> getSuppliersPage({
+    required int languageId,
+    required int page,
+    required int perPage,
+    Filter<SupplierFilterField>? filter,
+    Display<SupplierDisplayField>? display,
+    Sort<SortFieldOrder<SupplierSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _supplierDataSource.getSuppliersPage(
+      languageId: languageId,
+      page: page,
+      perPage: perPage,
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(
+      remoteResponse.data.supplierDTOList.toDomain(),
       isNextPageAvailable: remoteResponse.isNextPageAvailable,
     );
   });
