@@ -11,9 +11,9 @@ abstract class ProductFeatureDTO with _$ProductFeatureDTO {
   const ProductFeatureDTO._();
 
   const factory ProductFeatureDTO({
-    @JsonKey(fromJson: parseNullOrUnsignedId) int? id,
+    int? id,
     @JsonKey(name: 'id_feature_value') String? idFeatureValue,
-    int? position,
+    @JsonKey(fromJson: parseIsInt, toJson: isIntToJson) int? position,
     String? name,
   }) = _ProductFeatureDTO;
 
