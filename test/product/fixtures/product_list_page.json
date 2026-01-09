@@ -1,0 +1,1322 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "id_manufacturer": "1",
+      "id_supplier": "1",
+      "id_category_default": "4",
+      "new": null,
+      "cache_default_attribute": "1",
+      "id_default_image": "1",
+      "id_default_combination": "1",
+      "id_tax_rules_group": "1",
+      "position_in_category": "1",
+      "manufacturer_name": "Studio Design",
+      "quantity": "0",
+      "type": "simple",
+      "id_shop_default": "1",
+      "reference": "demo_1",
+      "supplier_reference": "",
+      "location": "",
+      "width": "0.000000",
+      "height": "0.000000",
+      "depth": "0.000000",
+      "weight": "0.300000",
+      "quantity_discount": "0",
+      "ean13": "",
+      "isbn": "",
+      "upc": "",
+      "mpn": "",
+      "cache_is_pack": "0",
+      "cache_has_attachments": "0",
+      "is_virtual": "0",
+      "state": "1",
+      "additional_delivery_times": "1",
+      "delivery_in_stock": "",
+      "delivery_out_stock": "",
+      "product_type": "combinations",
+      "on_sale": "0",
+      "online_only": "0",
+      "ecotax": "0.000000",
+      "minimal_quantity": "1",
+      "low_stock_threshold": null,
+      "low_stock_alert": "0",
+      "price": "23.900000",
+      "wholesale_price": "0.000000",
+      "unity": "",
+      "unit_price_ratio": "0.000000",
+      "additional_shipping_cost": "0.000000",
+      "customizable": "0",
+      "text_fields": "0",
+      "uploadable_files": "0",
+      "active": "1",
+      "redirect_type": "301-category",
+      "id_type_redirected": "0",
+      "available_for_order": "1",
+      "available_date": "0000-00-00",
+      "show_condition": "0",
+      "condition": "new",
+      "show_price": "1",
+      "indexed": "1",
+      "visibility": "both",
+      "advanced_stock_management": "0",
+      "date_add": "2025-12-22 22:29:04",
+      "date_upd": "2025-12-22 22:29:04",
+      "pack_stock_type": "3",
+      "meta_description": "",
+      "meta_keywords": "",
+      "meta_title": "",
+      "link_rewrite": "hummingbird-printed-t-shirt",
+      "name": "Hummingbird printed t-shirt",
+      "description": "<p>Symbol of lightness and delicacy, the hummingbird evokes curiosity and joy. Studio Design' PolyFaune collection features classic products with colorful patterns, inspired by the traditional japanese origamis. To wear with a chino or jeans. The sublimation textile printing process provides an exceptional color rendering and a color, guaranteed overtime.<\/p>",
+      "description_short": "<p>Regular fit, round neckline, short sleeves. Made of extra long staple pima cotton. <\/p>\r\n<p><\/p>",
+      "available_now": "",
+      "available_later": "",
+      "associations": {
+        "categories": [
+          {
+            "id": "2"
+          },
+          {
+            "id": "3"
+          },
+          {
+            "id": "4"
+          }
+        ],
+        "images": [
+          {
+            "id": "1"
+          },
+          {
+            "id": "2"
+          }
+        ],
+        "combinations": [
+          {
+            "id": "1"
+          },
+          {
+            "id": "2"
+          },
+          {
+            "id": "3"
+          },
+          {
+            "id": "4"
+          },
+          {
+            "id": "5"
+          },
+          {
+            "id": "6"
+          },
+          {
+            "id": "7"
+          },
+          {
+            "id": "8"
+          }
+        ],
+        "product_option_values": [
+          {
+            "id": "1"
+          },
+          {
+            "id": "11"
+          },
+          {
+            "id": "2"
+          },
+          {
+            "id": "8"
+          },
+          {
+            "id": "3"
+          },
+          {
+            "id": "4"
+          }
+        ],
+        "product_features": [
+          {
+            "id": "1",
+            "id_feature_value": "4"
+          },
+          {
+            "id": "2",
+            "id_feature_value": "8"
+          }
+        ],
+        "stock_availables": [
+          {
+            "id": "1",
+            "id_product_attribute": "0"
+          },
+          {
+            "id": "20",
+            "id_product_attribute": "1"
+          },
+          {
+            "id": "21",
+            "id_product_attribute": "2"
+          },
+          {
+            "id": "22",
+            "id_product_attribute": "3"
+          },
+          {
+            "id": "23",
+            "id_product_attribute": "4"
+          },
+          {
+            "id": "24",
+            "id_product_attribute": "5"
+          },
+          {
+            "id": "25",
+            "id_product_attribute": "6"
+          },
+          {
+            "id": "26",
+            "id_product_attribute": "7"
+          },
+          {
+            "id": "27",
+            "id_product_attribute": "8"
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "id_manufacturer": "1",
+      "id_supplier": "1",
+      "id_category_default": "5",
+      "new": null,
+      "cache_default_attribute": "9",
+      "id_default_image": "21",
+      "id_default_combination": "9",
+      "id_tax_rules_group": "1",
+      "position_in_category": "1",
+      "manufacturer_name": "Studio Design",
+      "quantity": "0",
+      "type": "simple",
+      "id_shop_default": "1",
+      "reference": "demo_3",
+      "supplier_reference": "",
+      "location": "",
+      "width": "0.000000",
+      "height": "0.000000",
+      "depth": "0.000000",
+      "weight": "0.300000",
+      "quantity_discount": "0",
+      "ean13": "",
+      "isbn": "",
+      "upc": "",
+      "mpn": "",
+      "cache_is_pack": "0",
+      "cache_has_attachments": "0",
+      "is_virtual": "0",
+      "state": "1",
+      "additional_delivery_times": "1",
+      "delivery_in_stock": "",
+      "delivery_out_stock": "",
+      "product_type": "combinations",
+      "on_sale": "0",
+      "online_only": "0",
+      "ecotax": "0.000000",
+      "minimal_quantity": "1",
+      "low_stock_threshold": null,
+      "low_stock_alert": "0",
+      "price": "35.900000",
+      "wholesale_price": "0.000000",
+      "unity": "",
+      "unit_price_ratio": "0.000000",
+      "additional_shipping_cost": "0.000000",
+      "customizable": "0",
+      "text_fields": "0",
+      "uploadable_files": "0",
+      "active": "1",
+      "redirect_type": "404",
+      "id_type_redirected": "0",
+      "available_for_order": "1",
+      "available_date": "0000-00-00",
+      "show_condition": "0",
+      "condition": "new",
+      "show_price": "1",
+      "indexed": "1",
+      "visibility": "both",
+      "advanced_stock_management": "0",
+      "date_add": "2025-12-22 22:29:04",
+      "date_upd": "2025-12-22 22:29:04",
+      "pack_stock_type": "3",
+      "meta_description": "",
+      "meta_keywords": "",
+      "meta_title": "",
+      "link_rewrite": "brown-bear-printed-sweater",
+      "name": "Hummingbird printed sweater",
+      "description": "<p>Studio Design' PolyFaune collection features classic products with colorful patterns, inspired by the traditional japanese origamis. To wear with a chino or jeans. The sublimation textile printing process provides an exceptional color rendering and a color, guaranteed overtime.<\/p>",
+      "description_short": "<p>Regular fit, round neckline, long sleeves. 100% cotton, brushed inner side for extra comfort. <\/p>",
+      "available_now": "",
+      "available_later": "",
+      "associations": {
+        "categories": [
+          {
+            "id": "2"
+          },
+          {
+            "id": "3"
+          },
+          {
+            "id": "5"
+          }
+        ],
+        "images": [
+          {
+            "id": "21"
+          }
+        ],
+        "combinations": [
+          {
+            "id": "9"
+          },
+          {
+            "id": "10"
+          },
+          {
+            "id": "11"
+          },
+          {
+            "id": "12"
+          }
+        ],
+        "product_option_values": [
+          {
+            "id": "1"
+          },
+          {
+            "id": "2"
+          },
+          {
+            "id": "3"
+          },
+          {
+            "id": "4"
+          }
+        ],
+        "product_features": [
+          {
+            "id": "1",
+            "id_feature_value": "4"
+          },
+          {
+            "id": "2",
+            "id_feature_value": "7"
+          }
+        ],
+        "stock_availables": [
+          {
+            "id": "2",
+            "id_product_attribute": "0"
+          },
+          {
+            "id": "28",
+            "id_product_attribute": "9"
+          },
+          {
+            "id": "29",
+            "id_product_attribute": "10"
+          },
+          {
+            "id": "30",
+            "id_product_attribute": "11"
+          },
+          {
+            "id": "31",
+            "id_product_attribute": "12"
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "id_manufacturer": "2",
+      "id_supplier": "1",
+      "id_category_default": "9",
+      "new": null,
+      "cache_default_attribute": "13",
+      "id_default_image": "3",
+      "id_default_combination": "13",
+      "id_tax_rules_group": "1",
+      "position_in_category": "1",
+      "manufacturer_name": "Graphic Corner",
+      "quantity": "0",
+      "type": "simple",
+      "id_shop_default": "1",
+      "reference": "demo_6",
+      "supplier_reference": "",
+      "location": "",
+      "width": "0.000000",
+      "height": "0.000000",
+      "depth": "0.000000",
+      "weight": "0.300000",
+      "quantity_discount": "0",
+      "ean13": "",
+      "isbn": "",
+      "upc": "",
+      "mpn": "",
+      "cache_is_pack": "0",
+      "cache_has_attachments": "0",
+      "is_virtual": "0",
+      "state": "1",
+      "additional_delivery_times": "1",
+      "delivery_in_stock": "",
+      "delivery_out_stock": "",
+      "product_type": "combinations",
+      "on_sale": "0",
+      "online_only": "0",
+      "ecotax": "0.000000",
+      "minimal_quantity": "1",
+      "low_stock_threshold": null,
+      "low_stock_alert": "0",
+      "price": "29.000000",
+      "wholesale_price": "0.000000",
+      "unity": "",
+      "unit_price_ratio": "0.000000",
+      "additional_shipping_cost": "0.000000",
+      "customizable": "0",
+      "text_fields": "0",
+      "uploadable_files": "0",
+      "active": "1",
+      "redirect_type": "301-category",
+      "id_type_redirected": "0",
+      "available_for_order": "1",
+      "available_date": "0000-00-00",
+      "show_condition": "0",
+      "condition": "new",
+      "show_price": "1",
+      "indexed": "1",
+      "visibility": "both",
+      "advanced_stock_management": "0",
+      "date_add": "2025-12-22 22:29:04",
+      "date_upd": "2025-12-22 22:29:04",
+      "pack_stock_type": "3",
+      "meta_description": "",
+      "meta_keywords": "",
+      "meta_title": "",
+      "link_rewrite": "the-best-is-yet-to-come-framed-poster",
+      "name": "The best is yet to come' Framed poster",
+      "description": "<p>The best is yet to come! Give your walls a voice with a framed poster. This aesthethic, optimistic poster will look great in your desk or in an open-space office. Painted wooden frame with passe-partout for more depth.<\/p>",
+      "description_short": "<p>Printed on rigid matt paper and smooth surface.<\/p>",
+      "available_now": "",
+      "available_later": "",
+      "associations": {
+        "categories": [
+          {
+            "id": "2"
+          },
+          {
+            "id": "9"
+          }
+        ],
+        "images": [
+          {
+            "id": "3"
+          }
+        ],
+        "combinations": [
+          {
+            "id": "13"
+          },
+          {
+            "id": "14"
+          },
+          {
+            "id": "15"
+          }
+        ],
+        "product_option_values": [
+          {
+            "id": "19"
+          },
+          {
+            "id": "20"
+          },
+          {
+            "id": "21"
+          }
+        ],
+        "product_features": [
+          {
+            "id": "1",
+            "id_feature_value": "6"
+          }
+        ],
+        "stock_availables": [
+          {
+            "id": "3",
+            "id_product_attribute": "0"
+          },
+          {
+            "id": "32",
+            "id_product_attribute": "13"
+          },
+          {
+            "id": "33",
+            "id_product_attribute": "14"
+          },
+          {
+            "id": "34",
+            "id_product_attribute": "15"
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "id_manufacturer": "2",
+      "id_supplier": "1",
+      "id_category_default": "9",
+      "new": null,
+      "cache_default_attribute": "16",
+      "id_default_image": "4",
+      "id_default_combination": "16",
+      "id_tax_rules_group": "1",
+      "position_in_category": "2",
+      "manufacturer_name": "Graphic Corner",
+      "quantity": "0",
+      "type": "simple",
+      "id_shop_default": "1",
+      "reference": "demo_5",
+      "supplier_reference": "",
+      "location": "",
+      "width": "0.000000",
+      "height": "0.000000",
+      "depth": "0.000000",
+      "weight": "0.300000",
+      "quantity_discount": "0",
+      "ean13": "",
+      "isbn": "",
+      "upc": "",
+      "mpn": "",
+      "cache_is_pack": "0",
+      "cache_has_attachments": "0",
+      "is_virtual": "0",
+      "state": "1",
+      "additional_delivery_times": "1",
+      "delivery_in_stock": "",
+      "delivery_out_stock": "",
+      "product_type": "combinations",
+      "on_sale": "0",
+      "online_only": "0",
+      "ecotax": "0.000000",
+      "minimal_quantity": "1",
+      "low_stock_threshold": null,
+      "low_stock_alert": "0",
+      "price": "29.000000",
+      "wholesale_price": "0.000000",
+      "unity": "",
+      "unit_price_ratio": "0.000000",
+      "additional_shipping_cost": "0.000000",
+      "customizable": "0",
+      "text_fields": "0",
+      "uploadable_files": "0",
+      "active": "1",
+      "redirect_type": "404",
+      "id_type_redirected": "0",
+      "available_for_order": "1",
+      "available_date": "0000-00-00",
+      "show_condition": "0",
+      "condition": "new",
+      "show_price": "1",
+      "indexed": "1",
+      "visibility": "both",
+      "advanced_stock_management": "0",
+      "date_add": "2025-12-22 22:29:04",
+      "date_upd": "2025-12-22 22:29:04",
+      "pack_stock_type": "3",
+      "meta_description": "",
+      "meta_keywords": "",
+      "meta_title": "",
+      "link_rewrite": "the-adventure-begins-framed-poster",
+      "name": "The adventure begins Framed poster",
+      "description": "<p>The best is yet to come! Give your walls a voice with a framed poster. This aesthethic, optimistic poster will look great in your desk or in an open-space office. Painted wooden frame with passe-partout for more depth.<\/p>",
+      "description_short": "<p>Printed on rigid matt finish and smooth surface.<\/p>",
+      "available_now": "",
+      "available_later": "",
+      "associations": {
+        "categories": [
+          {
+            "id": "2"
+          },
+          {
+            "id": "9"
+          }
+        ],
+        "images": [
+          {
+            "id": "4"
+          }
+        ],
+        "combinations": [
+          {
+            "id": "16"
+          },
+          {
+            "id": "17"
+          },
+          {
+            "id": "18"
+          }
+        ],
+        "product_option_values": [
+          {
+            "id": "19"
+          },
+          {
+            "id": "20"
+          },
+          {
+            "id": "21"
+          }
+        ],
+        "product_features": [
+          {
+            "id": "1",
+            "id_feature_value": "6"
+          }
+        ],
+        "stock_availables": [
+          {
+            "id": "4",
+            "id_product_attribute": "0"
+          },
+          {
+            "id": "35",
+            "id_product_attribute": "16"
+          },
+          {
+            "id": "36",
+            "id_product_attribute": "17"
+          },
+          {
+            "id": "37",
+            "id_product_attribute": "18"
+          }
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "id_manufacturer": "2",
+      "id_supplier": "1",
+      "id_category_default": "9",
+      "new": null,
+      "cache_default_attribute": "19",
+      "id_default_image": "5",
+      "id_default_combination": "19",
+      "id_tax_rules_group": "1",
+      "position_in_category": "3",
+      "manufacturer_name": "Graphic Corner",
+      "quantity": "0",
+      "type": "simple",
+      "id_shop_default": "1",
+      "reference": "demo_7",
+      "supplier_reference": "",
+      "location": "",
+      "width": "0.000000",
+      "height": "0.000000",
+      "depth": "0.000000",
+      "weight": "0.300000",
+      "quantity_discount": "0",
+      "ean13": "",
+      "isbn": "",
+      "upc": "",
+      "mpn": "",
+      "cache_is_pack": "0",
+      "cache_has_attachments": "0",
+      "is_virtual": "0",
+      "state": "1",
+      "additional_delivery_times": "1",
+      "delivery_in_stock": "",
+      "delivery_out_stock": "",
+      "product_type": "combinations",
+      "on_sale": "0",
+      "online_only": "0",
+      "ecotax": "0.000000",
+      "minimal_quantity": "1",
+      "low_stock_threshold": null,
+      "low_stock_alert": "0",
+      "price": "29.000000",
+      "wholesale_price": "0.000000",
+      "unity": "",
+      "unit_price_ratio": "0.000000",
+      "additional_shipping_cost": "0.000000",
+      "customizable": "0",
+      "text_fields": "0",
+      "uploadable_files": "0",
+      "active": "1",
+      "redirect_type": "301-category",
+      "id_type_redirected": "0",
+      "available_for_order": "1",
+      "available_date": "0000-00-00",
+      "show_condition": "0",
+      "condition": "new",
+      "show_price": "1",
+      "indexed": "1",
+      "visibility": "both",
+      "advanced_stock_management": "0",
+      "date_add": "2025-12-22 22:29:04",
+      "date_upd": "2025-12-22 22:29:04",
+      "pack_stock_type": "3",
+      "meta_description": "",
+      "meta_keywords": "",
+      "meta_title": "",
+      "link_rewrite": "today-is-a-good-day-framed-poster",
+      "name": "Today is a good day Framed poster",
+      "description": "<p>The best is yet to come! Give your walls a voice with a framed poster. This aesthethic, optimistic poster will look great in your desk or in an open-space office. Painted wooden frame with passe-partout for more depth.<\/p>",
+      "description_short": "<p>Printed on rigid paper with matt finish and smooth surface.<\/p>",
+      "available_now": "",
+      "available_later": "",
+      "associations": {
+        "categories": [
+          {
+            "id": "2"
+          },
+          {
+            "id": "9"
+          }
+        ],
+        "images": [
+          {
+            "id": "5"
+          }
+        ],
+        "combinations": [
+          {
+            "id": "19"
+          },
+          {
+            "id": "20"
+          },
+          {
+            "id": "21"
+          }
+        ],
+        "product_option_values": [
+          {
+            "id": "19"
+          },
+          {
+            "id": "20"
+          },
+          {
+            "id": "21"
+          }
+        ],
+        "product_features": [
+          {
+            "id": "1",
+            "id_feature_value": "6"
+          }
+        ],
+        "stock_availables": [
+          {
+            "id": "5",
+            "id_product_attribute": "0"
+          },
+          {
+            "id": "38",
+            "id_product_attribute": "19"
+          },
+          {
+            "id": "39",
+            "id_product_attribute": "20"
+          },
+          {
+            "id": "40",
+            "id_product_attribute": "21"
+          }
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "id_manufacturer": "1",
+      "id_supplier": "2",
+      "id_category_default": "8",
+      "new": null,
+      "cache_default_attribute": "0",
+      "id_default_image": "6",
+      "id_default_combination": 0,
+      "id_tax_rules_group": "1",
+      "position_in_category": "1",
+      "manufacturer_name": "Studio Design",
+      "quantity": "0",
+      "type": "simple",
+      "id_shop_default": "1",
+      "reference": "demo_11",
+      "supplier_reference": "",
+      "location": "",
+      "width": "0.000000",
+      "height": "0.000000",
+      "depth": "0.000000",
+      "weight": "0.300000",
+      "quantity_discount": "0",
+      "ean13": "",
+      "isbn": "",
+      "upc": "",
+      "mpn": "",
+      "cache_is_pack": "0",
+      "cache_has_attachments": "0",
+      "is_virtual": "0",
+      "state": "1",
+      "additional_delivery_times": "1",
+      "delivery_in_stock": "",
+      "delivery_out_stock": "",
+      "product_type": "standard",
+      "on_sale": "0",
+      "online_only": "0",
+      "ecotax": "0.000000",
+      "minimal_quantity": "1",
+      "low_stock_threshold": null,
+      "low_stock_alert": "0",
+      "price": "11.900000",
+      "wholesale_price": "0.000000",
+      "unity": "",
+      "unit_price_ratio": "0.000000",
+      "additional_shipping_cost": "0.000000",
+      "customizable": "0",
+      "text_fields": "0",
+      "uploadable_files": "0",
+      "active": "1",
+      "redirect_type": "301-category",
+      "id_type_redirected": "0",
+      "available_for_order": "1",
+      "available_date": "0000-00-00",
+      "show_condition": "0",
+      "condition": "new",
+      "show_price": "1",
+      "indexed": "1",
+      "visibility": "both",
+      "advanced_stock_management": "0",
+      "date_add": "2025-12-22 22:29:04",
+      "date_upd": "2025-12-22 22:29:04",
+      "pack_stock_type": "3",
+      "meta_description": "",
+      "meta_keywords": "",
+      "meta_title": "",
+      "link_rewrite": "mug-the-best-is-yet-to-come",
+      "name": "Mug The best is yet to come",
+      "description": "<p>The best is yet to come! Start the day off right with a positive thought. 8,2cm diameter \/ 9,5cm height \/ 0.43kg. Dishwasher-proof.<\/p>",
+      "description_short": "<p>White Ceramic Mug, 325ml.<\/p>",
+      "available_now": "",
+      "available_later": "",
+      "associations": {
+        "categories": [
+          {
+            "id": "2"
+          },
+          {
+            "id": "6"
+          },
+          {
+            "id": "8"
+          }
+        ],
+        "images": [
+          {
+            "id": "6"
+          }
+        ],
+        "product_features": [
+          {
+            "id": "1",
+            "id_feature_value": "3"
+          }
+        ],
+        "stock_availables": [
+          {
+            "id": "6",
+            "id_product_attribute": "0"
+          }
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "id_manufacturer": "1",
+      "id_supplier": "2",
+      "id_category_default": "8",
+      "new": null,
+      "cache_default_attribute": "0",
+      "id_default_image": "7",
+      "id_default_combination": 0,
+      "id_tax_rules_group": "1",
+      "position_in_category": "2",
+      "manufacturer_name": "Studio Design",
+      "quantity": "0",
+      "type": "simple",
+      "id_shop_default": "1",
+      "reference": "demo_12",
+      "supplier_reference": "",
+      "location": "",
+      "width": "0.000000",
+      "height": "0.000000",
+      "depth": "0.000000",
+      "weight": "0.300000",
+      "quantity_discount": "0",
+      "ean13": "",
+      "isbn": "",
+      "upc": "",
+      "mpn": "",
+      "cache_is_pack": "0",
+      "cache_has_attachments": "0",
+      "is_virtual": "0",
+      "state": "1",
+      "additional_delivery_times": "1",
+      "delivery_in_stock": "",
+      "delivery_out_stock": "",
+      "product_type": "standard",
+      "on_sale": "0",
+      "online_only": "0",
+      "ecotax": "0.000000",
+      "minimal_quantity": "1",
+      "low_stock_threshold": null,
+      "low_stock_alert": "0",
+      "price": "11.900000",
+      "wholesale_price": "0.000000",
+      "unity": "",
+      "unit_price_ratio": "0.000000",
+      "additional_shipping_cost": "0.000000",
+      "customizable": "0",
+      "text_fields": "0",
+      "uploadable_files": "0",
+      "active": "1",
+      "redirect_type": "301-category",
+      "id_type_redirected": "0",
+      "available_for_order": "1",
+      "available_date": "0000-00-00",
+      "show_condition": "0",
+      "condition": "new",
+      "show_price": "1",
+      "indexed": "1",
+      "visibility": "both",
+      "advanced_stock_management": "0",
+      "date_add": "2025-12-22 22:29:04",
+      "date_upd": "2025-12-22 22:29:04",
+      "pack_stock_type": "3",
+      "meta_description": "",
+      "meta_keywords": "",
+      "meta_title": "",
+      "link_rewrite": "mug-the-adventure-begins",
+      "name": "Mug The adventure begins",
+      "description": "<p>The adventure begins with a cup of coffee. Set out to conquer the day! 8,2cm diameter \/ 9,5cm height \/ 0.43kg. Dishwasher-proof.<\/p>",
+      "description_short": "<p>White Ceramic Mug. 325ml<\/p>",
+      "available_now": "",
+      "available_later": "",
+      "associations": {
+        "categories": [
+          {
+            "id": "2"
+          },
+          {
+            "id": "6"
+          },
+          {
+            "id": "8"
+          }
+        ],
+        "images": [
+          {
+            "id": "7"
+          }
+        ],
+        "product_features": [
+          {
+            "id": "1",
+            "id_feature_value": "3"
+          }
+        ],
+        "stock_availables": [
+          {
+            "id": "7",
+            "id_product_attribute": "0"
+          }
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "id_manufacturer": "1",
+      "id_supplier": "2",
+      "id_category_default": "8",
+      "new": null,
+      "cache_default_attribute": "0",
+      "id_default_image": "8",
+      "id_default_combination": 0,
+      "id_tax_rules_group": "1",
+      "position_in_category": "3",
+      "manufacturer_name": "Studio Design",
+      "quantity": "0",
+      "type": "simple",
+      "id_shop_default": "1",
+      "reference": "demo_13",
+      "supplier_reference": "",
+      "location": "",
+      "width": "0.000000",
+      "height": "0.000000",
+      "depth": "0.000000",
+      "weight": "0.300000",
+      "quantity_discount": "0",
+      "ean13": "",
+      "isbn": "",
+      "upc": "",
+      "mpn": "",
+      "cache_is_pack": "0",
+      "cache_has_attachments": "0",
+      "is_virtual": "0",
+      "state": "1",
+      "additional_delivery_times": "1",
+      "delivery_in_stock": "",
+      "delivery_out_stock": "",
+      "product_type": "standard",
+      "on_sale": "0",
+      "online_only": "0",
+      "ecotax": "0.000000",
+      "minimal_quantity": "1",
+      "low_stock_threshold": null,
+      "low_stock_alert": "0",
+      "price": "11.900000",
+      "wholesale_price": "0.000000",
+      "unity": "",
+      "unit_price_ratio": "0.000000",
+      "additional_shipping_cost": "0.000000",
+      "customizable": "0",
+      "text_fields": "0",
+      "uploadable_files": "0",
+      "active": "1",
+      "redirect_type": "404",
+      "id_type_redirected": "0",
+      "available_for_order": "1",
+      "available_date": "0000-00-00",
+      "show_condition": "0",
+      "condition": "new",
+      "show_price": "1",
+      "indexed": "1",
+      "visibility": "both",
+      "advanced_stock_management": "0",
+      "date_add": "2025-12-22 22:29:04",
+      "date_upd": "2025-12-22 22:29:04",
+      "pack_stock_type": "3",
+      "meta_description": "",
+      "meta_keywords": "",
+      "meta_title": "",
+      "link_rewrite": "mug-today-is-a-good-day",
+      "name": "Mug Today is a good day",
+      "description": "<p>Add an optimistic touch to your morning coffee and start the day in a good mood! 8,2cm diameter \/ 9,5cm height \/ 0.43kg. Dishwasher-proof.<\/p>",
+      "description_short": "<p>White Ceramic Mug. 325ml<\/p>",
+      "available_now": "",
+      "available_later": "",
+      "associations": {
+        "categories": [
+          {
+            "id": "2"
+          },
+          {
+            "id": "6"
+          },
+          {
+            "id": "8"
+          }
+        ],
+        "images": [
+          {
+            "id": "8"
+          }
+        ],
+        "product_features": [
+          {
+            "id": "1",
+            "id_feature_value": "3"
+          }
+        ],
+        "stock_availables": [
+          {
+            "id": "8",
+            "id_product_attribute": "0"
+          }
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "id_manufacturer": "1",
+      "id_supplier": "2",
+      "id_category_default": "8",
+      "new": null,
+      "cache_default_attribute": "22",
+      "id_default_image": "9",
+      "id_default_combination": "22",
+      "id_tax_rules_group": "1",
+      "position_in_category": "4",
+      "manufacturer_name": "Studio Design",
+      "quantity": "0",
+      "type": "simple",
+      "id_shop_default": "1",
+      "reference": "demo_15",
+      "supplier_reference": "",
+      "location": "",
+      "width": "0.000000",
+      "height": "0.000000",
+      "depth": "0.000000",
+      "weight": "0.300000",
+      "quantity_discount": "0",
+      "ean13": "",
+      "isbn": "",
+      "upc": "",
+      "mpn": "",
+      "cache_is_pack": "0",
+      "cache_has_attachments": "0",
+      "is_virtual": "0",
+      "state": "1",
+      "additional_delivery_times": "1",
+      "delivery_in_stock": "",
+      "delivery_out_stock": "",
+      "product_type": "combinations",
+      "on_sale": "0",
+      "online_only": "0",
+      "ecotax": "0.000000",
+      "minimal_quantity": "1",
+      "low_stock_threshold": null,
+      "low_stock_alert": "0",
+      "price": "18.900000",
+      "wholesale_price": "0.000000",
+      "unity": "",
+      "unit_price_ratio": "0.000000",
+      "additional_shipping_cost": "0.000000",
+      "customizable": "0",
+      "text_fields": "0",
+      "uploadable_files": "0",
+      "active": "1",
+      "redirect_type": "301-category",
+      "id_type_redirected": "0",
+      "available_for_order": "1",
+      "available_date": "0000-00-00",
+      "show_condition": "0",
+      "condition": "new",
+      "show_price": "1",
+      "indexed": "1",
+      "visibility": "both",
+      "advanced_stock_management": "0",
+      "date_add": "2025-12-22 22:29:04",
+      "date_upd": "2025-12-22 22:29:04",
+      "pack_stock_type": "3",
+      "meta_description": "",
+      "meta_keywords": "",
+      "meta_title": "",
+      "link_rewrite": "mountain-fox-cushion",
+      "name": "Mountain fox cushion",
+      "description": "<p>The mountain fox cushion will add a graphic and colorful touch to your sofa, armchair or bed. Create a modern and zen atmosphere that inspires relaxation. Cover 100% cotton, machine washable at 60° \/ Filling 100% hypoallergenic polyester.<\/p>",
+      "description_short": "<p>Cushion with removable cover and invisible zip on the back. 32x32cm<\/p>",
+      "available_now": "",
+      "available_later": "",
+      "associations": {
+        "categories": [
+          {
+            "id": "2"
+          },
+          {
+            "id": "6"
+          },
+          {
+            "id": "8"
+          }
+        ],
+        "images": [
+          {
+            "id": "9"
+          },
+          {
+            "id": "10"
+          }
+        ],
+        "combinations": [
+          {
+            "id": "22"
+          },
+          {
+            "id": "23"
+          }
+        ],
+        "product_option_values": [
+          {
+            "id": "8"
+          },
+          {
+            "id": "11"
+          }
+        ],
+        "product_features": [
+          {
+            "id": "1",
+            "id_feature_value": "1"
+          },
+          {
+            "id": "2",
+            "id_feature_value": "9"
+          }
+        ],
+        "stock_availables": [
+          {
+            "id": "9",
+            "id_product_attribute": "0"
+          },
+          {
+            "id": "41",
+            "id_product_attribute": "22"
+          },
+          {
+            "id": "42",
+            "id_product_attribute": "23"
+          }
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "id_manufacturer": "1",
+      "id_supplier": "2",
+      "id_category_default": "8",
+      "new": null,
+      "cache_default_attribute": "24",
+      "id_default_image": "11",
+      "id_default_combination": "24",
+      "id_tax_rules_group": "1",
+      "position_in_category": "5",
+      "manufacturer_name": "Studio Design",
+      "quantity": "0",
+      "type": "simple",
+      "id_shop_default": "1",
+      "reference": "demo_16",
+      "supplier_reference": "",
+      "location": "",
+      "width": "0.000000",
+      "height": "0.000000",
+      "depth": "0.000000",
+      "weight": "0.300000",
+      "quantity_discount": "0",
+      "ean13": "",
+      "isbn": "",
+      "upc": "",
+      "mpn": "",
+      "cache_is_pack": "0",
+      "cache_has_attachments": "0",
+      "is_virtual": "0",
+      "state": "1",
+      "additional_delivery_times": "1",
+      "delivery_in_stock": "",
+      "delivery_out_stock": "",
+      "product_type": "combinations",
+      "on_sale": "0",
+      "online_only": "0",
+      "ecotax": "0.000000",
+      "minimal_quantity": "1",
+      "low_stock_threshold": null,
+      "low_stock_alert": "0",
+      "price": "18.900000",
+      "wholesale_price": "0.000000",
+      "unity": "",
+      "unit_price_ratio": "0.000000",
+      "additional_shipping_cost": "0.000000",
+      "customizable": "0",
+      "text_fields": "0",
+      "uploadable_files": "0",
+      "active": "1",
+      "redirect_type": "301-category",
+      "id_type_redirected": "0",
+      "available_for_order": "1",
+      "available_date": "0000-00-00",
+      "show_condition": "0",
+      "condition": "new",
+      "show_price": "1",
+      "indexed": "1",
+      "visibility": "both",
+      "advanced_stock_management": "0",
+      "date_add": "2025-12-22 22:29:04",
+      "date_upd": "2025-12-22 22:29:04",
+      "pack_stock_type": "3",
+      "meta_description": "",
+      "meta_keywords": "",
+      "meta_title": "",
+      "link_rewrite": "brown-bear-cushion",
+      "name": "Brown bear cushion",
+      "description": "<p>The brown bear cushion will add a graphic and colorful touch to your sofa, armchair or bed. Create a modern and zen atmosphere that inspires relaxation. Cover 100% cotton, machine washable at 60° \/ Filling 100% hypoallergenic polyester.<\/p>",
+      "description_short": "<p>Cushion with removable cover and invisible zip on the back. 32x32cm<\/p>",
+      "available_now": "",
+      "available_later": "",
+      "associations": {
+        "categories": [
+          {
+            "id": "2"
+          },
+          {
+            "id": "6"
+          },
+          {
+            "id": "8"
+          }
+        ],
+        "images": [
+          {
+            "id": "11"
+          },
+          {
+            "id": "12"
+          }
+        ],
+        "combinations": [
+          {
+            "id": "24"
+          },
+          {
+            "id": "25"
+          }
+        ],
+        "product_option_values": [
+          {
+            "id": "8"
+          },
+          {
+            "id": "11"
+          }
+        ],
+        "product_features": [
+          {
+            "id": "1",
+            "id_feature_value": "1"
+          },
+          {
+            "id": "2",
+            "id_feature_value": "9"
+          }
+        ],
+        "stock_availables": [
+          {
+            "id": "10",
+            "id_product_attribute": "0"
+          },
+          {
+            "id": "43",
+            "id_product_attribute": "24"
+          },
+          {
+            "id": "44",
+            "id_product_attribute": "25"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "products": [
+    {
+      "id": 5,
+      "id_manufacturer": "2",
+      "id_supplier": "1",
+      "id_category_default": "9",
+      "new": null,
+      "cache_default_attribute": "19",
+      "id_default_image": "5",
+      "id_default_combination": "19",
+      "id_tax_rules_group": "1",
+      "position_in_category": "3",
+      "manufacturer_name": "Graphic Corner",
+      "quantity": "0",
+      "type": "simple",
+      "id_shop_default": "1",
+      "reference": "demo_7",
+      "supplier_reference": "",
+      "location": "",
+      "width": "0.000000",
+      "height": "0.000000",
+      "depth": "0.000000",
+      "weight": "0.300000",
+      "quantity_discount": "0",
+      "ean13": "",
+      "isbn": "",
+      "upc": "",
+      "mpn": "",
+      "cache_is_pack": "0",
+      "cache_has_attachments": "0",
+      "is_virtual": "0",
+      "state": "1",
+      "additional_delivery_times": "1",
+      "delivery_in_stock": "",
+      "delivery_out_stock": "",
+      "product_type": "combinations",
+      "on_sale": "0",
+      "online_only": "0",
+      "ecotax": "0.000000",
+      "minimal_quantity": "1",
+      "low_stock_threshold": null,
+      "low_stock_alert": "0",
+      "price": "29.000000",
+      "wholesale_price": "0.000000",
+      "unity": "",
+      "unit_price_ratio": "0.000000",
+      "additional_shipping_cost": "0.000000",
+      "customizable": "0",
+      "text_fields": "0",
+      "uploadable_files": "0",
+      "active": "1",
+      "redirect_type": "301-category",
+      "id_type_redirected": "0",
+      "available_for_order": "1",
+      "available_date": "0000-00-00",
+      "show_condition": "0",
+      "condition": "new",
+      "show_price": "1",
+      "indexed": "1",
+      "visibility": "both",
+      "advanced_stock_management": "0",
+      "date_add": "2025-12-22 22:29:04",
+      "date_upd": "2025-12-22 22:29:04",
+      "pack_stock_type": "3",
+      "meta_description": "",
+      "meta_keywords": "",
+      "meta_title": "",
+      "link_rewrite": "today-is-a-good-day-framed-poster",
+      "name": "Today is a good day Framed poster",
+      "description": "<p>The best is yet to come! Give your walls a voice with a framed poster. This aesthethic, optimistic poster will look great in your desk or in an open-space office. Painted wooden frame with passe-partout for more depth.<\/p>",
+      "description_short": "<p>Printed on rigid paper with matt finish and smooth surface.<\/p>",
+      "available_now": "",
+      "available_later": "",
+      "associations": {
+        "categories": [
+          {
+            "id": "2"
+          },
+          {
+            "id": "9"
+          }
+        ],
+        "images": [
+          {
+            "id": "5"
+          }
+        ],
+        "combinations": [
+          {
+            "id": "19"
+          },
+          {
+            "id": "20"
+          },
+          {
+            "id": "21"
+          }
+        ],
+        "product_option_values": [
+          {
+            "id": "19"
+          },
+          {
+            "id": "20"
+          },
+          {
+            "id": "21"
+          }
+        ],
+        "product_features": [
+          {
+            "id": "1",
+            "id_feature_value": "6"
+          }
+        ],
+        "stock_availables": [
+          {
+            "id": "5",
+            "id_product_attribute": "0"
+          },
+          {
+            "id": "38",
+            "id_product_attribute": "19"
+          },
+          {
+            "id": "39",
+            "id_product_attribute": "20"
+          },
+          {
+            "id": "40",
+            "id_product_attribute": "21"
+          }
+        ]
+      }
+    }
+  ]
+}
