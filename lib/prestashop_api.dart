@@ -39,6 +39,7 @@ export 'src/content_management_system/network/content_management_system_enums.da
 export 'src/countries/model/country.dart';
 export 'src/countries/network/country_enums.dart';
 export 'src/currencies/model/currency.dart';
+export 'src/currencies/network/currency_enums.dart';
 export 'src/languages/model/language.dart';
 export 'src/languages/network/language_enums.dart';
 export 'src/prestashop_api.dart';
