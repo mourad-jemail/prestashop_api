@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Supplier {
 
- int? get id; String? get linkRewrite; String? get name; bool? get active; DateTime? get dateAdd; DateTime? get dateUpd; String? get description; String? get metaTitle; String? get metaDescription; String? get metaKeywords;
+ int? get id; String? get linkRewrite; String? get name; String? get active; DateTime? get dateAdd; DateTime? get dateUpd; String? get description; String? get metaTitle; String? get metaDescription; String? get metaKeywords;
 /// Create a copy of Supplier
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $SupplierCopyWith<$Res>  {
   factory $SupplierCopyWith(Supplier value, $Res Function(Supplier) _then) = _$SupplierCopyWithImpl;
 @useResult
 $Res call({
- int? id, String? linkRewrite, String? name, bool? active, DateTime? dateAdd, DateTime? dateUpd, String? description, String? metaTitle, String? metaDescription, String? metaKeywords
+ int? id, String? linkRewrite, String? name, String? active, DateTime? dateAdd, DateTime? dateUpd, String? description, String? metaTitle, String? metaDescription, String? metaKeywords
 });
 
 
@@ -71,7 +71,7 @@ id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int?,linkRewrite: freezed == linkRewrite ? _self.linkRewrite : linkRewrite // ignore: cast_nullable_to_non_nullable
 as String?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
-as bool?,dateAdd: freezed == dateAdd ? _self.dateAdd : dateAdd // ignore: cast_nullable_to_non_nullable
+as String?,dateAdd: freezed == dateAdd ? _self.dateAdd : dateAdd // ignore: cast_nullable_to_non_nullable
 as DateTime?,dateUpd: freezed == dateUpd ? _self.dateUpd : dateUpd // ignore: cast_nullable_to_non_nullable
 as DateTime?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,metaTitle: freezed == metaTitle ? _self.metaTitle : metaTitle // ignore: cast_nullable_to_non_nullable
@@ -162,7 +162,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id,  String? linkRewrite,  String? name,  bool? active,  DateTime? dateAdd,  DateTime? dateUpd,  String? description,  String? metaTitle,  String? metaDescription,  String? metaKeywords)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id,  String? linkRewrite,  String? name,  String? active,  DateTime? dateAdd,  DateTime? dateUpd,  String? description,  String? metaTitle,  String? metaDescription,  String? metaKeywords)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Supplier() when $default != null:
 return $default(_that.id,_that.linkRewrite,_that.name,_that.active,_that.dateAdd,_that.dateUpd,_that.description,_that.metaTitle,_that.metaDescription,_that.metaKeywords);case _:
@@ -183,7 +183,7 @@ return $default(_that.id,_that.linkRewrite,_that.name,_that.active,_that.dateAdd
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id,  String? linkRewrite,  String? name,  bool? active,  DateTime? dateAdd,  DateTime? dateUpd,  String? description,  String? metaTitle,  String? metaDescription,  String? metaKeywords)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id,  String? linkRewrite,  String? name,  String? active,  DateTime? dateAdd,  DateTime? dateUpd,  String? description,  String? metaTitle,  String? metaDescription,  String? metaKeywords)  $default,) {final _that = this;
 switch (_that) {
 case _Supplier():
 return $default(_that.id,_that.linkRewrite,_that.name,_that.active,_that.dateAdd,_that.dateUpd,_that.description,_that.metaTitle,_that.metaDescription,_that.metaKeywords);case _:
@@ -203,7 +203,7 @@ return $default(_that.id,_that.linkRewrite,_that.name,_that.active,_that.dateAdd
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id,  String? linkRewrite,  String? name,  bool? active,  DateTime? dateAdd,  DateTime? dateUpd,  String? description,  String? metaTitle,  String? metaDescription,  String? metaKeywords)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id,  String? linkRewrite,  String? name,  String? active,  DateTime? dateAdd,  DateTime? dateUpd,  String? description,  String? metaTitle,  String? metaDescription,  String? metaKeywords)?  $default,) {final _that = this;
 switch (_that) {
 case _Supplier() when $default != null:
 return $default(_that.id,_that.linkRewrite,_that.name,_that.active,_that.dateAdd,_that.dateUpd,_that.description,_that.metaTitle,_that.metaDescription,_that.metaKeywords);case _:
@@ -224,7 +224,7 @@ class _Supplier extends Supplier {
 @override final  int? id;
 @override final  String? linkRewrite;
 @override final  String? name;
-@override final  bool? active;
+@override final  String? active;
 @override final  DateTime? dateAdd;
 @override final  DateTime? dateUpd;
 @override final  String? description;
@@ -265,7 +265,7 @@ abstract mixin class _$SupplierCopyWith<$Res> implements $SupplierCopyWith<$Res>
   factory _$SupplierCopyWith(_Supplier value, $Res Function(_Supplier) _then) = __$SupplierCopyWithImpl;
 @override @useResult
 $Res call({
- int? id, String? linkRewrite, String? name, bool? active, DateTime? dateAdd, DateTime? dateUpd, String? description, String? metaTitle, String? metaDescription, String? metaKeywords
+ int? id, String? linkRewrite, String? name, String? active, DateTime? dateAdd, DateTime? dateUpd, String? description, String? metaTitle, String? metaDescription, String? metaKeywords
 });
 
 
@@ -288,7 +288,7 @@ id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int?,linkRewrite: freezed == linkRewrite ? _self.linkRewrite : linkRewrite // ignore: cast_nullable_to_non_nullable
 as String?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
-as bool?,dateAdd: freezed == dateAdd ? _self.dateAdd : dateAdd // ignore: cast_nullable_to_non_nullable
+as String?,dateAdd: freezed == dateAdd ? _self.dateAdd : dateAdd // ignore: cast_nullable_to_non_nullable
 as DateTime?,dateUpd: freezed == dateUpd ? _self.dateUpd : dateUpd // ignore: cast_nullable_to_non_nullable
 as DateTime?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,metaTitle: freezed == metaTitle ? _self.metaTitle : metaTitle // ignore: cast_nullable_to_non_nullable

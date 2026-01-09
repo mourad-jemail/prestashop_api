@@ -13,7 +13,7 @@ abstract class Supplier with _$Supplier implements ConvertibleToJson {
     int? id,
     String? linkRewrite,
     String? name,
-    bool? active,
+    String? active,
     DateTime? dateAdd,
     DateTime? dateUpd,
     String? description,

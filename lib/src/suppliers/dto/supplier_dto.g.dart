@@ -8,15 +8,15 @@ part of 'supplier_dto.dart';
 
 _SupplierDTO _$SupplierDTOFromJson(Map<String, dynamic> json) => _SupplierDTO(
   id: (json['id'] as num?)?.toInt(),
-  linkRewrite: json['link_rewrite'] as String?,
+  linkRewrite: stringFromDynamicJson(json['link_rewrite']),
   name: json['name'] as String?,
-  active: parseIsBool(json['active']),
+  active: stringFromDynamicJson(json['active']),
   dateAdd: parseIsDate(json['date_add']),
   dateUpd: parseIsDate(json['date_upd']),
-  description: stringFromDynamicJson(json['description']),
-  metaTitle: stringFromDynamicJson(json['meta_title']),
-  metaDescription: stringFromDynamicJson(json['meta_description']),
-  metaKeywords: stringFromDynamicJson(json['meta_keywords']),
+  description: json['description'] as String?,
+  metaTitle: json['meta_title'] as String?,
+  metaDescription: json['meta_description'] as String?,
+  metaKeywords: json['meta_keywords'] as String?,
 );
 
 Map<String, dynamic> _$SupplierDTOToJson(_SupplierDTO instance) =>
@@ -24,7 +24,7 @@ Map<String, dynamic> _$SupplierDTOToJson(_SupplierDTO instance) =>
       'id': instance.id,
       'link_rewrite': instance.linkRewrite,
       'name': instance.name,
-      'active': isBoolToJson(instance.active),
+      'active': instance.active,
       'date_add': isDateToJson(instance.dateAdd),
       'date_upd': isDateToJson(instance.dateUpd),
       'description': instance.description,

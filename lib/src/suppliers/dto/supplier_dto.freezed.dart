@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SupplierDTO {
 
- int? get id;@JsonKey(name: 'link_rewrite') String? get linkRewrite; String? get name;@JsonKey(fromJson: parseIsBool, toJson: isBoolToJson) bool? get active;@JsonKey(name: 'date_add', fromJson: parseIsDate, toJson: isDateToJson) DateTime? get dateAdd;@JsonKey(name: 'date_upd', fromJson: parseIsDate, toJson: isDateToJson) DateTime? get dateUpd;@JsonKey(fromJson: stringFromDynamicJson) String? get description;@JsonKey(name: 'meta_title', fromJson: stringFromDynamicJson) String? get metaTitle;@JsonKey(name: 'meta_description', fromJson: stringFromDynamicJson) String? get metaDescription;@JsonKey(name: 'meta_keywords', fromJson: stringFromDynamicJson) String? get metaKeywords;
+ int? get id;@JsonKey(name: 'link_rewrite', fromJson: stringFromDynamicJson) String? get linkRewrite; String? get name;@JsonKey(fromJson: stringFromDynamicJson) String? get active;@JsonKey(name: 'date_add', fromJson: parseIsDate, toJson: isDateToJson) DateTime? get dateAdd;@JsonKey(name: 'date_upd', fromJson: parseIsDate, toJson: isDateToJson) DateTime? get dateUpd; String? get description;@JsonKey(name: 'meta_title') String? get metaTitle;@JsonKey(name: 'meta_description') String? get metaDescription;@JsonKey(name: 'meta_keywords') String? get metaKeywords;
 /// Create a copy of SupplierDTO
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $SupplierDTOCopyWith<$Res>  {
   factory $SupplierDTOCopyWith(SupplierDTO value, $Res Function(SupplierDTO) _then) = _$SupplierDTOCopyWithImpl;
 @useResult
 $Res call({
- int? id,@JsonKey(name: 'link_rewrite') String? linkRewrite, String? name,@JsonKey(fromJson: parseIsBool, toJson: isBoolToJson) bool? active,@JsonKey(name: 'date_add', fromJson: parseIsDate, toJson: isDateToJson) DateTime? dateAdd,@JsonKey(name: 'date_upd', fromJson: parseIsDate, toJson: isDateToJson) DateTime? dateUpd,@JsonKey(fromJson: stringFromDynamicJson) String? description,@JsonKey(name: 'meta_title', fromJson: stringFromDynamicJson) String? metaTitle,@JsonKey(name: 'meta_description', fromJson: stringFromDynamicJson) String? metaDescription,@JsonKey(name: 'meta_keywords', fromJson: stringFromDynamicJson) String? metaKeywords
+ int? id,@JsonKey(name: 'link_rewrite', fromJson: stringFromDynamicJson) String? linkRewrite, String? name,@JsonKey(fromJson: stringFromDynamicJson) String? active,@JsonKey(name: 'date_add', fromJson: parseIsDate, toJson: isDateToJson) DateTime? dateAdd,@JsonKey(name: 'date_upd', fromJson: parseIsDate, toJson: isDateToJson) DateTime? dateUpd, String? description,@JsonKey(name: 'meta_title') String? metaTitle,@JsonKey(name: 'meta_description') String? metaDescription,@JsonKey(name: 'meta_keywords') String? metaKeywords
 });
 
 
@@ -71,7 +71,7 @@ id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int?,linkRewrite: freezed == linkRewrite ? _self.linkRewrite : linkRewrite // ignore: cast_nullable_to_non_nullable
 as String?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
-as bool?,dateAdd: freezed == dateAdd ? _self.dateAdd : dateAdd // ignore: cast_nullable_to_non_nullable
+as String?,dateAdd: freezed == dateAdd ? _self.dateAdd : dateAdd // ignore: cast_nullable_to_non_nullable
 as DateTime?,dateUpd: freezed == dateUpd ? _self.dateUpd : dateUpd // ignore: cast_nullable_to_non_nullable
 as DateTime?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,metaTitle: freezed == metaTitle ? _self.metaTitle : metaTitle // ignore: cast_nullable_to_non_nullable
@@ -162,7 +162,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id, @JsonKey(name: 'link_rewrite')  String? linkRewrite,  String? name, @JsonKey(fromJson: parseIsBool, toJson: isBoolToJson)  bool? active, @JsonKey(name: 'date_add', fromJson: parseIsDate, toJson: isDateToJson)  DateTime? dateAdd, @JsonKey(name: 'date_upd', fromJson: parseIsDate, toJson: isDateToJson)  DateTime? dateUpd, @JsonKey(fromJson: stringFromDynamicJson)  String? description, @JsonKey(name: 'meta_title', fromJson: stringFromDynamicJson)  String? metaTitle, @JsonKey(name: 'meta_description', fromJson: stringFromDynamicJson)  String? metaDescription, @JsonKey(name: 'meta_keywords', fromJson: stringFromDynamicJson)  String? metaKeywords)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id, @JsonKey(name: 'link_rewrite', fromJson: stringFromDynamicJson)  String? linkRewrite,  String? name, @JsonKey(fromJson: stringFromDynamicJson)  String? active, @JsonKey(name: 'date_add', fromJson: parseIsDate, toJson: isDateToJson)  DateTime? dateAdd, @JsonKey(name: 'date_upd', fromJson: parseIsDate, toJson: isDateToJson)  DateTime? dateUpd,  String? description, @JsonKey(name: 'meta_title')  String? metaTitle, @JsonKey(name: 'meta_description')  String? metaDescription, @JsonKey(name: 'meta_keywords')  String? metaKeywords)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SupplierDTO() when $default != null:
 return $default(_that.id,_that.linkRewrite,_that.name,_that.active,_that.dateAdd,_that.dateUpd,_that.description,_that.metaTitle,_that.metaDescription,_that.metaKeywords);case _:
@@ -183,7 +183,7 @@ return $default(_that.id,_that.linkRewrite,_that.name,_that.active,_that.dateAdd
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id, @JsonKey(name: 'link_rewrite')  String? linkRewrite,  String? name, @JsonKey(fromJson: parseIsBool, toJson: isBoolToJson)  bool? active, @JsonKey(name: 'date_add', fromJson: parseIsDate, toJson: isDateToJson)  DateTime? dateAdd, @JsonKey(name: 'date_upd', fromJson: parseIsDate, toJson: isDateToJson)  DateTime? dateUpd, @JsonKey(fromJson: stringFromDynamicJson)  String? description, @JsonKey(name: 'meta_title', fromJson: stringFromDynamicJson)  String? metaTitle, @JsonKey(name: 'meta_description', fromJson: stringFromDynamicJson)  String? metaDescription, @JsonKey(name: 'meta_keywords', fromJson: stringFromDynamicJson)  String? metaKeywords)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id, @JsonKey(name: 'link_rewrite', fromJson: stringFromDynamicJson)  String? linkRewrite,  String? name, @JsonKey(fromJson: stringFromDynamicJson)  String? active, @JsonKey(name: 'date_add', fromJson: parseIsDate, toJson: isDateToJson)  DateTime? dateAdd, @JsonKey(name: 'date_upd', fromJson: parseIsDate, toJson: isDateToJson)  DateTime? dateUpd,  String? description, @JsonKey(name: 'meta_title')  String? metaTitle, @JsonKey(name: 'meta_description')  String? metaDescription, @JsonKey(name: 'meta_keywords')  String? metaKeywords)  $default,) {final _that = this;
 switch (_that) {
 case _SupplierDTO():
 return $default(_that.id,_that.linkRewrite,_that.name,_that.active,_that.dateAdd,_that.dateUpd,_that.description,_that.metaTitle,_that.metaDescription,_that.metaKeywords);case _:
@@ -203,7 +203,7 @@ return $default(_that.id,_that.linkRewrite,_that.name,_that.active,_that.dateAdd
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id, @JsonKey(name: 'link_rewrite')  String? linkRewrite,  String? name, @JsonKey(fromJson: parseIsBool, toJson: isBoolToJson)  bool? active, @JsonKey(name: 'date_add', fromJson: parseIsDate, toJson: isDateToJson)  DateTime? dateAdd, @JsonKey(name: 'date_upd', fromJson: parseIsDate, toJson: isDateToJson)  DateTime? dateUpd, @JsonKey(fromJson: stringFromDynamicJson)  String? description, @JsonKey(name: 'meta_title', fromJson: stringFromDynamicJson)  String? metaTitle, @JsonKey(name: 'meta_description', fromJson: stringFromDynamicJson)  String? metaDescription, @JsonKey(name: 'meta_keywords', fromJson: stringFromDynamicJson)  String? metaKeywords)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id, @JsonKey(name: 'link_rewrite', fromJson: stringFromDynamicJson)  String? linkRewrite,  String? name, @JsonKey(fromJson: stringFromDynamicJson)  String? active, @JsonKey(name: 'date_add', fromJson: parseIsDate, toJson: isDateToJson)  DateTime? dateAdd, @JsonKey(name: 'date_upd', fromJson: parseIsDate, toJson: isDateToJson)  DateTime? dateUpd,  String? description, @JsonKey(name: 'meta_title')  String? metaTitle, @JsonKey(name: 'meta_description')  String? metaDescription, @JsonKey(name: 'meta_keywords')  String? metaKeywords)?  $default,) {final _that = this;
 switch (_that) {
 case _SupplierDTO() when $default != null:
 return $default(_that.id,_that.linkRewrite,_that.name,_that.active,_that.dateAdd,_that.dateUpd,_that.description,_that.metaTitle,_that.metaDescription,_that.metaKeywords);case _:
@@ -218,19 +218,19 @@ return $default(_that.id,_that.linkRewrite,_that.name,_that.active,_that.dateAdd
 @JsonSerializable()
 
 class _SupplierDTO extends SupplierDTO {
-  const _SupplierDTO({this.id, @JsonKey(name: 'link_rewrite') this.linkRewrite, this.name, @JsonKey(fromJson: parseIsBool, toJson: isBoolToJson) this.active, @JsonKey(name: 'date_add', fromJson: parseIsDate, toJson: isDateToJson) this.dateAdd, @JsonKey(name: 'date_upd', fromJson: parseIsDate, toJson: isDateToJson) this.dateUpd, @JsonKey(fromJson: stringFromDynamicJson) this.description, @JsonKey(name: 'meta_title', fromJson: stringFromDynamicJson) this.metaTitle, @JsonKey(name: 'meta_description', fromJson: stringFromDynamicJson) this.metaDescription, @JsonKey(name: 'meta_keywords', fromJson: stringFromDynamicJson) this.metaKeywords}): super._();
+  const _SupplierDTO({this.id, @JsonKey(name: 'link_rewrite', fromJson: stringFromDynamicJson) this.linkRewrite, this.name, @JsonKey(fromJson: stringFromDynamicJson) this.active, @JsonKey(name: 'date_add', fromJson: parseIsDate, toJson: isDateToJson) this.dateAdd, @JsonKey(name: 'date_upd', fromJson: parseIsDate, toJson: isDateToJson) this.dateUpd, this.description, @JsonKey(name: 'meta_title') this.metaTitle, @JsonKey(name: 'meta_description') this.metaDescription, @JsonKey(name: 'meta_keywords') this.metaKeywords}): super._();
   factory _SupplierDTO.fromJson(Map<String, dynamic> json) => _$SupplierDTOFromJson(json);
 
 @override final  int? id;
-@override@JsonKey(name: 'link_rewrite') final  String? linkRewrite;
+@override@JsonKey(name: 'link_rewrite', fromJson: stringFromDynamicJson) final  String? linkRewrite;
 @override final  String? name;
-@override@JsonKey(fromJson: parseIsBool, toJson: isBoolToJson) final  bool? active;
+@override@JsonKey(fromJson: stringFromDynamicJson) final  String? active;
 @override@JsonKey(name: 'date_add', fromJson: parseIsDate, toJson: isDateToJson) final  DateTime? dateAdd;
 @override@JsonKey(name: 'date_upd', fromJson: parseIsDate, toJson: isDateToJson) final  DateTime? dateUpd;
-@override@JsonKey(fromJson: stringFromDynamicJson) final  String? description;
-@override@JsonKey(name: 'meta_title', fromJson: stringFromDynamicJson) final  String? metaTitle;
-@override@JsonKey(name: 'meta_description', fromJson: stringFromDynamicJson) final  String? metaDescription;
-@override@JsonKey(name: 'meta_keywords', fromJson: stringFromDynamicJson) final  String? metaKeywords;
+@override final  String? description;
+@override@JsonKey(name: 'meta_title') final  String? metaTitle;
+@override@JsonKey(name: 'meta_description') final  String? metaDescription;
+@override@JsonKey(name: 'meta_keywords') final  String? metaKeywords;
 
 /// Create a copy of SupplierDTO
 /// with the given fields replaced by the non-null parameter values.
@@ -265,7 +265,7 @@ abstract mixin class _$SupplierDTOCopyWith<$Res> implements $SupplierDTOCopyWith
   factory _$SupplierDTOCopyWith(_SupplierDTO value, $Res Function(_SupplierDTO) _then) = __$SupplierDTOCopyWithImpl;
 @override @useResult
 $Res call({
- int? id,@JsonKey(name: 'link_rewrite') String? linkRewrite, String? name,@JsonKey(fromJson: parseIsBool, toJson: isBoolToJson) bool? active,@JsonKey(name: 'date_add', fromJson: parseIsDate, toJson: isDateToJson) DateTime? dateAdd,@JsonKey(name: 'date_upd', fromJson: parseIsDate, toJson: isDateToJson) DateTime? dateUpd,@JsonKey(fromJson: stringFromDynamicJson) String? description,@JsonKey(name: 'meta_title', fromJson: stringFromDynamicJson) String? metaTitle,@JsonKey(name: 'meta_description', fromJson: stringFromDynamicJson) String? metaDescription,@JsonKey(name: 'meta_keywords', fromJson: stringFromDynamicJson) String? metaKeywords
+ int? id,@JsonKey(name: 'link_rewrite', fromJson: stringFromDynamicJson) String? linkRewrite, String? name,@JsonKey(fromJson: stringFromDynamicJson) String? active,@JsonKey(name: 'date_add', fromJson: parseIsDate, toJson: isDateToJson) DateTime? dateAdd,@JsonKey(name: 'date_upd', fromJson: parseIsDate, toJson: isDateToJson) DateTime? dateUpd, String? description,@JsonKey(name: 'meta_title') String? metaTitle,@JsonKey(name: 'meta_description') String? metaDescription,@JsonKey(name: 'meta_keywords') String? metaKeywords
 });
 
 
@@ -288,7 +288,7 @@ id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int?,linkRewrite: freezed == linkRewrite ? _self.linkRewrite : linkRewrite // ignore: cast_nullable_to_non_nullable
 as String?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String?,active: freezed == active ? _self.active : active // ignore: cast_nullable_to_non_nullable
-as bool?,dateAdd: freezed == dateAdd ? _self.dateAdd : dateAdd // ignore: cast_nullable_to_non_nullable
+as String?,dateAdd: freezed == dateAdd ? _self.dateAdd : dateAdd // ignore: cast_nullable_to_non_nullable
 as DateTime?,dateUpd: freezed == dateUpd ? _self.dateUpd : dateUpd // ignore: cast_nullable_to_non_nullable
 as DateTime?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,metaTitle: freezed == metaTitle ? _self.metaTitle : metaTitle // ignore: cast_nullable_to_non_nullable

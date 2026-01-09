@@ -10,7 +10,7 @@ _Supplier _$SupplierFromJson(Map<String, dynamic> json) => _Supplier(
   id: (json['id'] as num?)?.toInt(),
   linkRewrite: json['linkRewrite'] as String?,
   name: json['name'] as String?,
-  active: json['active'] as bool?,
+  active: json['active'] as String?,
   dateAdd: json['dateAdd'] == null
       ? null
       : DateTime.parse(json['dateAdd'] as String),
