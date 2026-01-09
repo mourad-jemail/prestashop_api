@@ -1,10 +1,14 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../common/model/convertible_to_json.dart';
+
 part 'product_feature.freezed.dart';
 part 'product_feature.g.dart';
 
 @freezed
-abstract class ProductFeature with _$ProductFeature {
+abstract class ProductFeature
+    with _$ProductFeature
+    implements ConvertibleToJson {
   const ProductFeature._();
 
   const factory ProductFeature({
