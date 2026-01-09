@@ -54,6 +54,10 @@ import 'countries/i_country_facade.dart';
 import 'countries/model/country.dart';
 import 'countries/network/country_data_source.dart';
 import 'countries/network/country_enums.dart';
+import 'currencies/i_currency_facade.dart';
+import 'currencies/model/currency.dart';
+import 'currencies/network/currency_data_source.dart';
+import 'currencies/network/currency_enums.dart';
 import 'languages/i_language_facade.dart';
 import 'languages/model/language.dart';
 import 'languages/network/language_data_source.dart';
@@ -133,6 +137,7 @@ import 'taxes/network/tax_enums.dart';
 @LazySingleton(as: IContactFacade)
 @LazySingleton(as: IContentManagementSystemFacade)
 @LazySingleton(as: ICountryFacade)
+@LazySingleton(as: ICurrencyFacade)
 @LazySingleton(as: ILanguageFacade)
 @LazySingleton(as: IProductFeatureFacade)
 @LazySingleton(as: IProductFacade)
@@ -153,6 +158,7 @@ class PrestashopApi
         IContactFacade,
         IContentManagementSystemFacade,
         ICountryFacade,
+        ICurrencyFacade,
         ILanguageFacade,
         IProductFeatureFacade,
         IProductFacade,
@@ -172,6 +178,7 @@ class PrestashopApi
   final ContactDataSource _contactDataSource;
   final ContentManagementSystemDataSource _contentManagementSystemDataSource;
   final CountryDataSource _countryDataSource;
+  final CurrencyDataSource _currencyDataSource;
   final LanguageDataSource _languageDataSource;
   final ProductFeatureDataSource _productFeatureDataSource;
   final ProductDataSource _productDataSource;
@@ -194,6 +201,7 @@ class PrestashopApi
     ContentManagementSystemDataSource? contentManagementSystemDataSource,
     CombinationDataSource? combinationDataSource,
     CountryDataSource? countryDataSource,
+    CurrencyDataSource? currencyDataSource,
     LanguageDataSource? languageDataSource,
     ProductFeatureDataSource? productFeatureDataSource,
     ProductDataSource? productDataSource,
@@ -219,6 +227,7 @@ class PrestashopApi
       contentManagementSystemDataSource ??
           ContentManagementSystemDataSource(dioInstance, baseConfig),
       countryDataSource ?? CountryDataSource(dioInstance, baseConfig),
+      currencyDataSource ?? CurrencyDataSource(dioInstance, baseConfig),
       languageDataSource ?? LanguageDataSource(dioInstance, baseConfig),
       productFeatureDataSource ??
           ProductFeatureDataSource(dioInstance, baseConfig),
@@ -244,6 +253,7 @@ class PrestashopApi
     this._contactDataSource,
     this._contentManagementSystemDataSource,
     this._countryDataSource,
+    this._currencyDataSource,
     this._languageDataSource,
     this._productFeatureDataSource,
     this._productDataSource,
@@ -1191,6 +1201,89 @@ class PrestashopApi
 
     return ReceivedEntity(
       remoteResponse.data.toDomain().countryList,
+      isNextPageAvailable: remoteResponse.isNextPageAvailable,
+    );
+  });
+
+  ///
+  /// Currency
+  ///
+
+  /// Fetches a list of all [Currency] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of all currencies.
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  @override
+  Future<ReceivedEntity<List<Currency>>> getCurrencies({
+    required int languageId,
+    Filter<CurrencyFilterField>? filter,
+    Display<CurrencyDisplayField>? display,
+    Sort<SortFieldOrder<CurrencySortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _currencyDataSource.getCurrencies(
+      languageId: languageId,
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(remoteResponse.data.toDomain().currencyList);
+  });
+
+  /// Retrieves a single [Currency] by its [id].
+  ///
+  /// Returns a [ReceivedEntity] containing the currency.
+  /// Requires the currency [id].
+  /// An optional [display] parameter can be provided.
+  /// If no currency is found, returns a [ReceivedEntity] containing an empty
+  /// [Currency] object.
+  @override
+  Future<ReceivedEntity<Currency>> getCurrencyById({
+    required int languageId,
+    required int id,
+    Display<CurrencyDisplayField>? display,
+  }) => _callApi(() async {
+    final remoteResponse = await _currencyDataSource.getCurrencies(
+      languageId: languageId,
+      filter: Filter.equals(CurrencyFilterField.id, value: '$id'),
+      display: display,
+    );
+
+    final currencyList = remoteResponse.data.toDomain().currencyList;
+
+    if (currencyList.isNotEmpty) {
+      return ReceivedEntity(currencyList[0]);
+    } else {
+      return ReceivedEntity(Currency.empty());
+    }
+  });
+
+  /// Fetches a paginated list of [Currency] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of currencies for the
+  /// specified [page].
+  /// Requires [languageId], [page] number and items [perPage].
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  @override
+  Future<ReceivedEntity<List<Currency>>> getCurrenciesPage({
+    required int languageId,
+    required int page,
+    required int perPage,
+    Filter<CurrencyFilterField>? filter,
+    Display<CurrencyDisplayField>? display,
+    Sort<SortFieldOrder<CurrencySortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _currencyDataSource.getCurrenciesPage(
+      languageId: languageId,
+      page: page,
+      perPage: perPage,
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(
+      remoteResponse.data.toDomain().currencyList,
       isNextPageAvailable: remoteResponse.isNextPageAvailable,
     );
   });
