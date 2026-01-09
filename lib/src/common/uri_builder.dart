@@ -23,6 +23,7 @@ const String languagesPath = '/api/languages';
 const String productFeaturesPath = '/api/product_features';
 const String productsPath = '/api/products';
 const String stockAvailablesPath = '/api/stock_availables';
+const String suppliersPath = '/api/suppliers';
 const String taxRuleGroupsPath = '/api/tax_rule_groups';
 const String taxRulesPath = '/api/tax_rules';
 const String taxesPath = '/api/taxes';
