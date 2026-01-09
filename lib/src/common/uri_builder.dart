@@ -19,6 +19,7 @@ const String contactsPath = '/api/contacts';
 const String contentManagementSystemPath = '/api/content_management_system';
 const String countriesPath = '/api/countries';
 const String languagesPath = '/api/languages';
+const String productFeaturesPath = '/api/product_features';
 const String productsPath = '/api/products';
 const String stockAvailablesPath = '/api/stock_availables';
 const String taxRuleGroupsPath = '/api/tax_rule_groups';
