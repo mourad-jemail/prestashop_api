@@ -43,6 +43,7 @@ export 'src/languages/network/language_enums.dart';
 export 'src/prestashop_api.dart';
 export 'src/products/model/product.dart';
 export 'src/products/network/product_enums.dart';
+export 'src/product_features/network/product_feature_enums.dart';
 export 'src/stock_availables/model/stock_available.dart';
 export 'src/stock_availables/network/stock_available_enums.dart';
 export 'src/tax_rule_groups/model/tax_rule_group.dart';
