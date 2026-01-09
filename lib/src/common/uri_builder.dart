@@ -18,6 +18,7 @@ const String configurationsPath = '/api/configurations';
 const String contactsPath = '/api/contacts';
 const String contentManagementSystemPath = '/api/content_management_system';
 const String countriesPath = '/api/countries';
+const String currenciesPath = '/api/currencies';
 const String languagesPath = '/api/languages';
 const String productFeaturesPath = '/api/product_features';
 const String productsPath = '/api/products';
