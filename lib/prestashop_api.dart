@@ -49,6 +49,7 @@ export 'src/products/model/product.dart';
 export 'src/products/network/product_enums.dart';
 export 'src/stock_availables/model/stock_available.dart';
 export 'src/stock_availables/network/stock_available_enums.dart';
+export 'src/suppliers/model/supplier.dart';
 export 'src/tax_rule_groups/model/tax_rule_group.dart';
 export 'src/tax_rule_groups/network/tax_rule_group_enums.dart';
 export 'src/tax_rules/model/tax_rule.dart';
