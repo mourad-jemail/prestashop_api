@@ -24,8 +24,6 @@ abstract class CurrencyOutputDTO with _$CurrencyOutputDTO {
   }
 
   CurrencyOutput toDomain() {
-    return CurrencyOutput(
-      currencyList: currencyDTOList.toDomain(),
-    );
+    return CurrencyOutput(currencyList: currencyDTOList.toDomain());
   }
 }
