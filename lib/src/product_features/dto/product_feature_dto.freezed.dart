@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ProductFeatureDTO {
 
-@JsonKey(fromJson: parseNullOrUnsignedId) int? get id;@JsonKey(name: 'id_feature_value') String? get idFeatureValue; int? get position; String? get name;
+@JsonKey(fromJson: intFromDynamicJson) int? get id;@JsonKey(name: 'id_feature_value') String? get idFeatureValue;@JsonKey(fromJson: parseIsInt, toJson: isIntToJson) int? get position; String? get name;
 /// Create a copy of ProductFeatureDTO
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ProductFeatureDTOCopyWith<$Res>  {
   factory $ProductFeatureDTOCopyWith(ProductFeatureDTO value, $Res Function(ProductFeatureDTO) _then) = _$ProductFeatureDTOCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(fromJson: parseNullOrUnsignedId) int? id,@JsonKey(name: 'id_feature_value') String? idFeatureValue, int? position, String? name
+@JsonKey(fromJson: intFromDynamicJson) int? id,@JsonKey(name: 'id_feature_value') String? idFeatureValue,@JsonKey(fromJson: parseIsInt, toJson: isIntToJson) int? position, String? name
 });
 
 
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(fromJson: parseNullOrUnsignedId)  int? id, @JsonKey(name: 'id_feature_value')  String? idFeatureValue,  int? position,  String? name)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(fromJson: intFromDynamicJson)  int? id, @JsonKey(name: 'id_feature_value')  String? idFeatureValue, @JsonKey(fromJson: parseIsInt, toJson: isIntToJson)  int? position,  String? name)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ProductFeatureDTO() when $default != null:
 return $default(_that.id,_that.idFeatureValue,_that.position,_that.name);case _:
@@ -177,7 +177,7 @@ return $default(_that.id,_that.idFeatureValue,_that.position,_that.name);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(fromJson: parseNullOrUnsignedId)  int? id, @JsonKey(name: 'id_feature_value')  String? idFeatureValue,  int? position,  String? name)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(fromJson: intFromDynamicJson)  int? id, @JsonKey(name: 'id_feature_value')  String? idFeatureValue, @JsonKey(fromJson: parseIsInt, toJson: isIntToJson)  int? position,  String? name)  $default,) {final _that = this;
 switch (_that) {
 case _ProductFeatureDTO():
 return $default(_that.id,_that.idFeatureValue,_that.position,_that.name);case _:
@@ -197,7 +197,7 @@ return $default(_that.id,_that.idFeatureValue,_that.position,_that.name);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(fromJson: parseNullOrUnsignedId)  int? id, @JsonKey(name: 'id_feature_value')  String? idFeatureValue,  int? position,  String? name)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(fromJson: intFromDynamicJson)  int? id, @JsonKey(name: 'id_feature_value')  String? idFeatureValue, @JsonKey(fromJson: parseIsInt, toJson: isIntToJson)  int? position,  String? name)?  $default,) {final _that = this;
 switch (_that) {
 case _ProductFeatureDTO() when $default != null:
 return $default(_that.id,_that.idFeatureValue,_that.position,_that.name);case _:
@@ -212,12 +212,12 @@ return $default(_that.id,_that.idFeatureValue,_that.position,_that.name);case _:
 @JsonSerializable()
 
 class _ProductFeatureDTO extends ProductFeatureDTO {
-  const _ProductFeatureDTO({@JsonKey(fromJson: parseNullOrUnsignedId) this.id, @JsonKey(name: 'id_feature_value') this.idFeatureValue, this.position, this.name}): super._();
+  const _ProductFeatureDTO({@JsonKey(fromJson: intFromDynamicJson) this.id, @JsonKey(name: 'id_feature_value') this.idFeatureValue, @JsonKey(fromJson: parseIsInt, toJson: isIntToJson) this.position, this.name}): super._();
   factory _ProductFeatureDTO.fromJson(Map<String, dynamic> json) => _$ProductFeatureDTOFromJson(json);
 
-@override@JsonKey(fromJson: parseNullOrUnsignedId) final  int? id;
+@override@JsonKey(fromJson: intFromDynamicJson) final  int? id;
 @override@JsonKey(name: 'id_feature_value') final  String? idFeatureValue;
-@override final  int? position;
+@override@JsonKey(fromJson: parseIsInt, toJson: isIntToJson) final  int? position;
 @override final  String? name;
 
 /// Create a copy of ProductFeatureDTO
@@ -253,7 +253,7 @@ abstract mixin class _$ProductFeatureDTOCopyWith<$Res> implements $ProductFeatur
   factory _$ProductFeatureDTOCopyWith(_ProductFeatureDTO value, $Res Function(_ProductFeatureDTO) _then) = __$ProductFeatureDTOCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(fromJson: parseNullOrUnsignedId) int? id,@JsonKey(name: 'id_feature_value') String? idFeatureValue, int? position, String? name
+@JsonKey(fromJson: intFromDynamicJson) int? id,@JsonKey(name: 'id_feature_value') String? idFeatureValue,@JsonKey(fromJson: parseIsInt, toJson: isIntToJson) int? position, String? name
 });
 
 

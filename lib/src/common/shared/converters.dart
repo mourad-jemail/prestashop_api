@@ -187,7 +187,8 @@ String? isIntToJson(int? value) {
   return value.toString();
 }
 
-/// Converts an API value to a consistent [String] for the domain, or `null` if the value is not valid.
+/// Converts an API value to a consistent [String] for the domain,
+/// or `null` if the value is not valid.
 ///
 /// Handles:
 /// - `String` → returned as-is
@@ -198,6 +199,21 @@ String? stringFromDynamicJson(dynamic value) {
     final String s => s,
     final int i => i.toString(),
     final double d => d.toString(),
+    _ => null,
+  };
+}
+
+/// Converts an API value to a consistent [int] for the domain,
+/// or `null` if the value is not valid.
+///
+/// Handles:
+/// - `int` → returned as-is
+/// - `String` → converted to int
+/// - `null` or other unexpected types → returns `null`
+int? intFromDynamicJson(dynamic value) {
+  return switch (value) {
+    final int i => i,
+    final String s => int.parse(s),
     _ => null,
   };
 }
