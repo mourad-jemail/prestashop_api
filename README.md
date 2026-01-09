@@ -57,6 +57,7 @@ Let's explore the package's capabilities together!
     - [PrestaShop - Contacts](#prestashop---contacts)
     - [PrestaShop - Content management system](#prestashop---content-management-system)
     - [PrestaShop - Countries](#prestashop---countries)
+    - [PrestaShop - Currencies](#prestashop---currencies)
     - [PrestaShop - Languages](#prestashop---languages)
     - [PrestaShop - Product features](#prestashop---product-features)
     - [PrestaShop - Products](#prestashop---products)
@@ -458,6 +459,14 @@ ongoing, and additional API requests may be added in future updates.
 - Get Countries by page
 
 [See Countries API](https://devdocs.prestashop-project.org/1.7/webservice/resources/countries/)
+
+### PrestaShop - Currencies
+
+- Get Currencies
+- Retrieve a Currency by id
+- Get Currencies by page
+
+[See Currencies API](https://devdocs.prestashop-project.org/1.7/webservice/resources/currencies/)
 
 ### PrestaShop - Languages
 
