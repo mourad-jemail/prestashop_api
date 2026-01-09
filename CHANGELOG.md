@@ -1,5 +1,6 @@
 ## [Unreleased]
 
+- Test: Added unit tests for 'Products' resource
 - Feat: Added support for 'Currencies' resource
 - Feat: Added support for 'Product features' resource
 - Feat: Added support for 'Content management system' resource
