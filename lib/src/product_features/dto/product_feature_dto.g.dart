@@ -8,9 +8,9 @@ part of 'product_feature_dto.dart';
 
 _ProductFeatureDTO _$ProductFeatureDTOFromJson(Map<String, dynamic> json) =>
     _ProductFeatureDTO(
-      id: (json['id'] as num?)?.toInt(),
+      id: parseNullOrUnsignedId(json['id']),
       idFeatureValue: json['id_feature_value'] as String?,
-      position: parseIsInt(json['position']),
+      position: (json['position'] as num?)?.toInt(),
       name: json['name'] as String?,
     );
 
@@ -18,6 +18,6 @@ Map<String, dynamic> _$ProductFeatureDTOToJson(_ProductFeatureDTO instance) =>
     <String, dynamic>{
       'id': instance.id,
       'id_feature_value': instance.idFeatureValue,
-      'position': isIntToJson(instance.position),
+      'position': instance.position,
       'name': instance.name,
     };
