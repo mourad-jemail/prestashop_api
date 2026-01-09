@@ -1,5 +1,6 @@
 ## [Unreleased]
 
+- Feat: Added support for 'Product features' resource
 - Feat: Added support for 'Content management system' resource
 - Feat: Added support for 'Contacts' resource
 
