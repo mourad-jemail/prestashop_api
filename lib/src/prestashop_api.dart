@@ -58,6 +58,10 @@ import 'languages/i_language_facade.dart';
 import 'languages/model/language.dart';
 import 'languages/network/language_data_source.dart';
 import 'languages/network/language_enums.dart';
+import 'product_features/i_product_feature_facade.dart';
+import 'product_features/model/product_feature.dart';
+import 'product_features/network/product_feature_data_source.dart';
+import 'product_features/network/product_feature_enums.dart';
 import 'products/i_product_facade.dart';
 import 'products/model/product.dart';
 import 'products/network/product_data_source.dart';
@@ -130,6 +134,7 @@ import 'taxes/network/tax_enums.dart';
 @LazySingleton(as: IContentManagementSystemFacade)
 @LazySingleton(as: ICountryFacade)
 @LazySingleton(as: ILanguageFacade)
+@LazySingleton(as: IProductFeatureFacade)
 @LazySingleton(as: IProductFacade)
 @LazySingleton(as: IStockAvailableFacade)
 @LazySingleton(as: ITaxRuleGroupFacade)
@@ -149,6 +154,7 @@ class PrestashopApi
         IContentManagementSystemFacade,
         ICountryFacade,
         ILanguageFacade,
+        IProductFeatureFacade,
         IProductFacade,
         IStockAvailableFacade,
         ITaxRuleGroupFacade,
@@ -167,6 +173,7 @@ class PrestashopApi
   final ContentManagementSystemDataSource _contentManagementSystemDataSource;
   final CountryDataSource _countryDataSource;
   final LanguageDataSource _languageDataSource;
+  final ProductFeatureDataSource _productFeatureDataSource;
   final ProductDataSource _productDataSource;
   final StockAvailableDataSource _stockAvailableDataSource;
   final TaxRuleGroupDataSource _taxRuleGroupDataSource;
@@ -188,6 +195,7 @@ class PrestashopApi
     CombinationDataSource? combinationDataSource,
     CountryDataSource? countryDataSource,
     LanguageDataSource? languageDataSource,
+    ProductFeatureDataSource? productFeatureDataSource,
     ProductDataSource? productDataSource,
     StockAvailableDataSource? stockAvailableDataSource,
     TaxRuleGroupDataSource? taxRuleGroupDataSource,
@@ -212,6 +220,8 @@ class PrestashopApi
           ContentManagementSystemDataSource(dioInstance, baseConfig),
       countryDataSource ?? CountryDataSource(dioInstance, baseConfig),
       languageDataSource ?? LanguageDataSource(dioInstance, baseConfig),
+      productFeatureDataSource ??
+          ProductFeatureDataSource(dioInstance, baseConfig),
       productDataSource ?? ProductDataSource(dioInstance, baseConfig),
       stockAvailableDataSource ??
           StockAvailableDataSource(dioInstance, baseConfig),
@@ -235,6 +245,7 @@ class PrestashopApi
     this._contentManagementSystemDataSource,
     this._countryDataSource,
     this._languageDataSource,
+    this._productFeatureDataSource,
     this._productDataSource,
     this._stockAvailableDataSource,
     this._taxRuleGroupDataSource,
@@ -1257,6 +1268,93 @@ class PrestashopApi
 
     return ReceivedEntity(
       remoteResponse.data.toDomain().languageList,
+      isNextPageAvailable: remoteResponse.isNextPageAvailable,
+    );
+  });
+
+  ///
+  /// Product Feature
+  ///
+
+  /// Fetches a list of all [ProductFeature] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of all product features.
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  /// Requires [languageId] to specify the language of the retrieved data.
+  @override
+  Future<ReceivedEntity<List<ProductFeature>>> getProductFeatures({
+    required int languageId,
+    Filter<ProductFeatureFilterField>? filter,
+    Display<ProductFeatureDisplayField>? display,
+    Sort<SortFieldOrder<ProductFeatureSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _productFeatureDataSource.getProductFeatures(
+      languageId: languageId,
+      filter: filter,
+      display: display,
+      sort: sort,
+    );
+
+    return ReceivedEntity(remoteResponse.data.toDomain().productFeatureList);
+  });
+
+  /// Retrieves a single [ProductFeature] by its [id].
+  ///
+  /// Returns a [ReceivedEntity] containing the product feature.
+  /// Requires [languageId] and the product feature [id].
+  /// An optional [display] parameter can be provided.
+  /// If no product feature is found, returns a [ReceivedEntity] containing an
+  /// empty [ProductFeature] object.
+  @override
+  Future<ReceivedEntity<ProductFeature>> getProductFeatureById({
+    required int languageId,
+    required int id,
+    Display<ProductFeatureDisplayField>? display,
+  }) => _callApi(() async {
+    final remoteResponse = await _productFeatureDataSource.getProductFeatures(
+      languageId: languageId,
+      filter: Filter.equals(ProductFeatureFilterField.id, value: '$id'),
+      display: display,
+    );
+
+    final productFeatureList = remoteResponse.data
+        .toDomain()
+        .productFeatureList;
+
+    if (productFeatureList.isNotEmpty) {
+      return ReceivedEntity(productFeatureList[0]);
+    } else {
+      return ReceivedEntity(ProductFeature.empty());
+    }
+  });
+
+  /// Fetches a paginated list of [ProductFeature] objects.
+  ///
+  /// Returns a [ReceivedEntity] containing a list of product features for the
+  /// specified [page].
+  /// Requires [languageId], [page] number, and items [perPage].
+  /// Optional [filter], [display], and [sort] parameters can be provided.
+  @override
+  Future<ReceivedEntity<List<ProductFeature>>> getProductFeaturesPage({
+    required int languageId,
+    required int page,
+    required int perPage,
+    Filter<ProductFeatureFilterField>? filter,
+    Display<ProductFeatureDisplayField>? display,
+    Sort<SortFieldOrder<ProductFeatureSortField>>? sort,
+  }) => _callApi(() async {
+    final remoteResponse = await _productFeatureDataSource
+        .getProductFeaturesPage(
+          languageId: languageId,
+          page: page,
+          perPage: perPage,
+          filter: filter,
+          display: display,
+          sort: sort,
+        );
+
+    return ReceivedEntity(
+      remoteResponse.data.toDomain().productFeatureList,
       isNextPageAvailable: remoteResponse.isNextPageAvailable,
     );
   });
