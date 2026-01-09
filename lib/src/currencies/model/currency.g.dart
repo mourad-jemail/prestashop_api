@@ -8,6 +8,7 @@ part of 'currency.dart';
 
 _Currency _$CurrencyFromJson(Map<String, dynamic> json) => _Currency(
   id: (json['id'] as num?)?.toInt(),
+  names: json['names'] as String?,
   name: json['name'] as String?,
   symbol: json['symbol'] as String?,
   isoCode: json['isoCode'] as String?,
@@ -23,6 +24,7 @@ _Currency _$CurrencyFromJson(Map<String, dynamic> json) => _Currency(
 
 Map<String, dynamic> _$CurrencyToJson(_Currency instance) => <String, dynamic>{
   'id': instance.id,
+  'names': instance.names,
   'name': instance.name,
   'symbol': instance.symbol,
   'isoCode': instance.isoCode,

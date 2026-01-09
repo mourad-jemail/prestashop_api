@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Currency {
 
- int? get id; String? get name; String? get symbol; String? get isoCode; String? get numericIsoCode; int? get precision; double? get conversionRate; bool? get deleted; bool? get active; bool? get unofficial; bool? get modified; String? get pattern;
+ int? get id; String? get names; String? get name; String? get symbol; String? get isoCode; String? get numericIsoCode; int? get precision; double? get conversionRate; bool? get deleted; bool? get active; bool? get unofficial; bool? get modified; String? get pattern;
 /// Create a copy of Currency
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $CurrencyCopyWith<Currency> get copyWith => _$CurrencyCopyWithImpl<Currency>(thi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Currency&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.symbol, symbol) || other.symbol == symbol)&&(identical(other.isoCode, isoCode) || other.isoCode == isoCode)&&(identical(other.numericIsoCode, numericIsoCode) || other.numericIsoCode == numericIsoCode)&&(identical(other.precision, precision) || other.precision == precision)&&(identical(other.conversionRate, conversionRate) || other.conversionRate == conversionRate)&&(identical(other.deleted, deleted) || other.deleted == deleted)&&(identical(other.active, active) || other.active == active)&&(identical(other.unofficial, unofficial) || other.unofficial == unofficial)&&(identical(other.modified, modified) || other.modified == modified)&&(identical(other.pattern, pattern) || other.pattern == pattern));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Currency&&(identical(other.id, id) || other.id == id)&&(identical(other.names, names) || other.names == names)&&(identical(other.name, name) || other.name == name)&&(identical(other.symbol, symbol) || other.symbol == symbol)&&(identical(other.isoCode, isoCode) || other.isoCode == isoCode)&&(identical(other.numericIsoCode, numericIsoCode) || other.numericIsoCode == numericIsoCode)&&(identical(other.precision, precision) || other.precision == precision)&&(identical(other.conversionRate, conversionRate) || other.conversionRate == conversionRate)&&(identical(other.deleted, deleted) || other.deleted == deleted)&&(identical(other.active, active) || other.active == active)&&(identical(other.unofficial, unofficial) || other.unofficial == unofficial)&&(identical(other.modified, modified) || other.modified == modified)&&(identical(other.pattern, pattern) || other.pattern == pattern));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,symbol,isoCode,numericIsoCode,precision,conversionRate,deleted,active,unofficial,modified,pattern);
+int get hashCode => Object.hash(runtimeType,id,names,name,symbol,isoCode,numericIsoCode,precision,conversionRate,deleted,active,unofficial,modified,pattern);
 
 @override
 String toString() {
-  return 'Currency(id: $id, name: $name, symbol: $symbol, isoCode: $isoCode, numericIsoCode: $numericIsoCode, precision: $precision, conversionRate: $conversionRate, deleted: $deleted, active: $active, unofficial: $unofficial, modified: $modified, pattern: $pattern)';
+  return 'Currency(id: $id, names: $names, name: $name, symbol: $symbol, isoCode: $isoCode, numericIsoCode: $numericIsoCode, precision: $precision, conversionRate: $conversionRate, deleted: $deleted, active: $active, unofficial: $unofficial, modified: $modified, pattern: $pattern)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $CurrencyCopyWith<$Res>  {
   factory $CurrencyCopyWith(Currency value, $Res Function(Currency) _then) = _$CurrencyCopyWithImpl;
 @useResult
 $Res call({
- int? id, String? name, String? symbol, String? isoCode, String? numericIsoCode, int? precision, double? conversionRate, bool? deleted, bool? active, bool? unofficial, bool? modified, String? pattern
+ int? id, String? names, String? name, String? symbol, String? isoCode, String? numericIsoCode, int? precision, double? conversionRate, bool? deleted, bool? active, bool? unofficial, bool? modified, String? pattern
 });
 
 
@@ -65,10 +65,11 @@ class _$CurrencyCopyWithImpl<$Res>
 
 /// Create a copy of Currency
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? name = freezed,Object? symbol = freezed,Object? isoCode = freezed,Object? numericIsoCode = freezed,Object? precision = freezed,Object? conversionRate = freezed,Object? deleted = freezed,Object? active = freezed,Object? unofficial = freezed,Object? modified = freezed,Object? pattern = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? names = freezed,Object? name = freezed,Object? symbol = freezed,Object? isoCode = freezed,Object? numericIsoCode = freezed,Object? precision = freezed,Object? conversionRate = freezed,Object? deleted = freezed,Object? active = freezed,Object? unofficial = freezed,Object? modified = freezed,Object? pattern = freezed,}) {
   return _then(_self.copyWith(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as int?,names: freezed == names ? _self.names : names // ignore: cast_nullable_to_non_nullable
+as String?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String?,symbol: freezed == symbol ? _self.symbol : symbol // ignore: cast_nullable_to_non_nullable
 as String?,isoCode: freezed == isoCode ? _self.isoCode : isoCode // ignore: cast_nullable_to_non_nullable
 as String?,numericIsoCode: freezed == numericIsoCode ? _self.numericIsoCode : numericIsoCode // ignore: cast_nullable_to_non_nullable
@@ -164,10 +165,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id,  String? name,  String? symbol,  String? isoCode,  String? numericIsoCode,  int? precision,  double? conversionRate,  bool? deleted,  bool? active,  bool? unofficial,  bool? modified,  String? pattern)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? id,  String? names,  String? name,  String? symbol,  String? isoCode,  String? numericIsoCode,  int? precision,  double? conversionRate,  bool? deleted,  bool? active,  bool? unofficial,  bool? modified,  String? pattern)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Currency() when $default != null:
-return $default(_that.id,_that.name,_that.symbol,_that.isoCode,_that.numericIsoCode,_that.precision,_that.conversionRate,_that.deleted,_that.active,_that.unofficial,_that.modified,_that.pattern);case _:
+return $default(_that.id,_that.names,_that.name,_that.symbol,_that.isoCode,_that.numericIsoCode,_that.precision,_that.conversionRate,_that.deleted,_that.active,_that.unofficial,_that.modified,_that.pattern);case _:
   return orElse();
 
 }
@@ -185,10 +186,10 @@ return $default(_that.id,_that.name,_that.symbol,_that.isoCode,_that.numericIsoC
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id,  String? name,  String? symbol,  String? isoCode,  String? numericIsoCode,  int? precision,  double? conversionRate,  bool? deleted,  bool? active,  bool? unofficial,  bool? modified,  String? pattern)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? id,  String? names,  String? name,  String? symbol,  String? isoCode,  String? numericIsoCode,  int? precision,  double? conversionRate,  bool? deleted,  bool? active,  bool? unofficial,  bool? modified,  String? pattern)  $default,) {final _that = this;
 switch (_that) {
 case _Currency():
-return $default(_that.id,_that.name,_that.symbol,_that.isoCode,_that.numericIsoCode,_that.precision,_that.conversionRate,_that.deleted,_that.active,_that.unofficial,_that.modified,_that.pattern);case _:
+return $default(_that.id,_that.names,_that.name,_that.symbol,_that.isoCode,_that.numericIsoCode,_that.precision,_that.conversionRate,_that.deleted,_that.active,_that.unofficial,_that.modified,_that.pattern);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -205,10 +206,10 @@ return $default(_that.id,_that.name,_that.symbol,_that.isoCode,_that.numericIsoC
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id,  String? name,  String? symbol,  String? isoCode,  String? numericIsoCode,  int? precision,  double? conversionRate,  bool? deleted,  bool? active,  bool? unofficial,  bool? modified,  String? pattern)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? id,  String? names,  String? name,  String? symbol,  String? isoCode,  String? numericIsoCode,  int? precision,  double? conversionRate,  bool? deleted,  bool? active,  bool? unofficial,  bool? modified,  String? pattern)?  $default,) {final _that = this;
 switch (_that) {
 case _Currency() when $default != null:
-return $default(_that.id,_that.name,_that.symbol,_that.isoCode,_that.numericIsoCode,_that.precision,_that.conversionRate,_that.deleted,_that.active,_that.unofficial,_that.modified,_that.pattern);case _:
+return $default(_that.id,_that.names,_that.name,_that.symbol,_that.isoCode,_that.numericIsoCode,_that.precision,_that.conversionRate,_that.deleted,_that.active,_that.unofficial,_that.modified,_that.pattern);case _:
   return null;
 
 }
@@ -220,10 +221,11 @@ return $default(_that.id,_that.name,_that.symbol,_that.isoCode,_that.numericIsoC
 @JsonSerializable()
 
 class _Currency extends Currency {
-  const _Currency({this.id, this.name, this.symbol, this.isoCode, this.numericIsoCode, this.precision, this.conversionRate, this.deleted, this.active, this.unofficial, this.modified, this.pattern}): super._();
+  const _Currency({this.id, this.names, this.name, this.symbol, this.isoCode, this.numericIsoCode, this.precision, this.conversionRate, this.deleted, this.active, this.unofficial, this.modified, this.pattern}): super._();
   factory _Currency.fromJson(Map<String, dynamic> json) => _$CurrencyFromJson(json);
 
 @override final  int? id;
+@override final  String? names;
 @override final  String? name;
 @override final  String? symbol;
 @override final  String? isoCode;
@@ -249,16 +251,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Currency&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.symbol, symbol) || other.symbol == symbol)&&(identical(other.isoCode, isoCode) || other.isoCode == isoCode)&&(identical(other.numericIsoCode, numericIsoCode) || other.numericIsoCode == numericIsoCode)&&(identical(other.precision, precision) || other.precision == precision)&&(identical(other.conversionRate, conversionRate) || other.conversionRate == conversionRate)&&(identical(other.deleted, deleted) || other.deleted == deleted)&&(identical(other.active, active) || other.active == active)&&(identical(other.unofficial, unofficial) || other.unofficial == unofficial)&&(identical(other.modified, modified) || other.modified == modified)&&(identical(other.pattern, pattern) || other.pattern == pattern));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Currency&&(identical(other.id, id) || other.id == id)&&(identical(other.names, names) || other.names == names)&&(identical(other.name, name) || other.name == name)&&(identical(other.symbol, symbol) || other.symbol == symbol)&&(identical(other.isoCode, isoCode) || other.isoCode == isoCode)&&(identical(other.numericIsoCode, numericIsoCode) || other.numericIsoCode == numericIsoCode)&&(identical(other.precision, precision) || other.precision == precision)&&(identical(other.conversionRate, conversionRate) || other.conversionRate == conversionRate)&&(identical(other.deleted, deleted) || other.deleted == deleted)&&(identical(other.active, active) || other.active == active)&&(identical(other.unofficial, unofficial) || other.unofficial == unofficial)&&(identical(other.modified, modified) || other.modified == modified)&&(identical(other.pattern, pattern) || other.pattern == pattern));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,symbol,isoCode,numericIsoCode,precision,conversionRate,deleted,active,unofficial,modified,pattern);
+int get hashCode => Object.hash(runtimeType,id,names,name,symbol,isoCode,numericIsoCode,precision,conversionRate,deleted,active,unofficial,modified,pattern);
 
 @override
 String toString() {
-  return 'Currency(id: $id, name: $name, symbol: $symbol, isoCode: $isoCode, numericIsoCode: $numericIsoCode, precision: $precision, conversionRate: $conversionRate, deleted: $deleted, active: $active, unofficial: $unofficial, modified: $modified, pattern: $pattern)';
+  return 'Currency(id: $id, names: $names, name: $name, symbol: $symbol, isoCode: $isoCode, numericIsoCode: $numericIsoCode, precision: $precision, conversionRate: $conversionRate, deleted: $deleted, active: $active, unofficial: $unofficial, modified: $modified, pattern: $pattern)';
 }
 
 
@@ -269,7 +271,7 @@ abstract mixin class _$CurrencyCopyWith<$Res> implements $CurrencyCopyWith<$Res>
   factory _$CurrencyCopyWith(_Currency value, $Res Function(_Currency) _then) = __$CurrencyCopyWithImpl;
 @override @useResult
 $Res call({
- int? id, String? name, String? symbol, String? isoCode, String? numericIsoCode, int? precision, double? conversionRate, bool? deleted, bool? active, bool? unofficial, bool? modified, String? pattern
+ int? id, String? names, String? name, String? symbol, String? isoCode, String? numericIsoCode, int? precision, double? conversionRate, bool? deleted, bool? active, bool? unofficial, bool? modified, String? pattern
 });
 
 
@@ -286,10 +288,11 @@ class __$CurrencyCopyWithImpl<$Res>
 
 /// Create a copy of Currency
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? name = freezed,Object? symbol = freezed,Object? isoCode = freezed,Object? numericIsoCode = freezed,Object? precision = freezed,Object? conversionRate = freezed,Object? deleted = freezed,Object? active = freezed,Object? unofficial = freezed,Object? modified = freezed,Object? pattern = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? names = freezed,Object? name = freezed,Object? symbol = freezed,Object? isoCode = freezed,Object? numericIsoCode = freezed,Object? precision = freezed,Object? conversionRate = freezed,Object? deleted = freezed,Object? active = freezed,Object? unofficial = freezed,Object? modified = freezed,Object? pattern = freezed,}) {
   return _then(_Currency(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as int?,names: freezed == names ? _self.names : names // ignore: cast_nullable_to_non_nullable
+as String?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String?,symbol: freezed == symbol ? _self.symbol : symbol // ignore: cast_nullable_to_non_nullable
 as String?,isoCode: freezed == isoCode ? _self.isoCode : isoCode // ignore: cast_nullable_to_non_nullable
 as String?,numericIsoCode: freezed == numericIsoCode ? _self.numericIsoCode : numericIsoCode // ignore: cast_nullable_to_non_nullable

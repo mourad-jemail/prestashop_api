@@ -12,8 +12,9 @@ abstract class CurrencyDTO with _$CurrencyDTO {
 
   const factory CurrencyDTO({
     int? id,
+    @JsonKey(fromJson: stringFromDynamicJson) String? names,
     String? name,
-    String? symbol,
+    @JsonKey(fromJson: stringFromDynamicJson) String? symbol,
     @JsonKey(name: 'iso_code') String? isoCode,
     @JsonKey(name: 'numeric_iso_code') String? numericIsoCode,
     @JsonKey(fromJson: parseIsInt, toJson: isIntToJson) int? precision,
@@ -27,7 +28,7 @@ abstract class CurrencyDTO with _$CurrencyDTO {
     @JsonKey(fromJson: parseIsBool, toJson: isBoolToJson) bool? active,
     @JsonKey(fromJson: parseIsBool, toJson: isBoolToJson) bool? unofficial,
     @JsonKey(fromJson: parseIsBool, toJson: isBoolToJson) bool? modified,
-    String? pattern,
+    @JsonKey(fromJson: stringFromDynamicJson) String? pattern,
   }) = _CurrencyDTO;
 
   factory CurrencyDTO.fromJson(Map<String, dynamic> json) =>
@@ -36,6 +37,7 @@ abstract class CurrencyDTO with _$CurrencyDTO {
   factory CurrencyDTO.fromDomain(Currency item) {
     return CurrencyDTO(
       id: item.id,
+      names: item.names,
       name: item.name,
       symbol: item.symbol,
       isoCode: item.isoCode,
@@ -53,6 +55,7 @@ abstract class CurrencyDTO with _$CurrencyDTO {
   Currency toDomain() {
     return Currency(
       id: id,
+      names: names,
       name: name,
       symbol: symbol,
       isoCode: isoCode,

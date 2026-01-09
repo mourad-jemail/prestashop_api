@@ -8,8 +8,9 @@ part of 'currency_dto.dart';
 
 _CurrencyDTO _$CurrencyDTOFromJson(Map<String, dynamic> json) => _CurrencyDTO(
   id: (json['id'] as num?)?.toInt(),
+  names: stringFromDynamicJson(json['names']),
   name: json['name'] as String?,
-  symbol: json['symbol'] as String?,
+  symbol: stringFromDynamicJson(json['symbol']),
   isoCode: json['iso_code'] as String?,
   numericIsoCode: json['numeric_iso_code'] as String?,
   precision: parseIsInt(json['precision']),
@@ -18,12 +19,13 @@ _CurrencyDTO _$CurrencyDTOFromJson(Map<String, dynamic> json) => _CurrencyDTO(
   active: parseIsBool(json['active']),
   unofficial: parseIsBool(json['unofficial']),
   modified: parseIsBool(json['modified']),
-  pattern: json['pattern'] as String?,
+  pattern: stringFromDynamicJson(json['pattern']),
 );
 
 Map<String, dynamic> _$CurrencyDTOToJson(_CurrencyDTO instance) =>
     <String, dynamic>{
       'id': instance.id,
+      'names': instance.names,
       'name': instance.name,
       'symbol': instance.symbol,
       'iso_code': instance.isoCode,

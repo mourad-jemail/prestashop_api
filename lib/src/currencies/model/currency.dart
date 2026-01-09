@@ -11,6 +11,7 @@ abstract class Currency with _$Currency implements ConvertibleToJson {
 
   const factory Currency({
     int? id,
+    String? names,
     String? name,
     String? symbol,
     String? isoCode,
